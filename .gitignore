@@ -1,4 +1,16 @@
-external/
-project/
+# Eclipse
+.metadata
+.classpath
+.project
+.cache
+
+# IntelliJ
+*.iws
+*.ipr
+*.iml
+
+# sbt
 target/
-tmp/
+
+# other
+.DS_Store
