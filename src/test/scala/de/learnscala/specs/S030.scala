@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S030 extends BaseTest {
 
-    spec("S030", enabled) {
+    spec("U030", enabled) {
 
         "isTheAnswerToLifeTheUniverseAndEverything" >> {
 

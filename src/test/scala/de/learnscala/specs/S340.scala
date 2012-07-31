@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S340 extends BaseTest {
 
-    spec("S340", enabled) {
+    spec("U340", enabled) {
 
         done
     }

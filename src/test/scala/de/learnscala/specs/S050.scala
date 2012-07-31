@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S050 extends BaseTest {
 
-    spec("S050", enabled) {
+    spec("U050", enabled) {
 
         "nameOfSymbol" >> {
             "must be 'Unbekannt' for value '?'" >> {

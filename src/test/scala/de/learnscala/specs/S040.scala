@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S040 extends BaseTest {
 
-    spec("S040", enabled) {
+    spec("U040", enabled) {
 
         "countingOut" >> {
             "must print numbers from 1 to 10" >> {

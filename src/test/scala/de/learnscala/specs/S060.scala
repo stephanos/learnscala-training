@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S060 extends BaseTest {
 
-    spec("S060", enabled) {
+    spec("U060", enabled) {
 
         "half" >> {
             "must calculate half of 10" >> {

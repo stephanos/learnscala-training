@@ -5,7 +5,7 @@ import de.learnscala.base.BaseTest
 
 class S313 extends BaseTest {
 
-    spec("S313", enabled) {
+    spec("U313", enabled) {
 
         done
     }
