@@ -8,8 +8,7 @@ object ExercisesBuild extends Build {
         Project(id = "ScalaWings", base = file("."))
             .settings(libraryDependencies ++= Seq(http))
             .settings(libraryDependencies ++= Seq(specs2, mockito, scheck, junit))
-
-            .settings(SbtIdeaPlugin.ideaSettings: _*)
+            //.settings(SbtIdeaPlugin.ideaSettings: _*)
             .settings(resolvers ++= Seq("releases"  at "http://oss.sonatype.org/content/repositories/releases"))
 
 
