@@ -1,11 +1,11 @@
 import sbt._
 import Keys._
-import org.sbtidea._
+//import org.sbtidea._
 
 object ExercisesBuild extends Build {
 
     lazy val root =
-        Project(id = "ScalaWings", base = file("."))
+        Project(id = "LearnScala", base = file("."))
             .settings(libraryDependencies ++= Seq(http))
             .settings(libraryDependencies ++= Seq(specs2, mockito, scheck, junit))
             //.settings(SbtIdeaPlugin.ideaSettings: _*)
