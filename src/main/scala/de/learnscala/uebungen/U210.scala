@@ -5,7 +5,7 @@ import de.learnscala.base.Uebung
 object U210 extends Uebung(enabled = true) {
 
     /**
-     *
+     * Klasse 'MyPair' ist eine konkrete, typisierte Implementierung von 'Pair'.
      */
     class MyPair[T,S](val t: T, val s: S) extends Pair {
 

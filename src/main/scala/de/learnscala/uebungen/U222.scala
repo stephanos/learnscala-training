@@ -5,13 +5,12 @@ import de.learnscala.base.Uebung
 object U222 extends Uebung(enabled = true) {
 
     /**
-     * Liste aus den deutschen Tagen der Woche,
-     * unterteilt in Wochentage und Wochenendtage.
+     * Liste aus den deutschen Tagen der Woche, unterteilt in Wochentage und Wochenendtage.
      */
-    def weekDays = null
-    def weekendDays = null
+    def weekDays = List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
+    def weekendDays = List("Samstag", "Sonntag")
 
-    def days = null
+    def days = weekDays ::: weekendDays
 
 
     /**

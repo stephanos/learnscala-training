@@ -4,6 +4,15 @@ import de.learnscala.base.Uebung
 
 object U100 extends Uebung(enabled = true) {
 
+    /**
+     * Klasse 'Time' erwartet 2 Parameter: Stunden und Minuten.
+     *
+     * Sie besitzt die Methoden
+     * - addMin(Int): fügt Minuten hinzu
+     * - addHours(Int): fügt Stunden hinzu
+     * - +(Time): addiert eine andere Time-Instanz
+     * - print: gibt die Zeit aus (z.B. 00:30)
+     **/
     class Time(val hours: Int = 0, val min: Int = 0) {
 
         def addMin(_m: Int) =
@@ -17,7 +26,7 @@ object U100 extends Uebung(enabled = true) {
             val hh = t.hours + hours
             val _m = mm % 60
             val _h = hh % 24 + (mm / 60)
-            new Time(if(_h == 24) 0 else _h, if(_m == 60) 0 else _m)
+            new Time(if (_h == 24) 0 else _h, if (_m == 60) 0 else _m)
         }
 
         def print =

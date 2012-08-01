@@ -4,13 +4,17 @@ import de.learnscala.base.Uebung
 
 object U121 extends Uebung(enabled = true) {
 
-    import Seconds.{convert => convertToSeconds}
-    import Minutes.{convert => convertToMinutes}
-
     def s60 = new Seconds(60)
 
-    def m1 = convertToMinutes(s60)
-    def s120 = convertToSeconds(new Minutes(2))
+    /**
+     * 60 Sekunden konvertiert zu 1 Minute
+     */
+    def m1 = null
+
+    /**
+     * 120 Sekunden konvertiert zu 2 Minuten
+     */
+    def s120 = null
 }
 
 

@@ -4,6 +4,9 @@ import de.learnscala.base.Uebung
 
 object U313 extends Uebung(enabled = true) {
 
+    /**
+     * Benötigt wird die Bedingsungsfunktion '?'.
+     */
     def ?[T](test: => Boolean, fnThen: => T, fnElse: => T) =
         if (test)
             fnThen

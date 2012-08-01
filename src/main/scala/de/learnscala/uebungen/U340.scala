@@ -12,7 +12,7 @@ object U340 extends Uebung(enabled = true) {
     }
 
     /**
-     * Definiere eine Funktion 'until' die bewirkt, dass der Rückgabewert '10' ist.
+     * Gesucht wird eine Funktion 'until' die bewirkt, dass der Rückgabewert '10' ist.
      */
     def incr = {
         var i = 0

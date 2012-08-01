@@ -4,6 +4,15 @@ import de.learnscala.base.Uebung
 
 object U130 extends Uebung(enabled = true) {
 
+    /**
+     * Produkte eines Supermarktes.
+     *
+     * Basisklasse 'Item' mit den Methoden
+     *  - price: Float
+     *  - description: String
+     *
+     * Gesucht werden die fehlenden Klassen aus dem unteren Beispiel und den Tests.
+     */
     abstract class Item {
 
         def price: Float

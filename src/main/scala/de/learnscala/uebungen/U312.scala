@@ -4,10 +4,17 @@ import de.learnscala.base.Uebung
 
 object U312 extends Uebung(enabled = true) {
 
+    /**
+     * Eine Markdown-ähnliche Sprache wird erstellt.
+     *
+     * Bestimmte Formatierungen wie Links und Fett werden häufiger gebraucht,
+     * daher werden die speziellen Funktionen 'printLink' und 'printBold' gebraucht.
+     */
+
     def printEnclosed(left: String, text: String, right: String) =
         println(left + text + right)
 
-    def printCode =
+    def printLink =
         printEnclosed("[", (_: String), "]")
 
     def printBold =
@@ -18,5 +25,5 @@ object U312 extends Uebung(enabled = true) {
         printBold("SCALA")
 
     def google() =
-        printCode("http://google.com")
+        printLink("http://google.com")
 }

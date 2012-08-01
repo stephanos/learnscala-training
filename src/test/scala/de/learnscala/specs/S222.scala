@@ -22,7 +22,7 @@ class S222 extends BaseTest {
             "weekendDays" >> {
                 checkType[List[String]](weekendDays, "weekendDays") {
                     l =>
-                        l must contain("Sontag")
+                        l must contain("Sonntag")
                         l must containAnyOf(List("Samstag", "Sonnabend"))
                 }
             }
@@ -35,7 +35,7 @@ class S222 extends BaseTest {
                         l must contain("Mittwoch")
                         l must contain("Donnerstag")
                         l must contain("Freitag")
-                        l must contain("Sontag")
+                        l must contain("Sonntag")
                         l must containAnyOf(List("Samstag", "Sonnabend"))
                 }
             }

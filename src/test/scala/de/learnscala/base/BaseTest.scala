@@ -47,7 +47,6 @@ abstract class BaseTest
         add(fn1(v.asInstanceOf[T]))
         /*else
         fn2(v)*/
-
     }
 
     protected def add(f: => Fragment) =
