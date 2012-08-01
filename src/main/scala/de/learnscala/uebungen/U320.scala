@@ -2,7 +2,9 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U320 extends Uebung(enabled = true) {
+object U320 extends Uebung {
+
+    def enabled = false
 
     case class Book(title: String, isbn: String, price: Float,
                     stock: Option[Int], authors: List[(String, String)])
@@ -30,27 +32,27 @@ object U320 extends Uebung(enabled = true) {
      * Liste der Titel von Bücher bei denen ein Autor mit Vornamen "Martin" mitgewirkt hat.
      */
     def titlesWithAuthorMartin =
-        for (b <- books; a <- b.authors if a._2 == "Martin") yield b.title
+        TODO
 
 
     /**
      * Liste der ISB-Nummern von Büchern bei denen ein Autor, dessen Nachname mit "S" beginnt, mitgewirkt hat.
      */
     def isbnsWithAuthorS =
-        for (b <- books; a <- b.authors if a._1 startsWith "S") yield b.isbn
+        TODO
 
 
     /*
      * Tuple aus Titel und Preis von den Büchern die "Scala" im Titel tragen.
      */
     def priceAndTitleOfScalaBooks =
-        for (b <- books if b.title contains "Scala") yield (b.title -> b.price)
+        TODO
 
 
     /*
      * Titel der Bücher die nicht mehr im Lager ("out of stock") sind.
      */
     def titlesOutOfStock =
-        for (b <- books if(b.stock.isEmpty)) yield b.title
+        TODO
 
 }

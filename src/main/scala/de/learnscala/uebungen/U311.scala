@@ -2,73 +2,71 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U311 extends Uebung(enabled = true) {
+object U311 extends Uebung {
+
+    def enabled = false
 
     /**
      * Summiert die Elemente der Liste.
      */
     def sum(l: MyList[Int]) =
-        l.foldLeft(0)(_ + _)
+        TODO
 
 
     /**
      * Multipliziert alle Elemente der Liste (leere Liste ergibt 1).
      */
     def product(l: MyList[Int]) =
-        l.foldLeft(1)(_ * _)
+        TODO
 
 
     /**
      * Zählt die Elemente der Liste.
      */
     def count(l: MyList[Int]) =
-        l.foldLeft(0)((sum, _) => sum + 1)
+        TODO
 
 
     /**
      * Liefert das letzte Ergebnis der Liste (leere Liste: None).
      */
-    def last[A](list: MyList[A]): Option[A] =
-        if (list.isEmpty) None
-        else Some(list.foldLeft(list.head)((_, c) => c))
+    def last[A](list: MyList[A]) =
+        TODO
 
 
     /**
      * Invertiert die Reihenfolge der Liste.
      */
-    def reverse[A](list: MyList[A]): MyList[A] =
-        list.foldLeft(MyList[A]())((r, c) => c :: r)
+    def reverse[A](list: MyList[A]) =
+        TODO
 
 
     /**
      * Ermittelt ob ein Element Teil der Liste ist.
      */
-    def contains[A](list: MyList[A], item: A): Boolean =
-        list.foldLeft(false)(_ || _ == item)
+    def contains[A](list: MyList[A], item: A) =
+        TODO
 
 
     /**
      * Transformiert die Elemente der Liste durch Anwendung der übergebenen Funktion.
      */
-    def map[A, B](list: MyList[A], f: A => B): MyList[B] =
-        reverse(list.foldLeft(MyList[B]())((res, cur) => f(cur) :: res))
+    def map[A, B](list: MyList[A], f: A => B) =
+        TODO
 
 
     /**
      * Filtert die Elemente aus der Liste heraus, bei denen die Funktion 'true' ergibt.
      */
-    def filter[A](list: MyList[A], p: A => Boolean): MyList[A] =
-        reverse(list.foldLeft(MyList[A]())((r, c) => if (p(c)) c :: r else r))
+    def filter[A](list: MyList[A], p: A => Boolean) =
+        TODO
 
 
     /**
      * Erstellt eine Liste ohne doppelte Werte.
      */
-    def unique[A](list: MyList[A]): MyList[A] =
-        reverse(list.foldLeft(MyList[A]()) {
-            (r, c) =>
-                if (contains(r, c)) r else c :: r
-        })
+    def unique[A](list: MyList[A]) =
+        TODO
 }
 
 

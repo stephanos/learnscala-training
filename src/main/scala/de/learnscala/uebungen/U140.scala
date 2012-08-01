@@ -2,7 +2,9 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U140 extends Uebung(enabled = true) {
+object U140 extends Uebung {
+
+    def enabled = false
 
     /**
      * Gehaltsabrechnung.
@@ -14,67 +16,46 @@ object U140 extends Uebung(enabled = true) {
      * - der Manager bekommt das 5x eines normalen Angestellten
      */
 
-    trait Employee {
-        def salary = 50000
-    }
-
-    class Manager extends Employee {
-        override def salary = super.salary * 5
-    }
-
-    class BoardMember extends Employee with FriendOfManager
-
-    class Clerk extends Employee
-
-
-    trait FriendOfManager extends Employee {
-        override def salary = super.salary * 2
-    }
-
-    trait IllegalImmigrant extends Employee {
-        override def salary = super.salary / 2
-    }
-
 
     /**
      * Das Gehalt eines normalen Angestellten.
      */
     def salaryForClerk =
-        (new Clerk).salary
+        TODO
 
     /**
      * Das Gehalt eines Managers.
      */
     def salaryForManager =
-        (new Manager).salary
+        TODO
 
     /**
      * Das Gehalt eines Board Members.
      */
     def salaryForBoardMember =
-        (new BoardMember).salary
+        TODO
 
     /**
      * Das Gehalt eines Angestellten, der befreundet mit dem Manager ist.
      */
     def salaryForfriendOfManagerClerk =
-        (new Clerk with FriendOfManager).salary
+        TODO
 
     /**
      * Das Gehalt eines Angestellten der illegal eingewandert ist.
      */
     def salaryForIllegalImmigrantClerk =
-        (new Clerk with IllegalImmigrant).salary
+        TODO
 
     /**
      * Das Gehalt eines illegal eingewanderten Managers.
      */
     def salaryForIllegalImmigrantManager =
-        (new Manager with IllegalImmigrant).salary
+        TODO
 
     /**
      * Das Gehalt eines illegal eingewanderten Board Members.
      */
     def salaryForIllegalImmigrantBoardMember =
-        (new BoardMember with IllegalImmigrant).salary
+        TODO
 }

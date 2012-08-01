@@ -1,8 +1,8 @@
 package de.learnscala.loesungen
 
-import de.learnscala.base.Uebung
+import de.learnscala.base.Loesung
 
-object L030 extends Uebung(enabled = false) {
+object L030 extends Loesung {
 
     /**
      * Bestätigt DIE Antwort '42' als richtig.

@@ -2,14 +2,16 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U040 extends Uebung(enabled = true) {
+object U040 extends Uebung {
+
+    def enabled = false
+
 
     /**
      * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
      */
     def countingOut() {
-        for (i <- 1 to 10)
-            print(i + " ")
+        TODO
     }
 
 
@@ -17,8 +19,7 @@ object U040 extends Uebung(enabled = true) {
      * Zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
      */
     def count10s() {
-        for (i <- 10 to 100 by 10)
-            print(i + " ")
+        TODO
     }
 
 
@@ -27,7 +28,6 @@ object U040 extends Uebung(enabled = true) {
      * gibt Zahlen, die ganzzahlig durch Parameter teilbar sind, durch Leerzeichen getrennt aus.
      */
     def countMod(mod: Int) {
-        for (i <- 1 to 10)
-            if(i % mod == 0) print(i + " ")
+        TODO
     }
 }

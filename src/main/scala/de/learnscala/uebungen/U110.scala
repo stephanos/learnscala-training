@@ -2,7 +2,10 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U110 extends Uebung(enabled = true) {
+object U110 extends Uebung {
+
+    def enabled = false
+
 
     /**
      * Klasse 'Point' definiert einen 2-dimensionalen Punkt.
@@ -15,43 +18,33 @@ object U110 extends Uebung(enabled = true) {
      * Zusätzlich zählt es die Anzahl der bisher erstellten Punkte
      * und liefert diese via 'getCount'.
      */
+
     class Point(val x: Int, val y: Int)
 
+
     object Point {
-        def apply(x: Int): Point = {
-            apply(x, x)
-        }
 
-        def apply(x: Int, y: Int): Point = {
-            require(x >= 0)
-            require(y >= 0)
-            count += 1
-            new Point(x, y)
-        }
-
-        def getCount = count
-
-        private var count = 0
+        def getCount = 0
     }
 
 
     /**
      * Erstellt einen Punkt mit den Koordinaten (5,5)
      */
-    def p1 = Point(5, 5)
+    def p1 = TODO // Point(5, 5)
 
     /**
      * Erstellt einen Punkt mit den Koordinaten (5,5)
      */
-    def p2 = Point(5)
+    def p2 = TODO //Point(5)
 
     /**
      * Versucht einen Punkt mit negativen Koordiaten zu erstellen.
      */
-    def p3 = Point(-5)
+    def p3 = TODO //Point(-5)
 
     /**
      * Versucht einen Punkt mit einer negativen Koordiate zu erstellen.
      */
-    def p4 = Point(-5, 5)
+    def p4 = TODO //Point(-5, 5)
 }

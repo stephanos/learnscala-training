@@ -51,7 +51,7 @@ class S221 extends BaseTest {
                 convertToInt("-5") === Some(-5)
             }
             "must return 'None' for 'a'" >> {
-                convertToInt("a") must beNone
+                convertToInt("a") === None
             }
         }
     }

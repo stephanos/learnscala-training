@@ -3,17 +3,17 @@ package de.learnscala.uebungen
 import de.learnscala.base.Uebung
 import java.io._
 
-object U060 extends Uebung(enabled = true) {
+object U060 extends Uebung {
+
+    def enabled = false
+
 
     /**
      * Berechnet die Hälfte einer Zahl,
      * wirft jedoch eine Exception wenn die Zahl nicht ganzzahlig teilbar ist.
      */
     def half(n: Int) =
-        if (n % 2 == 0)
-            n / 2
-        else
-            throw new RuntimeException("n must be even")
+        TODO
 
 
     /**
@@ -28,22 +28,8 @@ object U060 extends Uebung(enabled = true) {
      * @param f der File Reader
      * @return erste Zeichen der Datei - oder '0' bei einem Fehler
      */
-    def readCharFromFile(f: FileReader): Char = {
-        try {
-            f.read().toChar
-        } catch {
-            case e: FileNotFoundException =>
-                println("not found")
-                0
-            case e: IOException =>
-                println("cannot read")
-                0
-            case e: RuntimeException =>
-                println("unknown error")
-                0
-        } finally {
-            f.close()
-        }
+    def readCharFromFile(f: FileReader) = {
+        TODO
     }
 
 }

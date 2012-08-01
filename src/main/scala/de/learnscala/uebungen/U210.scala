@@ -2,19 +2,14 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U210 extends Uebung(enabled = true) {
+object U210 extends Uebung {
+
+    def enabled = false
 
     /**
      * Klasse 'MyPair' ist eine konkrete, typisierte Implementierung von 'Pair'.
      */
-    class MyPair[T,S](val t: T, val s: S) extends Pair {
 
-        def swap =
-            new MyPair(s, t)
-
-        def bothHaveSameType =
-            t.getClass == s.getClass
-    }
 
     trait Pair {
 
@@ -26,14 +21,14 @@ object U210 extends Uebung(enabled = true) {
 
 
     def p1 =
-        new MyPair(1, 1)
+        TODO //new MyPair(1, 1)
 
     def p2 =
-        new MyPair(true, false)
+        TODO //new MyPair(true, false)
 
     def p3 =
-        new MyPair("Bob", "Babe")
+        TODO //new MyPair("Bob", "Babe")
 
     def p4 =
-        new MyPair("male", true)
+        TODO //new MyPair("male", true)
 }

@@ -2,19 +2,21 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U121 extends Uebung(enabled = true) {
+object U121 extends Uebung {
+
+    def enabled = false
 
     def s60 = new Seconds(60)
 
     /**
      * 60 Sekunden konvertiert zu 1 Minute
      */
-    def m1 = null
+    def m1 = TODO
 
     /**
      * 120 Sekunden konvertiert zu 2 Minuten
      */
-    def s120 = null
+    def s120 = TODO
 }
 
 

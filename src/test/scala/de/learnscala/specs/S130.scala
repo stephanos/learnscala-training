@@ -8,57 +8,62 @@ class S130 extends BaseTest {
     spec("U130", enabled) {
 
         "butter" >> {
-            butter must not(beNull)
-
-            "must have price 0.95 €" >> {
-                butter.price === 0.95f
-            }
-            "must have description 'Butter'" >> {
-                butter.description === "Butter"
+            checkType[Item](butter, "butter", enabled) {
+                item =>
+                    "must have price 0.95 €" >> {
+                        item.price === 0.95f
+                    }
+                    "must have description 'Butter'" >> {
+                        item.description === "Butter"
+                    }
             }
         }
 
         "milk" >> {
-            milk must not(beNull)
-
-            "must have correct price" >> {
-                milk.price === 0.99f
-            }
-            "must have correct description" >> {
-                milk.description === "Milk"
+            checkType[Item](milk, "milk", enabled) {
+                item =>
+                    "must have correct price" >> {
+                        item.price === 0.99f
+                    }
+                    "must have correct description" >> {
+                        item.description === "Milk"
+                    }
             }
         }
 
         "butterAndMilk" >> {
-            butterAndMilk must not(beNull)
-
-            "must have correct price" >> {
-                butterAndMilk.price === 1.94f
-            }
-            "must have correct description" >> {
-                butterAndMilk.description === "Butter & Milk"
+            checkType[Item](butterAndMilk, "butterAndMilk", enabled) {
+                item =>
+                    "must have correct price" >> {
+                        item.price === 1.94f
+                    }
+                    "must have correct description" >> {
+                        item.description === "Butter & Milk"
+                    }
             }
         }
 
         "apple5kg" >> {
-            apple5kg must not(beNull)
-
-            "must have correct price" >> {
-                apple5kg.price === 1.00f
-            }
-            "must have correct description" >> {
-                apple5kg.description === "5kg Apples"
+            checkType[Item](apple5kg, "apple5kg", enabled) {
+                item =>
+                    "must have correct price" >> {
+                        item.price === 1.00f
+                    }
+                    "must have correct description" >> {
+                        item.description === "5kg Apples"
+                    }
             }
         }
 
         "butterMilkAndApples" >> {
-            butterMilkAndApples must not(beNull)
-
-            "must have correct price" >> {
-                butterMilkAndApples.price === 2.94f
-            }
-            "must have correct description" >> {
-                butterMilkAndApples.description === "5kg Apples & Butter & Milk"
+            checkType[Item](butterMilkAndApples, "butterMilkAndApples", enabled) {
+                item =>
+                    "must have correct price" >> {
+                        item.price === 2.94f
+                    }
+                    "must have correct description" >> {
+                        item.description === "5kg Apples & Butter & Milk"
+                    }
             }
         }
     }

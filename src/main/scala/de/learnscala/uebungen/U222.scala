@@ -2,37 +2,31 @@ package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
 
-object U222 extends Uebung(enabled = true) {
+object U222 extends Uebung {
+
+    def enabled = false
 
     /**
      * Liste aus den deutschen Tagen der Woche, unterteilt in Wochentage und Wochenendtage.
      */
-    def weekDays = List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
-    def weekendDays = List("Samstag", "Sonntag")
+    def weekDays = TODO
+    def weekendDays = TODO
 
-    def days = weekDays ::: weekendDays
-
-
-    /**
-     * Ermittelt das letzte Element einer Liste.
-     */
-    def last(l: List[Int]): Option[Int] =
-        l match {
-            case List() => None
-            case h :: List() => Some(h)
-            case h :: tail => last(tail)
-        }
+    def days = TODO
 
 
     /**
-     * Ermittelt das dritte Element einer Liste.
+     * Ermittelt das letzte Element einer Liste (None falls nicht vorhanden).
      */
-    def third(l: List[Int], count: Int = 1): Option[Int] =
-        l match {
-            case List() => None
-            case h :: tail if(count == 3) => Some(h)
-            case h :: tail => third(tail, count + 1)
-        }
+    def last(l: List[Int]) =
+        TODO
+
+
+    /**
+     * Ermittelt das dritte Element einer Liste (None falls nicht vorhanden).
+     */
+    def third(l: List[Int], count: Int = 1) =
+        TODO
 
 
     /**
@@ -40,7 +34,7 @@ object U222 extends Uebung(enabled = true) {
      *
      * Tipp: l.reverse
      */
-    def palindrome(s: List[Int]): Boolean =
-        s.reverse.mkString("") == s.mkString("")
+    def palindrome(s: List[Int]) =
+        TODO
 
 }

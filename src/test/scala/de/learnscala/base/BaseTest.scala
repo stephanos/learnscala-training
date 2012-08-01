@@ -4,7 +4,7 @@ import org.junit.runner._
 import org.specs2.mutable._
 import org.specs2.runner._
 import scala.actors.Futures._
-import org.specs2.specification.Fragment
+import org.specs2.specification._
 import org.specs2.mock.Mockito
 
 @RunWith(classOf[JUnitRunner])
@@ -20,14 +20,13 @@ abstract class BaseTest
     stopOnSkip
 
 
-    protected def spec(name: String, enabled: Boolean)(fn: => Fragment) = {
+    protected def spec(name: String, enabled: Boolean)(fn: => Fragment): Fragments =
         name should {
             if (enabled)
                 fn
             else
                 skipped
         }
-    }
 
     protected def captureOutput[T](fn: => T): (Option[T], String) = {
         val baos = new java.io.ByteArrayOutputStream
@@ -40,13 +39,29 @@ abstract class BaseTest
         (r, new String(baos.toByteArray, "UTF-8"))
     }
 
-    protected def checkType[T: Manifest](v: Any, n: String)(fn1: (T) => Fragment) = {
-        add(v aka n must not beNull)
-        add(v aka n must beAnInstanceOf[T])
-        //if(v.isInstanceOf[T])
-        add(fn1(v.asInstanceOf[T]))
-        /*else
-        fn2(v)*/
+    protected def checkType[T](v: Any, n: String, enabled: Boolean)(fn1: (T) => Fragment)(implicit t: Manifest[T]): Fragment = {
+        // is null ?
+        if(enabled) {
+            println(enabled)
+            "'" + n + "' must not be null" >> {
+                v aka n must not beNull
+            }
+
+            // is right type?
+            /*
+            "'" + n + "' must have type " + t.erasure.getName >> {
+                v aka n must haveClass[T]
+            }
+            */
+
+            try {
+                fn1(v.asInstanceOf[T])
+            } catch {
+                case e: Throwable =>
+                    1 === 1
+            }
+        } else
+            skipped
     }
 
     protected def add(f: => Fragment) =

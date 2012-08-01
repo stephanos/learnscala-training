@@ -9,7 +9,7 @@ class S222 extends BaseTest {
 
         "days" >> {
             "weekDays" >> {
-                checkType[List[String]](weekDays, "weekDays") {
+                checkType[List[String]](weekDays, "weekDays", enabled) {
                     l =>
                         l must contain("Montag")
                         l must contain("Dienstag")
@@ -20,7 +20,7 @@ class S222 extends BaseTest {
             }
 
             "weekendDays" >> {
-                checkType[List[String]](weekendDays, "weekendDays") {
+                checkType[List[String]](weekendDays, "weekendDays", enabled) {
                     l =>
                         l must contain("Sonntag")
                         l must containAnyOf(List("Samstag", "Sonnabend"))
@@ -28,7 +28,7 @@ class S222 extends BaseTest {
             }
 
             "must contain 'Montag'" >> {
-                checkType[List[String]](days, "days") {
+                checkType[List[String]](days, "days", enabled) {
                     l =>
                         l must contain("Montag")
                         l must contain("Dienstag")
@@ -52,7 +52,7 @@ class S222 extends BaseTest {
                 last(List(1, 2, 3, 4, 5)) === Some(5)
             }
             "must return 'None' for List()" >> {
-                last(List()) must beNone
+                last(List()) === None
             }
         }
 

@@ -9,14 +9,19 @@ class S110 extends BaseTest {
 
         "Point" >> {
             "must create instance for coordinates (5,5)" >> {
-                val p = p1
-                p.x === 5
-                p.y === 5
+                checkType[Point](p1, "p1", enabled) {
+                    p =>
+                        p.x === 5
+                        p.y === 5
+                }
             }
+
             "must create instance with coordinates (5,5) for parameter '5'" >> {
-                val p = p2
-                p.x === 5
-                p.y === 5
+                checkType[Point](p2, "p2", enabled) {
+                    p =>
+                        p.x === 5
+                        p.y === 5
+                }
             }
             "must throw exception for 2 negative coordinates" >> {
                 p3 must throwA[Throwable]
