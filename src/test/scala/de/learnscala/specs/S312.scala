@@ -7,6 +7,12 @@ class S312 extends BaseTest {
 
     spec("U312", enabled) {
 
-        done
+        "shout must print '#SCALA#'" >> {
+            captureOutput(shout())._2.trim === "#SCALA#"
+        }
+
+        "google must print '[http://google.com]'" >> {
+            captureOutput(google())._2.trim === "[http://google.com]"
+        }
     }
 }

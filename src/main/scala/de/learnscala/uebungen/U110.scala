@@ -8,10 +8,12 @@ object U110 extends Uebung(enabled = true) {
      * Klasse 'Point' definiert einen 2-dimensionalen Punkt.
      *
      * Objekt 'Point' stellt 2 Factory-Methoden zur Verfügung,
-     *  eine für x/y-Koordinaten und die andere mit einem Parameter für den Sonderfall x = y.
+     * eine für x/y-Koordinaten und die andere mit einem Parameter für den Sonderfall x = y.
+     *
+     * Ist einer der beiden Koordinaten negativ, sollte eine Ausnahme geworfen werden.
      *
      * Zusätzlich zählt es die Anzahl der bisher erstellten Punkte
-     *  und liefert diese via 'getCount'.
+     * und liefert diese via 'getCount'.
      */
     class Point(val x: Int, val y: Int)
 
@@ -21,6 +23,8 @@ object U110 extends Uebung(enabled = true) {
         }
 
         def apply(x: Int, y: Int): Point = {
+            require(x >= 0)
+            require(y >= 0)
             count += 1
             new Point(x, y)
         }
@@ -31,7 +35,23 @@ object U110 extends Uebung(enabled = true) {
     }
 
 
-    // TESTS
+    /**
+     * Erstellt einen Punkt mit den Koordinaten (5,5)
+     */
     def p1 = Point(5, 5)
+
+    /**
+     * Erstellt einen Punkt mit den Koordinaten (5,5)
+     */
     def p2 = Point(5)
+
+    /**
+     * Versucht einen Punkt mit negativen Koordiaten zu erstellen.
+     */
+    def p3 = Point(-5)
+
+    /**
+     * Versucht einen Punkt mit einer negativen Koordiate zu erstellen.
+     */
+    def p4 = Point(-5, 5)
 }

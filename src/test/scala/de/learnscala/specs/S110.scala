@@ -18,6 +18,12 @@ class S110 extends BaseTest {
                 p.x === 5
                 p.y === 5
             }
+            "must throw exception for 2 negative coordinates" >> {
+                p3 must throwA[Throwable]
+            }
+            "must throw exception for 1 negative coordinate" >> {
+                p4 must throwA[Throwable]
+            }
             "object must return count '2'" >> {
                 Point.getCount === 2
             }
