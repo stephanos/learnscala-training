@@ -4,6 +4,17 @@ import de.learnscala.base.Uebung
 
 object U222 extends Uebung(enabled = true) {
 
+
+    /**
+     * Liste aus den deutschen Tagen der Woche,
+     * unterteilt in Wochentage und Wochenendtage.
+     */
+    def weekDays = null
+    def weekendDays = null
+
+    def days = null
+
+
     /**
      * Ermittelt das letzte Element einer Liste.
      */

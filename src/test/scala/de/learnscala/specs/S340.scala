@@ -7,6 +7,8 @@ class S340 extends BaseTest {
 
     spec("U340", enabled) {
 
-        done
+        "incr must be 10" >> {
+            incr === 10
+        }
     }
 }

@@ -1,6 +1,7 @@
 package de.learnscala.uebungen
 
 import de.learnscala.base.Uebung
+import java.io._
 
 object U060 extends Uebung(enabled = true) {
 
@@ -16,52 +17,33 @@ object U060 extends Uebung(enabled = true) {
 
 
     /**
-     * Fragt den Namen eines Users ab.
+     * Liest das erste Zeichen einer Datei aus.
      *
-     * Bei 'RuntimeException' sollte 'connection not open' geloggt werden.
-     * Bei 'IllegalArgumentException' sollte 'invalid user id' geloggt werden.
-     * Bei 'NoSuchElementException' sollte 'no user found' geloggt werden.
+     * Bei 'IOException' sollte 'cannot read' geloggt werden.
+     * Bei 'RuntimeException' sollte 'not found' geloggt werden.
+     * Bei 'FileNotFoundException' sollte 'not found' geloggt werden.
      *
-     * PS: Die Verbindung sollte am Ende geschlossen werden.
+     * PS: Nicht vergessen den Reader zu schließen!
      *
-     * @param c Datenbankverbindung
-     * @param id ID des Users
-     * @return Name des Users oder 'null' bei einem Fehler
+     * @param f der File Reader
+     * @return erste Zeichen der Datei - oder '0' bei einem Fehler
      */
-    def username(c: Connection, id: Long): String = {
+    def readCharFromFile(f: FileReader): Char = {
         try {
-            queryUserName(c, id)
+            f.read().toChar
         } catch {
-            case e: IllegalArgumentException =>
-                println("invalid user id")
-                null
-            case e: NoSuchElementException =>
-                println("no user found")
-                null
+            case e: FileNotFoundException =>
+                println("not found")
+                0
+            case e: IOException =>
+                println("cannot read")
+                0
             case e: RuntimeException =>
-                println("connection not open")
-                null
+                println("unknown error")
+                0
         } finally {
-            c.close()
+            f.close()
         }
     }
 
-
-
-    /***********************************************************************************************
-    ** HELPERS
-    ************************************************************************************************/
-    class Connection(val db: String) {
-        private var open = true
-        def close(): Unit =  open = false
-        def isOpen = if(db == "") false else open
-    }
-
-    private def queryUserName(conn: Connection, id: Long) = {
-        if(id <= 0) throw new IllegalArgumentException()
-        if(!conn.isOpen) throw new RuntimeException()
-        if(id == 1) "Bob"
-        else if(id == 2) "Jim"
-        else throw new NoSuchElementException()
-    }
 }
