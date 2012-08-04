@@ -1,4 +1,4 @@
-Übungen zur [Scala Schulung](http://www.learnscala.de).
+Übungen zur [Scala Schulung](https://www.learnscala.de).
 
 **Werkzeuge:**
 
