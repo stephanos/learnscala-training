@@ -3,14 +3,15 @@ package de.learnscala.base
 import org.junit.runner._
 import org.specs2.mutable._
 import org.specs2.runner._
-import scala.actors.Futures._
 import org.specs2.specification._
 import org.specs2.mock.Mockito
+import org.specs2.ScalaCheck
 
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest
-    extends SpecificationWithJUnit with Mockito {
-    // with ScalaCheck {
+    extends SpecificationWithJUnit
+    with Mockito with ScalaCheck
+    with Reflect with Push with Capture {
 
     // execute sequentially
     sequential
@@ -27,17 +28,6 @@ abstract class BaseTest
             else
                 skipped
         }
-
-    protected def captureOutput[T](fn: => T): (Option[T], String) = {
-        val baos = new java.io.ByteArrayOutputStream
-        val r = awaitAll(2000, future {
-            Console.withOut(baos) {
-                fn
-            }
-        }).head.asInstanceOf[Option[T]]
-        baos.flush()
-        (r, new String(baos.toByteArray, "UTF-8"))
-    }
 
     protected def checkType[T](v: Any, n: String, enabled: Boolean)(fn1: (T) => Fragment)(implicit t: Manifest[T]): Fragment = {
         // is null ?
