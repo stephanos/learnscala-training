@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U150 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * 'OpTree' ist ein Baum, bei dem jeder Knoten einen Operator und zwei Unterbäume besitzt.

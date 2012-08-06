@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U410 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Die Zahl '150' wird um 50% erhöht

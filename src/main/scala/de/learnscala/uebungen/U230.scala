@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U230 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Für die folgenden Aufgaben sollte die offizielle Scala API-Dokumentation verwendet werden:

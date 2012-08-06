@@ -5,7 +5,7 @@ import java.io._
 
 object U060 extends Uebung {
 
-    def enabled = false
+
 
 
     /**

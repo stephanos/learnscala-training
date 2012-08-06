@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U050 extends Uebung {
 
-    def enabled = false
+
 
 
     /**

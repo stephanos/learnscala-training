@@ -1,8 +1,6 @@
 package de.learnscala.base
 
-trait Uebung extends App {
+class Uebung(val enabled: Boolean = true) extends App {
 
-    def enabled: Boolean
-
-    def TODO: Any = null
+  def TODO: Any = null
 }

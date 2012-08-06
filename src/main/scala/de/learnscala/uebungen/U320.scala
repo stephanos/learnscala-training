@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U320 extends Uebung {
 
-    def enabled = false
+
 
     case class Book(title: String, isbn: String, price: Float,
                     stock: Option[Int], authors: List[(String, String)])

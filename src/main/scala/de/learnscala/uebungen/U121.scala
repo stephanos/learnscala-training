@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U121 extends Uebung {
 
-    def enabled = false
+
 
     def s60 = new Seconds(60)
 

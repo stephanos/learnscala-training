@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U310 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Erhöht alle Elemente der Liste um 1

@@ -5,9 +5,8 @@
 .cache
 
 # IntelliJ
-*.iws
-*.ipr
-*.iml
+.idea
+.idea_modules
 
 # sbt
 target/

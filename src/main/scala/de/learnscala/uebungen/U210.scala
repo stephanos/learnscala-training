@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U210 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Klasse 'MyPair' ist eine konkrete, typisierte Implementierung von 'Pair'.

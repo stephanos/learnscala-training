@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U313 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Benötigt wird die Bedingsungsfunktion '?'.

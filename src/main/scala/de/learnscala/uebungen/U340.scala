@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U340 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Gesucht wird eine Funktion 'until' die bewirkt, dass der Rückgabewert '10' ist.

@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U312 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Eine Markdown-ähnliche Sprache wird erstellt.

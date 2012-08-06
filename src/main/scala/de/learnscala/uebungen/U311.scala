@@ -4,7 +4,7 @@ import de.learnscala.base.Uebung
 
 object U311 extends Uebung {
 
-    def enabled = false
+
 
     /**
      * Summiert die Elemente der Liste.

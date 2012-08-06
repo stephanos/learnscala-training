@@ -4,26 +4,26 @@ import de.learnscala.base.Loesung
 
 object L030 extends Loesung {
 
-    /**
-     * Bestätigt DIE Antwort '42' als richtig.
-     */
+  /**
+   * Bestätigt DIE Antwort '42' als richtig.
+   */
+  /*
+  def isTheAnswerToLifeTheUniverseAndEverything(n: Int): Boolean =
+      if(n == 42) true else false
+  */
+
+  object Test {
+
     def isTheAnswerToLifeTheUniverseAndEverything(n: Int): Boolean =
         if(n == 42) true else false
+  }
 
+  import scala.reflect.runtime.universe._
 
-    /**
-     * Signum einer positiven Zahl ist 1, einer negativen -1 und von Null 0.
-     */
-    def signum(n: Int): Int =
-        if(n == 0) 0
-        else {
-            if(n > 0) 1 else -1
-        }
+  // http://dcsobral.blogspot.ch/2012/07/json-serialization-with-reflection-in.html
 
+  val tt = typeOf[Test.type]
+  val mt = tt.member(newTermName("isTheAnswerToLifeTheUniverseAndEverything"))
 
-    /**
-     * Es wird die Zahl von 2 Argumenten gesucht, die absolut den größten Wert hat.
-     */
-    def absMax(n1: Int, n2: Int): Int =
-        if(math.abs(n1) > math.abs(n2)) n1 else n2
+  println(mt.typeSignature)
 }

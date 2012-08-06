@@ -4,8 +4,6 @@ import de.learnscala.base.Uebung
 
 object U030 extends Uebung {
 
-    def enabled = false
-
 
     /**
      * Bestätigt DIE Antwort '42' als richtig.

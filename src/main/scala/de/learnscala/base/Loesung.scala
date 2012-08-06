@@ -1,6 +1,5 @@
 package de.learnscala.base
 
-trait Loesung extends Uebung {
+class Loesung extends Uebung {
 
-    def enabled = true
 }

@@ -10,15 +10,15 @@ import org.specs2.ScalaCheck
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest
     extends SpecificationWithJUnit
-    with Mockito with ScalaCheck
+    with Mockito //with ScalaCheck
     with Reflect with Push with Capture {
 
     // execute sequentially
     sequential
 
     // stop execution on first fail / skip
-    stopOnFail
-    stopOnSkip
+    //stopOnFail
+    //stopOnSkip
 
 
     protected def spec(name: String, enabled: Boolean)(fn: => Fragment): Fragments =
