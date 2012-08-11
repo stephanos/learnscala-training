@@ -8,20 +8,18 @@ import scala.reflect.runtime.{currentMirror => cm}
  */
 trait Reflect {
 
-    def getObject(name: String) =
-        tryopt(cm.reflectModule(cm.staticModule(name)))
+    def getObject(name: String): Option[Any] =
+        tryopt(cm.reflectModule(cm.staticModule(name)).instance)
 
     def getMember[T: TypeTag](name: String): Option[Symbol] =
         typeOf[T].member(newTermName(name)) match {
             case NoSymbol => None
-            case s => Some(s)
+            case s: Symbol => Some(s)
+            case _ => None
         }
 
     def getMethod[T: TypeTag](obj: T, name: String): Option[MethodSymbol] =
-        getMember[T](name) flatMap (_ match {
-            case mth: MethodSymbol => Some(mth)
-            case _ => None
-        })
+        getMethod[T](name)
 
     def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
         getMember[T](name) flatMap (_ match {
@@ -29,13 +27,14 @@ trait Reflect {
             case _ => None
         })
 
-    /*
     def invoke[T: TypeTag](obj: T, name: String, args: Any*): Option[Any] =
         getMethod[T](name) map (invoke(obj, _, args))
-    */
 
     def invoke[T: TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
         cm.reflect(obj).reflectMethod(mth).apply(args)
+
+    def getMembers[T: TypeTag](obj: T, p: (Symbol) => Boolean): Iterable[Symbol] =
+        getMembers[T](p)
 
     def getMembers[T: TypeTag](p: (Symbol) => Boolean): Iterable[Symbol] =
         typeOf[T].members collect {
@@ -65,7 +64,7 @@ trait Reflect {
         try {
             Some(fn)
         } catch {
-            case _ => None
+            case _: Throwable => None
         }
     }
 }

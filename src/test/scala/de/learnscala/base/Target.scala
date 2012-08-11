@@ -10,9 +10,17 @@ trait Target {
     def path =
         "de.learnscala.exercises"
 
+    def name =
+        code
+
     def fullPath =
-        path + code
+        path + "." + name
 
     final lazy val target =
-        getObject(fullPath)
+        try {
+            getObject(fullPath).get
+        } catch {
+            case _: Throwable =>
+                sys.error("Unable to find target '" + fullPath + "'")
+        }
 }

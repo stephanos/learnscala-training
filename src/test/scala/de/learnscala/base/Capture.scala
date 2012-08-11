@@ -12,6 +12,8 @@ trait Capture {
             }
         }).head.asInstanceOf[Option[T]]
         baos.flush()
-        (r, new String(baos.toByteArray, "UTF-8"))
+        val out = new String(baos.toByteArray, "UTF-8")
+        println(out)
+        (r, out)
     }
 }

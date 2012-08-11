@@ -7,6 +7,9 @@ trait SolutionTarget {
 
     self: Target =>
 
-    override def fullPath =
-        "de.learnscala.solutions" + self.code.replace('U', 'L')
+    override def path =
+        "de.learnscala.solutions"
+
+    override def name =
+        self.code.replace('U', 'L')
 }

@@ -3,7 +3,7 @@ package de.learnscala.exercises
 import de.learnscala.base.BaseTest
 import org.specs2.execute.Pending
 
-class S030 extends BaseTest("U010") {
+class S030 extends BaseTest("U030") {
 
     def specs =
         task(1, "answer to life")(spec1) ^
@@ -13,6 +13,9 @@ class S030 extends BaseTest("U010") {
     
     def spec1: FS = {
         val name = "isTheAnswerToLifeTheUniverseAndEverything"
+        println(target)
+        println(target.getClass())
+        println(getMembers(target, _ => true))
         getMethod(target, name) match {
             case Some(m) =>
                 "which returns 'true' for value '42'" ! {
