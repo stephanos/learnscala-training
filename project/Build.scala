@@ -17,7 +17,7 @@ object ExercisesBuild extends Build {
       //.settings(SbtIdeaPlugin.ideaSettings: _*)
       //.settings(fork in Test := true)
       .settings(parallelExecution in Test := false)
-      .settings(mainClass in(Compile, run) := Some("de.learnscala.loesungen.L030"))
+      .settings(mainClass in(Compile, run) := Some("de.learnscala.solutions.L030"))
       .settings(libraryDependencies ++= dbKit ++ utilKit ++ scalaKit ++ httpKit ++ testKit)
       .settings(resolvers ++= Seq("codahale" at "http://repo.codahale.com"))
       .settings(resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases"))
