@@ -9,7 +9,7 @@ import scala.reflect.runtime.{currentMirror => cm}
 trait Reflect {
 
     def getObject(name: String) =
-        cm.reflectModule(cm.staticModule(name)).instance
+        tryopt(cm.reflectModule(cm.staticModule(name)))
 
     def getMember[T: TypeTag](name: String): Option[Symbol] =
         typeOf[T].member(newTermName(name)) match {
@@ -59,4 +59,13 @@ trait Reflect {
             case PolyType(_, MethodType(_, rt)) => rt
         }
     */
+
+
+    private def tryopt[T](fn: => T): Option[T] = {
+        try {
+            Some(fn)
+        } catch {
+            case _ => None
+        }
+    }
 }

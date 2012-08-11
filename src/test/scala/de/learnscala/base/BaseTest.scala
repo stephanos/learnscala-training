@@ -10,8 +10,9 @@ import org.specs2.specification._
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest(val code: String)
     extends SpecificationWithJUnit with Mockito //with ScalaCheck
-    with Reflect with Push with Capture with Matchers {
+    with Target with Reflect with Push with Capture with Matchers {
 
+    // alias type
     type FS = Fragments
 
 
@@ -19,23 +20,11 @@ abstract class BaseTest(val code: String)
     def specs: Fragments
 
 
-    // lazy initiated exercise target
-    final lazy val target =
-        getTarget
-
-
     // execution steps
     override def is = {
         val heading = "### " + code + " ###"
         sequential ^ heading ^ specs
     }
-
-
-    def getFullPath =
-        "de.learnscala.exercises." + code
-
-    def getTarget =
-        getObject(getFullPath)
 
 
     // wrap a task in its own specification
