@@ -1,13 +1,21 @@
 package de.learnscala.base
 
 import org.specs2.mutable.Specification
-import org.specs2.reporter.Notifier
-import org.specs2.execute.Details
+import org.specs2.reporter._
+import org.specs2.main.Arguments
+import org.specs2.specification._
 
-trait Push extends Notifier {
+class MyExporter extends Push
 
-    self: Specification =>
+trait Push extends Exporter {
 
+    def export(implicit args: Arguments) = {
+        (s: ExecutingSpecification) =>
+            sys.error("ARGH")
+            s.execute
+    }
+
+    /*
     def specStart(title: String, location: String) {
         Console.println(Seq("specStart", title, location).mkString(": "))
     }
@@ -51,4 +59,5 @@ trait Push extends Notifier {
     def examplePending(name: String, message: String, duration: Long) {
         Console.println(Seq("examplePending", name, message, duration).mkString(": "))
     }
+    */
 }

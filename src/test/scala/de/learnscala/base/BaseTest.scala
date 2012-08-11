@@ -8,29 +8,41 @@ import org.specs2.mock.Mockito
 import org.specs2.specification._
 
 @RunWith(classOf[JUnitRunner])
-abstract class BaseTest(val ubng: AnyRef)
+abstract class BaseTest(val code: String)
     extends SpecificationWithJUnit with Mockito //with ScalaCheck
     with Reflect with Push with Capture with Matchers {
 
-    type T = ubng.type
+    type FS = Fragments
 
 
     // list of spec fragments
     def specs: Fragments
 
 
+    // lazy initiated exercise target
+    final lazy val target =
+        getTarget
+
+
     // execution steps
     override def is = {
-        val heading = "### " + ubng.getClass.getSimpleName.replaceAllLiterally("$", "") + " ###"
+        val heading = "### " + code + " ###"
         sequential ^ heading ^ specs
     }
+
+
+    def getFullPath =
+        "de.learnscala.exercises." + code
+
+    def getTarget =
+        getObject(getFullPath)
 
 
     // wrap a task in its own specification
     protected def task(num: Int, descr: String)(fs: => Fragments): Fragments =
         include(new org.specs2.Specification {
             override def is = {
-                val heading = "Task #" + num + " (" + descr + ") should"
+                val heading = "Task #" + num + " ('" + descr + "') should"
                 sequential ^ stopOnSkip ^ stopOnFail ^ endbr ^ heading ^ fs
             }
         })

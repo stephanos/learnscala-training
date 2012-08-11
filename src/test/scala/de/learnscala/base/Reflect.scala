@@ -8,11 +8,20 @@ import scala.reflect.runtime.{currentMirror => cm}
  */
 trait Reflect {
 
+    def getObject(name: String) =
+        cm.reflectModule(cm.staticModule(name)).instance
+
     def getMember[T: TypeTag](name: String): Option[Symbol] =
         typeOf[T].member(newTermName(name)) match {
             case NoSymbol => None
             case s => Some(s)
         }
+
+    def getMethod[T: TypeTag](obj: T, name: String): Option[MethodSymbol] =
+        getMember[T](name) flatMap (_ match {
+            case mth: MethodSymbol => Some(mth)
+            case _ => None
+        })
 
     def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
         getMember[T](name) flatMap (_ match {

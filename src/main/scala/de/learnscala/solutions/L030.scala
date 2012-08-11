@@ -7,7 +7,7 @@ object L030 extends Solution {
     /**
      * Task #1
      */
-    def isTheAnswerToLifeTheUniverseAndEverything2(n: Int) =
+    def isTheAnswerToLifeTheUniverseAndEverything(n: Int) =
         n == 42
 
 
