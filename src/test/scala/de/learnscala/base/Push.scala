@@ -1,13 +1,12 @@
 package de.learnscala.base
 
-import org.specs2.mutable.Specification
 import org.specs2.reporter._
 import org.specs2.main.Arguments
 import org.specs2.specification._
 
-class MyExporter extends Push
+class MyNotifier extends ConsoleNotifier
 
-trait Push extends Exporter {
+class Push extends Exporter {
 
     def export(implicit args: Arguments) = {
         (s: ExecutingSpecification) =>
