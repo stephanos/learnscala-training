@@ -1,7 +1,7 @@
 package de.learnscala.base
 
 import scala.reflect.runtime.universe._
-import org.specs2.SpecificationWithJUnit
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * http://etorreborre.github.com/specs2/guide/org.specs2.guide.Matchers.html#Custom

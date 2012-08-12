@@ -1,62 +1,116 @@
 package de.learnscala.base
 
 import org.specs2.reporter._
-import org.specs2.main.Arguments
-import org.specs2.specification._
+import org.specs2.execute.Details
+import java.util.Date
 
-class MyNotifier extends ConsoleNotifier
+class Push extends Notifier {
 
-class Push extends Exporter {
+    var name: String = _
 
-    def export(implicit args: Arguments) = {
-        (s: ExecutingSpecification) =>
-            sys.error("ARGH")
-            s.execute
-    }
+    var skip: Int = 0
+    var fail: Int = 0
+    var error: Int = 0
+    var success: Int = 0
+    var pending: Int = 0
 
-    /*
+    var start: Date = _
+    var end: Date = _
+
+
     def specStart(title: String, location: String) {
-        Console.println(Seq("specStart", title, location).mkString(": "))
+        name = title
+        start = new Date
     }
 
     def specEnd(title: String, location: String) {
-        Console.println(Seq("specEnd", title, location).mkString(": "))
+        end = new Date
+        send()
     }
 
     def contextStart(text: String, location: String) {
-        Console.println(Seq("contextStart", text, location).mkString(": "))
+
     }
 
     def contextEnd(text: String, location: String) {
-        Console.println(Seq("contextEnd", text, location).mkString(": "))
+
     }
 
     def text(text: String, location: String) {
-        Console.println(Seq("text", text, location).mkString(": "))
+
     }
 
     def exampleStarted(name: String, location: String) {
-        Console.println(Seq("exampleStarted", name, location).mkString(": "))
+
     }
 
     def exampleSuccess(name: String, duration: Long) {
-        Console.println(Seq("exampleSuccess", name, duration).mkString(": "))
+        success += 1
     }
 
     def exampleFailure(name: String, message: String, location: String, f: Throwable, details: Details, duration: Long) {
-        Console.println(Seq("exampleFailure", name, message, location, f.getMessage, details, duration).mkString(": "))
+        fail += 1
     }
 
     def exampleError(name: String, message: String, location: String, f: Throwable, duration: Long) {
-        Console.println(Seq("exampleError", name, message, location, f.getMessage, duration).mkString(": "))
+        error += 1
     }
 
     def exampleSkipped(name: String, message: String, duration: Long) {
-        Console.println(Seq("exampleSkipped", name, message, duration).mkString(": "))
+        skip += 1
     }
 
     def examplePending(name: String, message: String, duration: Long) {
-        Console.println(Seq("examplePending", name, message, duration).mkString(": "))
+        pending += 1
     }
-    */
+
+    private def send() {
+
+        if(name.startsWith("S")) {
+
+            val data =
+                <test name="{name}">
+                    <start>
+                        {start.getTime}
+                    </start>
+                    <end>
+                        {end.getTime}
+                    </end>
+                    <fail>
+                        {fail}
+                    </fail>
+                    <success>
+                        {success}
+                    </success>
+                    <skip>
+                        {skip}
+                    </skip>
+                    <error>
+                        {error}
+                    </error>
+                    <pending>
+                        {pending}
+                    </pending>
+                </test>.toString()
+
+            import org.apache.http.entity._
+            import org.apache.http.client.methods._
+            import org.apache.http.impl.client._
+            import org.apache.http.params._
+
+            val params = new BasicHttpParams()
+            val cparams = new HttpConnectionParamBean(params)
+            cparams.setConnectionTimeout(1000)
+            cparams.setSoTimeout(1000)
+            val client = new DefaultHttpClient(params)
+
+            try {
+                val post = new HttpPost("http://STEPHAN-MAC:80/test/progress")
+                post.setEntity(new StringEntity(data))
+                client.execute(post)
+            } catch {
+                case t: Throwable => println(t)
+            }
+        }
+    }
 }

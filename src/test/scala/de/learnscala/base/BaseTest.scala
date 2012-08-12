@@ -4,39 +4,28 @@ import org.junit.runner._
 
 import org.specs2.mock.Mockito
 import org.specs2.specification._
-import org.specs2.execute.Result
 import org.specs2.runner.JUnitRunner
-import org.specs2.SpecificationWithJUnit
-import org.specs2.execute.Skipped
+import org.specs2.mutable.SpecificationWithJUnit
 
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest(val code: String)
     extends SpecificationWithJUnit with Mockito //with ScalaCheck
     with Target with Reflect with Capture with Matchers {
 
-
-    "### " + code + " ###".title
+    // execute sequentially
+    sequential
 
 
     // hook push update into lifecycle
-    args.report(exporter = "de.learnscala.base.Push",
-        notifier = "de.learnscala.base.MyNotifier")
+    args.report(notifier = "de.learnscala.base.Push")
 
 
     // alias type
     type FS = Fragments
 
 
-    // list of spec fragments
-    def specs: Fragments
 
-
-    // execution steps
-    override def is = {
-        sequential ^ specs
-    }
-
-
+    /*
     abstract case class Task(num: Int, descr: String) extends org.specs2.Specification with Around {
 
         private var mustStop = false
@@ -53,10 +42,11 @@ abstract class BaseTest(val code: String)
             else r
         }
 
+        "Task #" + num + " ('" + descr + "') should".title
+
         override def is = {
-            val heading = "Task #" + num + " ('" + descr + "') should"
-            sequential ^ endbr ^ heading ^ specs
+            sequential ^ endbr ^ specs
         }
     }
-
+    */
 }
