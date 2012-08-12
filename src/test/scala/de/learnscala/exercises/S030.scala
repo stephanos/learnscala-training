@@ -5,13 +5,15 @@ import org.specs2.execute.Pending
 
 class S030 extends BaseTest("U030") {
 
-    "Task #1" >> {
+    "Task #1 ('answer to life')" >> {
 
+        implicit val stop = WhenFail()
         val name = "isTheAnswerToLifeTheUniverseAndEverything"
 
         println(target)
         println(target.getClass())
         println(getMembers(target, _ => true))
+
         getMethod(target, name) match {
             case Some(m) =>
                 "which returns 'true' for value '42'" >> {
@@ -24,14 +26,14 @@ class S030 extends BaseTest("U030") {
                 }
             case _ =>
                 "have a method called '" + name + "'" >> {
-                    1 === 0
-                    //Pending()
+                    Pending()
                 }
         }
     }
 
-    "Task #2" >> {
+    "Task #2 ('signum')" >> {
 
+        implicit val stop = WhenFail()
         val name = "signum"
 
         getMethod(target, name) match {
@@ -46,14 +48,14 @@ class S030 extends BaseTest("U030") {
                 }
             case _ =>
                 "have a method called '" + name + "'" >> {
-                    1 === 0
                     Pending()
                 }
         }
     }
 
-    "Task #3" >> {
+    "Task #3 ('absMax')" >> {
 
+        implicit val stop = WhenFail()
         val name = "absMax"
 
         getMethod(target, name) match {
