@@ -33,7 +33,7 @@ object Deps {
     val httpKit = Seq(http)
     //spray, sprayIo, sprayCan, sprayClient)
     val testKit = Seq(Test.specs2, Test.mockito, Test.junit)
-    val scalaKit = Seq(scalaActors, scalaCompiler, scalaLib, scalaReflect, scalaSwing)
+    val scalaKit = Seq(scalaActors, scalaSwing, scalaCompiler, scalaLib, scalaReflect)
 }
 
 

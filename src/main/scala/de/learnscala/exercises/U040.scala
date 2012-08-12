@@ -4,9 +4,6 @@ import de.learnscala.base.Exercise
 
 object U040 extends Exercise {
 
-
-
-
     /**
      * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
      */

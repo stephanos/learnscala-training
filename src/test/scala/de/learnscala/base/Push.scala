@@ -109,7 +109,7 @@ class Push extends Notifier {
                 post.setEntity(new StringEntity(data))
                 client.execute(post)
             } catch {
-                case t: Throwable => println(t)
+                case t: Throwable => //println(t)
             }
         }
     }
