@@ -105,7 +105,7 @@ class Push extends Notifier {
             val client = new DefaultHttpClient(params)
 
             try {
-                val post = new HttpPost("http://STEPHAN-MAC:80/test/progress")
+                val post = new HttpPost("http://STEPHAN-MAC:80/api/exercises/" + name)
                 post.setEntity(new StringEntity(data))
                 client.execute(post)
             } catch {
