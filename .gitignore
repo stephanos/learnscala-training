@@ -1,4 +1,16 @@
-external/
-project/
+# Eclipse
+.metadata
+.classpath
+.project
+.cache
+
+# IntelliJ
+.idea
+.idea_modules
+
+# sbt
 target/
-tmp/
+
+# other
+.DS_Store
+external/
