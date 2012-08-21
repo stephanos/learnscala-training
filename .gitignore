@@ -1,5 +1,6 @@
 # Eclipse
 .metadata
+.settings
 .classpath
 .project
 .cache
