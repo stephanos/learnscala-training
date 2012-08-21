@@ -18,8 +18,17 @@ trait Push {
     protected def send() {
 
         if (name.startsWith("S")) {
+
+            val uuid = {
+              import java.net._
+              val ip = InetAddress.getLocalHost
+              val network = NetworkInterface.getByInetAddress(ip)
+              val mac = network.getHardwareAddress
+              mac.map("%02x".format(_)).mkString(":")
+            }
+
             val data =
-                <test name={name}>
+                <test id={name} user={uuid}>
                     <start>
                         {start.getTime}
                     </start>
@@ -56,9 +65,12 @@ trait Push {
 
             try {
                 //println(data)
-                val post = new HttpPost("http://STEPHAN-MAC:80/api/exercises/" + name)
-                post.setEntity(new StringEntity(data))
-                client.execute(post)
+                val post = new HttpPost("http://Stephan-Mac:80/api/exercises/" + name)
+                //val post = new HttpPost("http://127.0.0.1:9000/api/exercises/" + name)
+                post.setEntity(new StringEntity(data, ContentType.TEXT_XML))
+                val r = client.execute(post)
+                //println(r)
+                //println(scala.io.Source.fromInputStream(r.getEntity.getContent).getLines().mkString("\n"))
             } catch {
                 case t: Throwable => //println(t)
             }
