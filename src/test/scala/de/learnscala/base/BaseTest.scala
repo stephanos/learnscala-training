@@ -18,7 +18,8 @@ abstract class BaseTest(val code: String)
     sequential
 
     // hook push into lifecycle
-    args.report(notifier = "de.learnscala.base.Push")
+    args.report(notifier = "de.learnscala.base.Notify")
+    //args.report(exporter = "de.learnscala.base.Export")
 
     // Around: stop execution if failed
     case class WhenFail() extends Around {
