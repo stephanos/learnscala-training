@@ -37,18 +37,22 @@ class Notify extends Notifier with Push {
     }
 
     def exampleFailure(name: String, message: String, location: String, f: Throwable, details: Details, duration: Long) {
+        //println(name)
         fail += 1
     }
 
     def exampleError(name: String, message: String, location: String, f: Throwable, duration: Long) {
+        //println(name)
         error += 1
     }
 
     def exampleSkipped(name: String, message: String, duration: Long) {
+        //println(name)
         skip += 1
     }
 
     def examplePending(name: String, message: String, duration: Long) {
+        //println(name)
         pending += 1
     }
 }

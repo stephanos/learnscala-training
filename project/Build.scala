@@ -65,7 +65,7 @@ object Dep {
         val junit = "junit" % "junit" % "4.7"
         val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
-        val specs2 = "org.specs2" %% "specs2" % "1.11" % "test"
+        val specs2 = "org.specs2" %% "specs2" % "1.12.1" % "test"
     }
 
 }
