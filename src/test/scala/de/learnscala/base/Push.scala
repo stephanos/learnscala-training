@@ -52,7 +52,7 @@ trait Push {
             val client = new DefaultHttpClient(params)
 
             try {
-                println(data)
+                //println(data)
                 val post = new HttpPost("http://Stephan-Mac:80/api/exercises/" + name)
                 //val post = new HttpPost("http://127.0.0.1:9000/api/exercises/" + name)
                 post.setEntity(new StringEntity(data, ContentType.TEXT_XML))

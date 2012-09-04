@@ -44,7 +44,6 @@ class Export extends Exporter with Push {
     }
 
     private def processTask(task: Task) {
-        println(task)
         val r: Int = task.results.foldLeft(0)((t, r) =>
             scala.math.max(valueOf(r.result), t)
         )
