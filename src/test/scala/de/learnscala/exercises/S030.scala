@@ -10,6 +10,17 @@ class S030 extends BaseTest("U030") {
         implicit val stop = WhenFail()
         val name = "isTheAnswerToLifeTheUniverseAndEverything"
 
+        1 === 1
+
+        "test #1" >> {
+            1 === 1
+        }
+
+        "test #2" >> {
+            1 === 0
+        }
+
+        /*
         println(target)
         println(target.getClass())
         println(getMembers(target, _ => true))
@@ -29,6 +40,7 @@ class S030 extends BaseTest("U030") {
                     Pending()
                 }
         }
+        */
     }
 
     "Task #2 ('signum')" >> {

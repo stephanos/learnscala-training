@@ -4,52 +4,40 @@ import java.util.Date
 
 trait Push {
 
+    var result = List[Int]()
     var name: String = _
-
-    var skip: Int = 0
-    var fail: Int = 0
-    var error: Int = 0
-    var success: Int = 0
-    var pending: Int = 0
-
     var start: Date = _
     var end: Date = _
 
     protected def send() {
 
-        if (name.startsWith("S")) {
+        if (name != null && name.startsWith("S")) {
 
             val uuid = {
-              import java.net._
-              val ip = InetAddress.getLocalHost
-              val network = NetworkInterface.getByInetAddress(ip)
-              val mac = network.getHardwareAddress
-              mac.map("%02x".format(_)).mkString(":")
+                import java.net._
+                val ip = InetAddress.getLocalHost
+                val network = NetworkInterface.getByInetAddress(ip)
+                val mac = network.getHardwareAddress
+                mac.map("%02x".format(_)).mkString(":")
             }
 
+            val taskRes = result.reverse.zipWithIndex
             val data =
                 <test id={name} user={uuid}>
+                    {
+                        taskRes.map {
+                            tr =>
+                                <task num={tr._2.toString}>
+                                    {tr._1}
+                                </task>
+                        }
+                    }
                     <start>
                         {start.getTime}
                     </start>
                     <end>
                         {end.getTime}
                     </end>
-                    <fail>
-                        {fail}
-                    </fail>
-                    <success>
-                        {success}
-                    </success>
-                    <skip>
-                        {skip}
-                    </skip>
-                    <error>
-                        {error}
-                    </error>
-                    <pending>
-                        {pending}
-                    </pending>
                 </test>.toString()
 
             import org.apache.http.entity._
@@ -64,7 +52,7 @@ trait Push {
             val client = new DefaultHttpClient(params)
 
             try {
-                //println(data)
+                println(data)
                 val post = new HttpPost("http://Stephan-Mac:80/api/exercises/" + name)
                 //val post = new HttpPost("http://127.0.0.1:9000/api/exercises/" + name)
                 post.setEntity(new StringEntity(data, ContentType.TEXT_XML))
