@@ -1,6 +1,6 @@
 ## Werkzeuge
 
-####Typesafe Stack: ####
+**Typesafe Stack:**
 http://www.typesafe.com/stack/download
 > Installiert Scala und SBT im System (setze Admin-Rechte voraus)
 
