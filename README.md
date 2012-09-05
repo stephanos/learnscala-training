@@ -6,7 +6,7 @@ http://www.typesafe.com/stack/download
 
 ###Scala Distribution###
 Scala-Bibliotheken und -Tools
-http://www.scala-lang.org/downloads
+> http://www.scala-lang.org/downloads
 
 **Scala-IDE:**
 http://scala-ide.org
