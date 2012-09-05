@@ -13,6 +13,8 @@ trait Push {
 
         if (name != null && name.startsWith("S")) {
 
+            val code = name.tail
+
             val uuid = {
                 import java.net._
                 val ip = InetAddress.getLocalHost
@@ -23,7 +25,7 @@ trait Push {
 
             val taskRes = result.reverse.zipWithIndex
             val data =
-                <test id={name} user={uuid}>
+                <test id={code} user={uuid}>
                     {
                         taskRes.map {
                             tr =>
@@ -53,8 +55,8 @@ trait Push {
 
             try {
                 //println(data)
-                val post = new HttpPost("http://Stephan-Mac:80/api/exercises/" + name)
-                //val post = new HttpPost("http://127.0.0.1:9000/api/exercises/" + name)
+                val post = new HttpPost("http://Stephan-Mac:80/api/exercises/" + code)
+                //val post = new HttpPost("http://127.0.0.1:80/api/exercises/" + code)
                 post.setEntity(new StringEntity(data, ContentType.TEXT_XML))
                 val r = client.execute(post)
                 //println(r)
