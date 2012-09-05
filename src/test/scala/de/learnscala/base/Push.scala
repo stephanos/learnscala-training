@@ -56,7 +56,7 @@ trait Push {
         }
     }
 
-    private def sendXML(code: String, data: String, addr: String) {
+    private def sendXML(code: String, data: String, addr: String, port: String = "80") {
         import org.apache.http.entity._
         import org.apache.http.client.methods._
         import org.apache.http.impl.client._
@@ -68,7 +68,7 @@ trait Push {
         cparams.setSoTimeout(1000)
         val client = new DefaultHttpClient(params)
 
-        val post = new HttpPost("http://" + addr + ":80/api/exercises/" + code)
+        val post = new HttpPost("http://" + addr + ":" + port + "/api/exercises/" + code)
         post.setEntity(new StringEntity(data, ContentType.TEXT_XML))
         val r = client.execute(post)
 
