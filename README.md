@@ -4,9 +4,9 @@
 http://www.typesafe.com/stack/download
 > Installiert Scala und SBT im System (setze Admin-Rechte voraus)
 
-###Scala Distribution:###
+###Scala Distribution###
+Scala-Bibliotheken und -Tools
 http://www.scala-lang.org/downloads
-> Scala-Bibliotheken und -Tools
 
 **Scala-IDE:**
 http://scala-ide.org
