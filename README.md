@@ -55,7 +55,7 @@ empfiehlt sich [GitHub](https://github.com/languages/scala) - hier werden
 die populärsten und aktivsten aufgelistet.
 
 ### Akka Middleware
-Bibliothek zur Entwicklung von nebenläufigen, verteilten eventbasierten Anwendungen (Teil vom offiziellen Typesafe Stack)
+Bibliothek zur Entwicklung von nebenläufigen, verteilten, eventbasierten Anwendungen (Teil vom offiziellen Typesafe Stack)
 > <http://akka.io>
 
 ### [Datenbank] Casbah
@@ -87,7 +87,7 @@ Automatische, spezifikationsbasierte Tests (inspiriert von Haskells QuickCheck)
 > <https://github.com/rickynils/scalacheck>
 
 ### [Test] ScalaTest
-Test-Framework, das JUnit für Scala
+Test-Framework, das JUnit von Scala
 > <http://www.scalatest.org>
 
 ### [Test] Specs2
@@ -142,7 +142,7 @@ Deutschsprachige, umfassende Übersicht
 > <http://aperiodic.net/phil/scala/s-99/>
 
 ### Dokumente der EPFL Universität
-Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere Herangehensweise
+Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderer Herangehensweise
 > * <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
 > * <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
 > * <http://www.scala-lang.org/docu/files/ScalaTutorial.pdf>
@@ -174,7 +174,7 @@ Alle Präsentationen als PDF oder Video von der wichtigsten Scala-Messe
 
 ## Blogs
 
-### Algorirthmically Challenged
+### Algorithmically Challenged
 Blog von Daniel Sobral, einem Scala-Entwickler
 > <http://dcsobral.blogspot.de>
 
@@ -187,14 +187,14 @@ Vorstellung neuer Bibliotheken und neuer Versionen aus der Scala-Welt
 > <http://implicit.ly>
 
 ### Planet Scala
-Aggegator wichtiger Scala-Blogs
+Aggregator wichtiger Scala-Blogs
 > <http://www.planetscala.com>
 
 
 ## Bücher
 
 ### Programming in Scala, Martin Odersky, Januar 2011
-Das Buch vom Erfinder der Sprache, Martin Odersky. Es gibt einen sehr guten Überblick über die Sprache und erklärt dabei oftmals die Hintergründe der Sprachregeln und gibt Tipps zum richtigen Umgang.
+Das Buch vom Erfinder der Sprache, Martin Odersky. Es gibt einen sehr guten Überblick über die Sprache, erklärt dabei oftmals die Hintergründe der Sprachregeln und gibt Tipps zum richtigen Umgang.
 > <http://www.amazon.de/dp/0981531644>
 
 ### Durchstarten mit Scala, Heiko Seeberger, Mai 2011
@@ -202,5 +202,5 @@ Das Buch führt ganz behutsam in die Sprache ein, ohne zu überfordern. Ein fant
 > <http://www.amazon.de/dp/3868020640>
 
 ### Scala for the Impatient, Cay Horstmann, März 2012
-Das Buch enthält weniger ausführliche Erklärungen sondern vielmehr übersichtliche Aufbereitung der Fakten - wenig geeignet zum Lernen, aber sehr gut zum schnellen Nachschlagen.
+Das Buch enthält weniger ausführliche Erklärungen sondern vielmehr eine übersichtliche Aufbereitung der Fakten - wenig geeignet zum Lernen, aber sehr gut zum schnellen Nachschlagen.
 > <http://www.amazon.de/dp/0321774094>
