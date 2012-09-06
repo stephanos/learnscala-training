@@ -38,14 +38,14 @@ Community zum Austausch von Fragen und Projekten
 
 ## Bücher
 
-## Programming in Scala: A Comprehensive Step-by-Step Guide, Martin Odersky, Januar 2011
+### Programming in Scala, Martin Odersky, Januar 2011
 Das Buch vom Erfinder der Sprache, Martin Odersky. Es gibt einen sehr guten Überblick über die Sprache und erklärt dabei oftmals die Hintergründe der Sprachregeln und gibt Tipps zum richtigen Umgang.
 > http://www.amazon.de/dp/0981531644
 
-## Durchstarten mit Scala, Heiko Seeberger, Mai 2011
+### Durchstarten mit Scala, Heiko Seeberger, Mai 2011
 Das Buch führt ganz behutsam in die Sprache ein, ohne zu überfordern. Ein fantastischer Einstieg für die ersten paar Wochen.
 > http://www.amazon.de/dp/3868020640
 
-## Scala for the Impatient, Cay Horstmann, März 2012
+### Scala for the Impatient, Cay Horstmann, März 2012
 Das Buch enthält weniger ausführliche Erklärungen sondern vielmehr übersichtliche Aufbereitung der Fakten - wenig geeignet zum Lernen, aber sehr gut zum schnellen Nachschlagen.
 > http://www.amazon.de/dp/0321774094
