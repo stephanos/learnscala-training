@@ -1,100 +1,100 @@
-# Werkzeuge
+## Werkzeuge
 
-## Typesafe Stack
+### Typesafe Stack
 Installationspaket mit Scala und SBT (benötigt Admin-Rechte)
 > <http://www.typesafe.com/stack/download>
 
-## Scala Distribution
+### Scala Distribution
 Scala-Bibliotheken und -Tools
-> http://www.scala-lang.org/downloads
+> <http://www.scala-lang.org/downloads>
 
-## Scala-IDE
+### Scala-IDE
 Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
-> http://scala-ide.org
+> <http://scala-ide.org>
 
 
-# Offizielles
+## Offizielles
 
-## Scala
+### Scala
 Offizielle Webseite zu Scala
-> http://www.scala-lang.org
+> <http://www.scala-lang.org>
 
-## Scala API
+### Scala API
 Durchsuchbare Dokumentation der Scala-API
-> (http://www.scala-lang.org/api/current/index.html)
+> <http://www.scala-lang.org/api/current/index.html>
 
-## Scala Tour
+### Scala Tour
 Übersicht wichtiger Features der Sprache
-> http://www.scala-lang.org/node/104
+> <http://www.scala-lang.org/node/104>
 
-## Scala Dokumentation
+### Scala Dokumentation
 Tutorials, Guides, Glossar und mehr
-> http://docs.scala-lang.org
+> <http://docs.scala-lang.org>
 
-## Scala User Mailing-Liste
+### Scala User Mailing-Liste
 Community zum Austausch von Fragen und Projekten
-> https://groups.google.com/forum/?fromgroups#!forum/scala-user
+> <https://groups.google.com/forum/?fromgroups#!forum/scala-user>
 
 
-# Projekte
+## Bibliotheken und Frameworks
 
-## Akka Middleware
-http://akka.io
+Um schnell einen Überblick über existierende Scala-Bibliotheken zu erhalten,
+empfiehlt sich [GitHub](https://github.com/languages/scala) - hier werden
+die populärsten und aktivsten aufgelistet.
 
-
-## Testen
-
-### ScalaTest
+### Testen: ScalaTest
 Test-Framework, das JUnit für Scala
-> http://www.scalatest.org/
+> <http://www.scalatest.org>
 
-### Specs2
+### Testen: Specs2
 Bibliothek für Softwarespezifikationen: sehr ausdrucksstarke Tests
-> http://etorreborre.github.com/specs
+> <http://etorreborre.github.com/specs>
 
-### ScalaMock
+### Testen: ScalaMock
 Mocking-Framework mit Unterstützung der Scala-Funktionen
-> http://scalamock.org/
+> <http://scalamock.org>
 
-
-## Web-Framework
-
-### Play 2.0
+### Web-Framework: Play 2.0
 Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
-> http://www.playframework.org
+> <http://www.playframework.org>
 
-### Lift Web-Framework
+### Web-Framework: Lift
 Stabiles, sehr sicheres Web-Framework mit starker Trennung von Design und Logik
-> http://liftweb.net
+> <http://liftweb.net>
+
+### Erweiterungen: Akka Middleware
+> <http://akka.io>
+
+### Erweiterungen: Scalaz
+> <https://github.com/scalaz/scalaz>
 
 
+## Lernmaterial
 
-# Lernmaterial
-
-## Scala School
+### Scala School
 Twitters Einführung in Scala
-> http://twitter.github.com/scala_school/index.html
+> <http://twitter.github.com/scala_school/index.html>
 
-## Scala Overview
-> http://www.scala-lang.org/docu/files/ScalaOverview.pdf
+### Scala Overview
+> <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
 
-## Scala by Example
-> http://www.scala-lang.org/docu/files/ScalaByExample.pdf)
+### Scala by Example
+> <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
 
-## Scala on Stackoverflow
-> http://stackoverflow.com/tags/scala/info
+### Scala on Stackoverflow
+> <http://stackoverflow.com/tags/scala/info>
 
 
-# Bücher
+## Bücher
 
-## Programming in Scala, Martin Odersky, Januar 2011
+### Programming in Scala, Martin Odersky, Januar 2011
 Das Buch vom Erfinder der Sprache, Martin Odersky. Es gibt einen sehr guten Überblick über die Sprache und erklärt dabei oftmals die Hintergründe der Sprachregeln und gibt Tipps zum richtigen Umgang.
-> http://www.amazon.de/dp/0981531644
+> <http://www.amazon.de/dp/0981531644>
 
-## Durchstarten mit Scala, Heiko Seeberger, Mai 2011
+### Durchstarten mit Scala, Heiko Seeberger, Mai 2011
 Das Buch führt ganz behutsam in die Sprache ein, ohne zu überfordern. Ein fantastischer Einstieg für die ersten paar Wochen.
-> http://www.amazon.de/dp/3868020640
+> <http://www.amazon.de/dp/3868020640>
 
-## Scala for the Impatient, Cay Horstmann, März 2012
+### Scala for the Impatient, Cay Horstmann, März 2012
 Das Buch enthält weniger ausführliche Erklärungen sondern vielmehr übersichtliche Aufbereitung der Fakten - wenig geeignet zum Lernen, aber sehr gut zum schnellen Nachschlagen.
-> http://www.amazon.de/dp/0321774094
+> <http://www.amazon.de/dp/0321774094>
