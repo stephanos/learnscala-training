@@ -91,9 +91,9 @@ Einführungskurs von Twitter
 
 ### Dokumente der EPFL Universität
 Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere Herangehensweise
-> <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
-> <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
-> <http://www.scala-lang.org/docu/files/ScalaTutorial.pdf>
+> * <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
+> * <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
+> * <http://www.scala-lang.org/docu/files/ScalaTutorial.pdf>
 
 ### Scala Wiki auf Stackoverflow
 Zusammenstellung grundlegender, wichtiger Fragen und Antworten rund um Scala
