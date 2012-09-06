@@ -62,13 +62,21 @@ Bibliothek für Softwarespezifikationen: sehr ausdrucksstarke Tests
 Mocking-Framework mit Unterstützung der Scala-Funktionen
 > <http://scalamock.org>
 
-### [Web] Play 2.0
-Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
-> <http://www.playframework.org>
+### [Web] Dispatch
+Bibliothek für asynchrone HTTP-Kommunikation
+> <http://dispatch.databinder.net>
 
 ### [Web] Lift
 Stabiles, sehr sicheres Web-Framework mit starker Trennung von Design und Logik
 > <http://liftweb.net>
+
+### [Web] Play 2.0
+Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
+> <http://www.playframework.org>
+
+### [Web] Spray
+REST/HTTP-Framework für asynchrone, aktorenbasierte Applikationen auf Basis von Akka
+> <http://spray.github.com/>
 
 
 ## Lernmaterial
