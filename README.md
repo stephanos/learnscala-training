@@ -147,6 +147,10 @@ Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere H
 > * <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
 > * <http://www.scala-lang.org/docu/files/ScalaTutorial.pdf>
 
+### Scala Quick Reference
+Kompakte Kurzübersicht der wichtigsten Regeln und Funktionen
+> <http://www.scala-lang.org/sites/default/files/pdfs/Scala%20Quick%20Reference.pdf>
+
 ### Scalatron
 Multiplayer-Spiel in dem jeder Teilnehmer einen Bot in Scala programmiert und diese gegeneinander antreten
 > <https://github.com/scalatron/scalatron>
