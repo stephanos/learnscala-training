@@ -42,31 +42,33 @@ Um schnell einen Überblick über existierende Scala-Bibliotheken zu erhalten,
 empfiehlt sich [GitHub](https://github.com/languages/scala) - hier werden
 die populärsten und aktivsten aufgelistet.
 
-### Testen: ScalaTest
+### Akka Middleware
+Bibliothek zur Entwicklung von nebenläufigen, verteilten eventbasierten Anwendungen
+> <http://akka.io>
+
+### Scalaz
+Erweitert die funktionalen Aspekte von Scala
+> <https://github.com/scalaz/scalaz>
+
+### [Test] ScalaTest
 Test-Framework, das JUnit für Scala
 > <http://www.scalatest.org>
 
-### Testen: Specs2
+### [Test] Specs2
 Bibliothek für Softwarespezifikationen: sehr ausdrucksstarke Tests
 > <http://etorreborre.github.com/specs>
 
-### Testen: ScalaMock
+### [Test] ScalaMock
 Mocking-Framework mit Unterstützung der Scala-Funktionen
 > <http://scalamock.org>
 
-### Web-Framework: Play 2.0
+### [Web] Play 2.0
 Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
 > <http://www.playframework.org>
 
-### Web-Framework: Lift
+### [Web] Lift
 Stabiles, sehr sicheres Web-Framework mit starker Trennung von Design und Logik
 > <http://liftweb.net>
-
-### Erweiterungen: Akka Middleware
-> <http://akka.io>
-
-### Erweiterungen: Scalaz
-> <https://github.com/scalaz/scalaz>
 
 
 ## Lernmaterial
