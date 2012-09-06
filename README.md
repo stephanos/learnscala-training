@@ -36,6 +36,54 @@ Community zum Austausch von Fragen und Projekten
 > https://groups.google.com/forum/?fromgroups#!forum/scala-user
 
 
+## Projekte
+
+### Akka Middleware
+http://akka.io
+
+
+### Testen
+
+#### ScalaTest
+Test-Framework, das JUnit für Scala
+> http://www.scalatest.org/
+
+#### Specs2
+Bibliothek für Softwarespezifikationen: sehr ausdrucksstarke Tests
+> http://etorreborre.github.com/specs
+
+### ScalaMock
+Mocking-Framework mit Unterstützung der Scala-Funktionen
+> http://scalamock.org/
+
+
+### Web-Framework
+
+#### Play 2.0
+Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
+> http://www.playframework.org
+
+#### Lift Web-Framework
+Stabiles, sehr sicheres Web-Framework
+> http://liftweb.net
+
+
+
+## Lernmaterial
+
+### Scala School: Twitters Einführung in Scala
+> http://twitter.github.com/scala_school/index.html
+
+### Scala Overview
+> http://www.scala-lang.org/docu/files/ScalaOverview.pdf
+
+### Scala by Example
+> http://www.scala-lang.org/docu/files/ScalaByExample.pdf)
+
+### Scala on Stackoverflow
+> http://stackoverflow.com/tags/scala/info
+
+
 ## Bücher
 
 ### Programming in Scala, Martin Odersky, Januar 2011
