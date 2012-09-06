@@ -9,5 +9,5 @@ Scala-Bibliotheken und -Tools
 > http://www.scala-lang.org/downloads
 
 ### Scala-IDE
-Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
+> Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
 > http://scala-ide.org
