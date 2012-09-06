@@ -23,6 +23,10 @@ Offizielle Webseite zu Scala
 Durchsuchbare Dokumentation der Scala-API
 > <http://www.scala-lang.org/api/current/index.html>
 
+### Scala Sprachspezifikation
+Spezifikation aller Regeln der Scala Sprache (schwer verdaulich)
+> <http://www.scala-lang.org/docu/files/ScalaReference.pdf>
+
 ### Scala Tour
 Übersicht wichtiger Features der Sprache
 > <http://www.scala-lang.org/node/104>
@@ -82,16 +86,17 @@ REST/HTTP-Framework für asynchrone, aktorenbasierte Applikationen auf Basis von
 ## Lernmaterial
 
 ### Scala School
-Twitters Einführung in Scala
+Einführungskurs von Twitter
 > <http://twitter.github.com/scala_school/index.html>
 
-### Scala Overview
+### Dokumente der EPFL Universität
+Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere Herangehensweise
 > <http://www.scala-lang.org/docu/files/ScalaOverview.pdf>
-
-### Scala by Example
 > <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
+> <http://www.scala-lang.org/docu/files/ScalaTutorial.pdf>
 
-### Scala on Stackoverflow
+### Scala Wiki auf Stackoverflow
+Zusammenstellung grundlegender, wichtiger Fragen und Antworten rund um Scala
 > <http://stackoverflow.com/tags/scala/info>
 
 
