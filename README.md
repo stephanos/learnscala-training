@@ -2,7 +2,7 @@
 
 ## Typesafe Stack
 Installationspaket mit Scala und SBT (benötigt Admin-Rechte)
-> http://www.typesafe.com/stack/download
+> <http://www.typesafe.com/stack/download>
 
 ## Scala Distribution
 Scala-Bibliotheken und -Tools
@@ -71,7 +71,8 @@ Stabiles, sehr sicheres Web-Framework mit starker Trennung von Design und Logik
 
 # Lernmaterial
 
-## Scala School: Twitters Einführung in Scala
+## Scala School
+Twitters Einführung in Scala
 > http://twitter.github.com/scala_school/index.html
 
 ## Scala Overview
