@@ -19,6 +19,10 @@ Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervoll
 Offizielle Webseite zu Scala
 > <http://www.scala-lang.org>
 
+### Typesafe
+Die Firma hinter Scala: Typesafe Stack, Support, Training und Consulting
+> <http://typesafe.com>
+
 ### Scala API
 Durchsuchbare Dokumentation der Scala-API
 > <http://www.scala-lang.org/api/current/index.html>
@@ -30,6 +34,10 @@ Spezifikation aller Regeln der Scala Sprache (schwer verdaulich)
 ### Scala Tour
 Übersicht wichtiger Features der Sprache
 > <http://www.scala-lang.org/node/104>
+
+### Scala Style Guide
+Allgemeine, empfohlene Richtlinien zur Schreibweise von Scala-Code
+> <http://docs.scala-lang.org/style/>
 
 ### Scala Dokumentation
 Tutorials, Guides, Glossar und mehr
@@ -65,6 +73,10 @@ Bibliothek für typensichere Datenbankabfragen (Teil vom offiziellen Typesafe St
 ### [Datenbank] SQueryl
 Bibliothek für typensichere SQL-Abfragen
 > <http://squeryl.org/>
+
+### SBT
+Scala Build Tool zum Kompilieren und Testen von Scala-Projekten (Teil vom offiziellen Typesafe Stack)
+> https://github.com/harrah/xsbt/wiki
 
 ### Scalaz
 Erweitert die funktionalen Aspekte von Scala
@@ -125,6 +137,10 @@ Einführungskurs von Twitter
 Deutschsprachige, umfassende Übersicht
 > <http://scalatutorial.de>
 
+### Ninety-Nine Scala Problems
+99 Übungen mit unterschiedlichem Schwierigkeitsgrad (inklusive Lösungen)
+> <http://aperiodic.net/phil/scala/s-99/>
+
 ### Dokumente der EPFL Universität
 Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere Herangehensweise
 > * <http://www.scala-lang.org/docu/files/ScalaByExample.pdf>
@@ -134,6 +150,37 @@ Verschiedene Dokumente zur Einführung in die Scala-Welt, jeweils mit anderere H
 ### Scala Wiki auf Stackoverflow
 Zusammenstellung grundlegender, wichtiger Fragen und Antworten rund um Scala
 > <http://stackoverflow.com/tags/scala/info>
+
+### Scala Puzzles
+Online Übungskurs für erste Schritte in Scala
+> <http://scalapuzzles.org>
+
+### Scala Puzzlers
+Quiz zu Fallstricken und Sonderfällen in Scala (fortgeschritten)
+> <http://scalapuzzlers.com>
+
+### ScalaDays 2011
+Alle Präsentationen als PDF oder Video von der wichtigsten Scala-Messe
+> <https://wiki.scala-lang.org/x/AgAU>
+
+
+## Blogs
+
+### Algorirthmically Challenged
+Blog von Daniel Sobral, einem Scala-Entwickler
+> <http://dcsobral.blogspot.de>
+
+### Coderspiel
+Blog von Nathan Hamblen, Erfinder von dispatch und unfiltered
+> <http://code.technically.us>
+
+### Implicitly
+Vorstellung neuer Bibliotheken und neuer Versionen aus der Scala-Welt
+> <http://implicit.ly>
+
+### Planet Scala
+Aggegator wichtiger Scala-Blogs
+> <http://www.planetscala.com>
 
 
 ## Bücher
