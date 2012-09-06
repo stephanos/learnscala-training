@@ -10,4 +10,4 @@ Scala-Bibliotheken und -Tools
 
 ### Scala-IDE
 > Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
-> http://scala-ide.org
+>> http://scala-ide.org
