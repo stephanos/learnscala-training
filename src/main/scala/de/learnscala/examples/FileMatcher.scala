@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package filematcher
 
+/**
+ * Closure
+ */
 class FileMatcher {
 
     private def filesHere = (new java.io.File(".")).listFiles

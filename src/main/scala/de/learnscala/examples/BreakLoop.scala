@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package breakloop
 
+/**
+ * Currying, Kontrollstruktur, By-Name-Parameter
+ */
 object BreakLoop {
 
     object Break extends RuntimeException
