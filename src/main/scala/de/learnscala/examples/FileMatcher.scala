@@ -2,7 +2,7 @@ package de.learnscala.examples
 package filematcher
 
 /**
- * Closure
+ * Closure, Funktion höherer Ordnung
  */
 class FileMatcher {
 

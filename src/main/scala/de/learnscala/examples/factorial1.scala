@@ -1,5 +1,5 @@
 package de.learnscala.examples
-package factorial
+package factorial1
 
 import annotation.tailrec
 
