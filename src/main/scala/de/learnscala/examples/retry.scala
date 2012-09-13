@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package retry
 
+/**
+ * Currying, Kontrollstruktur, By-Name-Parameter, Ausnahmen
+ */
 object Retry {
 
     @annotation.tailrec

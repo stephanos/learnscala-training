@@ -18,9 +18,6 @@ trait Help {
 //  Zur jeder Übung 'XYZ' gibt es eine entsprechende Testspezifikation 'S_XYZ'.
 //  Alle Tests befinden sich unter '/src/test/scala/de/learnscala/exercises'.
 //
-//  Tipp: Jede Übung definiert am Anfang den Typ 'Spec',
-//        folgen Sie in Ihrer IDE einfach der zugewiesenen Spezifikation.
-//
 //
 //
 //  Wie führe ich einen Test aus ?

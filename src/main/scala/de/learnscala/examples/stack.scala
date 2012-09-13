@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package stack
 
+/**
+ * Typ-Parameter, List
+ */
 class Stack[T] {
 
     var elems: List[T] = Nil

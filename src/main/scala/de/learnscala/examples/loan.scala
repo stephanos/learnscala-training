@@ -3,6 +3,9 @@ package loan
 
 import java.io.{File, PrintWriter}
 
+/**
+ * Currying, Kontrollstruktur, Ausnahme
+ */
 object Loan {
 
     def withPrintWriter(file: File)(op: PrintWriter => Unit) {

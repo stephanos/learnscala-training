@@ -4,8 +4,6 @@ import de.learnscala.base._
 
 object U030 extends Exercise with Help {
 
-    type Spec = S030
-
     /**
      * Task #1
      *

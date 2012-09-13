@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package dont
 
+/**
+ * Kontrollstruktur, By-Name-Parameter
+ */
 object Dont {
 
     def dont(code: => Unit) = new DontCommand(code)

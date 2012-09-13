@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package cat
 
+/**
+ * Case Class
+ */
 object Main extends App {
 
     case class Cat(name: String, age: Int, isFemale: Boolean = true)

@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package bool
 
+/**
+ * Infix-Notation
+ */
 class Bool(x: Boolean) {
 
     def and(that: Bool) =

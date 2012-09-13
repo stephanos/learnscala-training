@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package unless
 
+/**
+ * Currying, Kontrollstruktur, By-Name-Parameter
+ */
 object Unless {
 
     def unless(condition: => Boolean)(body: => Unit) {

@@ -1,6 +1,9 @@
 package de.learnscala.examples
 package dowhile
 
+/**
+ * Schleife
+ */
 object Main {
 
     var count = 0

@@ -3,6 +3,9 @@ package factorial
 
 import annotation.tailrec
 
+/**
+ * Rekursion
+ */
 object Factorial {
 
     // without tail recursion
