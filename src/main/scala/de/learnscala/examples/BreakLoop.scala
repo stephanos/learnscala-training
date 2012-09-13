@@ -1,6 +1,7 @@
 package de.learnscala.examples
+package breakloop
 
-package object breakloop {
+object BreakLoop {
 
     object Break extends RuntimeException
     object Continue extends Exception
@@ -43,19 +44,18 @@ package object breakloop {
             case Break =>
         }
     }
+}
 
 
-    // =====
-    // TEST
-    // =====
-    object Main extends App {
+object Main extends App {
 
-        var i = 0
-        whileTrue {
-            println(i)
-            i += 1
-            if (i < 3) continue
-            if (i >= 5) break
-        }
+    import BreakLoop._
+
+    var i = 0
+    whileTrue {
+        println(i)
+        i += 1
+        if (i < 3) continue
+        if (i >= 5) break
     }
 }

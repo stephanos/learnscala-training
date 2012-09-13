@@ -6,7 +6,7 @@ package de.learnscala.examples
  */
 
 object ByName {
-    List(breakloop.Main, unless.Main)
+    List(breakloop.Main, retry.Main, unless.Main)
 }
 
 object Closures {
@@ -14,9 +14,21 @@ object Closures {
 }
 
 object Currying {
-    List(breakloop.Main, unless.Main)
+    List(breakloop.Main, retry.Main, unless.Main)
+}
+
+object Exceptions {
+    List(retry.Main)
 }
 
 object For {
     List(filematcher.Main)
+}
+
+object Loop {
+    List(dowhile.Main)
+}
+
+object Recursion {
+    List(retry.Main)
 }
