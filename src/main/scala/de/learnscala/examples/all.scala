@@ -18,11 +18,11 @@ object Closures {
 }
 
 object ControllStructure {
-    List(breakloop.Main, retry.Main, unless.Main)
+    List(breakloop.Main, loan.Main, retry.Main, unless.Main)
 }
 
 object Currying {
-    List(breakloop.Main, retry.Main, unless.Main)
+    List(breakloop.Main, loan.Main, retry.Main, unless.Main)
 }
 
 object DefaultParameter {
@@ -30,7 +30,7 @@ object DefaultParameter {
 }
 
 object Exceptions {
-    List(retry.Main)
+    List(loan.Main, retry.Main)
 }
 
 object For {
