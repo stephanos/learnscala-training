@@ -48,3 +48,7 @@ object NamedParameter {
 object Recursion {
     List(retry.Main)
 }
+
+object TypeParameter {
+    List(stack.Main)
+}
