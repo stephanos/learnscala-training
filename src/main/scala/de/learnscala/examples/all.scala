@@ -46,7 +46,7 @@ object NamedParameter {
 }
 
 object Recursion {
-    List(retry.Main)
+    List(factorial.Main, retry.Main)
 }
 
 object TypeParameter {
