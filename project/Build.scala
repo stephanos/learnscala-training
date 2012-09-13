@@ -38,10 +38,10 @@ object Deps {
 
 object Dep {
 
-    val scala = "2.10.0-M6"
+    val scala = "2.10.0-M7"
 
     val akka2 = "com.typesafe.akka" % "akka-actor" % "2.0.2"
-    val dispatch = "net.databinder.dispatch" %% "core" % "0.9.0"
+    val dispatch = "net.databinder.dispatch" %% "core" % "0.9.1"
     val h2 = "com.h2database" % "h2" % "1.3.166"
     val http = "org.apache.httpcomponents" % "httpclient" % "4.2"
     val jerkson = "com.codahale" % "jerkson_2.9.1" % "0.5.0"
@@ -66,7 +66,7 @@ object Dep {
         val junit = "junit" % "junit" % "4.7"
         val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
-        val specs2 = "org.specs2" %% "specs2" % "1.11" % "test"
+        val specs2 = "org.specs2" %% "specs2" % "1.12.1" % "test"
     }
 
 }
