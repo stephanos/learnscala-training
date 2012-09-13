@@ -29,9 +29,8 @@ object Deps {
     import Dep._
 
     val dbKit = Seq(h2)
-    val utilKit = Seq(jodaTime)
     val httpKit = Seq(http)
-    //spray, sprayIo, sprayCan, sprayClient)
+    val utilKit = Seq(jodaTime, jodaConvert)
     val testKit = Seq(Test.specs2, Test.mockito, Test.junit)
     val scalaKit = Seq(scalaActors, scalaSwing, scalaCompiler, scalaLib, scalaReflect, scalaz)
 }
@@ -47,6 +46,7 @@ object Dep {
     val http = "org.apache.httpcomponents" % "httpclient" % "4.2"
     val jerkson = "com.codahale" % "jerkson_2.9.1" % "0.5.0"
     val jodaTime = "joda-time" % "joda-time" % "2.1"
+    val jodaConvert = "org.joda" % "joda-convert" % "1.2"
     val rogue = "com.foursquare" %% "rogue" % "1.1.8"
     val scalaActors = "org.scala-lang" % "scala-actors" % scala
     val scalaCompiler = "org.scala-lang" % "scala-compiler" % scala
