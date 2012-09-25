@@ -1,4 +1,4 @@
-## Übungen zur [Scala Schulung](https://www.learnscala.de) von [101 Loops](http://www.101loops.com)
+## Übungen zur [Scala Schulung](https://www.learnscala.de) von [101 Loops](http://www.101loops.de)
 
 **Werkzeuge:**
 
