@@ -13,7 +13,7 @@ object Prime {
         for (i <- start to end if isPrime(i)) println(i)
 }
 
-object Main {
+object Main extends App {
 
     Prime.primes(1, 20)
 }

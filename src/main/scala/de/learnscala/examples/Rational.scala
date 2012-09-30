@@ -30,7 +30,7 @@ class Rational(n: Int, d: Int) {
 }
 
 
-object Main {
+object Main extends App {
 
     var i = 1
     var x = new Rational(0, 1)

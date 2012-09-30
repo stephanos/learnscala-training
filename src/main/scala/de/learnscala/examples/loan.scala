@@ -19,7 +19,7 @@ object Loan {
     }
 }
 
-object Main {
+object Main extends App {
 
     import Loan._
 

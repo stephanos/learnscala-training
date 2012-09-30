@@ -17,7 +17,7 @@ class Bool(x: Boolean) {
 }
 
 
-object Main {
+object Main extends App {
 
     val TRUE = new Bool(true)
     val FALSE = new Bool(false)

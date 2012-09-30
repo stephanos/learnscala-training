@@ -13,7 +13,7 @@ object Prime {
         ps.drop(start).take(start - end).foreach(println)
 }
 
-object Main {
+object Main extends App {
 
     Prime.primes(1, 20)
 }

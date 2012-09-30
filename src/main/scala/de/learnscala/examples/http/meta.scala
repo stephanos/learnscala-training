@@ -6,6 +6,6 @@
 //}
 //
 //
-//object Main {
+//object Main extends App {
 //
 //}

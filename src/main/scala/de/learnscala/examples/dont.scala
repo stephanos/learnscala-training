@@ -22,7 +22,7 @@ object Dont {
 
 }
 
-object Main {
+object Main extends App {
 
     import Dont._
 

@@ -16,7 +16,7 @@ object Factorial {
     implicit def int2fact(n: Int) = new Factorizer(n)
 }
 
-object Main {
+object Main extends App {
 
     import Factorial._
 

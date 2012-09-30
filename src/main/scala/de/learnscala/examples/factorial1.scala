@@ -30,7 +30,7 @@ object Factorial {
 
 }
 
-object Main {
+object Main extends App {
 
     import Factorial._
 

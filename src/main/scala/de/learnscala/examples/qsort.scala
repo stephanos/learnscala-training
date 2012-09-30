@@ -17,7 +17,7 @@ object Quicksort {
 }
 
 
-object Main {
+object Main extends App {
 
     import Quicksort._
 
