@@ -15,7 +15,7 @@ trait Push {
 
             val code = name.tail
 
-            val uuid = {
+            val uuid = { // ERROR
                 import java.net._
                 val ip = InetAddress.getLocalHost
                 val network = NetworkInterface.getByInetAddress(ip)
@@ -62,6 +62,8 @@ trait Push {
         import org.apache.http.impl.client._
         import org.apache.http.params._
 
+        //println(data)
+
         val params = new BasicHttpParams()
         val cparams = new HttpConnectionParamBean(params)
         cparams.setConnectionTimeout(1000)
@@ -72,9 +74,7 @@ trait Push {
         post.setEntity(new StringEntity(data, ContentType.TEXT_XML))
         val r = client.execute(post)
 
-        // debug:
         //println(r)
-        //println(data)
         //println(scala.io.Source.fromInputStream(r.getEntity.getContent).getLines().mkString("\n"))
     }
 }

@@ -43,6 +43,7 @@ class S030 extends BaseTest("U030") {
         */
     }
 
+    /*
     "Task #2 ('signum')" >> {
 
         implicit val stop = WhenFail()
@@ -82,4 +83,5 @@ class S030 extends BaseTest("U030") {
                 }
         }
     }
+    */
 }
