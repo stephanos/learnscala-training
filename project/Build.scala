@@ -67,6 +67,7 @@ object Dep {
         val spray = "cc.spray" %% "spray-server" % "1.0-M2"
         val sprayIo = "cc.spray" %% "spray-io" % "1.0-M2"
         val sprayCan = "cc.spray" %% "spray-can" % "1.0-M2"
+        val unfiltered = "net.databinder" %% "unfiltered-filter" % "0.6.3"
     }
 
     object Util {
@@ -82,7 +83,6 @@ object Dep {
         val slick = "com.typesafe" %% "slick" % "0.11.0"
         val rogue = "com.foursquare" %% "rogue" % "1.1.8"
         val squeryl = "org.squeryl" %% "squeryl" % "0.9.5-2"
-        val unfiltered = "net.databinder" %% "unfiltered-filter" % "0.6.3"
     }
 
     object Test {
