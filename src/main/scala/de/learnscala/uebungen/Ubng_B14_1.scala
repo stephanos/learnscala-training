@@ -2,31 +2,31 @@ package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-class Ubng_B14_1 extends Exercise with Help with Disabled {
+class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
 
     /**
      * STEP-BY-STEP GUIDE:
      *
-     *    1) remove 'with Disabled' from class
-     *    2) execute test
-     *    3) fix error
-     *    4) go to step 2
+     *    1) execute test
+     *    2) fix error
+     *    3) go to step 2
      **/
 
     // ===============================================================
 
     /**
-     * Task #1
+     * Aufgabe #1
      *
-     * Method 'isTheAnswerToLifeTheUniverseAndEverything' returns '42'.
+     * Method 'theAnswerToLifeTheUniverseAndEverything' returns '42'.
      */
 
-    ???
+    def theAnswerToLifeTheUniverseAndEverything(n: Int) =
+        42
 
     // ===============================================================
 
     /**
-     * Task #2
+     * Aufgabe #2
      *
      * Method 'signum' returns '1' if a number is positive,
      * '-1' if a number is negative or '0' otherwise.
@@ -35,12 +35,12 @@ class Ubng_B14_1 extends Exercise with Help with Disabled {
      * @return 1, 0 or -1
      */
 
-    ???
+    TODO
 
     // ===============================================================
 
     /**
-     * Task #3
+     * Aufgabe #3
      *
      * Method 'absMax' receives 2 numbers and finds the one that
      * has the highest absolute value.
@@ -51,5 +51,5 @@ class Ubng_B14_1 extends Exercise with Help with Disabled {
      * @return the number with the highest absolute value (e.g. absMax(-5,2) = -5)
      */
 
-    ???
+    TODO
 }

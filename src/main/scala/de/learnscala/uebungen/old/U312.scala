@@ -18,8 +18,8 @@ object U312 extends Exercise {
 
 
     def shout() =
-        ??? // printBold("SCALA")
+        TODO // printBold("SCALA")
 
     def google() =
-        ??? // printLink("http://google.com")
+        TODO // printLink("http://google.com")
 }

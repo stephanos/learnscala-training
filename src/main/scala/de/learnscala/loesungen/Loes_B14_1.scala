@@ -4,18 +4,16 @@ import de.learnscala.base.Solution
 
 class Loes_B14_1 extends Solution {
 
-    sys.error("test")
-
     /**
-     * Task #1
+     * Aufgabe #1
      */
-    def isTheAnswerToLifeTheUniverseAndEverything =
+    def theAnswerToLifeTheUniverseAndEverything =
         42
 
     // ===============================================================
 
     /**
-     * Task #2
+     * Aufgabe #2
      */
     def signum(n: Int) =
         if (n == 0)
@@ -27,7 +25,7 @@ class Loes_B14_1 extends Solution {
     // ===============================================================
 
     /**
-     * Task #3
+     * Aufgabe #3
      */
     def absMax(n1: Int, n2: Int) =
         if (Math.abs(n1) > Math.abs(n2)) n1 else n2

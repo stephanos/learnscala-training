@@ -17,6 +17,12 @@ trait Reflect {
         cm reflectClass typ.typeSymbol.asClassSymbol reflectConstructor constructor apply (args: _*)
     }
 
+    /*
+    def hasInterface[T, I] = {
+        typeOf[T]
+    }
+    */
+
 
     // Objects
 
@@ -25,6 +31,15 @@ trait Reflect {
 
 
     // Members
+
+    /*
+    val members = typeOf[MyClass].members.filter(_.isValue).filter(_.typeSignature match {
+      case tpe if tpe <:< typeOf[ThirdParty] => true
+      case NullaryMethodType(tpe) if tpe <:< typeOf[ThirdParty] => true
+      case MethodType(Nil, tpe) if tpe <:< typeOf[ThirdParty] => true
+      case _ => false
+    })
+    */
 
     def getMembers[T: TypeTag](p: (Symbol) => Boolean): Iterable[Symbol] =
         typeOf[T].members collect {
@@ -56,10 +71,10 @@ trait Reflect {
 
     // Signature
 
-    def getSignature[T: TypeTag](s: Symbol): Type =
+    def getSignature(s: Symbol): Type =
         s typeSignature
 
-    def getParams[T: TypeTag](s: Symbol): List[Symbol] =
+    def getParams(s: Symbol): List[Symbol] =
         s.typeSignature match {
             case MethodType(params, _) => params
             case _ => List()
@@ -72,7 +87,7 @@ trait Reflect {
         getMember[T](name) map (getReturnType[T](_))
 
     def getReturnType[T: TypeTag](s: Symbol): Type =
-        getSignature[T](s) match {
+        getSignature(s) match {
             case NullaryMethodType(rt) => rt
             case MethodType(_, rt) => rt
             case PolyType(_, MethodType(_, rt)) => rt
