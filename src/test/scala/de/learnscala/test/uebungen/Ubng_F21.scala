@@ -3,5 +3,5 @@ package test.uebungen
 
 import de.learnscala.test.generic
 
-class Ubng_F22
-    extends generic.Test_F22[uebungen.Ubng_F22]
+class Ubng_F21
+    extends generic.Test_F21[uebungen.Ubng_F21]

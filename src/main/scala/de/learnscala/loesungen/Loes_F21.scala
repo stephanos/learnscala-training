@@ -1,14 +1,12 @@
-package de.learnscala.loesungen.old
+package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-object L230 extends Solution {
+class Loes_F21 extends Solution {
 
-    /**
-     * Für die folgenden Aufgaben sollte die offizielle Scala API-Dokumentation verwendet werden:
-     * http://www.scala-lang.org/api/current/index.html
-     */
 
+    /////////////////////////////////////////////////////////
+    // Traversable
 
     /**
      * Konvertiert Elemente von Traversable in einen String der Form "[1,2,3]".

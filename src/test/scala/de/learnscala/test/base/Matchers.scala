@@ -33,11 +33,14 @@ trait Matchers {
         }
 
 
-    def mustHaveParams(m: MethodSymbol, types: Class[_]*) = {
-        val size = types.size
-        "must have " + size + " parameter" >> {
-            getParams(m) aka "parameter list" must haveSize(size)
+    def mustHaveParams(m: MethodSymbol, count: Int): Example = {
+        "must have " + count + " parameter" >> {
+            getParams(m) aka "parameter list" must haveSize(count)
         }
+    }
+
+    def mustHaveParams(m: MethodSymbol, types: Class[_]*): Example = {
+        mustHaveParams(m, types.size)
         // TODO: check types
     }
 
