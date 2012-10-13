@@ -1,8 +1,8 @@
-package de.learnscala.loesungen.old
+package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-object L410 extends Solution {
+class Loes_B23 extends Solution {
 
     implicit def MyInt(i: Int) = new {
         def +%(p: Int): Int =
@@ -12,15 +12,17 @@ object L410 extends Solution {
             math.floor(i - (i / 100.0 * p)).toInt
     }
 
+    // ===============================================================
 
     /**
-     * Die Zahl '150' wird um 50% erhöht
+     * Aufgabe #1
      */
     def plus50p = 150 +% 50
 
+    // ===============================================================
 
     /**
-     * Die Zahl '150' wird um 50% verringert
+     * Aufgabe #2
      */
     def minus50p = 150 -% 50
 }
