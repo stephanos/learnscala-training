@@ -10,7 +10,7 @@ trait Matchers {
 
     self: Reflect with SpecificationWithJUnit =>
 
-    def haveSignature(m: MethodSymbol, types: List[_]) {
+    def haveSignature(m: MethodSymbol, types: List[_]) = {
         "must have " + types.size + " parameter" >> {
             getParams(m) aka "parameter list" must haveSize(0)
         }
