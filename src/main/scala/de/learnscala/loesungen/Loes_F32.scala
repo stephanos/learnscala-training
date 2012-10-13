@@ -6,8 +6,25 @@ class Loes_F32 extends Solution {
 
     /**
      * Aufgabe #1
+     */
+
+    def until(condition: => Boolean)(block: => Unit) {
+        if (!condition) {
+            block
+            until(condition)(block)
+        }
+    }
+
+    /**
      *
      */
+    def incr = {
+        var i = 0
+        until(i == 10) {
+            i += 1
+        }
+        i
+    }
 
 
     // ===============================================================

@@ -4,7 +4,6 @@ import de.learnscala.base.Exercise
 
 object U312 extends Exercise {
 
-
     /**
      * Eine Markdown-ähnliche Sprache wird erstellt.
      *

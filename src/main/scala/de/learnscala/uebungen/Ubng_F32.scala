@@ -8,9 +8,18 @@ class Ubng_F32 extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #1
      *
+     * Gesucht wird eine Funktion 'until' die bewirkt, dass der Rückgabewert '10' ist.
      */
 
-    TODO
+    def incr = {
+        var i = 0
+        /*
+        until(i == 10) {
+            i += 1
+        }
+        */
+        i
+    }
 
 
     // ===============================================================
