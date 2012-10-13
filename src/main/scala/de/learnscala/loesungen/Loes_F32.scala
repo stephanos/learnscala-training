@@ -15,9 +15,6 @@ class Loes_F32 extends Solution {
         }
     }
 
-    /**
-     *
-     */
     def incr = {
         var i = 0
         until(i == 10) {
