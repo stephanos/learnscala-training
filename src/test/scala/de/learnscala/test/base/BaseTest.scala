@@ -7,19 +7,16 @@ import org.specs2.specification._
 import org.specs2.runner.JUnitRunner
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.mutable.Around
-import org.specs2.execute.{Skipped, Result}
+import org.specs2.execute.{Skipped, Failure, Result}
 import org.specs2.ScalaCheck
-import org.specs2.execute.Failure
 
 import scala.reflect.runtime.universe._
 import de.learnscala.base.Disabled
 
 @RunWith(classOf[JUnitRunner])
-abstract class BaseTest[T : TypeTag]
+abstract class BaseTest[T: TypeTag]
     extends SpecificationWithJUnit with Mockito with ScalaCheck
     with Reflect with Capture with Matchers {
-
-    type
 
     // execute sequentially
     sequential
@@ -49,17 +46,17 @@ abstract class BaseTest[T : TypeTag]
             try {
                 //step(args(stopOnFail = true))
                 val target = getInstance[T]()
-                if(!target.isInstanceOf[Disabled])
-                    fn apply (name, target)
+                if (!target.isInstanceOf[Disabled])
+                    fn apply(name, target)
                 else
                     "exercise disabled" >> {
                         Skipped()
                     }
             } catch {
                 case e: Throwable =>
-                    "instantiate exercise" >> {
-                        Failure("Unable to initiate exercise!",
-                            e.getMessage, e.getStackTrace.toList)
+                    "failed to initiate exercise" >> {
+                        e.printStackTrace()
+                        Failure()
                     }
             }
         }

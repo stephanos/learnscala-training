@@ -13,6 +13,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
             getMethod[T](mn) match {
                 case Some(m) =>
                     haveSignature(m, List())
+
                     "must return '42'" >> {
                         invoke(target, m) === 42
                     }
@@ -29,6 +30,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
             getMethod[T](mn) match {
                 case Some(m) =>
                     haveSignature(m, List(Int))
+
                     "must return '-1' for negative numbers" >> {
                         invoke(target, m, -1) === -1
                         invoke(target, m, -10) === -1
@@ -53,6 +55,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
             getMethod[T](mn) match {
                 case Some(m) =>
                     haveSignature(m, List(Int, Int))
+
                     "must return bigger one of 2 positive numbers" >> {
                         invoke(target, m, 5, 2) === 5
                         invoke(target, m, 2, 5) === 5
