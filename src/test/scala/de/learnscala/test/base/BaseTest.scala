@@ -43,8 +43,8 @@ abstract class BaseTest[T: TypeTag]
         }
     }
 
-    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example): Example = {
-        ("Task #" + n + ": " + typeOf + " '" + name + "'") >> {
+    def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example): Example = {
+        (prefix + typeOf + " '" + name + "'") >> {
             try {
                 //step(args(stopOnFail = true))
                 val target = getInstance[T]()
@@ -63,4 +63,7 @@ abstract class BaseTest[T: TypeTag]
             }
         }
     }
+
+    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example): Example =
+        test(name, typeOf, "Task #" + n + ": ")(fn)
 }

@@ -11,7 +11,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List())
+                    mustHaveParams(m)
 
                     "must return '42'" >> {
                         invoke(target, m) === 42
@@ -24,7 +24,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List(Int))
+                    mustHaveParams(m, classOf[Int])
 
                     "must return '-1' for negative numbers" >> {
                         invoke(target, m, -1) === -1
@@ -45,7 +45,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List(Int, Int))
+                    mustHaveParams(m, classOf[Int], classOf[Int])
 
                     "must return bigger one of 2 positive numbers" >> {
                         invoke(target, m, 5, 2) === 5

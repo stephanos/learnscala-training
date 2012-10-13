@@ -15,8 +15,8 @@ trait Help {
 //  Wo finde ich den jeweiligen Test ?
 //  ----------------------------------
 //
-//  Zur jeder Übung 'XYZ' gibt es eine entsprechende Testspezifikation 'S_XYZ'.
-//  Alle Tests befinden sich unter '/src/test/scala/de/learnscala/exercises'.
+//  Zur jeder Übung 'XYZ' gibt es eine gleichnamige Testspezifikation.
+//  Alle Tests befinden sich unter '/src/test/scala/de/learnscala/test/uebungen'.
 //
 //
 //

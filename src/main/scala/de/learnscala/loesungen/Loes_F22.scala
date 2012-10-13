@@ -1,21 +1,20 @@
-package de.learnscala.loesungen.old
+package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 import scala.Some
-import scala.Some
 
-object L221 extends Solution {
+class Loes_F22 extends Solution {
 
     /**
-     * Tauscht die Elemente des Tuples.
+     * Aufgabe #1
      */
     def swap(t: (Int, Int)): (Int, Int) =
         (t._2, t._1)
 
+    // ===============================================================
 
     /**
-     * Summiert die Elemente eines Tuples.
-     * Das erste Element zeigt an, ob addiert (true) oder subtrahiert (false) werden soll.
+     * Aufgabe #2
      */
     def sum(t: (Boolean, Int, Int)) =
         t match {
@@ -23,9 +22,10 @@ object L221 extends Solution {
             case (false, a1, a2) => a1 - a2
         }
 
+    // ===============================================================
 
     /**
-     * Antwortet ob das Auto gekauft werden soll - abhängig vom Argument.
+     * Aufgabe #3
      */
     def doYouBuyTheCar(b: Option[Boolean]) {
         print(b match {
@@ -35,9 +35,10 @@ object L221 extends Solution {
         })
     }
 
+    // ===============================================================
 
     /**
-     * Konvertiert einen String in einen Integer.
+     * Aufgabe #4
      */
     def convertToInt(s: String): Option[Int] =
         try {

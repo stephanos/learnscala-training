@@ -7,8 +7,6 @@ abstract class Test_B23[T: TypeTag] extends BaseTest[T] {
 
     task(1)("+%", "operator") {
         (_, target) =>
-            implicit val t = target
-
             mustHaveMethod("plus50p") {
                 m =>
                     "must increase value of '150' by 50 %" >> {

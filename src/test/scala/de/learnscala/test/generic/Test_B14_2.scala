@@ -9,7 +9,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List())
+                    mustHaveParams(m)
 
                     "must print numbers from 1 to 10" >> {
                         captureOutput(invoke(target, m))._2.trim === "1 2 3 4 5 6 7 8 9 10"
@@ -21,7 +21,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List())
+                    mustHaveParams(m)
 
                     "must print multiples of 10 between 10 and 100" >> {
                         captureOutput(invoke(target, m))._2.trim === "10 20 30 40 50 60 70 80 90 100"
@@ -33,7 +33,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
-                    mustHaveParams(m, List(Int))
+                    mustHaveParams(m, classOf[Int])
 
                     "must print only even numbers for argument '2'" >> {
                         captureOutput(invoke(target, m, 2))._2.trim === "2 4 6 8 10"
