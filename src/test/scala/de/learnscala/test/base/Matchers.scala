@@ -12,16 +12,26 @@ trait Matchers {
 
     self: Reflect with SpecificationWithJUnit =>
 
-    def mustHaveMethod[T : TypeTag](name: String)(f: (MethodSymbol) => Example) = {
+    def mustHaveValue[T: TypeTag](name: String)(f: (TermSymbol) => Example): Example =
+        getVal[T](name) match {
+            case Some(v) =>
+                f apply v
+            case _ =>
+                ("must be defined: '" + name + "'") >> {
+                    Pending()
+                }
+        }
+
+    def mustHaveMethod[T: TypeTag](name: String)(f: (MethodSymbol) => Example): Example =
         getMethod[T](name) match {
             case Some(m) =>
                 f apply m
             case _ =>
-                "must be defined" >> {
+                ("must be defined: '" + name + "'") >> {
                     Pending()
                 }
         }
-    }
+
 
     def mustHaveParams(m: MethodSymbol, types: List[_]) = {
         "must have " + types.size + " parameter" >> {

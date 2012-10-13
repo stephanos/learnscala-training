@@ -11,7 +11,9 @@ import org.specs2.execute.{Skipped, Failure, Result}
 import org.specs2.ScalaCheck
 
 import scala.reflect.runtime.universe._
-import de.learnscala.base.Disabled
+import de.learnscala.base._
+import org.specs2.execute.Skipped
+import org.specs2.execute.Failure
 
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest[T: TypeTag]
@@ -41,13 +43,13 @@ abstract class BaseTest[T: TypeTag]
         }
     }
 
-    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Any) => Example): Example = {
+    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example): Example = {
         ("Task #" + n + ": " + typeOf + " '" + name + "'") >> {
             try {
                 //step(args(stopOnFail = true))
                 val target = getInstance[T]()
                 if (!target.isInstanceOf[Disabled])
-                    fn apply(name, target)
+                    fn apply(name, target.asInstanceOf[Testable])
                 else
                     "exercise disabled" >> {
                         Skipped()

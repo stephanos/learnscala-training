@@ -53,6 +53,25 @@ trait Reflect {
             case _ => None
         }
 
+    // val
+
+    def getVal[T: TypeTag](name: String): Option[TermSymbol] =
+        getMember[T](name) flatMap (_ match {
+            case term: TermSymbol if(term.isValue) => Some(term)
+            case _ => None
+        })
+
+    // Term
+
+    def getTerm[T: TypeTag](name: String): Option[TermSymbol] =
+        getMember[T](name) flatMap (_ match {
+            case term: TermSymbol => Some(term)
+            case _ => None
+        })
+
+
+    // Method
+
     def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
         getMember[T](name) flatMap (_ match {
             case mth: MethodSymbol => Some(mth)
@@ -67,6 +86,9 @@ trait Reflect {
 
     def invoke[T: TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
         cm reflect(obj) reflectMethod(mth) apply(args: _*)
+
+    def read[T: TypeTag](obj: T, t: TermSymbol, args: Any*): Any =
+        cm reflect(obj) reflectField (t) get
 
 
     // Signature

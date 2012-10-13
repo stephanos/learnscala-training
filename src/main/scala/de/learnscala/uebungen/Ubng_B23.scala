@@ -12,7 +12,9 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      *
      * Die Zahl '150' wird um 50% erhöht
      */
+
     def plus50p = TODO // 150 +% 50
+
 
     // ===============================================================
 
@@ -21,5 +23,6 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      *
      * Die Zahl '150' wird um 50% verringert
      */
+
     def minus50p = TODO // 150 -% 50
 }
