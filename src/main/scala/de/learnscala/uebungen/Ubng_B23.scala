@@ -4,9 +4,6 @@ import de.learnscala.base._
 
 class Ubng_B23 extends Exercise with Help /* with Disabled */ {
 
-
-    // ===============================================================
-
     /**
      * Aufgabe #1
      *

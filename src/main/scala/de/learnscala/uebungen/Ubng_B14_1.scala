@@ -51,4 +51,38 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      */
 
     TODO
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #4
+     *
+     * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
+     */
+    def countingOut() {
+        TODO
+    }
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #5
+     *
+     * Zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
+     */
+    def count10s() {
+        TODO
+    }
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #6
+     *
+     * Zählt Zahlen von 1 bis 10;
+     * gibt Zahlen, die ganzzahlig durch Parameter teilbar sind, durch Leerzeichen getrennt aus.
+     */
+    def countMod(mod: Int) {
+        TODO
+    }
 }

@@ -1,6 +1,7 @@
 package de.learnscala.uebungen
 
 import de.learnscala.base._
+import java.io._
 
 class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
@@ -11,37 +12,62 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      *    4) go to step 2
      **/
 
-    // ===============================================================
-
     /**
      * Aufgabe #1
      *
-     * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
+     * Gibt den Namen der mathematischen Symbole zurück: Π, √, ! und ∑
      */
-    def countingOut() {
+    def nameOfSymbol(symbol: Char) =
         TODO
-    }
 
     // ===============================================================
 
     /**
      * Aufgabe #2
      *
-     * Zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
+     * Ermittelt ob ein Wochentag ein Arbeitstag ist.
      */
-    def count10s() {
+    def isWorkingDay(day: String) =
         TODO
-    }
 
     // ===============================================================
 
     /**
      * Aufgabe #3
      *
-     * Zählt Zahlen von 1 bis 10;
-     * gibt Zahlen, die ganzzahlig durch Parameter teilbar sind, durch Leerzeichen getrennt aus.
+     * Gibt vom übergebenen Wert den Namen des Typs zurück.
      */
-    def countMod(mod: Int) {
+    def nameOfType(value: Any) =
+        TODO
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #4
+     *
+     * Berechnet die Hälfte einer Zahl,
+     * wirft jedoch eine Exception wenn die Zahl nicht ganzzahlig teilbar ist.
+     */
+    def half(n: Int) =
+        TODO
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #5
+     *
+     * Liest das erste Zeichen einer Datei aus.
+     *
+     * Bei 'IOException' sollte 'cannot read' geloggt werden.
+     * Bei 'RuntimeException' sollte 'not found' geloggt werden.
+     * Bei 'FileNotFoundException' sollte 'not found' geloggt werden.
+     *
+     * PS: Nicht vergessen den Reader zu schließen!
+     *
+     * @param f der File Reader
+     * @return erste Zeichen der Datei - oder '0' bei einem Fehler
+     */
+    def readCharFromFile(f: FileReader) = {
         TODO
     }
 }
