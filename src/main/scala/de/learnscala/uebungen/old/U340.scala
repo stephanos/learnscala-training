@@ -1,4 +1,4 @@
-package de.learnscala.exercises.old
+package de.learnscala.uebungen.old
 
 import de.learnscala.base.Exercise
 

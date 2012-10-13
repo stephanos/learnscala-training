@@ -1,4 +1,4 @@
-package de.learnscala.exercises.old
+package de.learnscala.uebungen.old
 
 import de.learnscala.base._
 
@@ -14,24 +14,11 @@ object U030 extends Exercise with Help {
      * @return true or false
      */
 
-    TODO
+    ???
 
 
     /**
      * Task #2
-     *
-     * Method 'signum' returns '1' if a number is positive,
-     * '-1' if a number is negative or '0' otherwise.
-     *
-     * @param n integer
-     * @return 1, 0 or -1
-     */
-
-    TODO
-
-
-    /**
-     * Task #3
      *
      * Method 'absMax' receives 2 numbers and finds the one that
      * has the highest absolute value.
@@ -42,5 +29,5 @@ object U030 extends Exercise with Help {
      * @return the number with the highest absolute value (e.g. absMax(-5,2) = -5)
      */
 
-    TODO
+    ???
 }

@@ -1,4 +1,4 @@
-package de.learnscala.exercises.old
+package de.learnscala.uebungen.old
 
 import de.learnscala.base.Exercise
 import scala.Some
@@ -33,27 +33,27 @@ object U320 extends Exercise {
      * Liste der Titel von Bücher bei denen ein Autor mit Vornamen "Martin" mitgewirkt hat.
      */
     def titlesWithAuthorMartin =
-        TODO
+        ???
 
 
     /**
      * Liste der ISB-Nummern von Büchern bei denen ein Autor, dessen Nachname mit "S" beginnt, mitgewirkt hat.
      */
     def isbnsWithAuthorS =
-        TODO
+        ???
 
 
     /*
      * Tuple aus Titel und Preis von den Büchern die "Scala" im Titel tragen.
      */
     def priceAndTitleOfScalaBooks =
-        TODO
+        ???
 
 
     /*
      * Titel der Bücher die nicht mehr im Lager ("out of stock") sind.
      */
     def titlesOutOfStock =
-        TODO
+        ???
 
 }

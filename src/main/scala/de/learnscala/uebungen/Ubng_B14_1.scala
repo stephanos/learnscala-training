@@ -1,21 +1,29 @@
-package de.learnscala.exercises
+package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-object Ubng_B14_1 extends Exercise with Help {
+class Ubng_B14_1 extends Exercise with Help with Disabled {
+
+    /**
+     * STEP-BY-STEP GUIDE:
+     *
+     *    1) remove 'with Disabled' from class
+     *    2) execute test
+     *    3) fix error
+     *    4) go to step 2
+     **/
+
+    // ===============================================================
 
     /**
      * Task #1
      *
-     * Method 'isTheAnswerToLifeTheUniverseAndEverything'
-     * confirms '42' as true.
-     *
-     * @param n integer
-     * @return true or false
+     * Method 'isTheAnswerToLifeTheUniverseAndEverything' returns '42'.
      */
 
-    TODO
+    ???
 
+    // ===============================================================
 
     /**
      * Task #2
@@ -27,8 +35,9 @@ object Ubng_B14_1 extends Exercise with Help {
      * @return 1, 0 or -1
      */
 
-    TODO
+    ???
 
+    // ===============================================================
 
     /**
      * Task #3
@@ -42,5 +51,5 @@ object Ubng_B14_1 extends Exercise with Help {
      * @return the number with the highest absolute value (e.g. absMax(-5,2) = -5)
      */
 
-    TODO
+    ???
 }

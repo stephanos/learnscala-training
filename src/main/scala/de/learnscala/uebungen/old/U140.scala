@@ -1,4 +1,4 @@
-package de.learnscala.exercises
+package de.learnscala.uebungen
 
 import de.learnscala.base.Exercise
 
@@ -21,41 +21,41 @@ object U140 extends Exercise {
      * Das Gehalt eines normalen Angestellten.
      */
     def salaryForClerk =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines Managers.
      */
     def salaryForManager =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines Board Members.
      */
     def salaryForBoardMember =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines Angestellten, der befreundet mit dem Manager ist.
      */
     def salaryForfriendOfManagerClerk =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines Angestellten der illegal eingewandert ist.
      */
     def salaryForIllegalImmigrantClerk =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines illegal eingewanderten Managers.
      */
     def salaryForIllegalImmigrantManager =
-        TODO
+        ???
 
     /**
      * Das Gehalt eines illegal eingewanderten Board Members.
      */
     def salaryForIllegalImmigrantBoardMember =
-        TODO
+        ???
 }

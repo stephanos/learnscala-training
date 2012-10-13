@@ -1,4 +1,4 @@
-package de.learnscala.exercises.old
+package de.learnscala.uebungen.old
 
 import de.learnscala.base.Exercise
 
@@ -18,8 +18,8 @@ object U312 extends Exercise {
 
 
     def shout() =
-        TODO // printBold("SCALA")
+        ??? // printBold("SCALA")
 
     def google() =
-        TODO // printLink("http://google.com")
+        ??? // printLink("http://google.com")
 }
