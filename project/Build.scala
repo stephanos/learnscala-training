@@ -41,7 +41,7 @@ object Deps {
         Seq(http)
 
     val testKit =
-        Seq(specs2, mockito, junit)
+        Seq(specs2, mockito, scheck, stest, smock, junit)
 
     val scalaKit =
         Seq(akka, scalaActors, scalaSwing, scalaCompiler, scalaLib, scalaReflect, scalaz)
@@ -91,6 +91,8 @@ object Dep {
         val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
         val specs2 = "org.specs2" %% "specs2" % "1.11" % "test"
+        val stest = "org.scalatest" %% "scalatest" % "1.9-2.10.0-M6-B1"
+        val smock = "org.scalamock" %% "scalamock-scalatest-support" % "3.0-M3"
     }
 
 }
