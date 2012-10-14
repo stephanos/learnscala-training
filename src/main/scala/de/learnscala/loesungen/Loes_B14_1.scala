@@ -34,8 +34,6 @@ class Loes_B14_1 extends Solution {
 
     /**
      * Aufgabe #4
-     *
-     * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
      */
     def countingOut() {
         for (i <- 1 to 10)
@@ -46,8 +44,6 @@ class Loes_B14_1 extends Solution {
 
     /**
      * Aufgabe #5
-     *
-     * Zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
      */
     def count10s() {
         for (i <- 10 to 100 by 10)
@@ -58,9 +54,6 @@ class Loes_B14_1 extends Solution {
 
     /**
      * Aufgabe #6
-     *
-     * Zählt Zahlen von 1 bis 10;
-     * gibt Zahlen, die ganzzahlig durch Parameter teilbar sind, durch Leerzeichen getrennt aus.
      */
     def countMod(mod: Int) {
         for (i <- 1 to 10)

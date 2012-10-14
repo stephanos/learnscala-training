@@ -56,6 +56,17 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     /**
      * Aufgabe #5
      *
+     * Gibt die Länge des Strings zurück;
+     * bei einem Fehler ist das Ergebnis 0.
+     */
+    def getSize(s: String) =
+        TODO
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #6 (Bonus - schwierig !)
+     *
      * Liest das erste Zeichen einer Datei aus.
      *
      * Bei 'IOException' sollte 'cannot read' geloggt werden.
@@ -67,7 +78,6 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      * @param f der File Reader
      * @return erste Zeichen der Datei - oder '0' bei einem Fehler
      */
-    def readCharFromFile(f: FileReader) = {
+    def readCharFromFile(f: FileReader) =
         TODO
-    }
 }

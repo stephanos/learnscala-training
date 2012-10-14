@@ -26,6 +26,12 @@ trait Reflect {
 
     // Objects
 
+    def getObject[T: TypeTag](name: String): Option[ModuleSymbol] =
+        getMember[T](name) flatMap (_ match {
+            case obj: ModuleSymbol => Some(obj)
+            case _ => None
+        })
+
     def getObject(name: String): Option[Any] =
         tryopt(cm reflectModule(cm staticModule name) instance)
 

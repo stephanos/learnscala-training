@@ -1,0 +1,5 @@
+Examples source:
+    https://lampsvn.epfl.ch/trac/scala/browser/scala/trunk/src/swing/scala/swing/test
+
+Examples paper:
+    http://www.scala-lang.org/sites/default/files/sids/imaier/Mon,%202009-11-02,%2008:55/scala-swing-design.pdf

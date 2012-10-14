@@ -7,8 +7,6 @@ class Loes_B14_2 extends Solution {
 
     /**
      * Aufgabe #1
-     *
-     * Gibt den Namen der mathematischen Symbole zurück: Π, √, ! und ∑
      */
     def nameOfSymbol(symbol: Char): String =
         symbol match {
@@ -23,8 +21,6 @@ class Loes_B14_2 extends Solution {
 
     /**
      * Aufgabe #2
-     *
-     * Ermittelt ob ein Wochentag ein Arbeitstag ist.
      */
     def isWorkingDay(day: String): Boolean =
         day match {
@@ -36,8 +32,6 @@ class Loes_B14_2 extends Solution {
 
     /**
      * Aufgabe #3
-     *
-     * Gibt vom übergebenen Wert den Namen des Typs zurück.
      */
     def nameOfType(value: Any): String =
         value match {
@@ -53,9 +47,6 @@ class Loes_B14_2 extends Solution {
 
     /**
      * Aufgabe #4
-     *
-     * Berechnet die Hälfte einer Zahl,
-     * wirft jedoch eine Exception wenn die Zahl nicht ganzzahlig teilbar ist.
      */
     def half(n: Int) =
         if (n % 2 == 0)
@@ -67,17 +58,18 @@ class Loes_B14_2 extends Solution {
 
     /**
      * Aufgabe #5
-     *
-     * Liest das erste Zeichen einer Datei aus.
-     *
-     * Bei 'IOException' sollte 'cannot read' geloggt werden.
-     * Bei 'RuntimeException' sollte 'not found' geloggt werden.
-     * Bei 'FileNotFoundException' sollte 'not found' geloggt werden.
-     *
-     * PS: Nicht vergessen den Reader zu schließen!
-     *
-     * @param f der File Reader
-     * @return erste Zeichen der Datei - oder '0' bei einem Fehler
+     */
+    def getSize(s: String): Int =
+        try {
+            s.length
+        } catch {
+            case e: Throwable => 0
+        }
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #6
      */
     def readCharFromFile(f: FileReader): Char = {
         try {

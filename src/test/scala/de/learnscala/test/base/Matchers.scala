@@ -12,6 +12,17 @@ trait Matchers {
 
     self: Reflect with SpecificationWithJUnit =>
 
+    def mustHaveObject[T: TypeTag](name: String)(f: (Any) => Example): Example = {
+        getObject[T](name) match {
+            case Some(o) =>
+                f apply o
+            case _ =>
+                ("must be defined: object '" + name + "'") >> {
+                    Pending()
+                }
+        }
+    }
+
     def mustHaveValue[T: TypeTag](name: String)(f: (TermSymbol) => Example): Example =
         getVal[T](name) match {
             case Some(v) =>
