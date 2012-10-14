@@ -1,91 +1,100 @@
-package de.learnscala.loesungen.old
+package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-object L311 extends Solution {
+class Loes_F23_2 extends Solution {
 
     /**
-     * Summiert die Elemente der Liste.
+     * Aufgabe #1
      */
     def sum(l: MyList[Int]) =
         l.foldLeft(0)(_ + _)
 
+    // ===============================================================
 
     /**
-     * Multipliziert alle Elemente der Liste (leere Liste ergibt 1).
+     * Aufgabe #2
      */
     def product(l: MyList[Int]) =
         l.foldLeft(1)(_ * _)
 
+    // ===============================================================
 
     /**
-     * Zählt die Elemente der Liste.
+     * Aufgabe #3
      */
     def count(l: MyList[Int]) =
         l.foldLeft(0)((sum, _) => sum + 1)
 
+    // ===============================================================
 
     /**
-     * Liefert das letzte Ergebnis der Liste (leere Liste: None).
+     * Aufgabe #4
      */
     def last[A](list: MyList[A]): Option[A] =
         if (list.isEmpty) None
         else Some(list.foldLeft(list.head)((_, c) => c))
 
+    // ===============================================================
 
     /**
-     * Invertiert die Reihenfolge der Liste.
+     * Aufgabe #5
      */
     def reverse[A](list: MyList[A]): MyList[A] =
         list.foldLeft(MyList[A]())((r, c) => c :: r)
 
+    // ===============================================================
 
     /**
-     * Ermittelt ob ein Element Teil der Liste ist.
+     * Aufgabe #6
      */
     def contains[A](list: MyList[A], item: A): Boolean =
         list.foldLeft(false)(_ || _ == item)
 
+    // ===============================================================
 
     /**
-     * Transformiert die Elemente der Liste durch Anwendung der übergebenen Funktion.
+     * Aufgabe #7
      */
     def map[A, B](list: MyList[A], f: A => B): MyList[B] =
         reverse(list.foldLeft(MyList[B]())((res, cur) => f(cur) :: res))
 
+    // ===============================================================
 
     /**
-     * Filtert die Elemente aus der Liste heraus, bei denen die Funktion 'true' ergibt.
+     * Aufgabe #8
      */
     def filter[A](list: MyList[A], p: A => Boolean): MyList[A] =
         reverse(list.foldLeft(MyList[A]())((r, c) => if (p(c)) c :: r else r))
 
+    // ===============================================================
 
     /**
-     * Erstellt eine Liste ohne doppelte Werte.
+     * Aufgabe #9
      */
     def unique[A](list: MyList[A]): MyList[A] =
         reverse(list.foldLeft(MyList[A]()) {
             (r, c) =>
                 if (contains(r, c)) r else c :: r
         })
-}
 
 
-case class MyList[A](private val l: List[A] = List()) {
 
-    def head =
-        l.head
+    case class MyList[A](private val l: List[A] = List()) {
 
-    def tail =
-        l.tail
+        def head =
+            l.head
 
-    def foldLeft[B](z: B)(f: (B, A) => B): B =
-        l.foldLeft(z)(f)
+        def tail =
+            l.tail
 
-    def isEmpty =
-        l.isEmpty
+        def foldLeft[B](z: B)(f: (B, A) => B): B =
+            l.foldLeft(z)(f)
 
-    def ::[B >: A](x: B): MyList[B] =
-        new MyList(x :: l)
+        def isEmpty =
+            l.isEmpty
+
+        def ::[B >: A](x: B): MyList[B] =
+            new MyList(x :: l)
+    }
 }

@@ -1,8 +1,8 @@
-package de.learnscala.loesungen.old
+package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-object L310 extends Solution {
+class Loes_F23_1 extends Solution {
 
     def add1 =
         (x: Int) => x + 1
@@ -15,31 +15,39 @@ object L310 extends Solution {
 
 
     /**
-     * Erhöht alle Elemente der Liste um 1
+     * Aufgabe #1
      */
     def r1(l: List[Int]) =
         l map add1
 
+    // ===============================================================
+
     /**
-     * Erhöht alle Elemente der Liste um 1 und verdoppelt sie anschließend
+     * Aufgabe #2
      */
     def r2(l: List[Int]) =
         l map add1 map double
 
+    // ===============================================================
+
     /**
-     * Verdoppelt alle Elemente der Liste und addiert dann 1 dazu
+     * Aufgabe #3
      */
     def r3(l: List[Int]) =
         l map double map add1
 
+    // ===============================================================
+
     /**
-     * Addiert 1 auf die Listenelemente, verdoppelt sie dann und zieht wieder 1 ab
+     * Aufgabe #4
      */
     def r4(l: List[Int]) =
         l map add1 map double map sub1
 
+    // ===============================================================
+
     /**
-     * Addiert 1 auf das erste Element des Tuples und zieht 1 vom zweiten ab
+     * Aufgabe #5
      */
     def r5(l: List[(Int, Int)]) =
         l map (t => (add1(t._1), sub1(t._2)))
