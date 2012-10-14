@@ -38,7 +38,7 @@ object Deps {
         Seq(jodaTime, jodaConvert)
 
     val httpKit =
-        Seq( /*http*/ )
+        Seq( http )
 
     val testKit =
         Seq(specs2, mockito, scheck, stest, junit)
@@ -50,7 +50,7 @@ object Deps {
 
 object Dep {
 
-    val scala = "2.10.0-M7"
+    val scala = "2.10.0-M6"
 
     //val akka = "com.typesafe.akka" %% "akka-actor" % "2.1-M2"
     val scalaActors = "org.scala-lang" % "scala-actors" % scala
@@ -90,8 +90,8 @@ object Dep {
         val junit = "junit" % "junit" % "4.10"
         val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
-        val specs2 = "org.specs2" %% "specs2" % "1.12.1.1" % "test"
-        val stest = "org.scalatest" %% "scalatest" % "1.9-2.10.0-M7-B1"
+        val specs2 = "org.specs2" %% "specs2" % "1.11" % "test"
+        val stest = "org.scalatest" %% "scalatest" % "1.9-2.10.0-M6-B1"
         val smock = "org.scalamock" %% "scalamock-core" % "3.0-M3"
     }
 

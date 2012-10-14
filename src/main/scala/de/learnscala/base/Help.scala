@@ -38,7 +38,7 @@ trait Help {
 
       2.) Sobald SBT geladen ist, kann mit Hilfe von 'test-only' ein einzelner Test ausgeführt werden:
 
-          > test-only *S_B030
+          > test-only *Ubng_XYZ
 
       Das '*' ist nicht zu vergessen! Es ermöglicht den Test ohne absolute Pfadangaben.
 */

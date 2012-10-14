@@ -39,7 +39,7 @@ abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
                     mustHaveParams(m)
 
                     "f3 must output 'cba'" >> {
-                        captureOutput(invoke(target, m)) === "cba"
+                        invoke(target, m) === "cba"
                     }
             }
     }

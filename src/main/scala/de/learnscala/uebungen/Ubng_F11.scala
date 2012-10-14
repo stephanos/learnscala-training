@@ -10,7 +10,7 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
      * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
      */
 
-    // val negate =
+    // def negate =
 
     def f1 = TODO // negate(5.0f)
 
@@ -22,7 +22,7 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
      * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
      */
 
-    // val half =
+    // def half =
 
     def f2 = TODO // half(2)
 
@@ -31,12 +31,12 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #3
      *
-     * Gesucht wird eine Funktion zur Ausgabe eines umgekehrten Strings.
+     * Gesucht wird eine Funktion zur Umkehrung eines Strings.
      */
 
-    // val printReverse =
+    // def reverse =
 
-    def f3 = TODO // printReverse("abc")
+    def f3 = TODO // reverse("abc")
 
     // ===============================================================
 
@@ -46,7 +46,7 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
      * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
      */
 
-    // val repeat =
+    // def repeat =
 
     def f4 = TODO // repeat("123", 3)
 }

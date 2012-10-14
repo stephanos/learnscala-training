@@ -8,7 +8,7 @@ class Loes_F11 extends Solution {
      * Aufgabe #1
      */
 
-    val negate = (f: Float) => f * -1
+    def negate = (f: Float) => f * -1
 
     def f1 = negate(5.0f)
 
@@ -18,7 +18,7 @@ class Loes_F11 extends Solution {
      * Aufgabe #2
      */
 
-    val half = (i: Int) => i / 2
+    def half = (i: Int) => i / 2
 
     def f2 = half(2)
 
@@ -28,9 +28,9 @@ class Loes_F11 extends Solution {
      * Aufgabe #3
      */
 
-    val printReverse = (s: String) => println(s.reverse)
+    def reverse = (s: String) => s.reverse
 
-    def f3 = printReverse("abc")
+    def f3 = reverse("abc")
 
     // ===============================================================
 
@@ -38,7 +38,7 @@ class Loes_F11 extends Solution {
      * Aufgabe #4 (Bonus)
      */
 
-    val repeat = (s: String, i: Int) => s * i
+    def repeat = (s: String, i: Int) => s * i
 
     def f4 = repeat("123", 3)
 }
