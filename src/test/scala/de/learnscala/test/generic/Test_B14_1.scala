@@ -7,7 +7,6 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
     task(1)("theAnswerToLifeTheUniverseAndEverything", "method") {
         (mn, target) =>
-        //implicit val stop = WhenFail()
 
             mustHaveMethod(mn) {
                 m =>

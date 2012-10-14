@@ -29,7 +29,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * Method 'signum' returns '1' if a number is positive,
      * '-1' if a number is negative or '0' otherwise.
      *
-     * @param n integer
+     * @param n Int
      * @return 1, 0 or -1
      */
 
@@ -43,8 +43,8 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * Method 'absMax' receives 2 numbers and finds the one that
      * has the highest absolute value.
      *
-     * @param n1 first integer
-     * @param n2 second integer
+     * @param n1 first Int
+     * @param n2 second Int
      *
      * @return the number with the highest absolute value (e.g. absMax(-5,2) = -5)
      */
@@ -56,32 +56,33 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #4
      *
-     * Zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
+     * Methode 'countingOut'
+     * zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
      */
-    def countingOut() {
-        TODO
-    }
+
+    TODO
 
     // ===============================================================
 
     /**
      * Aufgabe #5
      *
-     * Zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
+     * Methode 'count10s'
+     * zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
      */
-    def count10s() {
-        TODO
-    }
+
+    TODO
 
     // ===============================================================
 
     /**
      * Aufgabe #6
      *
-     * Zählt Zahlen von 1 bis 10;
-     * gibt Zahlen, die ganzzahlig durch Parameter teilbar sind, durch Leerzeichen getrennt aus.
+     * Methode 'countMod' zählt Zahlen von 1 bis 10;
+     * gibt Zahlen, die ganzzahlig durch Parameter 'mod' teilbar sind, durch Leerzeichen getrennt aus.
+     *
+     * @param mod Int
      */
-    def countMod(mod: Int) {
-        TODO
-    }
+
+    TODO
 }

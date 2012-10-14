@@ -32,6 +32,7 @@ abstract class BaseTest[T: TypeTag]
         private var mustStop = false
 
         def around[R <% Result](r: => R) = {
+            println(r)
             if (mustStop)
                 Skipped("(a previous test failed)")
             else if (!r.isSuccess) {
@@ -42,6 +43,7 @@ abstract class BaseTest[T: TypeTag]
                 r
         }
     }
+    //implicit val stop = WhenFail()
 
     def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example): Example = {
         (prefix + typeOf + " '" + name + "'") >> {
