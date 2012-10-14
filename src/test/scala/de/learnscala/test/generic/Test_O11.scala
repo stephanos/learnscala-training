@@ -5,65 +5,64 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_O11[T: TypeTag] extends BaseTest[T] {
 
-    //        "butter" >> {
-    //            checkType[Item](butter, "butter", enabled) {
-    //                item =>
-    //                    "must have price 0.95 €" >> {
-    //                        item.price === 0.95f
-    //                    }
-    //                    "must have description 'Butter'" >> {
-    //                        item.description === "Butter"
-    //                    }
-    //            }
-    //        }
-    //
-    //        "milk" >> {
-    //            checkType[Item](milk, "milk", enabled) {
-    //                item =>
-    //                    "must have correct price" >> {
-    //                        item.price === 0.99f
-    //                    }
-    //                    "must have correct description" >> {
-    //                        item.description === "Milk"
-    //                    }
-    //            }
-    //        }
-    //
-    //        "butterAndMilk" >> {
-    //            checkType[Item](butterAndMilk, "butterAndMilk", enabled) {
-    //                item =>
-    //                    "must have correct price" >> {
-    //                        item.price === 1.94f
-    //                    }
-    //                    "must have correct description" >> {
-    //                        item.description === "Butter & Milk"
-    //                    }
-    //            }
-    //        }
-    //
-    //        "apple5kg" >> {
-    //            checkType[Item](apple5kg, "apple5kg", enabled) {
-    //                item =>
-    //                    "must have correct price" >> {
-    //                        item.price === 1.00f
-    //                    }
-    //                    "must have correct description" >> {
-    //                        item.description === "5kg Apples"
-    //                    }
-    //            }
-    //        }
-    //
-    //        "butterMilkAndApples" >> {
-    //            checkType[Item](butterMilkAndApples, "butterMilkAndApples", enabled) {
-    //                item =>
-    //                    "must have correct price" >> {
-    //                        item.price === 2.94f
-    //                    }
-    //                    "must have correct description" >> {
-    //                        item.description === "5kg Apples & Butter & Milk"
-    //                    }
-    //            }
-    //        }
-    //    }
+    test("butter", "method") {
+        (mn, target) =>
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must be" >> {
+                        invoke(target, m).toString === "Butter for 0.95€"
+                    }
+            }
+    }
+
+    test("milk", "method") {
+        (mn, target) =>
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must be" >> {
+                        invoke(target, m).toString === "Milk for 0.99€"
+                    }
+            }
+    }
+
+    test("butterAndMilk", "method") {
+        (mn, target) =>
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must be" >> {
+                        invoke(target, m).toString === "Butter & Milk for 1.94€"
+                    }
+            }
+    }
+
+    test("apple5kg", "method") {
+        (mn, target) =>
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must be" >> {
+                        invoke(target, m).toString === "5kg Apples for 1.0€"
+                    }
+            }
+    }
+
+    test("butterMilkAndApples", "method") {
+        (mn, target) =>
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must be" >> {
+                        invoke(target, m).toString === "5kg Apples & Butter & Milk for 2.94€"
+                    }
+            }
+    }
 }
 

@@ -46,8 +46,8 @@ class Loes_B14_1 extends Solution {
      * Aufgabe #5
      */
     def count10s() {
-        for (i <- 10 to 100 by 10)
-            print(i + " ")
+        for (i <- 1 to 10)
+            print((i * 10) + " ")
     }
 
     // ===============================================================

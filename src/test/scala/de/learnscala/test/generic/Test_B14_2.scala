@@ -115,16 +115,16 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, classOf[Char])
 
-                    "must return 'a' for 'abc'" >> {
+                    "must return '3' for 'abc'" >> {
                         invoke(target, m, "abc") === 3
                     }
-                    "must return '1' for '12345'" >> {
-                        invoke(target, m, "123") === 5
+                    "must return '5' for '12345'" >> {
+                        invoke(target, m, "12345") === 5
                     }
-                    "must return '' for ''" >> {
+                    "must return '0' for empty String" >> {
                         invoke(target, m, "") === 0
                     }
-                    "must return '' for null" >> {
+                    "must return '0' for null" >> {
                         invoke(target, m, null) === 0
                     }
             }

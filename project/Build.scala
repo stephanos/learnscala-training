@@ -32,13 +32,13 @@ object Deps {
     import Http._, Util._, Database._, Test._
 
     val dbKit =
-        Seq(h2, slick)
+        Seq( /*h2, slick*/ )
 
     val utilKit =
         Seq(jodaTime, jodaConvert)
 
     val httpKit =
-        Seq(http)
+        Seq( /*http*/ )
 
     val testKit =
         Seq(specs2, mockito, scheck, stest, junit)

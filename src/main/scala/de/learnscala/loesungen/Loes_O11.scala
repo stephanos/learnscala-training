@@ -4,20 +4,14 @@ import de.learnscala.base.Solution
 
 class Loes_O11 extends Solution {
 
-    /**
-     * Produkte eines Supermarktes.
-     *
-     * Basisklasse 'Item' mit den Methoden
-     * - price: Float
-     * - description: String
-     *
-     * Gesucht werden die fehlenden Klassen aus dem unteren Beispiel und den Tests.
-     */
     abstract class Item {
 
         def price: Float
 
         def description: String
+
+        override def toString =
+            description + " for " + price + "€"
     }
 
     class SimpleItem(val price: Float,

@@ -6,11 +6,11 @@ import java.io._
 class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     /**
-     * STEP-BY-STEP GUIDE:
+     * ANLEITUNG
      *
-     *    1) execute test
-     *    3) fix error
-     *    4) go to step 2
+     *    1) Test ausführen
+     *    2) Fehler beseitigen
+     *    3) zurück zu Schritt 1
      **/
 
 

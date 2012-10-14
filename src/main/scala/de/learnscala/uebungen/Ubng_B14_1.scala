@@ -5,11 +5,11 @@ import de.learnscala.base._
 class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
 
     /**
-     * STEP-BY-STEP GUIDE:
+     * ANLEITUNG
      *
-     *    1) execute test
-     *    2) fix error
-     *    3) go to step 2
+     *    1) Test ausführen
+     *    2) Fehler beseitigen
+     *    3) zurück zu Schritt 1
      **/
 
 

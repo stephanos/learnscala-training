@@ -7,14 +7,8 @@ class Ubng_O11 extends Exercise with Help /* with Disabled */ {
     /**
      * Produkte eines Supermarktes.
      *
-     * Gesucht werden die fehlenden Klassen aus dem unteren Beispiel und den Tests.
+     * Gesucht werden die fehlenden Klassen aus dem unteren Beispielen.
      */
-    abstract class Item {
-
-        def price: Float
-
-        def description: String
-    }
 
 
     /**
