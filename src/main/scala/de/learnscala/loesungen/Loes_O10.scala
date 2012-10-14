@@ -4,9 +4,7 @@ import de.learnscala.base.Solution
 
 class Loes_O10 extends Solution {
 
-    /**
-     * Aufgabe #1
-     **/
+
     class Time(val hours: Int = 0, val min: Int = 0) {
 
         def addMin(_m: Int) =
@@ -32,32 +30,42 @@ class Loes_O10 extends Solution {
 
 
     /**
-     * Zeit um 13:37.
+     * Aufgabe #1
      */
     def t1 = new Time(13, 37)
 
+    // ===============================================================
+
     /**
-     * Zeit um 20:00.
+     * Aufgabe #2
      */
     def t2 = new Time(20)
 
+    // ===============================================================
+
     /**
-     * Zeit um 0:00.
+     * Aufgabe #3
      */
     def t3 = new Time()
 
+    // ===============================================================
+
     /**
-     * Zeit um 12:00 plus 2 Stunden
+     * Aufgabe #4
      */
     def t4 = new Time(12, 00).addHours(2)
 
+    // ===============================================================
+
     /**
-     * Zeit um 23:59 plus 2 Minuten
+     * Aufgabe #5
      */
     def t5 = new Time(23, 59).addMin(2)
 
+    // ===============================================================
+
     /**
-     * Zeit um 12:23 plus 13:37
+     * Aufgabe #6
      */
     def t6 = new Time(12, 23).add(new Time(13, 37))
 }
