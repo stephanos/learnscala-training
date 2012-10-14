@@ -78,23 +78,36 @@ class Loes_F23_2 extends Solution {
                 if (contains(r, c)) r else c :: r
         })
 
+    // ===============================================================
 
+    /**
+     * Aufgabe #10
+     */
+    def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
+        def sortByAgeAndMapToName(persons: List[Person]) =
+            persons.sortBy(_.age).map(_.firstName)
 
-    case class MyList[A](private val l: List[A] = List()) {
-
-        def head =
-            l.head
-
-        def tail =
-            l.tail
-
-        def foldLeft[B](z: B)(f: (B, A) => B): B =
-            l.foldLeft(z)(f)
-
-        def isEmpty =
-            l.isEmpty
-
-        def ::[B >: A](x: B): MyList[B] =
-            new MyList(x :: l)
+        val (minors, adults) = persons.partition(_.age < 18)
+        List(sortByAgeAndMapToName(minors), sortByAgeAndMapToName(adults))
     }
 }
+
+case class MyList[A](private val l: List[A] = List()) {
+
+    def head =
+        l.head
+
+    def tail =
+        l.tail
+
+    def foldLeft[B](z: B)(f: (B, A) => B): B =
+        l.foldLeft(z)(f)
+
+    def isEmpty =
+        l.isEmpty
+
+    def ::[B >: A](x: B): MyList[B] =
+        new MyList(x :: l)
+}
+
+case class Person(age: Int, firstName: String, lastName: String)

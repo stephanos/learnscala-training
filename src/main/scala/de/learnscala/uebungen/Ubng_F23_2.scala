@@ -1,6 +1,6 @@
 package de.learnscala.uebungen
 
-import de.learnscala.base.{Help, Exercise}
+import de.learnscala.base._
 
 class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
 
@@ -91,6 +91,43 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      */
     def unique[A](list: MyList[A]) =
         TODO
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #10 (Bonus)
+     *
+     * Überarbeiten den folgenden imperativen Algorithmus.
+     * Durch Verwendung der funktionalen Programmierung sollte der Code maximal 4 Zeilen lang sein!
+     */
+    def separateAdultsAndMinors(persons: List[Person]): List[List[String]] = {
+
+        import collection.mutable.ListBuffer
+
+        var minors: ListBuffer[Person] = new ListBuffer[Person]()
+        var adults: ListBuffer[Person] = new ListBuffer[Person]()
+        var minorNames: ListBuffer[String] = new ListBuffer[String]()
+        var adultNames: ListBuffer[String] = new ListBuffer[String]()
+
+        for (person <- persons) {
+            if (person.age < 18) {
+                minors += person
+            } else {
+                adults += person
+            }
+        }
+
+        var sortedBoys = minors.toList.sortBy(_.age)
+        var sortedMen = adults.toList.sortBy(_.age)
+
+        for (minor <- sortedBoys) {
+            minorNames += minor.firstName
+        }
+        for (man <- sortedMen) {
+            adultNames += man.firstName
+        }
+        List(minorNames.toList, adultNames.toList)
+    }
 }
 
 case class MyList[A](private val l: List[A] = List()) {
@@ -110,3 +147,5 @@ case class MyList[A](private val l: List[A] = List()) {
     def ::[B >: A](x: B): MyList[B] =
         new MyList(x :: l)
 }
+
+case class Person(age: Int, firstName: String, lastName: String)

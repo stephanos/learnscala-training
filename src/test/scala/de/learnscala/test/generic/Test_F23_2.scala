@@ -102,4 +102,21 @@ abstract class Test_F23_2[T: TypeTag] extends BaseTest[T] {
     //            }
     //        }
     //    }
+
+//    def rewriteImperativeToFunctional() {
+//         //This unit test succeeds! But, the code that is called is written 'Java style',
+//        //it contains a lot of boilerplate code. Your job is to rewrite the code, get rid of the
+//        //loops and variabels, and use only functions.
+//        val anton1 = Person(15, "Anton1", "Jansen")
+//        val anton2 = Person(17, "Anton2", "Janssen")
+//        val anton3 = Person(18, "Anton3", "Jansssen")
+//        val peter1 = Person(17, "Peter1", "Peterson")
+//        val peter2 = Person(19, "Peter2", "Petersson")
+//        val jason = Person(21, "Jason", "Jasonsson")
+//
+//        val result = BasicListManipulationExercise02.separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
+//        assert(List(List("Anton1", "Anton2", "Peter1"), List("Anton3", "Peter2", "Jason")) === result)
+//
+//      }
+
 }

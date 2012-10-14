@@ -54,7 +54,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                         invoke(target, m, "Thursday") === true
                     }
                     "must be 'true' for value 'Friday'" >> {
-                        invoke(target, m, "Friday") === false
+                        invoke(target, m, "Friday") === true
                     }
             }
     }
@@ -65,26 +65,22 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, classOf[Any])
 
-                    "must be 'Boolean' for value true" >> {
-                        invoke(target, m, true) === "Boolean"
+                    "must work for empty String" >> {
+                        invoke(target, m, "") === "leerer String"
                     }
-                    "must be 'Char' for value 'c'" >> {
-                        invoke(target, m, 'c') === "Char"
+                    "must work for non-empty String" >> {
+                        invoke(target, m, "Hello World") === "String mit der Länge 11"
                     }
-                    "must be 'Int' for value 42" >> {
-                        invoke(target, m, 42) === "Int"
+                    "must work for positiver integer" >> {
+                        invoke(target, m, 5) === "ein positiver Integer"
                     }
-                    "must be 'Float' for value 3.14f" >> {
-                        invoke(target, m, 3.14f) === "Float"
+                    "must work for negative integer" >> {
+                        invoke(target, m, -5) === "ein negativer Integer"
                     }
-                    "must be 'String' for value \"String\"" >> {
-                        invoke(target, m, "String") === "String"
-                    }
-                    "must be 'Unbekannt' for value 1000L" >> {
-                        invoke(target, m, 1000L) === "Unbekannt"
-                    }
-                    "must be 'Unbekannt' for value 1000.0" >> {
-                        invoke(target, m, 1000.0) === "Unbekannt"
+                    "must work for aynthing else" >> {
+                        invoke(target, m, true) === "Unbekannt"
+                        invoke(target, m, 5.0f) === "Unbekannt"
+                        invoke(target, m, '$') === "Unbekannt"
                     }
             }
     }
@@ -120,16 +116,16 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveParams(m, classOf[Char])
 
                     "must return 'a' for 'abc'" >> {
-                        invoke(target, m, "abc") === 'a'
+                        invoke(target, m, "abc") === 3
                     }
-                    "must return '1' for '123'" >> {
-                        invoke(target, m, "123") === '1'
+                    "must return '1' for '12345'" >> {
+                        invoke(target, m, "123") === 5
                     }
                     "must return '' for ''" >> {
-                        invoke(target, m, "") === ' '
+                        invoke(target, m, "") === 0
                     }
                     "must return '' for null" >> {
-                        invoke(target, m, null) === ' '
+                        invoke(target, m, null) === 0
                     }
             }
     }

@@ -1,0 +1,27 @@
+<movies>
+    <movie>
+        <title top10="true">Ocean's 13</title>
+        <genre>Comedy</genre>
+        <year>2006</year>
+        <actors>
+            <actor>Joseph Fiennes</actor>
+            <actor>Gwyneth Paltrow</actor>
+            <actor>Geoffrey Rush</actor>
+        </actors>
+        <director>John Madden</director>
+        <country>USA</country>
+    </movie>
+
+    <movie>
+        <title top10="false">Robin Hood</title>
+        <genre>Action</genre>
+        <year>2010</year>
+        <actors>
+            <actor>Mark Strong</actor>
+            <actor>Russell Crowe</actor>
+            <actor>Cate Blanchett</actor>
+        </actors>
+        <director>Ridley Scott</director>
+        <country>UK</country>
+    </movie>
+</movies>

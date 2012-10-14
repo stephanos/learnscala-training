@@ -12,7 +12,6 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      *    3) go to step 2
      **/
 
-    // ===============================================================
 
     /**
      * Aufgabe #1

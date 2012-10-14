@@ -24,8 +24,8 @@ class Loes_B14_2 extends Solution {
      */
     def isWorkingDay(day: String): Boolean =
         day match {
-            case "Sunday" | "Saturay" => true
-            case _ => false
+            case "Sunday" | "Saturay" => false
+            case _ => true
         }
 
     // ===============================================================
@@ -35,11 +35,10 @@ class Loes_B14_2 extends Solution {
      */
     def nameOfType(value: Any): String =
         value match {
-            case _: Boolean => "Boolean"
-            case _: Char => "Char"
-            case _: Int => "Int"
-            case _: Float => "Float"
-            case _: String => "String"
+            case s: String if(s.length > 0) => "String mit der Länge " + s.length
+            case _: String => "leerer String"
+            case i: Int if i > 0 => "ein positiver Integer"
+            case i: Int if i < 0 => "ein negativer Integer"
             case _ => "Unbekannt"
         }
 
