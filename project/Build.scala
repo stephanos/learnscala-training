@@ -44,7 +44,7 @@ object Deps {
         Seq(specs2, mockito, scheck, stest, junit)
 
     val scalaKit =
-        Seq(/*scalaActors,*/ scalaSwing, scalaCompiler, scalaLib, scalaReflect)
+        Seq(/*scalaActors,*/ scalaSwing /*scalaCompiler, scalaLib, scalaReflect*/)
 }
 
 
