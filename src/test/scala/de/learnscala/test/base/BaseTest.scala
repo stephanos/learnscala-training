@@ -45,27 +45,34 @@ abstract class BaseTest[T: TypeTag]
     }
     //implicit val stop = WhenFail()
 
-    def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example): Example = {
-        (prefix + typeOf + " '" + name + "'") >> {
+    def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example) {
+        (prefix + typeOf + " '" + name + "'") in {
             try {
-                //step(args(stopOnFail = true))
                 val target = getInstance[T]()
+                val r: Example = fn apply(name, target.asInstanceOf[Testable])
+                r
+
+                /*
+                //step(args(stopOnFail = true))
                 if (!target.isInstanceOf[Disabled])
-                    fn apply(name, target.asInstanceOf[Testable])
                 else
                     "exercise disabled" >> {
                         Skipped()
                     }
+                */
             } catch {
                 case e: Throwable =>
+                    val r: Example  =
                     "failed to initiate exercise" >> {
                         e.printStackTrace()
                         Failure()
                     }
+                    r
             }
         }
     }
 
-    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example): Example =
+    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example) = {
         test(name, typeOf, "Task #" + n + ": ")(fn)
+    }
 }

@@ -48,7 +48,7 @@ class Loes_B14_2 extends Solution {
      * Aufgabe #4
      */
     def half(n: Int) = {
-        if (n % 2 == 0) throw new RuntimeException("n must be even")
+        if (n % 2 != 0) throw new RuntimeException("n must be even")
         n / 2
     }
 

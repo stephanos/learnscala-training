@@ -2,6 +2,7 @@ package de.learnscala.test.base
 
 import scala.reflect.runtime.universe._
 import scala.reflect.runtime.{currentMirror => cm}
+import reflect.ClassTag
 
 /**
  * http://dcsobral.blogspot.de/2012/07/json-serialization-with-reflection-in.html
@@ -13,8 +14,8 @@ trait Reflect {
 
     def getInstance[T: TypeTag](args: Any*) = {
         val typ = typeOf[T]
-        val constructor = typ.members.find(_.kind == "constructor").get.asMethodSymbol
-        cm reflectClass typ.typeSymbol.asClassSymbol reflectConstructor constructor apply (args: _*)
+        val constructor = typ.members.find(_.kind == "constructor").get.asMethod
+        cm reflectClass typ.typeSymbol.asClass reflectConstructor constructor apply (args: _*)
     }
 
     /*
@@ -87,13 +88,13 @@ trait Reflect {
 
     // Invoke
 
-    def invoke[T: TypeTag](obj: T, name: String, args: Any*): Option[Any] =
+    def invoke[T: ClassTag : TypeTag](obj: T, name: String, args: Any*): Option[Any] =
         getMethod[T](name) map (invoke(obj, _, args))
 
-    def invoke[T: TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
+    def invoke[T: ClassTag : TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
         cm reflect(obj) reflectMethod(mth) apply(args: _*)
 
-    def read[T: TypeTag](obj: T, t: TermSymbol, args: Any*): Any =
+    def read[T: ClassTag : TypeTag](obj: T, t: TermSymbol, args: Any*): Any =
         cm reflect(obj) reflectField (t) get
 
 

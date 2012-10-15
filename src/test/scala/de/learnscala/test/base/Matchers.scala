@@ -4,6 +4,7 @@ import scala.reflect.runtime.universe._
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.execute.Pending
 import org.specs2.specification.Example
+import reflect.ClassTag
 
 /**
  * http://etorreborre.github.com/specs2/guide/org.specs2.guide.Matchers.html#Custom
@@ -85,7 +86,7 @@ trait Matchers {
     }
     */
 
-    def getList[T : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
+    def getList[T : ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
         (invoke[T](obj, m)) match {
             case null => mustNotBeNull()
             case l: Traversable[Any] => f(l)
