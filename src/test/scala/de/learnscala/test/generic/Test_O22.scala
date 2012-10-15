@@ -5,26 +5,82 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
 
-    //        "sum" >> {
-    //            "must return '5' for Leaf(5)" >> {
-    //                s1 === 5
-    //            }
-    //            "must return '5' for Node('+', Leaf(5), Leaf(5))" >> {
-    //                s2 === 10
-    //            }
-    //            "must return '5' for Node('*', Leaf(5), Leaf(5))" >> {
-    //                s3 === 25
-    //            }
-    //            "must return '5' for Node('/', Leaf(5), Leaf(5))" >> {
-    //                s4 === 1
-    //            }
-    //            "must return '5' for Node('-', Leaf(5), Leaf(5))" >> {
-    //                s5 === 0
-    //            }
-    //            "must return '5' for Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))" >> {
-    //                s6 === 33
-    //            }
-    //        }
-    //    }
+    task(1)("s1", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '5'" >> {
+                        invoke(target, m) === 5
+                    }
+            }
+    }
+
+    task(2)("s2", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '10'" >> {
+                        invoke(target, m) === 10
+                    }
+            }
+    }
+
+    task(3)("s3", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '25'" >> {
+                        invoke(target, m) === 25
+                    }
+            }
+    }
+
+    task(4)("s4", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '1'" >> {
+                        invoke(target, m) === 1
+                    }
+            }
+    }
+
+    task(5)("s5", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '0'" >> {
+                        invoke(target, m) === 0
+                    }
+            }
+    }
+
+    task(6)("s6", "method") {
+        (mn, target) =>
+
+            mustHaveMethod(mn) {
+                m =>
+                    mustHaveParams(m)
+
+                    "must return '33'" >> {
+                        invoke(target, m) === 33
+                    }
+            }
+    }
 }
 

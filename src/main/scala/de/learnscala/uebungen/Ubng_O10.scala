@@ -13,20 +13,16 @@ class Ubng_O10 extends Exercise with Help /* with Disabled */ {
      *  - addHours(Int): fügt Stunden hinzu
      *  - add(Time): addiert eine andere Time-Instanz
      *  - print: gibt die Zeit aus (z.B. 00:30)
+     *  - toString TODO
      *
      **/
-
-    class Time(...) {
-        override def toString =
-            print
-    }
 
     /**
      * Aufgabe #1
      *
      * Zeit um 13:37.
      */
-    def t1 = new Time(13, 37)
+    def t1 = TODO // new Time(13, 37)
 
     // ===============================================================
 

@@ -23,7 +23,6 @@ class Loes_O22 extends Solution {
     sealed abstract class OpTree
 
     case class Leaf(value: Int) extends OpTree
-
     case class Node(operator: Char, left: OpTree, right: OpTree) extends OpTree
 
     def sum(tree: OpTree): Int =
@@ -39,16 +38,45 @@ class Loes_O22 extends Solution {
         }
 
 
-    // TESTS
+    // ===============================================================
+
+    /**
+     * Aufgabe #1
+     */
     def s1 = sum(Leaf(5))
 
+    // ===============================================================
+
+    /**
+     * Aufgabe #2
+     */
     def s2 = sum(Node('+', Leaf(5), Leaf(5)))
 
+    // ===============================================================
+
+    /**
+     * Aufgabe #3
+     */
     def s3 = sum(Node('*', Leaf(5), Leaf(5)))
 
+    // ===============================================================
+
+    /**
+     * Aufgabe #4
+     */
     def s4 = sum(Node('/', Leaf(5), Leaf(5)))
 
+    // ===============================================================
+
+    /**
+     * Aufgabe #5
+     */
     def s5 = sum(Node('-', Leaf(5), Leaf(5)))
 
+    // ===============================================================
+
+    /**
+     * Aufgabe #6
+     */
     def s6 = sum(Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))))
 }
