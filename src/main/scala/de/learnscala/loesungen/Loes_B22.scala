@@ -4,4 +4,70 @@ import de.learnscala.base.Solution
 
 class Loes_B22 extends Solution {
 
+    class Bruch(z: Int, n: Int) {
+
+        private def gcd(x: Int, y: Int): Int = {
+            if (x == 0) y
+            else if (x < 0) gcd(-x, y)
+            else if (y < 0) -gcd(x, -y)
+            else gcd(y % x, x)
+        }
+
+        private val g = gcd(z, n)
+
+        val zaehler: Int = z / g
+        val nenner: Int = n / g
+
+        def *(that: Bruch) =
+            new Bruch(zaehler * that.zaehler, nenner * that.nenner)
+
+        def /(that: Bruch) =
+            new Bruch(zaehler * that.nenner, nenner * that.zaehler)
+
+        def unary_! =
+            new Bruch(nenner, zaehler)
+
+        override def toString =
+            zaehler + "/" + nenner
+    }
+
+
+    /**
+     * Aufgabe #1
+     */
+
+    def r1 = new Bruch(1,2)
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #2
+     */
+
+    def r2 = (new Bruch(1,2)) * (new Bruch(1,2))
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #3
+     */
+
+    def r3 = (new Bruch(1,8)) / (new Bruch(1,2))
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #4
+     */
+
+    def r4 = (new Bruch(7,8)) * (new Bruch(2,3))
+
+    // ===============================================================
+
+    /**
+     * Aufgabe #5
+     */
+
+    def r5 = !(new Bruch(1,2))
+
 }

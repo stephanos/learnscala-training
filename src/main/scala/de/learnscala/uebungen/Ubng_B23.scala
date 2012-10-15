@@ -7,10 +7,11 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #1
      *
-     * Die Zahl '150' wird um 50% erhöht
+     * Zunächst wird die Klasse 'Bruch' aus der Übung 'Ubng_B22' benötigt.
+     * Anschließend soll ein Int mit einem Bruch multiplizierbar sein.
      */
 
-    def plus50p = TODO // 150 +% 50
+    def r1 = TODO // 1 * new Bruch(1, 2)
 
 
     // ===============================================================
@@ -18,8 +19,8 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #2
      *
-     * Die Zahl '150' wird um 50% verringert
+     * Die Zahl '150' wird um 50% erhöht.
      */
 
-    def minus50p = TODO // 150 -% 50
+    def r2 = TODO // 150 +% 50
 }
