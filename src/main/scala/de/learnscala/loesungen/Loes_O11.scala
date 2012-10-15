@@ -7,7 +7,6 @@ class Loes_O11 extends Solution {
     abstract class Item {
 
         def price: Float
-
         def description: String
 
         override def toString =
@@ -41,7 +40,7 @@ class Loes_O11 extends Solution {
         override def price =
             item1.price + item2.price
 
-        override def description =
+        override val description =
             item1.description + " & " + item2.description
     }
 

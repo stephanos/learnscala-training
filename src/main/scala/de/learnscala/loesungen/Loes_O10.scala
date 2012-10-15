@@ -7,18 +7,21 @@ class Loes_O10 extends Solution {
 
     class Time(val hours: Int = 0, val min: Int = 0) {
 
-        def addMin(_m: Int) =
-            this.add(new Time(0, _m))
+        def addMin(m: Int) =
+            this.add(new Time(0, m))
 
-        def addHours(_h: Int) =
-            this.add(new Time(_h, 0))
+        def addHours(h: Int) =
+            this.add(new Time(h, 0))
 
         def add(t: Time) = {
             val mm = t.min + min
             val hh = t.hours + hours
             val _m = mm % 60
             val _h = hh % 24 + (mm / 60)
-            new Time(if (_h == 24) 0 else _h, if (_m == 60) 0 else _m)
+            new Time (
+                if (_h == 24) 0 else _h,
+                if (_m == 60) 0 else _m
+            )
         }
 
         def print =

@@ -19,7 +19,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * Method 'theAnswerToLifeTheUniverseAndEverything' returns '42'.
      */
 
-    TODO
+    def theAnswerToLifeTheUniverseAndEverything = 21
 
     // ===============================================================
 

@@ -16,13 +16,17 @@ class Ubng_O10 extends Exercise with Help /* with Disabled */ {
      *
      **/
 
+    class Time(...) {
+        override def toString =
+            print
+    }
 
     /**
      * Aufgabe #1
      *
      * Zeit um 13:37.
      */
-    def t1 = TODO // new Time(13, 37)
+    def t1 = new Time(13, 37)
 
     // ===============================================================
 

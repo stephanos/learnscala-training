@@ -24,7 +24,7 @@ class Loes_B14_2 extends Solution {
      */
     def isWorkingDay(day: String): Boolean =
         day match {
-            case "Sunday" | "Saturay" => false
+            case "Sunday" | "Saturday" => false
             case _ => true
         }
 
@@ -35,8 +35,8 @@ class Loes_B14_2 extends Solution {
      */
     def nameOfType(value: Any): String =
         value match {
-            case s: String if(s.length > 0) => "String mit der Länge " + s.length
-            case _: String => "leerer String"
+            case "" => "leerer String"
+            case s: String => "String mit der Länge " + s.length
             case i: Int if i > 0 => "ein positiver Integer"
             case i: Int if i < 0 => "ein negativer Integer"
             case _ => "Unbekannt"
@@ -47,11 +47,10 @@ class Loes_B14_2 extends Solution {
     /**
      * Aufgabe #4
      */
-    def half(n: Int) =
-        if (n % 2 == 0)
-            n / 2
-        else
-            throw new RuntimeException("n must be even")
+    def half(n: Int) = {
+        if (n % 2 == 0) throw new RuntimeException("n must be even")
+        n / 2
+    }
 
     // ===============================================================
 

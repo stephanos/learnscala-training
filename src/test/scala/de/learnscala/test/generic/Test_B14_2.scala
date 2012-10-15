@@ -38,7 +38,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     "must be 'false' for value 'Sunday'" >> {
                         invoke(target, m, "Sunday") === false
                     }
-                    "must be 'false' for value 'Saturay'" >> {
+                    "must be 'false' for value 'Saturday'" >> {
                         invoke(target, m, "Saturay") === false
                     }
                     "must be 'true' for value 'Monday'" >> {
