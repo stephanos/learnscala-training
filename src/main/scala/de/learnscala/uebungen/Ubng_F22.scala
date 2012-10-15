@@ -12,8 +12,6 @@ class Ubng_F22 extends Exercise with Help /* with Disabled */ {
     def weekDays = TODO
     def weekendDays = TODO
 
-    def days = TODO
-
     // ===============================================================
 
     /**
@@ -21,28 +19,16 @@ class Ubng_F22 extends Exercise with Help /* with Disabled */ {
      *
      * Ermittelt das letzte Element einer Liste (None falls nicht vorhanden).
      */
-    def last(l: List[Int]) =
-        TODO
+    def last(l: List[Int]): Option[Int] =
+        None
 
     // ===============================================================
 
     /**
-     * Aufgabe #3
+     * Aufgabe #3 (Bonus)
      *
      * Ermittelt das dritte Element einer Liste (None falls nicht vorhanden).
      */
-    def third(l: List[Int], count: Int = 1) =
-        TODO
-
-    // ===============================================================
-
-    /**
-     * Aufgabe #4
-     *
-     * Ermittelt ob eine Liste ein Palindrom ist (Zeichenkette, die von vorn und von hinten gelesen gleich bleibt).
-     *
-     * Tipp: l.reverse
-     */
-    def palindrome(s: List[Int]) =
-        TODO
+    def third(l: List[Int]): Option[Int] =
+        None
 }

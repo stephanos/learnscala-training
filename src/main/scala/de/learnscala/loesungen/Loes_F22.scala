@@ -7,11 +7,11 @@ class Loes_F22 extends Solution {
     /**
      * Aufgabe #1
      */
-    def weekDays = List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
+    def weekDays =
+        List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
 
-    def weekendDays = List("Samstag", "Sonntag")
-
-    def days = weekDays ::: weekendDays
+    def weekendDays =
+        List("Samstag", "Sonntag")
 
     // ===============================================================
 
@@ -30,20 +30,10 @@ class Loes_F22 extends Solution {
     /**
      * Aufgabe #3
      */
-    def third(l: List[Int], count: Int = 1): Option[Int] =
+    def third(l: List[Int]): Option[Int] =
         l match {
+            case h1 :: h2 :: h3 :: tail => Some(h3)
+            case h :: tail => third(tail)
             case List() => None
-            case h :: tail if (count == 3) => Some(h)
-            case h :: tail => third(tail, count + 1)
         }
-
-    // ===============================================================
-
-    /**
-     * Aufgabe #4
-     *
-     * Tipp: l.reverse
-     */
-    def palindrome(s: List[Int]): Boolean =
-        s.reverse.mkString("") == s.mkString("")
 }

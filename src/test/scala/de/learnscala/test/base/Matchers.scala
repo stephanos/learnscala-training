@@ -55,7 +55,53 @@ trait Matchers {
         // TODO: check types
     }
 
-    def mustHaveType(m: MethodSymbol, t: Any) = {
-        // TODO
+    def mustHaveParams2(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
+        val shouldHave = types.size
+        val doesHave = getParams(m)
+
+        if(shouldHave != doesHave.size) {
+            "must have " + shouldHave + " parameter" >> {
+                doesHave aka "parameter list" must haveSize(shouldHave)
+            }
+        }
+
+        // TODO: check types ?
+
+        f(m)
+    }
+
+    /*
+    def methodMustHaveType[T: TypeTag](m: MethodSymbol, typ: T)(f: (MethodSymbol) => Example): Example = {
+        val shouldHave = typ
+        val doesHave = getReturnType(m)
+
+        if(shouldHave != doesHave) {
+            ("must have type: '" + name + "'") >> {
+                Pending()
+            }
+        }
+
+        f((m, shouldHave))
+    }
+    */
+
+    def getList[T : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
+        (invoke[T](obj, m)) match {
+            case null => mustNotBeNull()
+            case l: Traversable[Any] => f(l)
+            case _ => mustHaveType("List")
+        }
+    }
+
+    def mustHaveType(t: String): Example = {
+        ("must have type: '" + t + "'") >> {
+            Pending()
+        }
+    }
+
+    def mustNotBeNull(): Example = {
+        ("must not be null") >> {
+            Pending()
+        }
     }
 }

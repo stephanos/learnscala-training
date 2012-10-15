@@ -112,9 +112,9 @@ trait Reflect {
     // ReturnType
 
     def getReturnType[T: TypeTag](name: String): Option[Type] =
-        getMember[T](name) map (getReturnType[T](_))
+        getMember[T](name) map (getReturnType(_))
 
-    def getReturnType[T: TypeTag](s: Symbol): Type =
+    def getReturnType(s: Symbol): Type =
         getSignature(s) match {
             case NullaryMethodType(rt) => rt
             case MethodType(_, rt) => rt
