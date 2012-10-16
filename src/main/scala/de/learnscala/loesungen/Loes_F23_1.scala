@@ -18,7 +18,7 @@ class Loes_F23_1 extends Solution {
      * Aufgabe #1
      */
     def r1(l: List[Int]) =
-        l map add1
+        l map (i => add1(i))
 
     // ===============================================================
 
@@ -26,7 +26,7 @@ class Loes_F23_1 extends Solution {
      * Aufgabe #2
      */
     def r2(l: List[Int]) =
-        l map add1 map double
+        l map (i => add1(i)) map (i => double(i))
 
     // ===============================================================
 
@@ -34,7 +34,7 @@ class Loes_F23_1 extends Solution {
      * Aufgabe #3
      */
     def r3(l: List[Int]) =
-        l map double map add1
+        l map (i => double(i)) map (i => add1(i))
 
     // ===============================================================
 
@@ -50,5 +50,5 @@ class Loes_F23_1 extends Solution {
      * Aufgabe #5
      */
     def r5(l: List[(Int, Int)]) =
-        l map (t => (add1(t._1), sub1(t._2)))
+        l map { t => (add1(t._1), sub1(t._2)) }
 }

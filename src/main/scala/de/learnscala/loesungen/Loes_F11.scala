@@ -38,7 +38,14 @@ class Loes_F11 extends Solution {
      * Aufgabe #4 (Bonus)
      */
 
-    def repeat = (s: String, i: Int) => s * i
+    //def repeat = (s: String, i: Int) => s * i
 
-    def f4 = repeat("123", 3)
+    def repeat2: (String, Int) => String = { (s, n) =>
+      if(n > 0)
+        s + repeat2(s, n - 1)
+      else
+        ""
+    }
+
+    def f4 = repeat2("123", 3)
 }

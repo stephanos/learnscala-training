@@ -9,7 +9,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Summiert die Elemente der Liste.
      */
-    def sum(l: MyList[Int]) =
+    def sum(l: List[Int]) =
         TODO
 
     // ===============================================================
@@ -19,7 +19,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Multipliziert alle Elemente der Liste (leere Liste ergibt 1).
      */
-    def product(l: MyList[Int]) =
+    def product(l: List[Int]) =
         TODO
 
     // ===============================================================
@@ -29,7 +29,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Zählt die Elemente der Liste.
      */
-    def count(l: MyList[Int]) =
+    def count(l: List[Int]) =
         TODO
 
     // ===============================================================
@@ -39,7 +39,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Liefert das letzte Ergebnis der Liste (leere Liste: None).
      */
-    def last[A](list: MyList[A]) =
+    def last[A](list: List[A]) =
         TODO
 
     // ===============================================================
@@ -49,7 +49,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Invertiert die Reihenfolge der Liste.
      */
-    def reverse[A](list: MyList[A]) =
+    def reverse[A](list: List[A]) =
         TODO
 
     // ===============================================================
@@ -59,7 +59,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Ermittelt ob ein Element Teil der Liste ist.
      */
-    def contains[A](list: MyList[A], item: A) =
+    def contains[A](list: List[A], item: A) =
         TODO
 
     // ===============================================================
@@ -69,7 +69,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Transformiert die Elemente der Liste durch Anwendung der übergebenen Funktion.
      */
-    def map[A, B](list: MyList[A], f: A => B) =
+    def map[A, B](list: List[A], f: A => B) =
         TODO
 
     // ===============================================================
@@ -79,73 +79,46 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Filtert die Elemente aus der Liste heraus, bei denen die Funktion 'true' ergibt.
      */
-    def filter[A](list: MyList[A], p: A => Boolean) =
+    def filter[A](list: List[A], p: A => Boolean) =
         TODO
 
     // ===============================================================
 
     /**
-     * Aufgabe #9
-     *
-     * Erstellt eine Liste ohne doppelte Werte.
-     */
-    def unique[A](list: MyList[A]) =
-        TODO
-
-    // ===============================================================
-
-    /**
-     * Aufgabe #10 (Bonus)
+     * Aufgabe #9 (Bonus)
      *
      * Überarbeiten den folgenden imperativen Algorithmus.
      * Durch Verwendung der funktionalen Programmierung sollte der Code maximal 4 Zeilen lang sein!
      */
-    def separateAdultsAndMinors(persons: List[Person]): List[List[String]] = {
+    def separateAdultsAndMinors(persons: List[(String, Int)]): (List[String], List[String]) = {
 
         import collection.mutable.ListBuffer
 
-        var minors: ListBuffer[Person] = new ListBuffer[Person]()
-        var adults: ListBuffer[Person] = new ListBuffer[Person]()
-        var minorNames: ListBuffer[String] = new ListBuffer[String]()
-        var adultNames: ListBuffer[String] = new ListBuffer[String]()
+        var minors= new ListBuffer[(String, Int)]()
+        var adults = new ListBuffer[(String, Int)]()
+        var minorNames = new ListBuffer[String]()
+        var adultNames = new ListBuffer[String]()
 
-        for (person <- persons) {
-            if (person.age < 18) {
+        for (i <- 0 to persons.size) {
+            val person = persons(0)
+            if (person._2 < 18) {
                 minors += person
             } else {
                 adults += person
             }
         }
 
-        var sortedBoys = minors.toList.sortBy(_.age)
-        var sortedMen = adults.toList.sortBy(_.age)
+        val sortedMinors = minors.toList.sortBy(_._2)
+        val sortedAdults = adults.toList.sortBy(_._2)
 
-        for (minor <- sortedBoys) {
-            minorNames += minor.firstName
+        for (i <- 0 to sortedMinors.size) {
+            val minor = sortedMinors(i)
+            minorNames += minor._1
         }
-        for (man <- sortedMen) {
-            adultNames += man.firstName
+        for (i <- 0 to sortedAdults.size) {
+            val adult = sortedMinors(i)
+            adultNames += adult._1
         }
-        List(minorNames.toList, adultNames.toList)
+        (minorNames.toList, adultNames.toList)
     }
 }
-
-case class MyList[A](private val l: List[A] = List()) {
-
-    def head =
-        l.head
-
-    def tail =
-        l.tail
-
-    def foldLeft[B](z: B)(f: (B, A) => B): B =
-        l.foldLeft(z)(f)
-
-    def isEmpty =
-        l.isEmpty
-
-    def ::[B >: A](x: B): MyList[B] =
-        new MyList(x :: l)
-}
-
-case class Person(age: Int, firstName: String, lastName: String)

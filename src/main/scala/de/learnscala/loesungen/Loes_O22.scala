@@ -20,7 +20,7 @@ class Loes_O22 extends Solution {
      * => Summe ist (3 * 8) + (2 - 5) = 24 + -3 = 21
      */
 
-    sealed abstract class OpTree
+    abstract class OpTree
 
     case class Leaf(value: Int) extends OpTree
     case class Node(operator: Char, left: OpTree, right: OpTree) extends OpTree

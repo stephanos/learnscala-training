@@ -18,11 +18,11 @@ class Loes_B22 extends Solution {
         val zaehler: Int = z / g
         val nenner: Int = n / g
 
-        def *(that: Bruch) =
-            new Bruch(zaehler * that.zaehler, nenner * that.nenner)
+        def *(b: Bruch) =
+            new Bruch(zaehler * b.zaehler, nenner * b.nenner)
 
-        def /(that: Bruch) =
-            new Bruch(zaehler * that.nenner, nenner * that.zaehler)
+        def /(b: Bruch) =
+            new Bruch(zaehler * b.nenner, nenner * b.zaehler)
 
         def unary_! =
             new Bruch(nenner, zaehler)

@@ -8,9 +8,9 @@ class Loes_F12 extends Solution {
         (e: Int) => e == elem
 
     // TESTS:
-    def s1 = singletonSet(1)
-    def s2 = singletonSet(2)
-    def s3 = singletonSet(3)
+    def s1: Int => Boolean = singletonSet(1)
+    def s2: Int => Boolean = singletonSet(2)
+    def s3: Int => Boolean = singletonSet(3)
 
     // ===============================================================
 
@@ -18,7 +18,7 @@ class Loes_F12 extends Solution {
      * Aufgabe #1
      */
     def union(s: Int => Boolean, t: Int => Boolean): Int => Boolean =
-        elem => s(elem) || t(elem)
+        elem => s.apply(elem) || t(elem)
 
     // TESTS:
     def u = union(s1, s2)

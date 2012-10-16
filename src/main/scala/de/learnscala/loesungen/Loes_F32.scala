@@ -30,13 +30,17 @@ class Loes_F32 extends Solution {
      * Aufgabe #2
      */
 
-    def ?[T](test: => Boolean, fnThen: => T, fnElse: => T) =
+    def ?[T](test: => Boolean)(fnThen: => T)(fnElse: => T) =
         if (test)
             fnThen
         else
             fnElse
 
     def print2Digits(i: Int) {
-        ?(i < 10, print("0" + i), print(i.toString))
+        ?(i < 10) {
+          print("0" + i)
+        } {
+          print(i)
+        }
     }
 }

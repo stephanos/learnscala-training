@@ -5,20 +5,69 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
 
-    //        "r1 must return (2,3,4) for (1,2,3)" >> {
-    //            r1(List(1, 2, 3)) === List(2, 3, 4)
-    //        }
-    //        "r2 must return (4,6,8) for (1,2,3)" >> {
-    //            r2(List(1, 2, 3)) === List(4, 6, 8)
-    //        }
-    //        "r3 must return () for (3,5,7)" >> {
-    //            r3(List(1, 2, 3)) === List(3, 5, 7)
-    //        }
-    //        "r4 must return () for (1,2,3)" >> {
-    //            r4(List(1, 2, 3)) === List(3, 5, 7)
-    //        }
-    //        "r5 must return () for ((1,3),(2,4),(3,5))" >> {
-    //            r5(List((1, 3), (2, 4), (3, 5))) === List((2, 2), (3, 3), (4, 4))
-    //        }
-    //    }
+  task(1)("r1", "method") {
+    (mn, target) =>
+
+      mustHaveMethod(mn) {
+        m =>
+          mustHaveParams(m, 1)
+
+          "must return (2,3,4) for (1,2,3)" >> {
+            invoke(target, m, List(1, 2, 3)) === List(2, 3, 4)
+          }
+      }
+  }
+
+  task(2)("r2", "method") {
+    (mn, target) =>
+
+      mustHaveMethod(mn) {
+        m =>
+          mustHaveParams(m, 1)
+
+          "must return (4,6,8) for (1,2,3)" >> {
+            invoke(target, m, List(1, 2, 3)) === List(4, 6, 8)
+          }
+      }
+  }
+
+  task(3)("r3", "method") {
+    (mn, target) =>
+
+      mustHaveMethod(mn) {
+        m =>
+          mustHaveParams(m, 1)
+
+          "must return (3,5,6) for (1,2,3)" >> {
+            invoke(target, m, List(1, 2, 3)) === List(3, 5, 7)
+          }
+      }
+  }
+
+
+  task(4)("r4", "method") {
+    (mn, target) =>
+
+      mustHaveMethod(mn) {
+        m =>
+          mustHaveParams(m, 1)
+
+          "must return (3,5,6) for (1,2,3)" >> {
+            invoke(target, m, List(1, 2, 3)) === List(3, 5, 7)
+          }
+      }
+  }
+
+  task(5)("r5", "method") {
+    (mn, target) =>
+
+      mustHaveMethod(mn) {
+        m =>
+          mustHaveParams(m, 1)
+
+          "must return ((2, 2), (3, 3), (4, 4)) for ((1,3),(2,4),(3,5))" >> {
+            invoke(target, m, List((1, 3), (2, 4), (3, 5))) === List((2, 2), (3, 3), (4, 4))
+          }
+      }
+  }
 }
