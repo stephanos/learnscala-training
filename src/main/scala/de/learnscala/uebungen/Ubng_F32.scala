@@ -31,6 +31,12 @@ class Ubng_F32 extends Exercise with Help /* with Disabled */ {
      */
 
     def print2Digits(i: Int) {
-        // ?(i < 10, print("0" + i), print(i.toString))
+        /*
+        ?(i < 10) {
+          print("0" + i)
+        } {
+          print(i)
+        }
+        */
     }
 }

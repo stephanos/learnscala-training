@@ -30,7 +30,7 @@ class Loes_F32 extends Solution {
      * Aufgabe #2
      */
 
-    def ?[T](test: => Boolean)(fnThen: => T)(fnElse: => T) =
+    def ?[T](test: Boolean)(fnThen: => T)(fnElse: => T) =
         if (test)
             fnThen
         else

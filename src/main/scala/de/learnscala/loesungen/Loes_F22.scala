@@ -1,6 +1,7 @@
 package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
+import scala.annotation.tailrec
 
 class Loes_F22 extends Solution {
 
@@ -20,8 +21,8 @@ class Loes_F22 extends Solution {
      */
     def last(l: List[Int]): Option[Int] =
         l match {
-            case List() => None
-            case h :: List() => Some(h)
+            case Nil => None
+            case h :: Nil => Some(h)
             case h :: tail => last(tail)
         }
 
@@ -33,7 +34,6 @@ class Loes_F22 extends Solution {
     def third(l: List[Int]): Option[Int] =
         l match {
             case h1 :: h2 :: h3 :: tail => Some(h3)
-            case h :: tail => third(tail)
-            case List() => None
+            case _ => None
         }
 }
