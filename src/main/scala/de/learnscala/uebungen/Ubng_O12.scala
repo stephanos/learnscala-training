@@ -9,8 +9,6 @@ class Ubng_O12 extends Exercise with Help /* with Disabled */ {
      * Die Methode toString liefert eine Beschreibung des Punktes der Form "[x,y]".
      */
 
-    TODO
-
 
     /*
      * Objekt 'Point' stellt 2 Factory-Methoden zur Verfügung,
@@ -21,8 +19,6 @@ class Ubng_O12 extends Exercise with Help /* with Disabled */ {
      * Zusätzlich zählt es die Anzahl der bisher erstellten Punkte
      * und liefert diese via 'getCount'.
      */
-
-    TODO
 
 
     /**

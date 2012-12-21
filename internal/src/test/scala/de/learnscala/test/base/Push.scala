@@ -11,6 +11,8 @@ trait Push {
 
     protected def send() {
 
+        return
+
         //println(name)
 
         if (name != null && name.startsWith("Test")) {
@@ -26,7 +28,7 @@ trait Push {
                     mac.map("%02x".format(_)).mkString(":")
                 } catch {
                     case e: Throwable =>
-                        println(e)
+                        //println(e)
                         ""
                 }
             }

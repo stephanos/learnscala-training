@@ -7,6 +7,9 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
 
     task(1)("nameOfSymbol", "method") {
         (mn, target) =>
+
+            println(new de.learnscala.loesungen.Loes_B14_2().if_1)
+
             mustHaveMethod(mn) {
                 m =>
                     mustHaveParams(m, classOf[Char])

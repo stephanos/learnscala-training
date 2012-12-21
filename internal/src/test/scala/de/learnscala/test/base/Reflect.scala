@@ -14,7 +14,7 @@ trait Reflect {
 
     def getInstance[T: TypeTag](args: Any*) = {
         val typ = typeOf[T]
-        val constructor = typ.members.find(_.kind == "constructor").get.asMethod
+        val constructor = typ.declaration(nme.CONSTRUCTOR).asMethod
         cm reflectClass typ.typeSymbol.asClass reflectConstructor constructor apply (args: _*)
     }
 
@@ -53,18 +53,22 @@ trait Reflect {
             case m if p(m) => m
         }
 
-    def getMember[T: TypeTag](name: String): Option[Symbol] =
+    def getMember[T: TypeTag](name: String): Option[Symbol] = {
+        //println(typeOf[T].members)
+        //println(typeOf[T].declaration(newTermName("Task_1")))
+        //println(typeOf[T].declarations.toList)
         typeOf[T].member(newTermName(name)) match {
             case NoSymbol => None
             case s: Symbol => Some(s)
             case _ => None
         }
+    }
 
     // val
 
     def getVal[T: TypeTag](name: String): Option[TermSymbol] =
         getMember[T](name) flatMap (_ match {
-            case term: TermSymbol if(term.isValue) => Some(term)
+            case term: TermSymbol if(term.isVal) => Some(term)
             case _ => None
         })
 

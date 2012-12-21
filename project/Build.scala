@@ -1,44 +1,49 @@
 import sbt._
 import Keys._
 
-//import org.sbtidea._
-
 object ExercisesBuild extends Build {
 
     import Deps._
 
     override lazy val settings =
         super.settings ++ Seq(
+
+            version := "1.0",
+
             scalaVersion := Dep.scala,
-            scalaBinaryVersion := Dep.scala
+            scalaBinaryVersion := Dep.scala,
+            libraryDependencies ++= dbKit ++ utilKit ++ scalaKit ++ httpKit ++ testKit,
+
+            fork in Test := true,
+            parallelExecution in Test := false,
+
+            resolvers ++= Seq("codahale" at "http://repo.codahale.com"),
+            resolvers ++= Seq("typesafe" at "http://repo.typesafe.com/typesafe/releases/"),
+            resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases")
         )
 
     lazy val root =
         Project(id = "LearnScala", base = file("."))
-            //.settings(SbtIdeaPlugin.ideaSettings: _*)
-            .settings(fork in Test := true)
-            .settings(parallelExecution in Test := false)
-            //.settings(mainClass in(Compile, run) := Some("de.learnscala.solutions.L030"))
-            .settings(libraryDependencies ++= dbKit ++ utilKit ++ scalaKit ++ httpKit ++ testKit)
-            .settings(resolvers ++= Seq("codahale" at "http://repo.codahale.com"))
-            .settings(resolvers ++= Seq("typesafe" at "http://repo.typesafe.com/typesafe/releases/"))
-            .settings(resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases"))
+            .dependsOn(internal % "test->test;compile->compile")
+
+    lazy val internal =
+        Project(id = "internal", base = file("internal"))
 }
 
 
 object Deps {
 
     import Dep._
-    import Http._, Util._, Database._, Test._
+    import Http._, Util._, Test._
 
     val dbKit =
-        Seq( /*h2, slick*/ )
+        Seq(/*h2, slick*/)
 
     val utilKit =
         Seq(jodaTime, jodaConvert)
 
     val httpKit =
-        Seq( http )
+        Seq(http)
 
     val testKit =
         Seq(specs2, mockito, scheck, stest, junit)
@@ -50,7 +55,7 @@ object Deps {
 
 object Dep {
 
-    val scala = "2.10.0-M7"
+    val scala = "2.10.0-RC5"
 
     //val akka = "com.typesafe.akka" %% "akka-actor" % "2.1-M2"
     val scalaActors = "org.scala-lang" % "scala-actors" % scala
@@ -90,8 +95,8 @@ object Dep {
         val junit = "junit" % "junit" % "4.10"
         val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
-        val specs2 = "org.specs2" %% "specs2" % "1.12.1.1" % "test"
-        val stest = "org.scalatest" %% "scalatest" % "1.9-2.10.0-M7-B1"
+        val specs2 = "org.specs2" %% "specs2" % "1.12.3" % "test"
+        val stest = "org.scalatest" %% "scalatest" % "1.8-B1"
         val smock = "org.scalamock" %% "scalamock-core" % "3.0-M3"
     }
 

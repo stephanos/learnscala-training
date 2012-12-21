@@ -19,7 +19,10 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * Method 'theAnswerToLifeTheUniverseAndEverything' returns '42'.
      */
 
-    def theAnswerToLifeTheUniverseAndEverything = 21
+    def theAnswerToLifeTheUniverseAndEverything = {
+        printf("hello %s!", "world")
+        21
+    }
 
     // ===============================================================
 
@@ -33,7 +36,6 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * @return 1, 0 or -1
      */
 
-    TODO
 
     // ===============================================================
 
@@ -49,7 +51,6 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * @return the number with the highest absolute value (e.g. absMax(-5,2) = -5)
      */
 
-    TODO
 
     // ===============================================================
 
@@ -60,7 +61,6 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * zählt von 1 bis 10, gibt Zahlen durch Leerzeichen getrennt aus.
      */
 
-    TODO
 
     // ===============================================================
 
@@ -71,7 +71,6 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * zählt von 10 bis 100, gibt Zahlen durch Leerzeichen getrennt aus.
      */
 
-    TODO
 
     // ===============================================================
 
@@ -84,5 +83,4 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
      * @param mod Int
      */
 
-    TODO
 }

@@ -19,8 +19,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      *
      * Gibt den Namen der mathematischen Symbole zurück: Π, √, ! und ∑
      */
-    def nameOfSymbol(symbol: Char) =
-        TODO
+    Task(1) {
+        def nameOfSymbol(symbol: Char) =
+            TODO
+    }
 
     // ===============================================================
 
@@ -29,8 +31,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      *
      * Ermittelt ob ein Wochentag ein Arbeitstag ist.
      */
-    def isWorkingDay(day: String) =
-        TODO
+    Task(2) {
+        def isWorkingDay(day: String) =
+            TODO
+    }
 
     // ===============================================================
 
@@ -39,8 +43,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      *
      * Gibt vom übergebenen Wert den Namen des Typs zurück.
      */
-    def nameOfType(value: Any) =
-        TODO
+    Task(3) {
+        def nameOfType(value: Any) =
+            TODO
+    }
 
     // ===============================================================
 
@@ -50,8 +56,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      * Berechnet die Hälfte einer Zahl,
      * wirft jedoch eine Exception wenn die Zahl nicht ganzzahlig teilbar ist.
      */
-    def half(n: Int) =
-        TODO
+    Task(4) {
+        def half(n: Int) =
+            TODO
+    }
 
     // ===============================================================
 
@@ -61,8 +69,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      * Gibt die Länge des Strings zurück;
      * bei einem Fehler ist das Ergebnis 0.
      */
-    def getSize(s: String) =
-        TODO
+    Task(5) {
+        def getSize(s: String) =
+            TODO
+    }
 
     // ===============================================================
 
@@ -80,6 +90,8 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
      * @param f der File Reader
      * @return erste Zeichen der Datei - oder '0' bei einem Fehler
      */
-    def readCharFromFile(f: FileReader) =
-        TODO
+    Task(6) {
+        def readCharFromFile(f: FileReader) =
+            TODO
+    }
 }

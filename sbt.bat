@@ -1,1 +1,1 @@
-java -Xmx768M -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:MaxPermSize=512M -XX:PermSize=64M -jar sbt-launch.jar %*
+java -Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=384M -XX:+UseConcMarkSweepGC -jar sbt-launch.jar %*

@@ -39,7 +39,7 @@ trait Matchers {
             case Some(m) =>
                 f apply m
             case _ =>
-                ("must be defined: '" + name + "'") >> {
+                ("method '" + name + "' must be defined") >> {
                     Pending()
                 }
         }

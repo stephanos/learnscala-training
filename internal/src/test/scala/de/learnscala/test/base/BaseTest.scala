@@ -46,7 +46,7 @@ abstract class BaseTest[T: TypeTag]
     //implicit val stop = WhenFail()
 
     def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example) {
-        (prefix + typeOf + " '" + name + "'") in {
+        (prefix) in { // + typeOf + " '" + name + "'"
             try {
                 val target = getInstance[T]()
                 val r: Example = fn apply(name, target.asInstanceOf[Testable])
@@ -73,6 +73,6 @@ abstract class BaseTest[T: TypeTag]
     }
 
     def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example) = {
-        test(name, typeOf, "Task #" + n + ": ")(fn)
+        test(name, typeOf, "Task #" + n)(fn)
     }
 }

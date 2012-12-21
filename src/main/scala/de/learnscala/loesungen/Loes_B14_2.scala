@@ -8,48 +8,56 @@ class Loes_B14_2 extends Solution {
     /**
      * Aufgabe #1
      */
-    def nameOfSymbol(symbol: Char): String =
-        symbol match {
-            case 'Π' => "Kreiszahl"
-            case '√' => "Wurzel"
-            case '!' => "Fakultät"
-            case '∑' => "Summe"
-            case _ => "Unbekannt"
-        }
+    Task(1) {
+        def nameOfSymbol(symbol: Char): String =
+            symbol match {
+                case 'Π' => "Kreiszahl"
+                case '√' => "Wurzel"
+                case '!' => "Fakultät"
+                case '∑' => "Summe"
+                case _ => "Unbekannt"
+            }
+    }
 
     // ===============================================================
 
     /**
      * Aufgabe #2
      */
-    def isWorkingDay(day: String): Boolean =
-        day match {
-            case "Sunday" | "Saturday" => false
-            case _ => true
-        }
+    Task(2) {
+        def isWorkingDay(day: String): Boolean =
+            day match {
+                case "Sunday" | "Saturday" => false
+                case _ => true
+            }
+    }
 
     // ===============================================================
 
     /**
      * Aufgabe #3
      */
-    def nameOfType(value: Any): String =
-        value match {
-            case "" => "leerer String"
-            case s: String => "String mit der Länge " + s.length
-            case i: Int if i > 0 => "ein positiver Integer"
-            case i: Int if i < 0 => "ein negativer Integer"
-            case _ => "Unbekannt"
-        }
+    Task(3) {
+        def nameOfType(value: Any): String =
+            value match {
+                case "" => "leerer String"
+                case s: String => "String mit der Länge " + s.length
+                case i: Int if i > 0 => "ein positiver Integer"
+                case i: Int if i < 0 => "ein negativer Integer"
+                case _ => "Unbekannt"
+            }
+    }
 
     // ===============================================================
 
     /**
      * Aufgabe #4
      */
-    def half(n: Int) = {
-        if (n % 2 != 0) throw new RuntimeException("n must be even")
-        n / 2
+    Task(4) {
+        def half(n: Int) = {
+            if (n % 2 != 0) throw new RuntimeException("n must be even")
+            n / 2
+        }
     }
 
     // ===============================================================
@@ -57,33 +65,37 @@ class Loes_B14_2 extends Solution {
     /**
      * Aufgabe #5
      */
-    def getSize(s: String): Int =
-        try {
-            s.length
-        } catch {
-            case e: Throwable => 0
-        }
+    Task(5) {
+        def getSize(s: String): Int =
+            try {
+                s.length
+            } catch {
+                case e: Throwable => 0
+            }
+    }
 
     // ===============================================================
 
     /**
      * Aufgabe #6
      */
-    def readCharFromFile(f: FileReader): Char = {
-        try {
-            f.read().toChar
-        } catch {
-            case e: FileNotFoundException =>
-                println("not found")
-                0
-            case e: IOException =>
-                println("cannot read")
-                0
-            case e: RuntimeException =>
-                println("unknown error")
-                0
-        } finally {
-            f.close()
+    Task(6) {
+        def readCharFromFile(f: FileReader): Char = {
+            try {
+                f.read().toChar
+            } catch {
+                case e: FileNotFoundException =>
+                    println("not found")
+                    0
+                case e: IOException =>
+                    println("cannot read")
+                    0
+                case e: RuntimeException =>
+                    println("unknown error")
+                    0
+            } finally {
+                f.close()
+            }
         }
     }
 }
