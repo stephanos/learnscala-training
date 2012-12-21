@@ -2,10 +2,11 @@ package de.learnscala.base
 
 import reflect.macros.Context
 
-object Macro {
+class Macro[C <: Context](val c: C) {
 
-    def analyze_impl(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {
-        import c.universe._
+    import c.universe._
+
+    def apply(num: c.Expr[Int], code: c.Expr[Any]): c.Expr[Any] = {
 
         implicit val impl_code = code
         val Literal(Constant(n: Int)) = num.tree
@@ -47,7 +48,8 @@ object Macro {
 
         //wrapper
 
-        c.Expr(Block(vals, Literal(Constant(()))))
+        //c.Expr(Block(vals, Literal(Constant(()))))
+        code
     }
 
 
@@ -92,4 +94,11 @@ object Macro {
         }
     }
      */
+}
+
+object Macro {
+
+    def apply(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {
+        new Macro[c.type](c).apply(num, code)
+    }
 }
