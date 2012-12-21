@@ -2,6 +2,7 @@ package de.learnscala.base
 
 import collection.mutable
 import language.experimental.macros
+import de.learnscala.base.Testable.Task
 
 trait Testable {
 
@@ -11,7 +12,13 @@ trait Testable {
         tasks += t
     }
 
-    protected class Task {
+    def Task(num: Int)(code: Any): Any = macro Macro.apply
+
+}
+
+object Testable {
+
+    class Task {
 
         val _noOfIfs = 0
         val _noOfVars = 0
@@ -19,10 +26,4 @@ trait Testable {
         val _noOfDefs = 0
         val _linesOfCode = 0
     }
-
-    protected object Task {
-
-        def apply(num: Int)(code: Any): Any = macro Macro.apply
-    }
-
 }
