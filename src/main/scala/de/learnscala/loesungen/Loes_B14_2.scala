@@ -5,10 +5,8 @@ import java.io._
 
 class Loes_B14_2 extends Solution {
 
-    /**
-     * Aufgabe #1
-     */
     Task(1) {
+
         def nameOfSymbol(symbol: Char): String =
             symbol match {
                 case 'Π' => "Kreiszahl"
@@ -21,10 +19,8 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    /**
-     * Aufgabe #2
-     */
     Task(2) {
+
         def isWorkingDay(day: String): Boolean =
             day match {
                 case "Sunday" | "Saturday" => false
@@ -34,10 +30,8 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    /**
-     * Aufgabe #3
-     */
     Task(3) {
+
         def nameOfType(value: Any): String =
             value match {
                 case "" => "leerer String"
@@ -50,10 +44,8 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    /**
-     * Aufgabe #4
-     */
     Task(4) {
+
         def half(n: Int) = {
             if (n % 2 != 0) throw new RuntimeException("n must be even")
             n / 2
@@ -62,10 +54,8 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    /**
-     * Aufgabe #5
-     */
     Task(5) {
+
         def getSize(s: String): Int =
             try {
                 s.length
@@ -76,10 +66,8 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    /**
-     * Aufgabe #6
-     */
     Task(6) {
+
         def readCharFromFile(f: FileReader): Char = {
             try {
                 f.read().toChar
