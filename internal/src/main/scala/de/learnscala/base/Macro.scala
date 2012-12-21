@@ -1,11 +1,11 @@
 package de.learnscala.base
 
 import reflect.macros.Context
-import de.learnscala.base.Testable.Task
 
 class Macro[C <: Context](val c: C) {
 
     import c.universe._
+    import Flag._
 
     private def apply(num: c.Expr[Int], code: c.Expr[Any]): c.Expr[Any] = {
 
@@ -16,20 +16,53 @@ class Macro[C <: Context](val c: C) {
                 kv => metaField(kv._1, kv._2)
             }
 
-        //println ( showRaw { reify { new Testable.Task { override val _noOfIfs = 1 } } } )
-        //c.Expr(Block(List(ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(de.learnscala.base.Testable.Task)), emptyValDef, List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(())))), ValDef(Modifiers(OVERRIDE), newTermName("_noOfIfs"), TypeTree(), Literal(Constant(1))))))), Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())))
-        //c.Expr(Apply(Select(New(Ident("Task")), nme.CONSTRUCTOR), List()))
+        /*
+        println(showRaw {
+            reify {
+                class TestEnv {
 
-        c.Expr(Block(meta, Literal(Constant(()))))
+                    def register(t: Testable.Task) {
+                    }
+
+                    register(new Testable.Task {
+                        override val _noOfIfs = 1
+                    })
+                }
+            }
+        })
+        */
+        //Expr(Block(List(ClassDef(Modifiers(), newTypeName("TestEnv"), List(), Template(List(Ident(newTypeName("AnyRef"))), emptyValDef, List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(())))), DefDef(Modifiers(), newTermName("register"), List(), List(List(ValDef(Modifiers(PARAM), newTermName("t"), Ident(de.learnscala.base.Testable.Task), EmptyTree))), Ident(scala.Unit), Literal(Constant(()))), Apply(Select(This(newTypeName("TestEnv")), newTermName("register")), List(Block(List(ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(de.learnscala.base.Testable.Task)), emptyValDef, List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(())))), ValDef(Modifiers(OVERRIDE), newTermName("_noOfIfs"), TypeTree(), Literal(Constant(1))))))), Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())))))))), Literal(Constant(()))))
+
+        c.Expr(
+            Apply(Select(Ident(newTermName("this")), newTermName("register")),
+                List(
+                    Block(List(
+                        ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(),
+                            Template(
+                                List(Ident("Task")),
+                                emptyValDef,
+                                List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(()))))) ::: meta
+                            )
+                        )
+                    ),
+                        Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())
+                    )
+                )
+            )
+        )
+
+        //code
     }
 
     def checkIfs()(implicit code: c.Expr[Any]): (String, Int) = {
-        val ifs = code.tree.collect { case If(_) => true }
+        val ifs = code.tree.collect {
+            case If(_) => true
+        }
         ("noOfIfs", ifs.size)
     }
 
     private def metaField(name: String, value: Any) = {
-        ValDef(Modifiers(), newTermName("_" + name), TypeTree(typeOf[Int]), Literal(Constant(value)))
+        ValDef(Modifiers(OVERRIDE), newTermName("_" + name), TypeTree(typeOf[Int]), Literal(Constant(value)))
     }
 
     /*
