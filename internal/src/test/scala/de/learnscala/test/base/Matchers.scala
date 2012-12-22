@@ -34,7 +34,7 @@ trait Matchers {
                 }
         }
 
-    def mustHaveMethod[T: TypeTag](name: String)(f: (MethodSymbol) => Example): Example =
+    def mustHaveMethod[T: TypeTag](name: String)(f: (MethodSymbol) => Example): Example = {
         getMethod[T](name) match {
             case Some(m) =>
                 f apply m
@@ -43,6 +43,7 @@ trait Matchers {
                     Pending()
                 }
         }
+    }
 
 
     def mustHaveParams(m: MethodSymbol, count: Int): Example = {

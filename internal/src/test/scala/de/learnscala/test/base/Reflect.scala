@@ -54,7 +54,7 @@ trait Reflect {
         }
 
     def getMember[T: TypeTag](name: String): Option[Symbol] = {
-        //println(typeOf[T].members)
+        println(typeOf[T].members)
         //println(typeOf[T].declaration(newTermName("Task_1")))
         //println(typeOf[T].declarations.toList)
         typeOf[T].member(newTermName(name)) match {

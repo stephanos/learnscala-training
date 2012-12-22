@@ -2,19 +2,16 @@ package de.learnscala.test.generic
 
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
+import de.learnscala.base.Task
 
 abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
-
-    new de.learnscala.loesungen.Loes_B14_2().tasks.foreach {
-        t =>
-            if(t != null)
-                println(t._noOfIfs)
-    }
 
     task(1)("nameOfSymbol", "method") {
         (mn, target) =>
 
-            mustHaveMethod(mn) {
+            println(target._noOfIfs)
+
+            mustHaveMethod[Task](mn) {
                 m =>
                     mustHaveParams(m, classOf[Char])
 
@@ -36,6 +33,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
             }
     }
 
+    /*
     task(2)("isWorkingDay", "method") {
         (mn, target) =>
             mustHaveMethod(mn) {
@@ -137,8 +135,6 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
             }
     }
 
-    import java.io._
-
     task(5)("readCharFromFile", "method") {
         (mn, target) =>
             mustHaveMethod(mn) {
@@ -176,6 +172,9 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     }
             }
     }
+    */
+
+    import java.io._
 
     private def getMock = {
         val m = mock[FileReader]

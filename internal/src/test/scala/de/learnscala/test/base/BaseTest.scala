@@ -7,7 +7,7 @@ import org.specs2.specification._
 import org.specs2.runner.JUnitRunner
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.mutable.Around
-import org.specs2.execute.{Skipped, Failure, Result}
+import org.specs2.execute.Result
 import org.specs2.ScalaCheck
 
 import scala.reflect.runtime.universe._
@@ -43,14 +43,26 @@ abstract class BaseTest[T: TypeTag]
                 r
         }
     }
+
     //implicit val stop = WhenFail()
 
-    def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Testable) => Example) {
-        (prefix) in { // + typeOf + " '" + name + "'"
+    protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Task) => Example) {
+        test(0, name, typeOf, prefix)(fn)
+    }
+
+    private def test(n: Int, name: String, typeOf: String, prefix: String)(fn: (String, Task) => Example) {
+        (prefix) in {
+            // + typeOf + " '" + name + "'"
             try {
-                val target = getInstance[T]()
-                val r: Example = fn apply(name, target.asInstanceOf[Testable])
-                r
+                val tasks = getInstance[T]().asInstanceOf[Testable].tasks
+                if (tasks.length >= n) {
+                    val tsk = tasks(n)
+                    if (tsk != null)
+                        fn apply(name, tsk)
+                    else
+                        sys.error("unable to test task #" + n + ": no element")
+                } else
+                    sys.error("unable to test task #" + n + ": not enough elements")
 
                 /*
                 //step(args(stopOnFail = true))
@@ -62,17 +74,17 @@ abstract class BaseTest[T: TypeTag]
                 */
             } catch {
                 case e: Throwable =>
-                    val r: Example  =
-                    "failed to initiate exercise" >> {
-                        e.printStackTrace()
-                        Failure()
-                    }
+                    val r: Example =
+                        "failed to initiate exercise" >> {
+                            e.printStackTrace()
+                            Failure()
+                        }
                     r
             }
         }
     }
 
-    def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Testable) => Example) = {
-        test(name, typeOf, "Task #" + n)(fn)
-    }
+    protected def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Task) => Example) =
+        test(n, name, typeOf, "Task #" + n)(fn)
+
 }
