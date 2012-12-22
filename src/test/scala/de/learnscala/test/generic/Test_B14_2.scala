@@ -5,10 +5,14 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
 
+    new de.learnscala.loesungen.Loes_B14_2().tasks.foreach {
+        t =>
+            if(t != null)
+                println(t._noOfIfs)
+    }
+
     task(1)("nameOfSymbol", "method") {
         (mn, target) =>
-
-            println(new de.learnscala.loesungen.Loes_B14_2().if_1)
 
             mustHaveMethod(mn) {
                 m =>

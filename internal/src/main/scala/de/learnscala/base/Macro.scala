@@ -10,6 +10,7 @@ class Macro[C <: Context](val c: C) {
     private def apply(num: c.Expr[Int], code: c.Expr[Any]): c.Expr[Any] = {
 
         implicit val impl_code = code
+        val Literal(Constant(n: Int)) = num.tree
 
         val meta: List[ValDef] =
             List[(String, Int)](checkIfs()).map {
@@ -19,39 +20,38 @@ class Macro[C <: Context](val c: C) {
         /*
         println(showRaw {
             reify {
-                class TestEnv {
+                class Ex1 extends Testable {
 
-                    def register(t: Testable.Task) {
-                    }
-
-                    register(new Testable.Task {
-                        override val _noOfIfs = 1
+                    this.register(0, new Tsk {
+                        override val _noOfIfs = 0
                     })
                 }
             }
         })
         */
-        //Expr(Block(List(ClassDef(Modifiers(), newTypeName("TestEnv"), List(), Template(List(Ident(newTypeName("AnyRef"))), emptyValDef, List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(())))), DefDef(Modifiers(), newTermName("register"), List(), List(List(ValDef(Modifiers(PARAM), newTermName("t"), Ident(de.learnscala.base.Testable.Task), EmptyTree))), Ident(scala.Unit), Literal(Constant(()))), Apply(Select(This(newTypeName("TestEnv")), newTermName("register")), List(Block(List(ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(de.learnscala.base.Testable.Task)), emptyValDef, List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(())))), ValDef(Modifiers(OVERRIDE), newTermName("_noOfIfs"), TypeTree(), Literal(Constant(1))))))), Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())))))))), Literal(Constant(()))))
 
-        c.Expr(
-            Apply(Select(Ident(newTermName("this")), newTermName("register")),
-                List(
-                    Block(List(
-                        ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(),
-                            Template(
-                                List(Ident("Task")),
-                                emptyValDef,
-                                List(DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(List(Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())), Literal(Constant(()))))) ::: meta
-                            )
-                        )
-                    ),
-                        Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())
+        c.Expr(Block(
+            List(
+                Apply(Select(This(tpnme.EMPTY), newTermName("register")),
+                    List(Literal(Constant(n)), Block(
+                        List(
+                            ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(newTypeName("Tsk"))), emptyValDef,
+                                List(
+                                    DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(
+                                        List(
+                                            Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())
+                                        ),
+                                        Literal(Constant(()))
+                                    ))
+                                ) ::: meta ::: List(code.tree)
+                            ))
+                        ),
+                        Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List()))
                     )
                 )
-            )
-        )
-
-        //code
+            ),
+            Literal(Constant(()))
+        ))
     }
 
     def checkIfs()(implicit code: c.Expr[Any]): (String, Int) = {

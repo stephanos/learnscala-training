@@ -5,7 +5,7 @@ import java.io._
 
 class Loes_B14_2 extends Solution {
 
-    Task(1) {
+    task(1) {
 
         def nameOfSymbol(symbol: Char): String =
             symbol match {
@@ -19,7 +19,7 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    Task(2) {
+    task(2) {
 
         def isWorkingDay(day: String): Boolean =
             day match {
@@ -30,7 +30,7 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    Task(3) {
+    task(3) {
 
         def nameOfType(value: Any): String =
             value match {
@@ -44,7 +44,7 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    Task(4) {
+    task(4) {
 
         def half(n: Int) = {
             if (n % 2 != 0) throw new RuntimeException("n must be even")
@@ -54,7 +54,7 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    Task(5) {
+    task(5) {
 
         def getSize(s: String): Int =
             try {
@@ -66,7 +66,7 @@ class Loes_B14_2 extends Solution {
 
     // ===============================================================
 
-    Task(6) {
+    task(6) {
 
         def readCharFromFile(f: FileReader): Char = {
             try {

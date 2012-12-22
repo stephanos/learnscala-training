@@ -15,7 +15,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(1) {
+    task(1) {
 
         /**
          * Aufgabe #1
@@ -29,7 +29,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(2) {
+    task(2) {
 
         /**
          * Aufgabe #2
@@ -43,7 +43,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(3) {
+    task(3) {
 
         /**
          * Aufgabe #3
@@ -57,7 +57,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(4) {
+    task(4) {
 
         /**
          * Aufgabe #4
@@ -72,7 +72,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(5) {
+    task(5) {
 
         /**
          * Aufgabe #5
@@ -87,7 +87,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
 
     // ===============================================================
 
-    Task(6) {
+    task(6) {
 
         /**
          * Aufgabe #6 (Bonus - schwierig !)
