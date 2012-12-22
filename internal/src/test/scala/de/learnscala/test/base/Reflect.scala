@@ -10,6 +10,7 @@ import reflect.ClassTag
  */
 trait Reflect {
 
+
     // Class
 
     def getInstance[T: TypeTag](args: Any*) = {
@@ -72,12 +73,6 @@ trait Reflect {
             case _ => None
         })
 
-    def getMethod2(name: String)(implicit cls: ClassSymbol): Option[MethodSymbol] =
-        getMember2(name) flatMap (_ match {
-            case mth: MethodSymbol => Some(mth)
-            case _ => None
-        })
-
 
     // Invoke
 
@@ -117,18 +112,6 @@ trait Reflect {
 
 
     // INTERNALS ===============================================================
-
-    private def getMembers2(p: (Symbol) => Boolean)(implicit cls: ClassSymbol): Iterable[Symbol] =
-        cls.typeSignature.members collect {
-            case m if p(m) => m
-        }
-
-    private def getMember2(name: String)(implicit cls: ClassSymbol): Option[Symbol] =
-        cls.typeSignature.member(newTermName(name)) match {
-            case NoSymbol => None
-            case s: Symbol => Some(s)
-            case _ => None
-        }
 
     private def tryopt[T](fn: => T): Option[T] = {
         try {

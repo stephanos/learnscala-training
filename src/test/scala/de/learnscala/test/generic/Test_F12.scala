@@ -13,7 +13,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "u1 must contain '1'" >> {
+                    "u1 must contain '1'" ! {
                         tryOrPending {
                             invoke(target, m) === true
                         }
@@ -24,7 +24,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "u2 must contain '2'" >> {
+                    "u2 must contain '2'" ! {
                         tryOrPending {
                             invoke(target, m) === true
                         }
@@ -34,7 +34,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "u3 must NOT contain '3'" >> {
+                    "u3 must NOT contain '3'" ! {
                         tryOrPending {
                             invoke(target, m) === false
                         }
@@ -48,7 +48,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "i1 must contain '1'" >> {
+                    "i1 must contain '1'" ! {
                         tryOrPending {
                             invoke(target, m) === true
                         }
@@ -59,7 +59,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "i2 must NOT contain '2'" >> {
+                    "i2 must NOT contain '2'" ! {
                         tryOrPending {
                             invoke(target, m) === false
                         }
@@ -69,7 +69,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "i3 must NOT contain '3'" >> {
+                    "i3 must NOT contain '3'" ! {
                         tryOrPending {
                             invoke(target, m) === false
                         }
@@ -83,7 +83,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "d1 must NOT contain '1'" >> {
+                    "d1 must NOT contain '1'" ! {
                         tryOrPending {
                             invoke(target, m) === false
                         }
@@ -94,7 +94,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "d2 must contain '2'" >> {
+                    "d2 must contain '2'" ! {
                         tryOrPending {
                             invoke(target, m) === true
                         }
@@ -104,7 +104,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "d3 must NOT contain '3'" >> {
+                    "d3 must NOT contain '3'" ! {
                         tryOrPending {
                             invoke(target, m) === false
                         }

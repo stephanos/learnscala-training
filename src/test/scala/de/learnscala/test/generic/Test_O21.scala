@@ -11,7 +11,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "Salary of clerk must be 50.000" >> {
+                    "Salary of clerk must be 50.000" ! {
                         invoke(target, m) === 50000
                     }
             }
@@ -23,7 +23,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "Salary of manager must be 250.000" >> {
+                    "Salary of manager must be 250.000" ! {
                         invoke(target, m) === 250000
                     }
             }
@@ -35,7 +35,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "Salary of board member must be 100.000" >> {
+                    "Salary of board member must be 100.000" ! {
                         invoke(target, m) === 100000
                     }
             }
@@ -47,7 +47,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                    m =>
                        mustHaveParams(m)
 
-                       "Salary of friend-of-managers clerk must be 100.000" >> {
+                       "Salary of friend-of-managers clerk must be 100.000" ! {
                            invoke(target, m) === 100000
                        }
                }
@@ -59,7 +59,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                    m =>
                        mustHaveParams(m)
 
-                       "Salary of illegal-immigrant clerk must be 25.000" >> {
+                       "Salary of illegal-immigrant clerk must be 25.000" ! {
                            invoke(target, m) === 25000
                        }
                }
@@ -71,7 +71,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                    m =>
                        mustHaveParams(m)
 
-                       "Salary of illegal-immigrant manager must be 125.000" >> {
+                       "Salary of illegal-immigrant manager must be 125.000" ! {
                            invoke(target, m) === 125000
                        }
                }
@@ -83,7 +83,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                    m =>
                        mustHaveParams(m)
 
-                       "Salary of illegal-immigrant board member must be 50.000" >> {
+                       "Salary of illegal-immigrant board member must be 50.000" ! {
                            invoke(target, m) === 50000
                        }
                }

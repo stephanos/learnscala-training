@@ -14,7 +14,7 @@ abstract class Test_F24[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m)
 
-          "must have titles of books with author 'Martin'" >> {
+          "must have titles of books with author 'Martin'" ! {
               val l = invoke(target, m)
               l match {
                 case li: List[_] =>
@@ -33,7 +33,7 @@ abstract class Test_F24[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m)
 
-          "must have ISBNs of books where author's lastname starts with 'S'" >> {
+          "must have ISBNs of books where author's lastname starts with 'S'" ! {
               val l = invoke(target, m)
               l match {
                 case li: List[_] =>
@@ -52,7 +52,7 @@ abstract class Test_F24[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m)
 
-          "must have list of title and prices where 'Scala' is in the title" >> {
+          "must have list of title and prices where 'Scala' is in the title" ! {
               val l = invoke(target, m)
               l match {
                 case li: List[_] =>
@@ -72,7 +72,7 @@ abstract class Test_F24[T: TypeTag] extends BaseTest[T] {
           m =>
             mustHaveParams(m)
 
-            "must have list of title and prices where 'Scala' is in the title" >> {
+            "must have list of title and prices where 'Scala' is in the title" ! {
                 val l = invoke(target, m)
                 l match {
                   case li: List[_] =>

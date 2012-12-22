@@ -1,13 +1,11 @@
 package de.learnscala.test.base
 
-import scala.reflect.runtime.universe._
-import org.specs2.mutable.SpecificationWithJUnit
-import org.specs2.execute.Pending
-import org.specs2.specification.Example
-import reflect.ClassTag
-import reflect.runtime._
-import org.specs2.execute.Pending
-import scala.Some
+import org.specs2._
+import specification._
+import execute.Pending
+
+import scala.reflect._
+import runtime.universe._
 
 /**
  * http://etorreborre.github.com/specs2/guide/org.specs2.guide.Matchers.html#Custom
@@ -21,7 +19,7 @@ trait Matchers {
             case Some(o) =>
                 f apply o
             case _ =>
-                ("object '" + name + "' must be defined") >> {
+                ("object '" + name + "' must be defined") ! {
                     Pending()
                 }
         }
@@ -32,7 +30,7 @@ trait Matchers {
             case Some(v) =>
                 f apply v
             case _ =>
-                ("method '" + name + "' must be defined") >> {
+                ("method '" + name + "' must be defined") ! {
                     Pending()
                 }
         }
@@ -42,26 +40,24 @@ trait Matchers {
             case Some(m) =>
                 f apply m
             case _ =>
-                ("method '" + name + "' must be defined") >> {
+                ("method '" + name + "' must be defined") ! {
                     Pending()
                 }
         }
     }
 
-    def mustHaveMethod2(name: String)(f: (MethodSymbol) => Example)(implicit cls: ClassSymbol): Example = {
-        getMethod2(name) match {
-            case Some(m) =>
-                f apply m
-            case _ =>
-                ("method '" + name + "' must be defined") >> {
-                    Pending()
-                }
-        }
+    def mustHaveMethod2(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext) = {
+        val method = ctx.getMethod(ctx.name)
+        ("method '" + ctx.name + "' must be defined") ! {
+            if (method.isDefined)
+                success
+            else
+                pending
+        } ^ f(method.get)
     }
-
 
     def mustHaveParams(m: MethodSymbol, count: Int): Example = {
-        "must have " + count + " parameter" >> {
+        "must have " + count + " parameter" ! {
             getParams(m) aka "parameter list" must haveSize(count)
         }
     }
@@ -76,7 +72,7 @@ trait Matchers {
         val doesHave = getParams(m)
 
         if(shouldHave != doesHave.size) {
-            "must have " + shouldHave + " parameter" >> {
+            "must have " + shouldHave + " parameter" ! {
                 doesHave aka "parameter list" must haveSize(shouldHave)
             }
         }
@@ -110,13 +106,13 @@ trait Matchers {
     }
 
     def mustHaveType(t: String): Example = {
-        ("must have type: '" + t + "'") >> {
+        ("must have type: '" + t + "'") ! {
             Pending()
         }
     }
 
     def mustNotBeNull(): Example = {
-        ("must not be null") >> {
+        ("must not be null") ! {
             Pending()
         }
     }

@@ -12,7 +12,7 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m, 1)
 
-          "must return (2,3,4) for (1,2,3)" >> {
+          "must return (2,3,4) for (1,2,3)" ! {
             invoke(target, m, List(1, 2, 3)) === List(2, 3, 4)
           }
       }
@@ -25,7 +25,7 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m, 1)
 
-          "must return (4,6,8) for (1,2,3)" >> {
+          "must return (4,6,8) for (1,2,3)" ! {
             invoke(target, m, List(1, 2, 3)) === List(4, 6, 8)
           }
       }
@@ -38,7 +38,7 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m, 1)
 
-          "must return (3,5,6) for (1,2,3)" >> {
+          "must return (3,5,6) for (1,2,3)" ! {
             invoke(target, m, List(1, 2, 3)) === List(3, 5, 7)
           }
       }
@@ -52,7 +52,7 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m, 1)
 
-          "must return (3,5,6) for (1,2,3)" >> {
+          "must return (3,5,6) for (1,2,3)" ! {
             invoke(target, m, List(1, 2, 3)) === List(3, 5, 7)
           }
       }
@@ -65,7 +65,7 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T] {
         m =>
           mustHaveParams(m, 1)
 
-          "must return ((2, 2), (3, 3), (4, 4)) for ((1,3),(2,4),(3,5))" >> {
+          "must return ((2, 2), (3, 3), (4, 4)) for ((1,3),(2,4),(3,5))" ! {
             invoke(target, m, List((1, 3), (2, 4), (3, 5))) === List((2, 2), (3, 3), (4, 4))
           }
       }

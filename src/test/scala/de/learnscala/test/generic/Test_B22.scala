@@ -12,7 +12,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '1/2'" >> {
+                    "must return '1/2'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "1/2"
                     }
             }
@@ -25,7 +25,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '1/4'" >> {
+                    "must return '1/4'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "1/4"
                     }
             }
@@ -38,7 +38,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '1/2'" >> {
+                    "must return '1/2'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "1/4"
                     }
             }
@@ -51,7 +51,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '7/12'" >> {
+                    "must return '7/12'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "7/12"
                     }
             }
@@ -64,7 +64,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '2/1'" >> {
+                    "must return '2/1'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "2/1"
                     }
             }

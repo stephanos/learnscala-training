@@ -12,7 +12,7 @@ abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "f1 must be '-5.0'" >> {
+                    "f1 must be '-5.0'" ! {
                         invoke(target, m) === -5.0f
                     }
             }
@@ -25,7 +25,7 @@ abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "f2 must be '1.0'" >> {
+                    "f2 must be '1.0'" ! {
                         invoke(target, m) === 1.0
                     }
             }
@@ -38,7 +38,7 @@ abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "f3 must output 'cba'" >> {
+                    "f3 must output 'cba'" ! {
                         invoke(target, m) === "cba"
                     }
             }
@@ -51,7 +51,7 @@ abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "f4 must be '123123123'" >> {
+                    "f4 must be '123123123'" ! {
                         invoke(target, m) === "123123123"
                     }
             }

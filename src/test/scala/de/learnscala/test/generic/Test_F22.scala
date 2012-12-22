@@ -6,7 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
 
     /*
-    "Task #1: days" >> {
+    "Task #1: days" ! {
 
         test("weekDays") {
             (mn, target) =>
@@ -16,7 +16,7 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
 
                         getList(target, m) {
                             l =>
-                                "must contain all (work) week days" >> {
+                                "must contain all (work) week days" ! {
                                     val ls = l.toString()
                                     ls must contain("Montag")
                                     ls must contain("Dienstag")
@@ -36,7 +36,7 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
 
                         getList(target, m) {
                             l =>
-                                "must contain all weekend days" >> {
+                                "must contain all weekend days" ! {
                                     val ls = l.toString()
                                     ls must contain("Sonntag")
                                     ls must contain("Samstag")
@@ -53,7 +53,7 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
 
                         getList(target, m) {
                             l =>
-                                "must contain all days of the week" >> {
+                                "must contain all days of the week" ! {
                                     val ls = l.toString()
                                     ls must contain("Montag")
                                     ls must contain("Dienstag")
@@ -75,16 +75,16 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    "must return 'Some(1)' for List(1)" >> {
+                    "must return 'Some(1)' for List(1)" ! {
                         invoke(target, m, List(1)) === Some(1)
                     }
-                    "must return 'Some(3)' for List(1,2,3)" >> {
+                    "must return 'Some(3)' for List(1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === Some(3)
                     }
-                    "must return 'Some(5)' for List(1,2,3,4,5)" >> {
+                    "must return 'Some(5)' for List(1,2,3,4,5)" ! {
                         invoke(target, m, List(1, 2, 3, 4, 5)) === Some(5)
                     }
-                    "must return 'None' for List()" >> {
+                    "must return 'None' for List()" ! {
                         invoke(target, m, List()) === None
                     }
             }
@@ -96,19 +96,19 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    "must return 'Some(3)' for List(1,2,3)" >> {
+                    "must return 'Some(3)' for List(1,2,3)" ! {
                         invoke(target, m,List(1, 2, 3)) === Some(3)
                    }
-                   "must return 'Some(3)' for List(1,2,3,4,5)" >> {
+                   "must return 'Some(3)' for List(1,2,3,4,5)" ! {
                        invoke(target, m,List(1, 2, 3, 4, 5)) === Some(3)
                    }
-                   "must return 'None' for List(1,2)" >> {
+                   "must return 'None' for List(1,2)" ! {
                        invoke(target, m,List(1, 2)) === None
                    }
-                   "must return 'None' for List(1)" >> {
+                   "must return 'None' for List(1)" ! {
                        invoke(target, m,List(1)) === None
                    }
-                   "must return 'None' for List()" >> {
+                   "must return 'None' for List()" ! {
                        invoke(target, m,List()) === None
                    }
             }
@@ -117,23 +117,23 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
 
 
     //
-    //        "palindrome" >> {
-    //            "must return 'false' for List(1,2,3)" >> {
+    //        "palindrome" ! {
+    //            "must return 'false' for List(1,2,3)" ! {
     //                palindrome(List(1, 2, 3)) === false
     //            }
-    //            "must return 'false' for List(1,2,1,2)" >> {
+    //            "must return 'false' for List(1,2,1,2)" ! {
     //                palindrome(List(1, 2, 1, 2)) === false
     //            }
-    //            "must return 'true' for List(1,2,1)" >> {
+    //            "must return 'true' for List(1,2,1)" ! {
     //                palindrome(List(1, 2, 1)) === true
     //            }
-    //            "must return 'true' for List(1)" >> {
+    //            "must return 'true' for List(1)" ! {
     //                palindrome(List(1)) === true
     //            }
-    //            "must return 'true' for List(1,2,3,2,1)" >> {
+    //            "must return 'true' for List(1,2,3,2,1)" ! {
     //                palindrome(List(1, 2, 3, 2, 1)) === true
     //            }
-    //            "must return 'true' for List()" >> {
+    //            "must return 'true' for List()" ! {
     //                palindrome(List()) === true
     //            }
     //        }

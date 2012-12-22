@@ -11,7 +11,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '[1,2,3]' for (1,2,3)" >> {
+                    mn + " must return '[1,2,3]' for (1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === "[1,2,3]"
                     }
             }
@@ -23,7 +23,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 2)
 
-                    mn + " must return '(1,2,3,4)' for (1,2) and (3,4)" >> {
+                    mn + " must return '(1,2,3,4)' for (1,2) and (3,4)" ! {
                         invoke(target, m, List(1, 2), List(3, 4)) === List(1, 2, 3, 4)
                     }
             }
@@ -35,7 +35,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '(1,2)' for (1,2,3,4)" >> {
+                    mn + " must return '(1,2)' for (1,2,3,4)" ! {
                         invoke(target, m, List(1, 2, 3, 4)) === List(1, 2)
                     }
             }
@@ -47,7 +47,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '6' for (1,2,3)" >> {
+                    mn + " must return '6' for (1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === 6
                     }
             }
@@ -59,7 +59,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '(2, 3)' for (1,2,3)" >> {
+                    mn + " must return '(2, 3)' for (1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === List(2, 3)
                     }
             }
@@ -71,7 +71,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '3' for (1,2,3)" >> {
+                    mn + " must return '3' for (1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === 3
                     }
             }
@@ -86,7 +86,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 3)
 
-                    mn + " must return (1,2,3) for 1, 2 and 3" >> {
+                    mn + " must return (1,2,3) for 1, 2 and 3" ! {
                         invoke(target, m, 1, 2, 3) === List(1, 2, 3)
                     }
             }
@@ -98,7 +98,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return (1,2,3) for (1,2,2,3,3)" >> {
+                    mn + " must return (1,2,3) for (1,2,2,3,3)" ! {
                         invoke(target, m, List(1, 2, 2, 3, 3)) === List(1, 2, 3)
                     }
             }
@@ -110,7 +110,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return (3,2,1) for (1,2,3)" >> {
+                    mn + " must return (3,2,1) for (1,2,3)" ! {
                         invoke(target, m, List(1, 2, 3)) === List(3, 2, 1)
                     }
             }
@@ -125,13 +125,13 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return 'true' for (1,42,101)" >> {
+                    mn + " must return 'true' for (1,42,101)" ! {
                         invoke(target, m, Set(1, 42, 101)) === true
                     }
-                    mn + " must return 'false' for (1,42)" >> {
+                    mn + " must return 'false' for (1,42)" ! {
                         invoke(target, m, Set(1, 42)) === false
                     }
-                    mn + " must return false' for (1,101)" >> {
+                    mn + " must return false' for (1,101)" ! {
                         invoke(target, m, Set(1, 101)) === false
                     }
             }
@@ -143,7 +143,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 2)
 
-                    mn + " must return (1,2,3,4) for (1,2) and (3,4)" >> {
+                    mn + " must return (1,2,3,4) for (1,2) and (3,4)" ! {
                         invoke(target, m, Set(1, 2), Set(3, 4)) === Set(1, 2, 3, 4)
                     }
             }
@@ -158,7 +158,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return '(101 -> false)' for (42 -> true, 101 -> false)" >> {
+                    mn + " must return '(101 -> false)' for (42 -> true, 101 -> false)" ! {
                         invoke(target, m, Map(42 -> true, 101 -> false)) === Map(101 -> false)
                     }
             }
@@ -170,10 +170,10 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m, 1)
 
-                    mn + " must return 'true' for (42 -> true, 101 -> false)" >> {
+                    mn + " must return 'true' for (42 -> true, 101 -> false)" ! {
                         invoke(target, m, Map(42 -> true, 101 -> false)) === true
                     }
-                    mn + " must return 'false' for (43 -> true, 101 -> false)" >> {
+                    mn + " must return 'false' for (43 -> true, 101 -> false)" ! {
                         invoke(target, m, Map(43 -> true, 101 -> false)) === false
                     }
             }

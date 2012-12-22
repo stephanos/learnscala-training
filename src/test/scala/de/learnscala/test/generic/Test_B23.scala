@@ -9,7 +9,7 @@ abstract class Test_B23[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
-                    "(1 * 1/2) must be '1/2'" >> {
+                    "(1 * 1/2) must be '1/2'" ! {
                         Option(invoke(target, m)).map(_.toString).getOrElse("TODO") === "1/2"
                     }
             }
@@ -19,7 +19,7 @@ abstract class Test_B23[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
-                    "must increase value of '150' by 50 %" >> {
+                    "must increase value of '150' by 50 %" ! {
                         invoke(target, m) === 225
                     }
             }

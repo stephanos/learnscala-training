@@ -11,7 +11,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '13:37'" >> {
+                    mn + " must be '13:37'" ! {
                         t must not(beNull)
                         t.toString === "13:37"
                     }
@@ -24,7 +24,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '20:00'" >> {
+                    mn + " must be '20:00'" ! {
                         t must not(beNull)
                         t.toString === "20:00"
                     }
@@ -37,7 +37,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '0:00'" >> {
+                    mn + " must be '0:00'" ! {
                         t must not(beNull)
                         t.toString === "0:00"
                     }
@@ -50,7 +50,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '14:00'" >> {
+                    mn + " must be '14:00'" ! {
                         t must not(beNull)
                         t.toString === "14:00"
                     }
@@ -63,7 +63,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '0:01'" >> {
+                    mn + " must be '0:01'" ! {
                         t must not(beNull)
                         t.toString === "0:01"
                     }
@@ -76,7 +76,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
                     val t = invoke(target, m)
-                    mn + " must be '2:00'" >> {
+                    mn + " must be '2:00'" ! {
                         t must not(beNull)
                         t.toString === "2:00"
                     }

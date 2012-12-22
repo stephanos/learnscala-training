@@ -12,7 +12,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '5'" >> {
+                    "must return '5'" ! {
                         invoke(target, m) === 5
                     }
             }
@@ -25,7 +25,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '10'" >> {
+                    "must return '10'" ! {
                         invoke(target, m) === 10
                     }
             }
@@ -38,7 +38,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '25'" >> {
+                    "must return '25'" ! {
                         invoke(target, m) === 25
                     }
             }
@@ -51,7 +51,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '1'" >> {
+                    "must return '1'" ! {
                         invoke(target, m) === 1
                     }
             }
@@ -64,7 +64,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '0'" >> {
+                    "must return '0'" ! {
                         invoke(target, m) === 0
                     }
             }
@@ -77,7 +77,7 @@ abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
                 m =>
                     mustHaveParams(m)
 
-                    "must return '33'" >> {
+                    "must return '33'" ! {
                         invoke(target, m) === 33
                     }
             }
