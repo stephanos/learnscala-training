@@ -35,6 +35,7 @@ class Macro[C <: Context](val c: C) {
                 Apply(Select(This(tpnme.EMPTY), newTermName("register")),
                     List(Literal(Constant(n)), Block(
                         List(
+                            // anonymous class
                             ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(newTypeName("Tsk"))), emptyValDef,
                                 List(
                                     DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(
@@ -42,8 +43,10 @@ class Macro[C <: Context](val c: C) {
                                             Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())
                                         ),
                                         Literal(Constant(()))
-                                    ))
-                                ) ::: meta ::: List(code.tree)
+                                    )) //constructor
+                                ) :::
+                                    meta // meta info
+                                    ::: List(code.tree) // user code
                             ))
                         ),
                         Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List()))
