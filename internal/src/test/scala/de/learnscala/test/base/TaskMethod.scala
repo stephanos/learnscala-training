@@ -9,12 +9,5 @@ case class TaskMethod(sym: MethodSymbol, ctx: TaskContext) {
         ctx.mirror.reflectMethod(sym)
 
     def invoke(args: Any*): Any =
-        try
-            mirror.apply(args: _*)
-        catch {
-            case e: Throwable =>
-                println("unable to invoke method '" + sym.name.toString + "'")
-                e.printStackTrace()
-                throw e
-        }
+        mirror.apply(args: _*)
 }
