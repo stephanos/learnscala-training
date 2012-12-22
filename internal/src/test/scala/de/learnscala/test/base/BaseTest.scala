@@ -113,4 +113,5 @@ abstract class BaseTest[T: TypeTag]
 
     protected def task2(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
         test2(n, name, typeOf, "Task #" + n)(fn)
+
 }
