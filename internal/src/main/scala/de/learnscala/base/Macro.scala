@@ -44,8 +44,7 @@ class Macro[C <: Context](val c: C) {
                                         ),
                                         Literal(Constant(()))
                                     )) //constructor
-                                ) :::
-                                    meta // meta info
+                                ) ::: meta // meta info
                                     ::: List(code.tree) // user code
                             ))
                         ),
