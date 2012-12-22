@@ -10,6 +10,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
 
             println(target._noOfIfs)
+            typeOf[target.type].members.foreach { println(_) }
 
             mustHaveMethod[Task](mn) {
                 m =>

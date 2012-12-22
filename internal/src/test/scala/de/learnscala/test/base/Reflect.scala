@@ -39,30 +39,17 @@ trait Reflect {
 
     // Members
 
-    /*
-    val members = typeOf[MyClass].members.filter(_.isValue).filter(_.typeSignature match {
-      case tpe if tpe <:< typeOf[ThirdParty] => true
-      case NullaryMethodType(tpe) if tpe <:< typeOf[ThirdParty] => true
-      case MethodType(Nil, tpe) if tpe <:< typeOf[ThirdParty] => true
-      case _ => false
-    })
-    */
-
     def getMembers[T: TypeTag](p: (Symbol) => Boolean): Iterable[Symbol] =
         typeOf[T].members collect {
             case m if p(m) => m
         }
 
-    def getMember[T: TypeTag](name: String): Option[Symbol] = {
-        println(typeOf[T].members)
-        //println(typeOf[T].declaration(newTermName("Task_1")))
-        //println(typeOf[T].declarations.toList)
+    def getMember[T: TypeTag](name: String): Option[Symbol] =
         typeOf[T].member(newTermName(name)) match {
             case NoSymbol => None
             case s: Symbol => Some(s)
             case _ => None
         }
-    }
 
     // val
 
