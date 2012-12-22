@@ -18,6 +18,7 @@ trait Reflect {
         cm reflectClass typ.typeSymbol.asClass reflectConstructor constructor apply (args: _*)
     }
 
+
     /*
     def hasInterface[T, I] = {
         typeOf[T]
@@ -38,11 +39,6 @@ trait Reflect {
 
 
     // Members
-
-    def getMembers[T: TypeTag](p: (Symbol) => Boolean): Iterable[Symbol] =
-        typeOf[T].members collect {
-            case m if p(m) => m
-        }
 
     def getMember[T: TypeTag](name: String): Option[Symbol] =
         typeOf[T].member(newTermName(name)) match {
@@ -72,6 +68,12 @@ trait Reflect {
 
     def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
         getMember[T](name) flatMap (_ match {
+            case mth: MethodSymbol => Some(mth)
+            case _ => None
+        })
+
+    def getMethod2(name: String)(implicit cls: ClassSymbol): Option[MethodSymbol] =
+        getMember2(name) flatMap (_ match {
             case mth: MethodSymbol => Some(mth)
             case _ => None
         })
@@ -115,6 +117,18 @@ trait Reflect {
 
 
     // INTERNALS ===============================================================
+
+    private def getMembers2(p: (Symbol) => Boolean)(implicit cls: ClassSymbol): Iterable[Symbol] =
+        cls.typeSignature.members collect {
+            case m if p(m) => m
+        }
+
+    private def getMember2(name: String)(implicit cls: ClassSymbol): Option[Symbol] =
+        cls.typeSignature.member(newTermName(name)) match {
+            case NoSymbol => None
+            case s: Symbol => Some(s)
+            case _ => None
+        }
 
     private def tryopt[T](fn: => T): Option[T] = {
         try {

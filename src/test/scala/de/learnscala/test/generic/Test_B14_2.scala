@@ -1,18 +1,17 @@
 package de.learnscala.test.generic
 
+import scala.reflect.runtime.{currentMirror => cm}
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
-import de.learnscala.base.Task
 
 abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
 
     task(1)("nameOfSymbol", "method") {
         (mn, target) =>
 
-            println(target._noOfIfs)
-            typeOf[target.type].members.foreach { println(_) }
+            implicit val cls = cm.classSymbol(target.getClass)
 
-            mustHaveMethod[target.type](mn) {
+            mustHaveMethod2(mn) {
                 m =>
                     mustHaveParams(m, classOf[Char])
 
@@ -34,11 +33,12 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
             }
     }
 
-    /*
     task(2)("isWorkingDay", "method") {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
+                    implicit val cls = cm.classSymbol(target.getClass)
+
                     mustHaveParams(m, classOf[String])
 
                     "must be 'false' for value 'Sunday'" >> {
@@ -69,6 +69,8 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
+                    implicit val cls = cm.classSymbol(target.getClass)
+
                     mustHaveParams(m, classOf[Any])
 
                     "must work for empty String" >> {
@@ -95,6 +97,8 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
+                    implicit val cls = cm.classSymbol(target.getClass)
+
                     mustHaveParams(m, classOf[Int])
 
                     "must calculate half of 10" >> {
@@ -119,6 +123,8 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
+                    implicit val cls = cm.classSymbol(target.getClass)
+
                     mustHaveParams(m, classOf[Char])
 
                     "must return '3' for 'abc'" >> {
@@ -136,10 +142,14 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
             }
     }
 
+    import java.io._
+
     task(5)("readCharFromFile", "method") {
         (mn, target) =>
             mustHaveMethod(mn) {
                 m =>
+                    implicit val cls = cm.classSymbol(target.getClass)
+
                     mustHaveParams(m, classOf[FileReader])
 
                     "must return '@' for '1' and close connection" >> {
@@ -173,9 +183,6 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     }
             }
     }
-    */
-
-    import java.io._
 
     private def getMock = {
         val m = mock[FileReader]

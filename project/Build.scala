@@ -12,6 +12,7 @@ object ExercisesBuild extends Build {
 
             scalaVersion := Dep.scala,
             scalaBinaryVersion := Dep.scala,
+            //scalacOptions ++= Seq("-Ymacro-debug-lite"),
             libraryDependencies ++= dbKit ++ utilKit ++ scalaKit ++ httpKit ++ testKit,
 
             fork in Test := true,

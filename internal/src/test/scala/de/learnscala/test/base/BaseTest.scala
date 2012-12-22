@@ -47,7 +47,7 @@ abstract class BaseTest[T: TypeTag]
     //implicit val stop = WhenFail()
 
     protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Task) => Example) {
-        test(0, name, typeOf, prefix)(fn)
+        test(1, name, typeOf, prefix)(fn)
     }
 
     private def test(n: Int, name: String, typeOf: String, prefix: String)(fn: (String, Task) => Example) {
@@ -56,7 +56,7 @@ abstract class BaseTest[T: TypeTag]
             try {
                 val tasks = getInstance[T]().asInstanceOf[Testable].tasks
                 if (tasks.length >= n) {
-                    val tsk = tasks(n)
+                    val tsk = tasks(n - 1)
                     if (tsk != null)
                         fn apply(name, tsk)
                     else

@@ -11,24 +11,12 @@ class Macro[C <: Context](val c: C) {
 
         implicit val impl_code = code
         val Literal(Constant(n: Int)) = num.tree
+        val Block(userCode, _) = c.resetAllAttrs(code.tree)
 
         val meta: List[ValDef] =
             List[(String, Int)](checkIfs()).map {
                 kv => metaField(kv._1, kv._2)
             }
-
-        /*
-        println(showRaw {
-            reify {
-                class Ex1 extends Testable {
-
-                    this.register(0, new Tsk {
-                        override val _noOfIfs = 0
-                    })
-                }
-            }
-        })
-        */
 
         c.Expr(Block(
             List(
@@ -45,7 +33,7 @@ class Macro[C <: Context](val c: C) {
                                         Literal(Constant(()))
                                     )) //constructor
                                 ) ::: meta // meta info
-                                    ::: List(code.tree) // user code
+                                    ::: userCode // user code
                             ))
                         ),
                         Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List()))

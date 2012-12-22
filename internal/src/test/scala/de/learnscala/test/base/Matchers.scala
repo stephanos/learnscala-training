@@ -5,6 +5,9 @@ import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.execute.Pending
 import org.specs2.specification.Example
 import reflect.ClassTag
+import reflect.runtime._
+import org.specs2.execute.Pending
+import scala.Some
 
 /**
  * http://etorreborre.github.com/specs2/guide/org.specs2.guide.Matchers.html#Custom
@@ -18,7 +21,7 @@ trait Matchers {
             case Some(o) =>
                 f apply o
             case _ =>
-                ("must be defined: object '" + name + "'") >> {
+                ("object '" + name + "' must be defined") >> {
                     Pending()
                 }
         }
@@ -29,13 +32,24 @@ trait Matchers {
             case Some(v) =>
                 f apply v
             case _ =>
-                ("must be defined: '" + name + "'") >> {
+                ("method '" + name + "' must be defined") >> {
                     Pending()
                 }
         }
 
     def mustHaveMethod[T: TypeTag](name: String)(f: (MethodSymbol) => Example): Example = {
         getMethod[T](name) match {
+            case Some(m) =>
+                f apply m
+            case _ =>
+                ("method '" + name + "' must be defined") >> {
+                    Pending()
+                }
+        }
+    }
+
+    def mustHaveMethod2(name: String)(f: (MethodSymbol) => Example)(implicit cls: ClassSymbol): Example = {
+        getMethod2(name) match {
             case Some(m) =>
                 f apply m
             case _ =>
