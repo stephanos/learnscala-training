@@ -58,106 +58,106 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 m.invoke("Friday") === true
                             }
                 }
-        }) ^ task(3)("nameOfType", "method") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
+        }) ^ task2(3)("nameOfType", "method") {
+            implicit ctx =>
+                mustHaveMethod2 {
                     m =>
-                        mustHaveParams(m, classOf[Any])
+                    //mustHaveParams(m, classOf[Any])
 
                         "must work for empty String" ! {
-                            invoke(target, m, "") === "leerer String"
-                        }
-                        "must work for non-empty String" ! {
-                            invoke(target, m, "Hello World") === "String mit der Länge 11"
-                        }
-                        "must work for positiver integer" ! {
-                            invoke(target, m, 5) === "ein positiver Integer"
-                        }
-                        "must work for negative integer" ! {
-                            invoke(target, m, -5) === "ein negativer Integer"
-                        }
-                        "must work for aynthing else" ! {
-                            invoke(target, m, true) === "Unbekannt"
-                            invoke(target, m, 5.0f) === "Unbekannt"
-                            invoke(target, m, '$') === "Unbekannt"
-                        }
+                            m.invoke("") === "leerer String"
+                        } ^
+                            "must work for non-empty String" ! {
+                                m.invoke("Hello World") === "String mit der Länge 11"
+                            } ^
+                            "must work for positiver integer" ! {
+                                m.invoke(5) === "ein positiver Integer"
+                            } ^
+                            "must work for negative integer" ! {
+                                m.invoke(-5) === "ein negativer Integer"
+                            } ^
+                            "must work for aynthing else" ! {
+                                m.invoke(true) === "Unbekannt"
+                                m.invoke(5.0f) === "Unbekannt"
+                                m.invoke('$') === "Unbekannt"
+                            }
                 }
-        } ^ task(4)("half", "method") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
+        } ^ task2(4)("half", "method") {
+            implicit ctx =>
+                mustHaveMethod2 {
                     m =>
-                        mustHaveParams(m, classOf[Int])
+                    //mustHaveParams(m, classOf[Int])
 
                         "must calculate half of 10" ! {
-                            invoke(target, m, 10) === 5
-                        }
-                        "must calculate half of 100" ! {
-                            invoke(target, m, 100) === 50
-                        }
-                        "must calculate half of -10" ! {
-                            invoke(target, m, -10) === -5
-                        }
-                        "must throw Exception for 3" ! {
-                            invoke(target, m, 3) must throwA[Throwable]
-                        }
-                        "must throw Exception for 5" ! {
-                            invoke(target, m, 5) must throwA[Throwable]
-                        }
+                            m.invoke(10) === 5
+                        } ^
+                            "must calculate half of 100" ! {
+                                m.invoke(100) === 50
+                            } ^
+                            "must calculate half of -10" ! {
+                                m.invoke(-10) === -5
+                            } ^
+                            "must throw Exception for 3" ! {
+                                m.invoke(3) must throwA[Throwable]
+                            } ^
+                            "must throw Exception for 5" ! {
+                                m.invoke(5) must throwA[Throwable]
+                            }
                 }
-        } ^ task(5)("getSize", "method") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
+        } ^ task2(5)("getSize", "method") {
+            implicit ctx =>
+                mustHaveMethod2 {
                     m =>
-                        mustHaveParams(m, classOf[Char])
+                    //mustHaveParams(m, classOf[Char])
 
                         "must return '3' for 'abc'" ! {
-                            invoke(target, m, "abc") === 3
-                        }
-                        "must return '5' for '12345'" ! {
-                            invoke(target, m, "12345") === 5
-                        }
-                        "must return '0' for empty String" ! {
-                            invoke(target, m, "") === 0
-                        }
-                        "must return '0' for null" ! {
-                            invoke(target, m, null) === 0
-                        }
+                            m.invoke("abc") === 3
+                        } ^
+                            "must return '5' for '12345'" ! {
+                                m.invoke("12345") === 5
+                            } ^
+                            "must return '0' for empty String" ! {
+                                m.invoke("") === 0
+                            } ^
+                            "must return '0' for null" ! {
+                                m.invoke(null) === 0
+                            }
                 }
-        } ^ task(5)("readCharFromFile", "method") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
+        } ^ task2(5)("readCharFromFile", "method") {
+            implicit ctx =>
+                mustHaveMethod2 {
                     m =>
-                        mustHaveParams(m, classOf[FileReader])
+                    //mustHaveParams(m, classOf[FileReader])
 
                         "must return '@' for '1' and close connection" ! {
                             val f = getMock
-                            invoke(target, m, f) === '@'
+                            m.invoke(f) === '@'
                             there was one(f).close()
-                        }
-                        "must print 'not found' if 'FileNotFoundException' is thrown, close connection and return 0" ! {
-                            val f = getMock
-                            f.read() throws new FileNotFoundException()
-                            val (r, out) = captureOutput(invoke(target, m, f))
-                            r.getOrElse(null) === 0
-                            out.trim === "not found"
-                            there was one(f).close()
-                        }
-                        "must print 'cannot read' if 'IOException' is thrown, close connection and return 0" ! {
-                            val f = getMock
-                            f.read() throws new IOException()
-                            val (r, out) = captureOutput(invoke(target, m, f))
-                            r.getOrElse(null) === 0
-                            out.trim === "cannot read"
-                            there was one(f).close()
-                        }
-                        "must print 'unknown error' if 'RuntimeException' is thrown; and return 0" ! {
-                            val f = getMock
-                            f.read() throws new RuntimeException()
-                            val (r, out) = captureOutput(invoke(target, m, f))
-                            r.getOrElse(null) === 0
-                            out.trim === "unknown error"
-                            there was one(f).close()
-                        }
+                        } ^
+                            "must print 'not found' if 'FileNotFoundException' is thrown, close connection and return 0" ! {
+                                val f = getMock
+                                f.read() throws new FileNotFoundException()
+                                val (r, out) = captureOutput(m.invoke(f))
+                                r.getOrElse(null) === 0
+                                out.trim === "not found"
+                                there was one(f).close()
+                            } ^
+                            "must print 'cannot read' if 'IOException' is thrown, close connection and return 0" ! {
+                                val f = getMock
+                                f.read() throws new IOException()
+                                val (r, out) = captureOutput(m.invoke(f))
+                                r.getOrElse(null) === 0
+                                out.trim === "cannot read"
+                                there was one(f).close()
+                            } ^
+                            "must print 'unknown error' if 'RuntimeException' is thrown; and return 0" ! {
+                                val f = getMock
+                                f.read() throws new RuntimeException()
+                                val (r, out) = captureOutput(m.invoke(f))
+                                r.getOrElse(null) === 0
+                                out.trim === "unknown error"
+                                there was one(f).close()
+                            }
                 }
         }
 
