@@ -14,7 +14,7 @@ class Macro[C <: Context](val c: C) {
         val Block(userCode, _) = c.resetAllAttrs(code.tree)
 
         val meta: List[ValDef] =
-            List[(String, Int)](checkIfs()).map {
+            List[(String, Int)](countIfs, countDefs, countReturns).map {
                 kv => metaField(kv._1, kv._2)
             }
 
@@ -44,12 +44,14 @@ class Macro[C <: Context](val c: C) {
         ))
     }
 
-    def checkIfs()(implicit code: c.Expr[Any]): (String, Int) = {
-        val ifs = code.tree.collect {
-            case If(_) => true
-        }
-        ("noOfIfs", ifs.size)
-    }
+    def countIfs(implicit code: c.Expr[Any]): (String, Int) =
+        ("noOfIfs", code.tree.collect { case e: If => true }.size)
+
+    def countDefs(implicit code: c.Expr[Any]): (String, Int) =
+        ("noOfDefs", code.tree.collect { case e: DefDef => true }.size)
+
+    def countReturns(implicit code: c.Expr[Any]): (String, Int) =
+        ("noOfReturns", code.tree.collect { case e: Return => true }.size)
 
     private def metaField(name: String, value: Any) = {
         ValDef(Modifiers(OVERRIDE), newTermName("_" + name), TypeTree(typeOf[Int]), Literal(Constant(value)))

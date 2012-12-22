@@ -6,5 +6,6 @@ class Task {
     val _noOfVars = 0
     val _noOfVals = 0
     val _noOfDefs = 0
+    val _noOfReturns = 0
     val _linesOfCode = 0
 }

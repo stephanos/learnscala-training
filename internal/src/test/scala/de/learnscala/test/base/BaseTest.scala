@@ -78,39 +78,34 @@ abstract class BaseTest[T: TypeTag]
         }
 
 
-    private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments) =
-        prefix ^ {
-            // + typeOf + " '" + name + "'"
-            try {
-                val tasks = getInstance[T]().asInstanceOf[Testable].tasks
-                val r: Fragments =
-                    if (tasks.length >= n) {
-                        val tsk = tasks(n - 1)
-                        if (tsk != null)
+    private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments): Fragments =
+        // + typeOf + " '" + name + "'"
+        try {
+            val tasks = getInstance[T]().asInstanceOf[Testable].tasks
+            val r: Fragments =
+                if (tasks.length >= n) {
+                    val tsk = tasks(n - 1)
+                    if (tsk != null)
+                        prefix ^ {
                             fn apply (new TaskContext(name, tsk))
-                        else
-                            Failure("unable to test task #" + n + ": no element")
-                    } else
-                        Failure("unable to test task #" + n + ": not enough elements")
-                r
-
-                /*
-                //step(args(stopOnFail = true))
-                if (!target.isInstanceOf[Disabled])
-                else
-                    "exercise disabled" >> {
-                        Skipped()
-                    }
-                */
-            } catch {
-                case e: Throwable =>
-                    val r: Fragments =
-                        "failed to initiate exercise" ! {
-                            e.printStackTrace()
-                            Failure()
                         }
-                    r
-            }
+                    else
+                        Failure("unable to test task #" + n + ": no element")
+                } else
+                    Failure("unable to test task #" + n + ": not enough elements")
+            r
+
+            /*
+            //step(args(stopOnFail = true))
+            if (!target.isInstanceOf[Disabled])
+            else
+                "exercise disabled" >> {
+                    Skipped()
+                }
+            */
+        } catch {
+            case e: Throwable =>
+                Failure("failed to initiate exercise", e.getMessage, e.getStackTrace.toList)
         }
 
     protected def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Task) => Fragments) =

@@ -8,57 +8,57 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
     import java.io._
 
     override def is =
-        (task2(1)("nameOfSymbol", "method") {
+        task2(1)("nameOfSymbol", "method") {
             implicit ctx =>
                 mustHaveMethod2 {
                     m =>
                     //mustHaveParams(m, classOf[Char])
 
-                        "must be 'Unbekannt' for value '?'" ! {
-                            m.invoke('?') === "Unbekannt"
-                        } ^
-                        "must be 'Kreiszahl' for value 'Π'" ! {
-                            m.invoke('Π') === "Kreiszahl"
-                        } ^
-                        "must be 'Wurzel' for value '√'" ! {
-                            m.invoke('√') === "Wurzel"
-                        } ^
-                        "must be 'Fakultät' for value '!'" ! {
-                            m.invoke('!') === "Fakultät"
-                        } ^
-                        "must be 'Summe' for value '∑'" ! {
-                            m.invoke('∑') === "Summe"
-                        }
+                    "must be 'Unbekannt' for value '?'" ! {
+                        m.invoke('?') === "Unbekannt"
+                    } ^
+                    "must be 'Kreiszahl' for value 'Π'" ! {
+                        m.invoke('Π') === "Kreiszahl"
+                    } ^
+                    "must be 'Wurzel' for value '√'" ! {
+                        m.invoke('√') === "Wurzel"
+                    } ^
+                    "must be 'Fakultät' for value '!'" ! {
+                        m.invoke('!') === "Fakultät"
+                    } ^
+                    "must be 'Summe' for value '∑'" ! {
+                        m.invoke('∑') === "Summe"
+                    }
                 }
-        }) ^ (task2(2)("isWorkingDay", "method") {
-            implicit ctx =>
-                mustHaveMethod2 {
-                    m =>
-                    //mustHaveParams(m, classOf[String])
+    } ^ task2(2)("isWorkingDay", "method") {
+        implicit ctx =>
+            mustHaveMethod2 {
+                m =>
+                //mustHaveParams(m, classOf[String])
 
-                        "must be 'false' for value 'Sunday'" ! {
-                            m.invoke("Sunday") === false
-                        } ^
-                        "must be 'false' for value 'Saturday'" ! {
-                            m.invoke("Saturday") === false
-                        } ^
-                        "must be 'true' for value 'Monday'" ! {
-                            m.invoke("Monday") === true
-                        } ^
-                        "must be 'true' for value 'Tuesday'" ! {
-                            m.invoke("Tuesday") === true
-                        } ^
-                        "must be 'true' for value 'Wednesday'" ! {
-                            m.invoke("Wednesday") === true
-                        } ^
-                        "must be 'true' for value 'Thursday'" ! {
-                            m.invoke("Thursday") === true
-                        } ^
-                        "must be 'true' for value 'Friday'" ! {
-                            m.invoke("Friday") === true
-                        }
-                }
-        }) ^ task2(3)("nameOfType", "method") {
+                    "must be 'false' for value 'Sunday'" ! {
+                        m.invoke("Sunday") === false
+                    } ^
+                    "must be 'false' for value 'Saturday'" ! {
+                        m.invoke("Saturday") === false
+                    } ^
+                    "must be 'true' for value 'Monday'" ! {
+                        m.invoke("Monday") === true
+                    } ^
+                    "must be 'true' for value 'Tuesday'" ! {
+                        m.invoke("Tuesday") === true
+                    } ^
+                    "must be 'true' for value 'Wednesday'" ! {
+                        m.invoke("Wednesday") === true
+                    } ^
+                    "must be 'true' for value 'Thursday'" ! {
+                        m.invoke("Thursday") === true
+                    } ^
+                    "must be 'true' for value 'Friday'" ! {
+                        m.invoke("Friday") === true
+                    }
+            }
+        } ^ task2(3)("nameOfType", "method") {
             implicit ctx =>
                 mustHaveMethod2 {
                     m =>
