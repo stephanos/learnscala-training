@@ -49,7 +49,7 @@ trait Matchers {
 
     def mustHaveMethod2(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext) = {
         val method = ctx.getMethod(ctx.name)
-        ("method '" + ctx.name + "' must be defined") ! {
+        ("must be defined") ! {
             if (method.isDefined)
                 success
             else
@@ -70,7 +70,7 @@ trait Matchers {
 
     def mustHaveParams2(types: Class[_]*)(implicit tm: TaskMethod): Example = {
         val count = types.size
-        ("must have " + count + " parameter" + (if (count > 1) "(s)" else "")) ! {
+        ("must have " + (if(count == 0) "no" else count) + " parameter" + (if (count != 1) "s" else "")) ! {
             (tm.params.flatten.size) aka "size of parameter list" must beEqualTo(count)
         }
         // TODO: check types
@@ -121,6 +121,25 @@ trait Matchers {
             val apply = tm.invoke(args: _*)
             apply === res
         }
+
+    def mustNotContain(things: Any*): Seq[Fragment] = {
+        things.map {
+            t => t match {
+                case c: COUNT => checkLimits((c, 0))
+                case (c: COUNT, i: Int) => checkLimits((c,i))
+                case c => sys.error("unable to check for: " + c)
+            }
+        }
+    }
+
+    private def checkLimits(thing: (COUNT, Int)): Fragment = {
+        success
+    }
+
+    case class COUNT(name: String, customCode: String = null) {
+        val code = Option(customCode).getOrElse(name)
+    }
+    val VARS = COUNT("vars")
 
     def inputDescr(args: Any*) =
         (args.size match {

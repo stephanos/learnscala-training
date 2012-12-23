@@ -56,6 +56,8 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
          * @param n2 zweite ganze Zahl
          * @return die Zahl mit dem größten absoluten Wert
          * @example absMax(-5, 2) = -5
+         *
+         * @note Math.abs(-5) = 5
          */
 
         TODO

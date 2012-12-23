@@ -15,11 +15,9 @@ class Loes_B14_1 extends Solution {
     task(2) {
 
         def signum(n: Int) =
-            if (n == 0)
-                0
-            else {
+            if (n == 0) 0
+            else
                 if (n > 0) 1 else -1
-            }
     }
 
     // ===============================================================

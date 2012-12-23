@@ -79,14 +79,13 @@ abstract class BaseTest[T: TypeTag]
 
 
     private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments): Fragments =
-        // + typeOf + " '" + name + "'"
         try {
             val tasks = getInstance[T]().asInstanceOf[Testable].tasks
             val r: Fragments =
                 if (tasks.length >= n) {
                     val tsk = tasks(n - 1)
                     if (tsk != null)
-                        prefix ^ {
+                        prefix + ": " + typeOf + " '" + name + "'" ^ {
                             fn apply (new TaskContext(name, tsk))
                         }
                     else
