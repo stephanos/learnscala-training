@@ -108,8 +108,6 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     }
             } ^ end
 
-    println(is)
-
     private def getMock = {
         val m = mock[FileReader]
         m.read() returns '@'

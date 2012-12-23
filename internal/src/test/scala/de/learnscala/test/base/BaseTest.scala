@@ -16,7 +16,7 @@ abstract class BaseTest[T: TypeTag]
     extends SpecificationWithJUnit with Mockito with ScalaCheck
     with Reflect with Capture with Matchers {
 
-    def is: Fragments = null
+    def is: Fragments = sys.error("overwrite 'is'")
 
     // execute sequentially
     sequential

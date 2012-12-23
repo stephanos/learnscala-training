@@ -5,98 +5,88 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
-    task(1)("theAnswerToLifeTheUniverseAndEverything", "method") {
-        (mn, target) =>
+    override def is =
+        task2(1)("theAnswerToLifeTheUniverseAndEverything", "method") {
+            implicit ctx =>
+                mustHaveMethod2 {
+                    implicit m =>
+                        mustHaveParams2() ^
+                            mustReturn(42)
+                }
+        } ^ p ^
+            task2(2)("signum", "method") {
+                implicit ctx =>
 
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m)
-
-                    "must return '42'" ! {
-                        invoke(target, m) === 42
+                    mustHaveMethod2 {
+                        implicit m =>
+                            mustHaveParams2(classOf[Int]) ^
+                                "must return '0' for zero" ! {
+                                    m.invoke(0) === 0
+                                } ^
+                                "must return '-1' for negative numbers" ! {
+                                    m.invoke(-1) === -1
+                                    m.invoke(-10) === -1
+                                } ^
+                                "must return '1' for positive numbers" ! {
+                                    m.invoke(1) === 1
+                                    m.invoke(10) === 1
+                                }
                     }
-            }
-    }
+            } ^ p ^
+            task2(3)("absMax", "method") {
+                implicit ctx =>
+                    mustHaveMethod2 {
+                        implicit m =>
+                            mustHaveParams2(classOf[Int], classOf[Int])
 
-    task(2)("signum", "method") {
-        (mn, target) =>
-
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m, classOf[Int])
-
-                    "must return '0' for zero" ! {
-                        invoke(target, m, 0) === 0
+                            "must return bigger one of 2 positive numbers" ! {
+                                m.invoke(5, 2) === 5
+                                m.invoke(2, 5) === 5
+                            }
+                            "must return bigger one of 1 positive and 1 negative" ! {
+                                m.invoke(-2, 5) === 5
+                                m.invoke(2, -5) === -5
+                            }
+                            "must return bigger one of 2 negative numbers" ! {
+                                m.invoke(-2, -5) === -5
+                                m.invoke(-5, -2) === -5
+                            }
                     }
-                    "must return '-1' for negative numbers" ! {
-                        invoke(target, m, -1) === -1
-                        invoke(target, m, -10) === -1
-                    }
-                    "must return '1' for positive numbers" ! {
-                        invoke(target, m, 1) === 1
-                        invoke(target, m, 10) === 1
-                    }
-            }
-    }
+            } ^ p ^
+            task2(4)("countingOut", "method") {
+                implicit ctx =>
+                    mustHaveMethod2 {
+                        implicit m =>
+                            mustHaveParams2()
 
-    task(3)("absMax", "method") {
-        (mn, target) =>
-
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m, classOf[Int], classOf[Int])
-
-                    "must return bigger one of 2 positive numbers" ! {
-                        invoke(target, m, 5, 2) === 5
-                        invoke(target, m, 2, 5) === 5
+                            "must print numbers from 1 to 10" ! {
+                                captureOutput(m.invoke())._2.trim === "1 2 3 4 5 6 7 8 9 10"
+                            }
                     }
-                    "must return bigger one of 1 positive and 1 negative" ! {
-                        invoke(target, m, -2, 5) === 5
-                        invoke(target, m, 2, -5) === -5
-                    }
-                    "must return bigger one of 2 negative numbers" ! {
-                        invoke(target, m, -2, -5) === -5
-                        invoke(target, m, -5, -2) === -5
-                    }
-            }
-    }
+            } ^ p ^
+            task2(5)("count10s", "method") {
+                implicit ctx =>
+                    mustHaveMethod2 {
+                        implicit m =>
+                            mustHaveParams2()
 
-    task(4)("countingOut", "method") {
-        (mn, target) =>
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m)
-
-                    "must print numbers from 1 to 10" ! {
-                        captureOutput(invoke(target, m))._2.trim === "1 2 3 4 5 6 7 8 9 10"
+                            "must print multiples of 10 between 10 and 100" ! {
+                                captureOutput(m.invoke())._2.trim === "10 20 30 40 50 60 70 80 90 100"
+                            }
                     }
-            }
-    }
+            } ^ p ^
+            task2(6)("countMod", "method") {
+                implicit ctx =>
+                    mustHaveMethod2 {
+                        implicit m =>
+                            mustHaveParams2(classOf[Int])
 
-    task(5)("count10s", "method") {
-        (mn, target) =>
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m)
-
-                    "must print multiples of 10 between 10 and 100" ! {
-                        captureOutput(invoke(target, m))._2.trim === "10 20 30 40 50 60 70 80 90 100"
+                            "must print only even numbers for argument '2'" ! {
+                                captureOutput(m.invoke(2))._2.trim === "2 4 6 8 10"
+                            }
+                            "must print only numbers divisible by 3 for argument '3'" ! {
+                                captureOutput(m.invoke(3))._2.trim === "3 6 9"
+                            }
                     }
-            }
-    }
-
-    task(6)("countMod", "method") {
-        (mn, target) =>
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m, classOf[Int])
-
-                    "must print only even numbers for argument '2'" ! {
-                        captureOutput(invoke(target, m, 2))._2.trim === "2 4 6 8 10"
-                    }
-                    "must print only numbers divisible by 3 for argument '3'" ! {
-                        captureOutput(invoke(target, m, 3))._2.trim === "3 6 9"
-                    }
-            }
-    }
+            } ^ end
 }
