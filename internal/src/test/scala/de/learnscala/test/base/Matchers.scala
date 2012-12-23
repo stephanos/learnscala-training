@@ -97,6 +97,20 @@ trait Matchers {
     }
     */
 
+    def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod) =
+        "must return '" + res + "' for value " + args.mkString("'", ",", "'") ! {
+            val apply =
+                try
+                    tm.invoke(args)
+                catch {
+                    case e: IllegalArgumentException =>
+                        println("apply: " + args)
+                        e.printStackTrace()
+                        throw e
+                }
+            apply === res
+        }
+
     def getList[T : ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
         (invoke[T](obj, m)) match {
             case null => mustNotBeNull()

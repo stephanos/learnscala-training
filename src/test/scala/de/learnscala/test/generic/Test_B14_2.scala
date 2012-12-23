@@ -11,35 +11,23 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
         task2(1)("nameOfSymbol", "method") {
             implicit ctx =>
                 mustHaveMethod2 {
-                    m =>
+                    implicit m =>
                     //mustHaveParams(m, classOf[Char])
 
-                        "must be 'Unbekannt' for value '?'" ! {
-                            m.invoke('?') === "Unbekannt"
-                        } ^
-                            "must be 'Kreiszahl' for value 'Π'" ! {
-                                m.invoke('Π') === "Kreiszahl"
-                            } ^
-                            "must be 'Wurzel' for value '√'" ! {
-                                m.invoke('√') === "Wurzel"
-                            } ^
-                            "must be 'Fakultät' for value '!'" ! {
-                                m.invoke('!') === "Fakultät"
-                            } ^
-                            "must be 'Summe' for value '∑'" ! {
-                                m.invoke('∑') === "Summe"
-                            }
+                        mustReturn("pi", "Π") ^
+                            mustReturn("root", "√") ^
+                            mustReturn("factorial", "!") ^
+                            mustReturn("sum", "∑") ^
+                            mustReturn("unknown", "?")
                 }
         } ^ p ^
             task2(2)("isWorkingDay", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
-                        m =>
+                        implicit m =>
                         //mustHaveParams(m, classOf[String])
 
-                            "must be 'false' for value 'Sunday'" ! {
-                                m.invoke("Sunday") === false
-                            } ^
+                            mustReturn(false, "Sunday") ^
                                 "must be 'false' for value 'Saturday'" ! {
                                     m.invoke("Saturday") === false
                                 } ^
@@ -60,14 +48,14 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^ p ^
-            task2(3)("nameOfType", "method") {
+            task2(3)("describeValue", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
                         m =>
                         //mustHaveParams(m, classOf[Any])
 
                             "must work for empty String" ! {
-                                m.invoke("") === "leerer String"
+                                m.invoke("") === "empty string"
                             } ^
                                 "must work for non-empty String" ! {
                                     m.invoke("Hello World") === "String mit der Länge 11"
@@ -133,6 +121,20 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveMethod2 {
                         m =>
                         //mustHaveParams(m, classOf[FileReader])
+
+                            println("Ifs: " + ctx.task._noOfIfs)
+                            println("Trys: " + ctx.task._noOfTrys)
+                            println("Vals: " + ctx.task._noOfVals)
+                            println("Vars: " + ctx.task._noOfVars)
+                            println("Defs: " + ctx.task._noOfDefs)
+                            println("Rets: " + ctx.task._noOfReturns)
+                            println("Fors " + ctx.task._noOfFors)
+                            println("Lines: " + ctx.task._noOfLines)
+                            println("Nulls: " + ctx.task._noOfNulls)
+                            println("Whiles: " + ctx.task._noOfWhiles)
+                            println("Annots: " + ctx.task._listOfAnnot)
+                            println("Finallys: " + ctx.task._noOfFinallys)
+                            println("Classes: " + ctx.task._listOfCalls)
 
                             "must return '@' for '1' and close connection" ! {
                                 val f = getMock

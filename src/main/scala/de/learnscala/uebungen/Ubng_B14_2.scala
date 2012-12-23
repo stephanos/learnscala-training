@@ -1,26 +1,29 @@
 package de.learnscala.uebungen
 
-import de.learnscala.base._
 import java.io._
+import de.learnscala.base._
 
-class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
+class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
     /**
      * ANLEITUNG
      *
-     *    1) Test ausführen
-     *    2) Fehler beseitigen
-     *    3) zurück zu Schritt 1
+     * 1) Test ausführen
+     * 2) Fehler beseitigen
+     * 3) zurück zu Schritt 1
+     *
      **/
+
 
     // ===============================================================
 
     task(1) {
 
         /**
-         * Aufgabe #1
+         * Methode 'nameOfSymbol'
          *
-         * Gibt den Namen der mathematischen Symbole zurück: Π, √, ! und ∑
+         * @param symbol mathematisches Symbol
+         * @return engl. Name des Symbols
          */
 
         def nameOfSymbol(symbol: Char) =
@@ -32,9 +35,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     task(2) {
 
         /**
-         * Aufgabe #2
+         * Methode 'isWorkingDay'
          *
-         * Ermittelt ob ein Wochentag ein Arbeitstag ist.
+         * @param day engl. Name des Wochentags
+         * @return ob der Wochentag ein Arbeitstag ist
          */
 
         def isWorkingDay(day: String) =
@@ -46,12 +50,13 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     task(3) {
 
         /**
-         * Aufgabe #3
+         * Methode 'describeValue'
          *
-         * Gibt vom übergebenen Wert den Namen des Typs zurück.
+         * @param value ein Wert
+         * @return engl. Beschreibung des Wertes
          */
 
-        def nameOfType(value: Any) =
+        def describeValue(value: Any) =
             TODO
     }
 
@@ -60,10 +65,11 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     task(4) {
 
         /**
-         * Aufgabe #4
+         * Methode 'half'
          *
-         * Berechnet die Hälfte einer Zahl,
-         * wirft jedoch eine Exception wenn die Zahl nicht ganzzahlig teilbar ist.
+         * @param n ganze Zahl
+         * @return Hälfte der Zahl
+         * @throws RuntimeException falls der Eingabewert nicht ganzzahlig teilbar ist
          */
 
         def half(n: Int) =
@@ -75,10 +81,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     task(5) {
 
         /**
-         * Aufgabe #5
+         * Methode 'getSize'
          *
-         * Gibt die Länge des Strings zurück;
-         * bei einem Fehler ist das Ergebnis 0.
+         * @param s eine Zeichenkette
+         * @return Länge des Strings
          */
 
         def getSize(s: String) =
@@ -90,18 +96,19 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */  {
     task(6) {
 
         /**
-         * Aufgabe #6 (Bonus - schwierig !)
+         * BONUS-AUFGABE (schwierig!)
          *
-         * Liest das erste Zeichen einer Datei aus.
+         * Methode 'readCharFromFile'
          *
-         * Bei 'IOException' sollte 'cannot read' geloggt werden.
-         * Bei 'RuntimeException' sollte 'not found' geloggt werden.
-         * Bei 'FileNotFoundException' sollte 'not found' geloggt werden.
-         *
-         * PS: Nicht vergessen den Reader zu schließen!
-         *
-         * @param f der File Reader
+         * @param f offener java.io.FileReader
          * @return erste Zeichen der Datei - oder '0' bei einem Fehler
+         *
+         * @note
+         * Printet 'cannot read' bei 'IOException'
+         * Printet 'not found' bei 'RuntimeException'
+         * Printet 'not found' bei 'FileNotFoundException'
+         *
+         * Und nicht vergessen den Reader zu schließen!
          */
 
         def readCharFromFile(f: FileReader) =

@@ -9,11 +9,11 @@ class Loes_B14_2 extends Solution {
 
         def nameOfSymbol(symbol: Char): String =
             symbol match {
-                case 'Π' => "Kreiszahl"
-                case '√' => "Wurzel"
-                case '!' => "Fakultät"
-                case '∑' => "Summe"
-                case _ => "Unbekannt"
+                case 'Π' => "pi"
+                case '∑' => "sum"
+                case '√' => "root"
+                case '!' => "factorial"
+                case _ => "unknown"
             }
     }
 
@@ -32,9 +32,9 @@ class Loes_B14_2 extends Solution {
 
     task(3) {
 
-        def nameOfType(value: Any): String =
+        def describeValue(value: Any): String =
             value match {
-                case "" => "leerer String"
+                case "" => "empty string"
                 case s: String => "String mit der Länge " + s.length
                 case i: Int if i > 0 => "ein positiver Integer"
                 case i: Int if i < 0 => "ein negativer Integer"

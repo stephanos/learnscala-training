@@ -4,7 +4,7 @@ import de.learnscala.base.Task
 import scala.reflect.runtime.universe._
 import scala.reflect.runtime.{currentMirror => cm}
 
-class TaskContext(val name: String, task: Task) {
+case class TaskContext(name: String, task: Task) {
 
     val mirror: InstanceMirror =
         cm.reflect(task)
