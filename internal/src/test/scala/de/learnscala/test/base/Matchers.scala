@@ -1,8 +1,9 @@
 package de.learnscala.test.base
 
 import org.specs2._
+import matcher.MatchResult
 import specification._
-import execute.Pending
+import execute.{Result, Failure, Pending}
 
 import scala.reflect._
 import runtime.universe._
@@ -67,20 +68,28 @@ trait Matchers {
         // TODO: check types
     }
 
-    def mustHaveParams2(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
-        val shouldHave = types.size
-        val doesHave = getParams(m)
-
-        if(shouldHave != doesHave.size) {
-            "must have " + shouldHave + " parameter" ! {
-                doesHave aka "parameter list" must haveSize(shouldHave)
-            }
+    def mustHaveParams2(types: Class[_]*)(implicit tm: TaskMethod): Example = {
+        val count = types.size
+        ("must have " + count + " parameter" + (if (count > 1) "(s)" else "")) ! {
+            (tm.params.flatten.size) aka "size of parameter list" must beEqualTo(count)
         }
-
-        // TODO: check types ?
-
-        f(m)
+        // TODO: check types
     }
+
+//    def mustHaveParams2(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
+//        val shouldHave = types.size
+//        val doesHave = getParams(m)
+//
+//        if(shouldHave != doesHave.size) {
+//            "must have " + shouldHave + " parameter" ! {
+//                doesHave aka "parameter list" must haveSize(shouldHave)
+//            }
+//        }
+//
+//        // TODO: check types ?
+//
+//        f(m)
+//    }
 
     /*
     def methodMustHaveType[T: TypeTag](m: MethodSymbol, typ: T)(f: (MethodSymbol) => Example): Example = {
@@ -97,19 +106,30 @@ trait Matchers {
     }
     */
 
-    def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod) =
-        "must return '" + res + "' for value " + args.mkString("'", ",", "'") ! {
-            val apply =
-                try
-                    tm.invoke(args)
-                catch {
-                    case e: IllegalArgumentException =>
-                        println("apply: " + args)
-                        e.printStackTrace()
-                        throw e
-                }
+    def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassManifest[T]): Fragment = {
+        val thdescr = th.runtimeClass.getSimpleName match {
+            case "Throwable" | "Exception" => "an exception"
+            case name => "'" + name + "'"
+        }
+        "must throw " + thdescr + " for " + inputDescr(args: _*) ! {
+            (tm invoke args) must throwA[T]
+        }
+    }
+
+    def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
+        "must return '" + res + "' for " + inputDescr(args: _*) ! {
+            val apply = tm.invoke(args: _*)
             apply === res
         }
+
+    def inputDescr(args: Any*) =
+        (args.size match {
+            case 0 | 1 => "input "
+            case _ => "inputs "
+        }) + (args.toList match {
+            case List("") => "empty String"
+            case other => "'" + other.mkString("','") + "'"
+        })
 
     def getList[T : ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
         (invoke[T](obj, m)) match {

@@ -35,10 +35,10 @@ class Loes_B14_2 extends Solution {
         def describeValue(value: Any): String =
             value match {
                 case "" => "empty string"
-                case s: String => "String mit der Länge " + s.length
-                case i: Int if i > 0 => "ein positiver Integer"
-                case i: Int if i < 0 => "ein negativer Integer"
-                case _ => "Unbekannt"
+                case s: String => "string of size " + s.length
+                case i: Int if i > 0 => "positive integer"
+                case i: Int if i < 0 => "negative integer"
+                case _ => "unknown"
             }
     }
 
