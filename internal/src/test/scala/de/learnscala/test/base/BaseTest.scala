@@ -13,7 +13,7 @@ abstract class BaseTest[T: TypeTag]
     with Reflect with Capture with Matchers with StopOnFail {
 
     def fs: Fragments =
-        sys.error("overwrite 'is'")
+        sys.error("overwrite 'fs'")
 
     final def is =
         sequential ^ fs ^ end
@@ -24,20 +24,19 @@ abstract class BaseTest[T: TypeTag]
 
     // SHARED =====================================================================================
 
-    protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Task) => Fragments) {
-        test(1, name, typeOf, prefix)(fn)
-    }
+    protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: TaskContext => Fragments) =
+        task(1)(name, typeOf)(fn)
 
-    protected def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Task) => Fragments) =
+    protected def task(n: Int, name: String, typeOf: String = "")(fn: TaskContext => Fragments): Fragments =
+        task(n)(name, typeOf)(fn)
+
+    protected def task(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments): Fragments =
         test(n, name, typeOf, "Task #" + n)(fn)
-
-    protected def task2(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
-        test2(n, name, typeOf, "Task #" + n)(fn)
 
 
     // INTERNALS ==================================================================================
 
-    private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments): Fragments = {
+    private def test(n: Int, name: String, typeOf: String, prefix: String = "")(fn: TaskContext => Fragments): Fragments = {
         val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList
         val r: Fragments =
             if (tasks.length >= n) {
@@ -53,30 +52,11 @@ abstract class BaseTest[T: TypeTag]
                     descr ^ {
                         fn apply (new TaskContext(name, tasks(n - 1)))
                     }
-                ) ^ startBlock ^ p
+                    ) ^ startBlock ^ p
             } else
                 Failure("unable to test task #" + n + ": not enough elements")
         r
     }
-
-    @deprecated
-    private def test(n: Int, name: String, typeOf: String, prefix: String)(fn: (String, Task) => Fragments) =
-        prefix ^ {
-            // + typeOf + " '" + name + "'"
-            try {
-                val r: Fragments =
-                    Failure("unable to test task #" + n + ": no element")
-                r
-            } catch {
-                case e: Throwable =>
-                    val r: Fragments =
-                        "failed to initiate exercise" ! {
-                            e.printStackTrace()
-                            Failure()
-                        }
-                    r
-            }
-        }
 }
 
 trait StopOnFail extends AroundExample with Specification {
@@ -89,7 +69,8 @@ trait StopOnFail extends AroundExample with Specification {
     def around[R <% Result](r: => R) = {
         if (mustStop) Skipped("one example failed")
         else if (!r.isSuccess) {
-            mustStop = true; r
+            mustStop = true;
+            r
         }
         else r
     }

@@ -15,7 +15,7 @@ case class TaskContext(name: String, task: Task) {
 
     def getMethod(name: String): Option[TaskMethod] =
         getMember(name) flatMap {
-            case mth: MethodSymbol => Some(TaskMethod(mth, this))
+            case mth: MethodSymbol => Some(TaskMethod(name, mth, this))
             case _ => None
         }
 

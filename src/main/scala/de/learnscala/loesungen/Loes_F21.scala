@@ -8,108 +8,84 @@ class Loes_F21 extends Solution {
     /////////////////////////////////////////////////////////
     // Traversable
 
-    /**
-     * Konvertiert Elemente von Traversable in einen String der Form "[1,2,3]".
-     */
-    def toString(t: Traversable[Int]) =
-        t.mkString("[", ",", "]")
+    task(1) {
+        def toString(t: Traversable[Int]) =
+            t.mkString("[", ",", "]")
+    }
 
+    task(2) {
+        def join(t1: Traversable[Int], t2: Traversable[Int]) =
+            t1 ++ t2
+    }
 
-    /**
-     * Hängt Argument 2 an Argument 1.
-     */
-    def join(t1: Traversable[Int], t2: Traversable[Int]) =
-        t1 ++ t2
+    task(3) {
+        def first2(t: Traversable[Int]) =
+            t.take(2)
+    }
 
+    task(4) {
+        def sumOf(t: Traversable[Int]) =
+            t.sum
+    }
 
-    /**
-     * Liefert die ersten beiden Elemente des Traversable.
-     */
-    def first2(t: Traversable[Int]) =
-        t.take(2)
+    task(5) {
+        def length(t: Traversable[Int]) =
+            t.size
+    }
 
+    task(6) {
+        def withoutFirst(t: Traversable[Int]) =
+            t.drop(1)
+    }
 
-    /**
-     * Summiert die Elemente des Traversable.
-     */
-    def sumOf(t: Traversable[Int]) =
-        t.sum
-
-
-    /**
-     * Ermittelt die Länge des Traversable.
-     */
-    def length(t: Traversable[Int]) =
-        t.size
-
-
-    /**
-     * Entfernt das erste Element des Traversable.
-     */
-    def withoutFirst(t: Traversable[Int]) =
-        t.drop(1)
-
-
-    /**
-     * Ermittelt das größte Elemente desTraversable.
-     */
-    def biggest(t: Traversable[Int]) =
-        t.max
-
+    task(6) {
+        def biggest(t: Traversable[Int]) =
+            t.max
+    }
 
     /////////////////////////////////////////////////////////
     // List
 
-    /**
-     * Erstellt eine Liste aus den 3 Elementen
-     */
-    def makeList(e1: Int, e2: Int, e3: Int) =
-        List(e1, e2, e3)
+    task(7) {
+        def makeList(e1: Int, e2: Int, e3: Int) =
+            List(e1, e2, e3)
+    }
 
-    /**
-     * Erstellt aus Parameter eine Liste ohne Duplikate.
-     */
-    def unique(l: List[Int]) =
-        l.distinct
+    task(8) {
+        def unique(l: List[Int]) =
+            l.distinct
+    }
 
-
-    /**
-     * Kehrt die Reihenfolge der Liste um
-     */
-    def backwards(l: List[Int]) =
-        l.reverse
+    task(9) {
+        def backwards(l: List[Int]) =
+            l.reverse
+    }
 
 
     /////////////////////////////////////////////////////////
     // Set
 
-    /**
-     * Ermittelt ob das Set die Elemente 42 und 101 enthält.
-     */
-    def has42and101(s: Set[Int]) =
-        Set(42, 101) subsetOf s
+    task(10) {
+        def has42and101(s: Set[Int]) =
+            Set(42, 101) subsetOf s
+    }
 
-
-    /**
-     * Kombiniert Argument 1 und Argument 2
-     */
-    def mergeSet(s1: Set[Int], s2: Set[Int]) =
-        s1 union s2
+    task(11) {
+        def mergeSet(s1: Set[Int], s2: Set[Int]) =
+            s1 union s2
+    }
 
 
     /////////////////////////////////////////////////////////
     // Map
 
-    /**
-     * Entfernt Schlüssel '42' aus der Map.
-     */
-    def withoutKey42(m: Map[Int, Boolean]) =
-        m - 42
+    task(12) {
+        def withoutKey42(m: Map[Int, Boolean]) =
+            m - 42
+    }
 
-    /**
-     * Ermittelt ob Map den Schlüssel '42' enthält.
-     */
-    def hasKey42(m: Map[Int, Boolean]) =
-        m contains 42
-
+    task(13) {
+        def hasKey42(m: Map[Int, Boolean]) =
+            m contains 42
+    }
 }

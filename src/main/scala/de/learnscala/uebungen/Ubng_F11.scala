@@ -4,49 +4,55 @@ import de.learnscala.base._
 
 class Ubng_F11 extends Exercise with Help /* with Disabled */ {
 
-    /**
-     * Aufgabe #1
-     *
-     * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
-     */
+    task(1) {
 
-    // def negate =
+        /**
+         * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
+         */
 
-    def f1 = TODO // negate(5.0f)
+        // def negate =
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #2
-     *
-     * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
-     */
-
-    // def half =
-
-    def f2 = TODO // half(2)
+        def f1 = TODO // negate(5.0f)
+    }
 
     // ===============================================================
 
-    /**
-     * Aufgabe #3
-     *
-     * Gesucht wird eine Funktion zur Umkehrung eines Strings.
-     */
+    task(2) {
 
-    // def reverse =
+        /**
+         * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
+         */
 
-    def f3 = TODO // reverse("abc")
+        // def half =
+
+        def f2 = TODO // half(2)
+    }
 
     // ===============================================================
 
-    /**
-     * Aufgabe #4
-     *
-     * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
-     */
+    task(3) {
 
-    // def repeat =
+        /**
+         * Gesucht wird eine Funktion zur Umkehrung eines Strings.
+         */
 
-    def f4 = TODO // repeat("123", 3)
+        // def reverse =
+
+        def f3 = TODO // reverse("abc")
+    }
+
+    // ===============================================================
+
+    task(4) {
+
+        /**
+         * Aufgabe #4
+         *
+         * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
+         */
+
+        // def repeat =
+
+        def f4 = TODO // repeat("123", 3)
+    }
 }

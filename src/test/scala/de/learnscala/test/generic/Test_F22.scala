@@ -9,10 +9,10 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
     "Task #1: days" ! {
 
         test("weekDays") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
-                    m =>
-                        mustHaveParams(m)
+            implicit ctx =>
+                mustHaveMethod {
+                  implicit m =>
+                        mustHaveParams() ^
 
                         getList(target, m) {
                             l =>
@@ -29,10 +29,10 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
         }
 
         test("weekendDays") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
-                    m =>
-                        mustHaveParams(m)
+            implicit ctx =>
+                mustHaveMethod {
+                  implicit m =>
+                        mustHaveParams() ^
 
                         getList(target, m) {
                             l =>
@@ -46,10 +46,10 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
         }
 
         test("days") {
-            (mn, target) =>
-                mustHaveMethod(mn) {
-                    m =>
-                        mustHaveParams(m)
+            implicit ctx =>
+                mustHaveMethod {
+                  implicit m =>
+                        mustHaveParams() ^
 
                         getList(target, m) {
                             l =>
@@ -70,31 +70,31 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
     */
 
     task(2)("last") {
-        (mn, target) =>
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m, 1)
+        implicit ctx =>
+            mustHaveMethod {
+              implicit m =>
+                    mustHaveParams(1)
 
                     "must return 'Some(1)' for List(1)" ! {
-                        invoke(target, m, List(1)) === Some(1)
+                        m.invoke( List(1)) === Some(1)
                     }
                     "must return 'Some(3)' for List(1,2,3)" ! {
-                        invoke(target, m, List(1, 2, 3)) === Some(3)
+                        m.invoke( List(1, 2, 3)) === Some(3)
                     }
                     "must return 'Some(5)' for List(1,2,3,4,5)" ! {
-                        invoke(target, m, List(1, 2, 3, 4, 5)) === Some(5)
+                        m.invoke( List(1, 2, 3, 4, 5)) === Some(5)
                     }
                     "must return 'None' for List()" ! {
-                        invoke(target, m, List()) === None
+                        m.invoke( List()) === None
                     }
             }
     }
 
     task(3)("third") {
-        (mn, target) =>
-            mustHaveMethod(mn) {
-                m =>
-                    mustHaveParams(m, 1)
+        implicit ctx =>
+            mustHaveMethod {
+              implicit m =>
+                    mustHaveParams(1)
 
                     "must return 'Some(3)' for List(1,2,3)" ! {
                         invoke(target, m,List(1, 2, 3)) === Some(3)

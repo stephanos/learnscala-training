@@ -66,6 +66,9 @@ trait Push {
         }
     }
 
+
+    // INTERNALS ===============================================================
+
     private def sendXML(code: String, data: String, addr: String, port: String = "80") {
         import org.apache.http.entity._
         import org.apache.http.client.methods._

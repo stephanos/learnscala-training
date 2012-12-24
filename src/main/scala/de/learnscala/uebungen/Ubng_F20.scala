@@ -12,8 +12,7 @@ class Ubng_F20 extends Exercise with Help /* with Disabled */ {
          * Tauscht die Elemente des Tuples.
          */
 
-        def swap(t: (Int, Int)) =
-            TODO
+        TODO
     }
 
     // ===============================================================
@@ -27,8 +26,7 @@ class Ubng_F20 extends Exercise with Help /* with Disabled */ {
          * Das erste Element zeigt an, ob addiert (true) oder subtrahiert (false) werden soll.
          */
 
-        def sum(t: (Boolean, Int, Int)) =
-            TODO
+        TODO
     }
 
     // ===============================================================
@@ -41,14 +39,12 @@ class Ubng_F20 extends Exercise with Help /* with Disabled */ {
          * Antwortet (print) ob das Auto gekauft werden soll - abhängig vom Argument.
          */
 
-        def doYouBuyTheCar(b: Option[Boolean]) {
-            TODO
-        }
+        TODO
     }
 
     // ===============================================================
 
-    task(3) {
+    task(4) {
 
         /**
          * Methode 'convertToInt'
@@ -56,7 +52,6 @@ class Ubng_F20 extends Exercise with Help /* with Disabled */ {
          * Konvertiert einen String in einen Integer (None bei Ausnahme).
          */
 
-        def convertToInt(s: String) =
-            TODO
+        TODO
     }
 }

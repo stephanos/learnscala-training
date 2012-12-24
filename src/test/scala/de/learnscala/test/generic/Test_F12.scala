@@ -7,106 +7,107 @@ import org.specs2.execute.{Pending, Result}
 
 abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
 
+    override def fs =
     task(1)("union", "method") {
-        (mn, target) =>
+        implicit ctx =>
             mustHaveMethod("u1") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "u1 must contain '1'" ! {
                         tryOrPending {
-                            invoke(target, m) === true
+                            m.invoke() === true
                         }
                     }
             }
 
             mustHaveMethod("u2") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "u2 must contain '2'" ! {
                         tryOrPending {
-                            invoke(target, m) === true
+                            m.invoke() === true
                         }
                     }
             }
             mustHaveMethod("u3") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "u3 must NOT contain '3'" ! {
                         tryOrPending {
-                            invoke(target, m) === false
+                            m.invoke() === false
                         }
                     }
             }
     }
 
     task(2)("intersect", "method") {
-        (mn, target) =>
+        implicit ctx =>
             mustHaveMethod("i1") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "i1 must contain '1'" ! {
                         tryOrPending {
-                            invoke(target, m) === true
+                            m.invoke() === true
                         }
                     }
             }
 
             mustHaveMethod("i2") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "i2 must NOT contain '2'" ! {
                         tryOrPending {
-                            invoke(target, m) === false
+                            m.invoke() === false
                         }
                     }
             }
             mustHaveMethod("i3") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "i3 must NOT contain '3'" ! {
                         tryOrPending {
-                            invoke(target, m) === false
+                            m.invoke() === false
                         }
                     }
             }
     }
 
     task(3)("intersect", "method") {
-        (mn, target) =>
+        implicit ctx =>
             mustHaveMethod("d1") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "d1 must NOT contain '1'" ! {
                         tryOrPending {
-                            invoke(target, m) === false
+                            m.invoke() === false
                         }
                     }
             }
 
             mustHaveMethod("d2") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "d2 must contain '2'" ! {
                         tryOrPending {
-                            invoke(target, m) === true
+                            m.invoke() === true
                         }
                     }
             }
             mustHaveMethod("d3") {
-                m =>
-                    mustHaveParams(m)
+              implicit m =>
+                    mustHaveParams() ^
 
                     "d3 must NOT contain '3'" ! {
                         tryOrPending {
-                            invoke(target, m) === false
+                            m.invoke() === false
                         }
                     }
             }

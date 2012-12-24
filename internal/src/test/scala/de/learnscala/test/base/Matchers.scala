@@ -14,7 +14,7 @@ trait Matchers {
 
     self: Reflect with SpecificationWithJUnit =>
 
-    def mustHaveObject[T: TypeTag](name: String)(f: (Any) => Example): Example = {
+    protected def mustHaveObject[T: TypeTag](name: String)(f: (Any) => Example): Example = {
         getObject[T](name) match {
             case Some(o) =>
                 f apply o
@@ -25,7 +25,7 @@ trait Matchers {
         }
     }
 
-    def mustHaveValue[T: TypeTag](name: String)(f: (TermSymbol) => Example): Example =
+    protected def mustHaveValue[T: TypeTag](name: String)(f: (TermSymbol) => Example): Example =
         getVal[T](name) match {
             case Some(v) =>
                 f apply v
@@ -35,19 +35,8 @@ trait Matchers {
                 }
         }
 
-    def mustHaveMethod[T: TypeTag](name: String)(f: (MethodSymbol) => Example): Example = {
-        getMethod[T](name) match {
-            case Some(m) =>
-                f apply m
-            case _ =>
-                ("method '" + name + "' must be defined") ! {
-                    Pending()
-                }
-        }
-    }
-
-    def mustHaveMethod2(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {
-        val method = ctx.getMethod(ctx.name)
+    protected def mustHaveMethod(name: String)(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {
+        val method = ctx.getMethod(name)
         val check =
             ("must be defined") ! {
                 if (method.isDefined)
@@ -61,26 +50,21 @@ trait Matchers {
             check ^ f(method.get)
     }
 
-    def mustHaveParams(m: MethodSymbol, count: Int): Example = {
-        "must have " + count + " parameter" ! {
-            getParams(m) aka "parameter list" must haveSize(count)
-        }
-    }
+    protected def mustHaveMethod(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments =
+        mustHaveMethod(ctx.name)(f)
 
-    def mustHaveParams(m: MethodSymbol, types: Class[_]*): Example = {
-        mustHaveParams(m, types.size)
-        // TODO: check types
-    }
-
-    def mustHaveParams2(types: Class[_]*)(implicit tm: TaskMethod): Example = {
-        val count = types.size
+    protected def mustHaveParams(count: Int)(implicit tm: TaskMethod): Example = {
         ("must have " + (if(count == 0) "no" else count) + " parameter" + (if (count != 1) "s" else "")) ! {
             (tm.params.flatten.size) aka "size of parameter list" must beEqualTo(count)
         }
+    }
+
+    protected def mustHaveParams(types: Class[_]*)(implicit tm: TaskMethod): Example = {
+        mustHaveParams(types.size)
         // TODO: check types
     }
 
-//    def mustHaveParams2(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
+//    def mustHaveParams(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
 //        val shouldHave = types.size
 //        val doesHave = getParams(m)
 //
@@ -110,7 +94,7 @@ trait Matchers {
     }
     */
 
-    def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassManifest[T]): Fragment = {
+    protected def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassManifest[T]): Fragment = {
         val thdescr = th.runtimeClass.getSimpleName match {
             case "Throwable" | "Exception" => "an exception"
             case name => "'" + name + "'"
@@ -120,13 +104,13 @@ trait Matchers {
         }
     }
 
-    def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
+    protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
         "must return '" + res + "' for " + inputDescr(args: _*) ! {
             val apply = tm.invoke(args: _*)
             apply === res
         }
 
-    def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] = {
+    protected def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] = {
         things.map {
             t => t match {
                 case c: COUNT => checkLimits((c, 0))
@@ -134,6 +118,17 @@ trait Matchers {
                 case c => sys.error("unable to check for: " + c)
             }
         }
+    }
+
+    protected val VAR = COUNT("var")
+    protected val WHILE = COUNT("while")
+
+
+    // INTERNALS ===============================================================
+
+    private case class COUNT(name: String, customCode: String = null) {
+        val code = Option(customCode).getOrElse(name)
+        val field = "_noOf" + code.capitalize + "s"
     }
 
     private def checkLimits(thing: (COUNT, Int))(implicit tm: TaskMethod): Fragment = {
@@ -148,14 +143,7 @@ trait Matchers {
         }
     }
 
-    case class COUNT(name: String, customCode: String = null) {
-        val code = Option(customCode).getOrElse(name)
-        val field = "_noOf" + code.capitalize + "s"
-    }
-    val VAR = COUNT("var")
-    val WHILE = COUNT("while")
-
-    def inputDescr(args: Any*) =
+    private def inputDescr(args: Any*) =
         (args.size match {
             case 0 | 1 => "input "
             case _ => "inputs "
@@ -164,7 +152,7 @@ trait Matchers {
             case other => "'" + other.mkString("','") + "'"
         })
 
-    def getList[T : ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
+    private def getList[T : ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
         (invoke[T](obj, m)) match {
             case null => mustNotBeNull()
             case l: Traversable[Any] => f(l)
@@ -172,13 +160,13 @@ trait Matchers {
         }
     }
 
-    def mustHaveType(t: String): Example = {
+    private def mustHaveType(t: String): Example = {
         ("must have type: '" + t + "'") ! {
             Pending()
         }
     }
 
-    def mustNotBeNull(): Example = {
+    private def mustNotBeNull(): Example = {
         ("must not be null") ! {
             Pending()
         }

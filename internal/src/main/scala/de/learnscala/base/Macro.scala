@@ -7,9 +7,8 @@ class Macro[C <: Context](val c: C) {
     import c.universe._
     import Flag._
 
-    private def apply(num: c.Expr[Int], code: c.Expr[Any]): c.Expr[Any] = {
+    private def apply(n: Int, code: c.Expr[Any]): c.Expr[Any] = {
         implicit val impl_code = code
-        val Literal(Constant(n: Int)) = num.tree
 
         val task =
             c.resetAllAttrs(code.tree) match {
@@ -197,7 +196,14 @@ class Macro[C <: Context](val c: C) {
 
 object Macro {
 
-    def apply(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {
-        new Macro[c.type](c).apply(num, code)
+    def singleTask(c: Context)(code: c.Expr[Any]): c.Expr[Any] = {
+        new Macro[c.type](c).apply(0, code)
     }
+
+    def task(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {
+        import c.universe._
+        val Literal(Constant(n: Int)) = num.tree
+        new Macro[c.type](c).apply(n, code)
+    }
+
 }

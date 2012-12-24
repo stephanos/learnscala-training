@@ -5,55 +5,47 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F11[T: TypeTag] extends BaseTest[T] {
 
-    task(1)("negate", "method") {
-        (_, target) =>
+    override def fs =
+        task(1)("negate", "method") {
+            implicit ctx =>
+                mustHaveMethod("f1") {
+                    implicit m =>
+                        mustHaveParams() ^
+                            "f1 must be '-5.0'" ! {
+                                m.invoke() === -5.0f
+                            }
+                }
+        } ^
+            task(2)("half", "method") {
+                implicit ctx =>
+                    mustHaveMethod("f2") {
+                        implicit m =>
+                            mustHaveParams() ^
+                                "f2 must be '1.0'" ! {
+                                    m.invoke() === 1.0
+                                }
+                    }
+            } ^
+            task(3)("printReverse", "method") {
+                implicit ctx =>
 
-            mustHaveMethod("f1") {
-                m =>
-                    mustHaveParams(m)
+                    mustHaveMethod("f3") {
+                        implicit m =>
+                            mustHaveParams() ^
+                                "f3 must output 'cba'" ! {
+                                    m.invoke() === "cba"
+                                }
+                    }
+            } ^
+            task(4)("repeat", "method") {
+                implicit ctx =>
 
-                    "f1 must be '-5.0'" ! {
-                        invoke(target, m) === -5.0f
+                    mustHaveMethod("f4") {
+                        implicit m =>
+                            mustHaveParams() ^
+                                "f4 must be '123123123'" ! {
+                                    m.invoke() === "123123123"
+                                }
                     }
             }
-    }
-
-    task(2)("half", "method") {
-        (_, target) =>
-
-            mustHaveMethod("f2") {
-                m =>
-                    mustHaveParams(m)
-
-                    "f2 must be '1.0'" ! {
-                        invoke(target, m) === 1.0
-                    }
-            }
-    }
-
-    task(3)("printReverse", "method") {
-        (_, target) =>
-
-            mustHaveMethod("f3") {
-                m =>
-                    mustHaveParams(m)
-
-                    "f3 must output 'cba'" ! {
-                        invoke(target, m) === "cba"
-                    }
-            }
-    }
-
-    task(4)("repeat", "method") {
-        (_, target) =>
-
-            mustHaveMethod("f4") {
-                m =>
-                    mustHaveParams(m)
-
-                    "f4 must be '123123123'" ! {
-                        invoke(target, m) === "123123123"
-                    }
-            }
-    }
 }

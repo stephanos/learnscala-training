@@ -8,11 +8,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
     import java.io._
 
     override def fs =
-        task2(1)("nameOfSymbol", "method") {
+        task(1)("nameOfSymbol", "method") {
             implicit ctx =>
-                mustHaveMethod2 {
+                mustHaveMethod {
                     implicit m =>
-                        mustHaveParams2(classOf[Char]) ^
+                        mustHaveParams(classOf[Char]) ^
                             mustNotContain(VAR) ^
                             mustReturn("pi", 'Π') ^
                             mustReturn("root", '√') ^
@@ -21,11 +21,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                             mustReturn("unknown", '?')
                 }
         } ^
-            task2(2)("isWorkingDay", "method") {
+            task(2)("isWorkingDay", "method") {
                 implicit ctx =>
-                    mustHaveMethod2 {
+                    mustHaveMethod {
                         implicit m =>
-                            mustHaveParams2(classOf[String]) ^
+                            mustHaveParams(classOf[String]) ^
                                 mustNotContain(VAR) ^
                                 mustReturn(false, "Sunday") ^
                                 mustReturn(false, "Saturday") ^
@@ -36,11 +36,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn(true, "Friday")
                     }
             } ^
-            task2(3)("describeValue", "method") {
+            task(3)("describeValue", "method") {
                 implicit ctx =>
-                    mustHaveMethod2 {
+                    mustHaveMethod {
                         implicit m =>
-                            mustHaveParams2(classOf[Any]) ^
+                            mustHaveParams(classOf[Any]) ^
                                 mustNotContain(VAR) ^
                                 mustReturn("empty string", "") ^
                                 mustReturn("string of size 11", "Hello World") ^
@@ -51,11 +51,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn("unknown", '$')
                     }
             } ^
-            task2(4)("half", "method") {
+            task(4)("half", "method") {
                 implicit ctx =>
-                    mustHaveMethod2 {
+                    mustHaveMethod {
                         implicit m =>
-                            mustHaveParams2(classOf[Int]) ^
+                            mustHaveParams(classOf[Int]) ^
                                 mustNotContain(VAR) ^
                                 mustReturn(5, 10) ^
                                 mustReturn(50, 100) ^
@@ -64,11 +64,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustThrow[Throwable](5)
                     }
             } ^
-            task2(5)("getSize", "method") {
+            task(5)("getSize", "method") {
                 implicit ctx =>
-                    mustHaveMethod2 {
+                    mustHaveMethod {
                         implicit m =>
-                            mustHaveParams2(classOf[Char]) ^
+                            mustHaveParams(classOf[Char]) ^
                                 mustNotContain(VAR) ^
                                 mustReturn(3, "abc") ^
                                 mustReturn(5, "12345") ^
@@ -76,11 +76,11 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn(0, null)
                     }
             } ^
-            task2(6)("readCharFromFile", "method") {
+            task(6)("readCharFromFile", "method") {
                 implicit ctx =>
-                    mustHaveMethod2 {
+                    mustHaveMethod {
                         implicit m =>
-                            mustHaveParams2(classOf[FileReader]) ^
+                            mustHaveParams(classOf[FileReader]) ^
                                 mustNotContain(VAR) ^
                                 "must return '@' and close connection" ! {
                                     val f = getMock

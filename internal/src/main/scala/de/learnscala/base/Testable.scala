@@ -13,5 +13,7 @@ trait Testable {
         tasks += t
     }
 
-    protected def task(num: Int)(code: Any): Any = macro Macro.apply
+    protected def task(code: Any): Any = macro Macro.singleTask
+
+    protected def task(num: Int)(code: Any): Any = macro Macro.task
 }

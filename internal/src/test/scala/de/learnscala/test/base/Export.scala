@@ -23,6 +23,9 @@ class Export extends Exporter with Push {
 
     case class Task(head: ExecutedFragment, results: List[ExecutedResult] = List())
 
+
+    // INTERNALS ===============================================================
+
     private def export2(fs: Seq[ExecutedFragment], res: Option[Task] = None)(implicit args: Arguments) {
         fs.headOption match {
             case Some(h) =>
