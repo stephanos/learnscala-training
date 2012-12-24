@@ -7,11 +7,17 @@ class Ubng_B25 extends Exercise with Help /* with Disabled */ {
     task {
 
         /**
-         * Die Fibonacci-Folge ist eine unendliche Folge von Zahlen (den Fibonacci-Zahlen),
-         * bei der sich die jeweils folgende Zahl durch Addition ihrer beiden vorherigen Zahlen ergibt:
-         * 0, 1, 1, 2, 3, 5, 8, 13, …
+         * Methode 'fib'
          *
-         * Wandle folgende Funktion in eine tail-rekursive Funktion um!
+         * @param n
+         * @return Fibonacci-Zahl
+         *
+         * @note
+         * Die Fibonacci-Folge ist eine unendliche Folge von Zahlen,
+         * bei der sich die jeweils folgende Zahl durch Addition ihrer beiden vorherigen Zahlen ergibt:
+         *   0, 1, 1, 2, 3, 5, 8, 13, …
+         *
+         * @todo Wandle folgende Funktion in eine tail-rekursive Funktion um!
          */
 
         def fib(n: Int): BigInt =

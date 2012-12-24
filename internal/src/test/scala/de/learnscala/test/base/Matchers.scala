@@ -123,13 +123,12 @@ trait Matchers {
     protected val VAR = COUNT("var")
     protected val WHILE = COUNT("while")
 
-
-    // INTERNALS ===============================================================
-
-    private case class COUNT(name: String, customCode: String = null) {
+    protected case class COUNT(name: String, customCode: String = null) {
         val code = Option(customCode).getOrElse(name)
         val field = "_noOf" + code.capitalize + "s"
     }
+
+    // INTERNALS ===============================================================
 
     private def checkLimits(thing: (COUNT, Int))(implicit tm: TaskMethod): Fragment = {
         val (item, cnt) = thing
