@@ -8,72 +8,77 @@ class Macro[C <: Context](val c: C) {
     import Flag._
 
     private def apply(num: c.Expr[Int], code: c.Expr[Any]): c.Expr[Any] = {
-        c.resetAllAttrs(code.tree) match {
-            case Block(userCode, _) =>
-                implicit val impl_code = code
-                val Literal(Constant(n: Int)) = num.tree
+        implicit val impl_code = code
+        val Literal(Constant(n: Int)) = num.tree
 
-                val meta: List[ValDef] =
-                    List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
-                        kv => metaField(kv._1, kv._2)
-                    } ::: List(listAnnotations, listCalls).map {
-                        kv => metaField(kv._1, kv._2)
-                    }
+        val task =
+            c.resetAllAttrs(code.tree) match {
+                case Block(userCode, _) =>
+                    pimpUserCode(userCode)
+                case _ =>
+                    Literal(Constant((null))) // no content, create stub
+            }
 
-                c.Expr(Block(
-                    List(
-                        Apply(Select(This(tpnme.EMPTY), newTermName("register")),
-                            List(Literal(Constant(n)), Block(
-                                List(
-                                    // anonymous class
-                                    ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(newTypeName("Tsk"))), emptyValDef,
-                                        List(
-                                            DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(
-                                                List(
-                                                    Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())
-                                                ),
-                                                Literal(Constant(()))
-                                            )) //constructor
-                                        ) ::: meta // meta info
-                                            ::: userCode // user code
-                                    ))
-                                ),
-                                Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List()))
-                            )
-                        )
-                    ),
-                    Literal(Constant(()))
-                ))
-            case _ => code
-        }
+        c.Expr(Block(List(
+            Apply(Select(This(tpnme.EMPTY), newTermName("register")), List(Literal(Constant(n)), task))
+        ), Literal(Constant(()))))
     }
 
-    private def countIfs(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfIfs", code.tree.collect { case e: If => true }.size)
+    private def pimpUserCode(codeTree: List[Tree])(implicit code: c.Expr[Any]): Block = {
+        implicit val impl_code = codeTree
 
-    private def countVars(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfVars", code.tree.collect { case e: ValDef if(e.mods.hasFlag(MUTABLE)) => true }.size)
+        val meta: List[ValDef] =
+            List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
+                kv => metaField(kv._1, kv._2)
+            } ::: List(listAnnotations, listCalls).map {
+                kv => metaField(kv._1, kv._2)
+            }
 
-    private def countVals(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfVals", code.tree.collect { case e: ValDef if(!e.mods.hasFlag(MUTABLE) && !e.mods.hasFlag(PARAM)) => true }.size)
+        Block(
+            List(
+                // anonymous class
+                ClassDef(Modifiers(FINAL), newTypeName("$anon"), List(), Template(List(Ident(newTypeName("Tsk"))), emptyValDef,
+                    List(
+                        DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(
+                            List(
+                                Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())
+                            ),
+                            Literal(Constant(()))
+                        )) //constructor
+                    ) ::: meta // meta info
+                        ::: codeTree // user code
+                ))
+            ),
+            Apply(Select(New(Ident(newTypeName("$anon"))), nme.CONSTRUCTOR), List())
+        )
+    }
 
-    private def countWhiles(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfWhiles", code.tree.collect { case e: LabelDef => true }.size)
+    private def countIfs(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfIfs", codeTree.collect { case e: If => true }.size)
 
-    private def countFors(implicit code: c.Expr[Any]): (String, Int) =
+    private def countVars(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfVars", codeTree.collect { case e: ValDef if(e.mods.hasFlag(MUTABLE)) => true }.size)
+
+    private def countVals(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfVals", codeTree.collect { case e: ValDef if(!e.mods.hasFlag(MUTABLE) && !e.mods.hasFlag(PARAM)) => true }.size)
+
+    private def countWhiles(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfWhiles", codeTree.collect { case e: LabelDef => true }.size)
+
+    private def countFors(implicit codeTree: List[Tree]): (String, Int) =
         ("noOfFors", 0) // TODO
 
-    private def countTrys(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfTrys", code.tree.collect { case e: Try => true }.size)
+    private def countTrys(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfTrys", codeTree.collect { case e: Try => true }.size)
 
-    private def countFinallys(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfFinallys", code.tree.collect { case e: Try if(!e.finalizer.isEmpty) => true }.size)
+    private def countFinallys(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfFinallys", codeTree.collect { case e: Try if(!e.finalizer.isEmpty) => true }.size)
 
-    private def countDefs(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfDefs", code.tree.collect { case e: DefDef => true }.size)
+    private def countDefs(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfDefs", codeTree.collect { case e: DefDef => true }.size)
 
-    private def countNulls(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfNulls", code.tree.collect { case Literal(Constant(null)) => true }.size)
+    private def countNulls(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfNulls", codeTree.collect { case Literal(Constant(null)) => true }.size)
 
     private def countLines(implicit code: c.Expr[Any]): (String, Int) = {
 
@@ -102,14 +107,14 @@ class Macro[C <: Context](val c: C) {
         ("noOfLines", 1 + limits._2 - limits._1 - empty)
     }
 
-    private def countReturns(implicit code: c.Expr[Any]): (String, Int) =
-        ("noOfReturns", code.tree.collect { case e: Return => true }.size)
+    private def countReturns(implicit codeTree: List[Tree]): (String, Int) =
+        ("noOfReturns", codeTree.collect { case e: Return => true }.size)
 
-    private def listAnnotations(implicit code: c.Expr[Any]): (String, List[String]) =
+    private def listAnnotations(implicit codeTree: List[Tree]): (String, List[String]) =
         ("listOfAnnot", List[String]("")) // TODO
 
-    private def listCalls(implicit code: c.Expr[Any]): (String, List[String]) =
-        ("listOfCalls", code.tree.collect {
+    private def listCalls(implicit codeTree: List[Tree]): (String, List[String]) =
+        ("listOfCalls", codeTree.collect {
             case Apply(f, args) => f.toString()
         })
 

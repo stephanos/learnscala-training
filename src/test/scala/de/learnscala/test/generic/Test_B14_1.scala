@@ -5,7 +5,7 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
 
-    override def is =
+    override def fs =
         task2(1)("theAnswerToLifeTheUniverseAndEverything", "method") {
             implicit ctx =>
                 mustHaveMethod2 {
@@ -13,7 +13,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                         mustHaveParams2() ^
                             mustReturn(42)
                 }
-        } ^ p ^
+        } ^
             task2(2)("signum", "method") {
                 implicit ctx =>
 
@@ -32,7 +32,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     m.invoke(10) === 1
                                 }
                     }
-            } ^ p ^
+            } ^
             task2(3)("absMax", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -51,7 +51,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     m.invoke(-5, -2) === -5
                                 }
                     }
-            } ^ p ^
+            } ^
             task2(4)("countingOut", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -61,7 +61,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     captureOutput(m.invoke())._2.trim === "1 2 3 4 5 6 7 8 9 10"
                                 }
                     }
-            } ^ p ^
+            } ^
             task2(5)("count10s", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -71,7 +71,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     captureOutput(m.invoke())._2.trim === "10 20 30 40 50 60 70 80 90 100"
                                 }
                     }
-            } ^ p ^
+            } ^
             task2(6)("countMod", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -84,5 +84,5 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     captureOutput(m.invoke(3))._2.trim === "3 6 9"
                                 }
                     }
-            } ^ end
+            }
 }

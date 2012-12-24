@@ -14,23 +14,16 @@ case class TaskContext(name: String, task: Task) {
 
 
     def getMethod(name: String): Option[TaskMethod] =
-        getMember(name) flatMap (_ match {
+        getMember(name) flatMap {
             case mth: MethodSymbol => Some(TaskMethod(mth, this))
             case _ => None
-        })
+        }
 
 
     // INTERNALS ==================================================================================
 
-    private def getMembers(p: (Symbol) => Boolean): Iterable[Symbol] =
-        sym.typeSignature.members collect {
-            case m if p(m) => m
-        }
-
     private def getMember(name: String): Option[Symbol] =
-        sym.typeSignature.member(newTermName(name)) match {
-            case NoSymbol => None
-            case s: Symbol => Some(s)
-            case _ => None
-        }
+        (sym.typeSignature.members collect {
+            case s: Symbol if (s.name.toString == name) => s
+        }).headOption
 }

@@ -1,55 +1,69 @@
 package de.learnscala.test.base
 
-import org.junit.runner._
+import org.junit.runner.RunWith
 
 import org.specs2._
 import mock.Mockito
 import specification._
-import org.specs2.runner.JUnitRunner
+import runner.JUnitRunner
+import execute._
 
-import scala.reflect.runtime.universe._
 import de.learnscala.base._
-import org.specs2.execute.Failure
+import scala.reflect.runtime.universe._
 
 @RunWith(classOf[JUnitRunner])
 abstract class BaseTest[T: TypeTag]
     extends SpecificationWithJUnit with Mockito with ScalaCheck
-    with Reflect with Capture with Matchers {
+    with Reflect with Capture with Matchers with StopOnFail {
 
-    def is: Fragments = sys.error("overwrite 'is'")
+    def fs: Fragments =
+        sys.error("overwrite 'is'")
 
-    // execute sequentially
-    sequential
+    final def is =
+        sequential ^ fs ^ end
 
     // hook push into lifecycle
     args.report(exporter = "de.learnscala.test.base.Export")
 
-    // Around: stop execution if failed
-    /*
-    case class WhenFail() extends Around {
 
-        private var mustStop = false
-
-        def around[R <% Result](r: => R) = {
-            println(r)
-            if (mustStop)
-                Skipped("(a previous test failed)")
-            else if (!r.isSuccess) {
-                mustStop = true
-                r
-            }
-            else
-                r
-        }
-    }
-    */
-
-    //implicit val stop = WhenFail()
+    // SHARED =====================================================================================
 
     protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: (String, Task) => Fragments) {
         test(1, name, typeOf, prefix)(fn)
     }
 
+    protected def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Task) => Fragments) =
+        test(n, name, typeOf, "Task #" + n)(fn)
+
+    protected def task2(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
+        test2(n, name, typeOf, "Task #" + n)(fn)
+
+
+    // INTERNALS ==================================================================================
+
+    private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments): Fragments = {
+        val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList
+        val r: Fragments =
+            if (tasks.length >= n) {
+                val descr = prefix + ": " + typeOf + " '" + name + "'"
+                val tsk = tasks(n - 1)
+                (if (tsk == null)
+                    descr ^ {
+                        "implementation missing" ! {
+                            Skipped("no code found")
+                        }
+                    }
+                else
+                    descr ^ {
+                        fn apply (new TaskContext(name, tasks(n - 1)))
+                    }
+                ) ^ startBlock ^ p
+            } else
+                Failure("unable to test task #" + n + ": not enough elements")
+        r
+    }
+
+    @deprecated
     private def test(n: Int, name: String, typeOf: String, prefix: String)(fn: (String, Task) => Fragments) =
         prefix ^ {
             // + typeOf + " '" + name + "'"
@@ -57,15 +71,6 @@ abstract class BaseTest[T: TypeTag]
                 val r: Fragments =
                     Failure("unable to test task #" + n + ": no element")
                 r
-
-                /*
-                //step(args(stopOnFail = true))
-                if (!target.isInstanceOf[Disabled])
-                else
-                    "exercise disabled" >> {
-                        Skipped()
-                    }
-                */
             } catch {
                 case e: Throwable =>
                     val r: Fragments =
@@ -76,41 +81,22 @@ abstract class BaseTest[T: TypeTag]
                     r
             }
         }
+}
 
+trait StopOnFail extends AroundExample with Specification {
 
-    private def test2(n: Int, name: String, typeOf: String, prefix: String)(fn: TaskContext => Fragments): Fragments =
-        try {
-            val tasks = getInstance[T]().asInstanceOf[Testable].tasks
-            val r: Fragments =
-                if (tasks.length >= n) {
-                    val tsk = tasks(n - 1)
-                    if (tsk != null)
-                        prefix + ": " + typeOf + " '" + name + "'" ^ {
-                            fn apply (new TaskContext(name, tsk))
-                        }
-                    else
-                        Failure("unable to test task #" + n + ": no element")
-                } else
-                    Failure("unable to test task #" + n + ": not enough elements")
-            r
+    // make sure the specification is sequential
+    // override def map(fs: => Fragments) = sequential ^ fs
 
-            /*
-            //step(args(stopOnFail = true))
-            if (!target.isInstanceOf[Disabled])
-            else
-                "exercise disabled" >> {
-                    Skipped()
-                }
-            */
-        } catch {
-            case e: Throwable =>
-                Failure("failed to initiate exercise", e.getMessage, e.getStackTrace.toList)
+    private var mustStop = false
+
+    def around[R <% Result](r: => R) = {
+        if (mustStop) Skipped("one example failed")
+        else if (!r.isSuccess) {
+            mustStop = true; r
         }
+        else r
+    }
 
-    protected def task(n: Int)(name: String, typeOf: String = "")(fn: (String, Task) => Fragments) =
-        test(n, name, typeOf, "Task #" + n)(fn)
-
-    protected def task2(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
-        test2(n, name, typeOf, "Task #" + n)(fn)
-
+    def startBlock = Action(mustStop = false)
 }

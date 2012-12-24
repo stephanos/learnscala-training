@@ -1,6 +1,6 @@
 package de.learnscala.base
 
-class Exercise extends App with Testable {
+class Exercise extends Testable {
 
     val TODO: Any = null
 }

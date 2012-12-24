@@ -7,7 +7,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
 
     import java.io._
 
-    override def is =
+    override def fs =
         task2(1)("nameOfSymbol", "method") {
             implicit ctx =>
                 mustHaveMethod2 {
@@ -19,13 +19,13 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                             mustReturn("sum", '∑') ^
                             mustReturn("unknown", '?')
                 }
-        } ^ p ^
+        } ^
             task2(2)("isWorkingDay", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
                         implicit m =>
                             mustHaveParams2(classOf[String]) ^
-                                mustNotContain(VARS) ^
+                                mustNotContain(VAR) ^
                                 mustReturn(false, "Sunday") ^
                                 mustReturn(false, "Saturday") ^
                                 mustReturn(true, "Monday") ^
@@ -34,7 +34,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn(true, "Thursday") ^
                                 mustReturn(true, "Friday")
                     }
-            } ^ p ^
+            } ^
             task2(3)("describeValue", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -48,7 +48,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn("unknown", 5.0f) ^
                                 mustReturn("unknown", '$')
                     }
-            } ^ p ^
+            } ^
             task2(4)("half", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -60,7 +60,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustThrow[Throwable](3) ^
                                 mustThrow[Throwable](5)
                     }
-            } ^ p ^
+            } ^
             task2(5)("getSize", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -71,7 +71,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn(0, "") ^
                                 mustReturn(0, null)
                     }
-            } ^ p ^
+            } ^
             task2(6)("readCharFromFile", "method") {
                 implicit ctx =>
                     mustHaveMethod2 {
@@ -107,7 +107,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                     there was one(f).close()
                                 }
                     }
-            } ^ end
+            }
 
     private def getMock = {
         val m = mock[FileReader]

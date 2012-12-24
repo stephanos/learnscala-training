@@ -1,16 +1,16 @@
 package de.learnscala.base
 
-import collection.mutable
 import language.experimental.macros
+import collection.mutable.ListBuffer
 
 trait Testable {
 
     type Tsk = Task
 
-    var tasks = Array.fill[Task](25)(null)
+    var tasks = ListBuffer[Task]()
 
     protected def register(num: Int, t: Task) {
-        tasks(num - 1) = t
+        tasks += t
     }
 
     protected def task(num: Int)(code: Any): Any = macro Macro.apply

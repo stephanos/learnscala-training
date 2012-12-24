@@ -1,9 +1,8 @@
 package de.learnscala.test.base
 
 import org.specs2._
-import matcher.MatchResult
 import specification._
-import execute.{Result, Failure, Pending}
+import execute.{Failure, Pending}
 
 import scala.reflect._
 import runtime.universe._
@@ -47,14 +46,19 @@ trait Matchers {
         }
     }
 
-    def mustHaveMethod2(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext) = {
+    def mustHaveMethod2(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {
         val method = ctx.getMethod(ctx.name)
-        ("must be defined") ! {
-            if (method.isDefined)
-                success
-            else
-                pending
-        } ^ f(method.get)
+        val check =
+            ("must be defined") ! {
+                if (method.isDefined)
+                    success
+                else
+                    Failure(s"method '${ctx.name}' could not be found")
+            }
+        if (method.isEmpty)
+            check
+        else
+            check ^ f(method.get)
     }
 
     def mustHaveParams(m: MethodSymbol, count: Int): Example = {
@@ -122,7 +126,7 @@ trait Matchers {
             apply === res
         }
 
-    def mustNotContain(things: Any*): Seq[Fragment] = {
+    def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] = {
         things.map {
             t => t match {
                 case c: COUNT => checkLimits((c, 0))
@@ -132,14 +136,23 @@ trait Matchers {
         }
     }
 
-    private def checkLimits(thing: (COUNT, Int)): Fragment = {
-        success
+    private def checkLimits(thing: (COUNT, Int))(implicit tm: TaskMethod): Fragment = {
+        val (item, cnt) = thing
+        val amount = if (cnt == 0) "any" else "more than " + cnt
+        "must not use " + amount + " '" + item.name + "'" ! {
+            val i = tm.ctx.getMethod(item.field).get.invoke().asInstanceOf[Int]
+            if (i > cnt)
+                Failure("'" + item.name + "' is not allowed in this task")
+            else
+                success
+        }
     }
 
     case class COUNT(name: String, customCode: String = null) {
         val code = Option(customCode).getOrElse(name)
+        val field = "_noOf" + code.capitalize + "s"
     }
-    val VARS = COUNT("vars")
+    val VAR = COUNT("var")
 
     def inputDescr(args: Any*) =
         (args.size match {
