@@ -1,17 +1,13 @@
 package de.learnscala.test.base
 
-import org.junit.runner.RunWith
-
 import org.specs2._
 import mock.Mockito
 import specification._
-import runner.JUnitRunner
 import execute._
 
 import de.learnscala.base._
 import scala.reflect.runtime.universe._
 
-@RunWith(classOf[JUnitRunner])
 abstract class BaseTest[T: TypeTag]
     extends SpecificationWithJUnit with Mockito with ScalaCheck
     with Reflect with Capture with Matchers with StopOnFail {

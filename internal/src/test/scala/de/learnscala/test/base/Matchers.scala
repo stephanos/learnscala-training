@@ -153,6 +153,7 @@ trait Matchers {
         val field = "_noOf" + code.capitalize + "s"
     }
     val VAR = COUNT("var")
+    val WHILE = COUNT("while")
 
     def inputDescr(args: Any*) =
         (args.size match {

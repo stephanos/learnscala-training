@@ -96,7 +96,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
     task(6) {
 
         /**
-         * BONUS-AUFGABE (schwierig!)
+         * BONUS-AUFGABE
          *
          * Methode 'readCharFromFile'
          *

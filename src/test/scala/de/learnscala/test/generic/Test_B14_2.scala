@@ -3,7 +3,7 @@ package de.learnscala.test.generic
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 
-class Test_B14_2[T: TypeTag] extends BaseTest[T] {
+abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
 
     import java.io._
 
@@ -13,6 +13,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                 mustHaveMethod2 {
                     implicit m =>
                         mustHaveParams2(classOf[Char]) ^
+                            mustNotContain(VAR) ^
                             mustReturn("pi", 'Π') ^
                             mustReturn("root", '√') ^
                             mustReturn("factorial", '!') ^
@@ -40,6 +41,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveMethod2 {
                         implicit m =>
                             mustHaveParams2(classOf[Any]) ^
+                                mustNotContain(VAR) ^
                                 mustReturn("empty string", "") ^
                                 mustReturn("string of size 11", "Hello World") ^
                                 mustReturn("positive integer", 5) ^
@@ -54,6 +56,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveMethod2 {
                         implicit m =>
                             mustHaveParams2(classOf[Int]) ^
+                                mustNotContain(VAR) ^
                                 mustReturn(5, 10) ^
                                 mustReturn(50, 100) ^
                                 mustReturn(-5, -10) ^
@@ -66,6 +69,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveMethod2 {
                         implicit m =>
                             mustHaveParams2(classOf[Char]) ^
+                                mustNotContain(VAR) ^
                                 mustReturn(3, "abc") ^
                                 mustReturn(5, "12345") ^
                                 mustReturn(0, "") ^
@@ -77,12 +81,13 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                     mustHaveMethod2 {
                         implicit m =>
                             mustHaveParams2(classOf[FileReader]) ^
+                                mustNotContain(VAR) ^
                                 "must return '@' and close connection" ! {
                                     val f = getMock
                                     m.invoke(f) === '@'
                                     there was one(f).close()
                                 } ^
-                                "must print 'not found' if 'FileNotFoundException' is thrown, close connection and return 0" ! {
+                                "must print 'not found' for 'FileNotFoundException', close connection and return 0" ! {
                                     val f = getMock
                                     f.read() throws new FileNotFoundException()
                                     val (r, out) = captureOutput(m.invoke(f))
@@ -90,7 +95,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                     out.trim === "not found"
                                     there was one(f).close()
                                 } ^
-                                "must print 'cannot read' if 'IOException' is thrown, close connection and return 0" ! {
+                                "must print 'cannot read' for 'IOException', close connection and return 0" ! {
                                     val f = getMock
                                     f.read() throws new IOException()
                                     val (r, out) = captureOutput(m.invoke(f))
@@ -98,7 +103,7 @@ class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                     out.trim === "cannot read"
                                     there was one(f).close()
                                 } ^
-                                "must print 'unknown error' if 'RuntimeException' is thrown; and return 0" ! {
+                                "must print 'unknown error' for 'RuntimeException', close connection and return 0" ! {
                                     val f = getMock
                                     f.read() throws new RuntimeException()
                                     val (r, out) = captureOutput(m.invoke(f))
