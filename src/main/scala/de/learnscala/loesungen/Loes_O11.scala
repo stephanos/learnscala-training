@@ -44,42 +44,22 @@ class Loes_O11 extends Solution {
             item1.description + " & " + item2.description
     }
 
+    // ===============================================================
+    // TESTS
+    // ===============================================================
 
-    /**
-     * Aufgabe #1
-     */
     def butter =
         new SimpleItem(.95f, "Butter")
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #2
-     */
     def milk =
         new ReducedItem(.99f, 5, "Milk")
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #3
-     */
     def butterAndMilk =
         new Bundle(butter, milk)
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #4
-     */
     def apple5kg =
         new WeightedItem(5, 0.2f, "Apples")
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #5
-     */
     def butterMilkAndApples =
         new Bundle(apple5kg, butterAndMilk)
 }

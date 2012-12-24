@@ -25,58 +25,28 @@ class Loes_O21 extends Solution {
 
     class Clerk extends Employee
 
+    // ===============================================================
+    // TESTS
+    // ===============================================================
 
-    /**
-     * Aufgabe #1
-     */
     def salaryForClerk =
         (new Clerk).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #2
-     */
     def salaryForManager =
         (new Manager).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #3
-     */
     def salaryForBoardMember =
         (new BoardMember).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #4
-     */
-    def salaryForfriendOfManagerClerk =
+    def salaryForFriendOfManagerClerk =
         (new Clerk with FriendOfManager).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #5
-     */
     def salaryForIllegalImmigrantClerk =
         (new Clerk with IllegalImmigrant).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #6
-     */
     def salaryForIllegalImmigrantManager =
         (new Manager with IllegalImmigrant).salary
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #7
-     */
     def salaryForIllegalImmigrantBoardMember =
         (new BoardMember with IllegalImmigrant).salary
 }

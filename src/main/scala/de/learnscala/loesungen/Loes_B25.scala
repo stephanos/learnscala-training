@@ -6,19 +6,18 @@ class Loes_B25 extends Solution {
 
     import annotation.tailrec
 
-    /**
-     * Aufgabe #1
-     */
-    def fib(n: Int): BigInt = {
+    task {
+        def fib(n: Int): BigInt = {
 
-        @tailrec
-        def tailFib(n: Int, a: BigInt, b: BigInt): BigInt = {
-            if (n == 0)
-                a
-            else
-                tailFib(n - 1, a + b, a)
+            @tailrec
+            def tailFib(n: Int, a: BigInt, b: BigInt): BigInt = {
+                if (n == 0)
+                    a
+                else
+                    tailFib(n - 1, a + b, a)
+            }
+
+            tailFib(n, 0L, 1L)
         }
-
-        tailFib(n, 0L, 1L)
     }
 }

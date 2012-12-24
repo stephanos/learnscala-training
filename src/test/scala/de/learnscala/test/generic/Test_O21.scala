@@ -41,7 +41,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
             }
     }
 
-    task(4)("salaryForfriendOfManagerClerk", "method") {
+    task(4)("salaryForFriendOfManagerClerk", "method") {
            implicit ctx =>
                mustHaveMethod {
                  implicit m =>

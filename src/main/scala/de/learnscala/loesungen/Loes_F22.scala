@@ -1,39 +1,38 @@
 package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
-import scala.annotation.tailrec
 
 class Loes_F22 extends Solution {
 
-    /**
-     * Aufgabe #1
-     */
-    def weekDays =
-        List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
+    task(1) {
 
-    def weekendDays =
-        List("Samstag", "Sonntag")
+        def weekDays =
+            List("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag")
 
-    // ===============================================================
-
-    /**
-     * Aufgabe #2
-     */
-    def last(l: List[Int]): Option[Int] =
-        l match {
-            case Nil => None
-            case h :: Nil => Some(h)
-            case h :: tail => last(tail)
-        }
+        def weekendDays =
+            List("Samstag", "Sonntag")
+    }
 
     // ===============================================================
 
-    /**
-     * Aufgabe #3
-     */
-    def third(l: List[Int]): Option[Int] =
-        l match {
-            case h1 :: h2 :: h3 :: tail => Some(h3)
-            case _ => None
-        }
+    task(2) {
+
+        def last(l: List[Int]): Option[Int] =
+            l match {
+                case Nil => None
+                case h :: Nil => Some(h)
+                case h :: tail => last(tail)
+            }
+    }
+
+    // ===============================================================
+
+    task(3) {
+
+        def third(l: List[Int]): Option[Int] =
+            l match {
+                case h1 :: h2 :: h3 :: tail => Some(h3)
+                case _ => None
+            }
+    }
 }

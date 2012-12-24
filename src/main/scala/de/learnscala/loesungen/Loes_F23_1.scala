@@ -13,6 +13,7 @@ class Loes_F23_1 extends Solution {
     def double =
         (x: Int) => x * 2
 
+    // ===============================================================
 
     task(1) {
         def r1(l: List[Int]) =

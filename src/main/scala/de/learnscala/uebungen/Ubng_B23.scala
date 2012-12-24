@@ -4,23 +4,24 @@ import de.learnscala.base._
 
 class Ubng_B23 extends Exercise with Help /* with Disabled */ {
 
-    /**
-     * Aufgabe #1
-     *
-     * Zunächst wird die Klasse 'Bruch' aus der Übung 'Ubng_B22' benötigt.
-     * Anschließend soll ein Int mit einem Bruch multiplizierbar sein.
-     */
+    task(1) {
 
-    def r1 = TODO // 1 * new Bruch(1, 2)
+        /**
+         * Zunächst wird die Klasse 'Bruch' aus der Übung 'Ubng_B22' benötigt.
+         * Anschließend soll ein Int mit einem Bruch multiplizierbar sein.
+         */
 
+        def r1 = TODO // 1 * new Bruch(1, 2)
+    }
 
     // ===============================================================
 
-    /**
-     * Aufgabe #2
-     *
-     * Die Zahl '150' wird um 50% erhöht.
-     */
+    task(2) {
 
-    def r2 = TODO // 150 +% 50
+        /**
+         * Die Zahl '150' wird um 50% erhöht.
+         */
+
+        def r2 = TODO // 150 +% 50
+    }
 }
