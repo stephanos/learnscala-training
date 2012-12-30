@@ -27,6 +27,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                         implicit m =>
                             mustHaveParams(classOf[String]) ^
                                 mustNotContain(VAR) ^
+                                mustBeShorterThan(5) ^
                                 mustReturn(false, "Sunday") ^
                                 mustReturn(false, "Saturday") ^
                                 mustReturn(true, "Monday") ^

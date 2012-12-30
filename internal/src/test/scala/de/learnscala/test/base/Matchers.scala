@@ -120,6 +120,11 @@ trait Matchers {
         }
     }
 
+    protected def mustBeShorterThan(lines: Int) =
+        "must be shorter than '" + lines + "' lines of code" ! {
+            success // TODO
+        }
+
     protected val VAR = COUNT("var")
     protected val WHILE = COUNT("while")
 

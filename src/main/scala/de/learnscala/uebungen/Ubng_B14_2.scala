@@ -39,10 +39,27 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
          *
          * @param day engl. Name des Wochentags
          * @return ob der Wochentag ein Arbeitstag ist
+         *
+         * @todo Methode muss kürzer und lesbarer werden!
          */
 
-        def isWorkingDay(day: String) =
-            TODO
+        def isWorkingDay(day: String) = {
+            var res: Boolean = false
+            day match {
+                case "Monday" =>
+                    res = true
+                case "Tuesday" =>
+                    res = true
+                case "Wednesday" =>
+                    res = true
+                case "Thursday" =>
+                    res = true
+                case "Friday" =>
+                    res = true
+                case _ =>
+            }
+            res
+        }
     }
 
     // ===============================================================
@@ -90,6 +107,10 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
         def getSize(s: String) =
             TODO
     }
+
+    // ===============================================================
+
+    TODO
 
     // ===============================================================
 

@@ -21,13 +21,11 @@ class Loes_B14_2 extends Solution {
 
     task(2) {
 
-        def isWorkingDay(day: String): Boolean = {
-            var t = 5
+        def isWorkingDay(day: String): Boolean =
             day match {
                 case "Sunday" | "Saturday" => false
                 case _ => true
             }
-        }
     }
 
     // ===============================================================
