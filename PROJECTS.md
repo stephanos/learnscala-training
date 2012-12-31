@@ -9,26 +9,6 @@ Bibliothek zur Entwicklung von nebenläufigen, verteilten, eventbasierten Anwend
 
 > <http://akka.io>
 
-### [Datenbank] Casbah
-Kommunikation mit MongoDB im funktionalen Stil
-
-> <http://api.mongodb.org/scala/casbah/current/>
-
-### [Datenbank] Rogue
-Bibliothek zur Ausführung von typensicheren Abfragen auf MongoDB
-
-> <https://github.com/foursquare/rogue>
-
-### [Datenbank] Slick
-Bibliothek für typensichere Datenbankabfragen (Teil vom offiziellen Typesafe Stack)
-
-> <http://slick.typesafe.com>
-
-### [Datenbank] SQueryl
-Bibliothek für typensichere SQL-Abfragen
-
-> <http://squeryl.org/>
-
 ### SBT
 Scala Build Tool zum Kompilieren und Testen von Scala-Projekten (Teil vom offiziellen Typesafe Stack)
 
@@ -39,57 +19,86 @@ Erweitert die funktionalen Aspekte von Scala
 
 > <https://github.com/scalaz/scalaz>
 
-### [Test] ScalaCheck
+
+## Datenbank
+
+### Casbah
+Kommunikation mit MongoDB im funktionalen Stil
+
+> <http://api.mongodb.org/scala/casbah/current/>
+
+### Rogue
+Bibliothek zur Ausführung von typensicheren Abfragen auf MongoDB
+
+> <https://github.com/foursquare/rogue>
+
+### Slick
+Bibliothek für typensichere Datenbankabfragen (Teil vom offiziellen Typesafe Stack)
+
+> <http://slick.typesafe.com>
+
+### SQueryl
+Bibliothek für typensichere SQL-Abfragen
+
+> <http://squeryl.org/>
+
+
+## Test
+
+### ScalaCheck
 Automatische, spezifikationsbasierte Tests (inspiriert von Haskells QuickCheck)
 
 > <https://github.com/rickynils/scalacheck>
 
-### [Test] ScalaTest
+### ScalaTest
 Test-Framework, das JUnit von Scala
 
 > <http://www.scalatest.org>
 
-### [Test] Specs2
+### Specs2
 Bibliothek für Softwarespezifikationen: sehr ausdrucksstarke Tests
 
 > <http://etorreborre.github.com/specs>
 
-### [Test] ScalaMock
+### ScalaMock
 Mocking-Framework mit Unterstützung der Scala-Funktionen
 
 > <http://scalamock.org>
 
-### [Web] Dispatch
+
+## Web
+
+### Dispatch
 Bibliothek für asynchrone HTTP-Kommunikation
 
 > <http://dispatch.databinder.net>
 
-### [Web] Lift
+### Lift
 Stabiles, sehr sicheres Web-Framework mit starker Trennung von Design und Logik
 
 > <http://liftweb.net>
 
-### [Web] Play 2.0
+### Play 2.0
 Zustandsloses, hochskalierbares Web-Framework (Teil vom offiziellen Typesafe Stack)
 
 > <http://www.playframework.org>
 
-### [Web] Scalate
+### Scalate
 Template-Engine zum Erstellen von Text auf Basis von Formaten wie Mustache, Jade, Haml oder Scaml
 
 > <http://scalate.fusesource.org>
 
-### [Web] Scalatra
+### Scalatra
 Einfaches, skalierbares REST-Framework (inspiriert von Rubys Sinatra)
 
 > <http://www.scalatra.org>
 
-### [Web] Spray
+### Spray
 REST/HTTP-Framework für asynchrone, aktorenbasierte Applikationen auf Basis von Akka
 
 > <http://spray.github.com>
 
-### [Web] Unfiltered
+### Unfiltered
 REST-Interface für unterschiedliche Backends wie Servlet 2.5 & 3.0 sowie Netty
 
 > <http://unfiltered.databinder.net/>
