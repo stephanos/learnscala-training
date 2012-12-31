@@ -1,5 +1,3 @@
-## Offizielles
-
 ### Scala
 Offizielle Webseite zu Scala
 
