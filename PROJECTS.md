@@ -43,7 +43,7 @@ Bibliothek für typensichere SQL-Abfragen
 > <http://squeryl.org/>
 
 
-## Test
+## Testen
 
 ### ScalaCheck
 Automatische, spezifikationsbasierte Tests (inspiriert von Haskells QuickCheck)

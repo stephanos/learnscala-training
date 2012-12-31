@@ -1,21 +1,3 @@
-## Werkzeuge
-
-### Typesafe Stack
-Installationspaket mit Scala und SBT (benötigt Admin-Rechte)
-
-> <http://www.typesafe.com/stack/download>
-
-### Scala Distribution
-Scala-Bibliotheken und -Tools
-
-> <http://www.scala-lang.org/downloads>
-
-### Scala-IDE
-Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
-
-> <http://scala-ide.org>
-
-
 ## Offizielles
 
 ### Scala
@@ -57,6 +39,29 @@ Tutorials, Guides, Glossar und mehr
 Community zum Austausch von Fragen und Projekten
 
 > <https://groups.google.com/forum/?fromgroups#!forum/scala-user>
+
+### Effective Scala
+Tipps für den Einsatz von Scala basierend auf den Erfahrungen von Twitter
+
+> <http://twitter.github.com/effectivescala/>
+
+
+## Werkzeuge
+
+### Typesafe Stack
+Installationspaket mit Scala und SBT (benötigt Admin-Rechte)
+
+> <http://www.typesafe.com/stack/download>
+
+### Scala Distribution
+Scala-Bibliotheken und -Tools
+
+> <http://www.scala-lang.org/downloads>
+
+### Scala-IDE
+Plugin für [Eclipse](http://eclipse.org/): Debugger, Navigation und Autovervollständigung
+
+> <http://scala-ide.org>
 
 
 ## Lernmaterial
@@ -107,6 +112,11 @@ Online Übungskurs für erste Schritte in Scala
 Quiz zu Fallstricken und Sonderfällen in Scala (fortgeschritten)
 
 > <http://scalapuzzlers.com>
+
+### Scala Koans
+Übungen mit fertigen Tests
+
+> <http://www.scalakoans.org>
 
 ### ScalaDays 2011
 Alle Präsentationen als PDF oder Video von der wichtigsten Scala-Messe
