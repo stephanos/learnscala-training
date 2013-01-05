@@ -6,6 +6,7 @@ class Loes_B23 extends Solution {
 
     task(1) {
 
+        /*
         class Bruch(z: Int, n: Int) {
 
             private def gcd(x: Int, y: Int): Int = {
@@ -36,6 +37,7 @@ class Loes_B23 extends Solution {
         implicit def int2Bruch(x: Int) = new Bruch(x, 1)
 
         def r1 = 1 * new Bruch(1, 2)
+        */
     }
 
     // ===============================================================

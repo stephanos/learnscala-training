@@ -26,6 +26,7 @@ class Loes_F32 extends Solution {
 
     task(2) {
 
+        /*
         def ?[T](test: Boolean)(fnThen: => T)(fnElse: => T) =
             if (test)
                 fnThen
@@ -39,5 +40,6 @@ class Loes_F32 extends Solution {
               print(i)
             }
         }
+        */
     }
 }
