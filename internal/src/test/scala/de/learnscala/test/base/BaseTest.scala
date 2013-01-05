@@ -21,6 +21,9 @@ abstract class BaseTest[T: TypeTag]
     // hook push into lifecycle
     args.report(exporter = "de.learnscala.test.base.Export")
 
+    // hide "skipped" results
+    args(showOnly = "x!+")
+
 
     // SHARED =====================================================================================
 
@@ -56,20 +59,25 @@ abstract class BaseTest[T: TypeTag]
     }
 }
 
-trait StopOnFail extends AroundExample with Specification {
+trait StopOnFail extends AroundExample {
+
+    self: Specification =>
 
     // make sure the specification is sequential
     // override def map(fs: => Fragments) = sequential ^ fs
 
     private var mustStop = false
 
-    def around[R <% Result](r: => R) = {
+    override protected def around[R : AsResult](r: => R): Result = {
+        /*
         if (mustStop) Skipped("one example failed")
         else if (!r.isSuccess) {
-            mustStop = true;
+            mustStop = true
             r
         }
         else r
+        */
+        null
     }
 
     def startBlock = Action(mustStop = false)
