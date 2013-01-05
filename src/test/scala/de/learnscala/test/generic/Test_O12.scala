@@ -12,7 +12,6 @@ abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "must create instance for coordinates (5,5)" ! {
                         m.invoke().toString === "[5,5]"
                     }
@@ -24,7 +23,6 @@ abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "must create instance for coordinates (5,5) for parameter '5'" ! {
                         m.invoke().toString === "[5,5]"
                     }
@@ -36,7 +34,6 @@ abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "must throw exception for 2 negative coordinates" ! {
                         m.invoke() must throwA[Throwable]
                     }
@@ -48,7 +45,6 @@ abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "must throw exception for 1 negative coordinate" ! {
                         m.invoke() must throwA[Throwable]
                     }

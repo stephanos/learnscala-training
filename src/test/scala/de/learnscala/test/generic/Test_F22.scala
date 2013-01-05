@@ -72,20 +72,20 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
     task(2)("last") {
         implicit ctx =>
             mustHaveMethod {
-              implicit m =>
+                implicit m =>
                     mustHaveParams(1)
 
                     "must return 'Some(1)' for List(1)" ! {
-                        m.invoke( List(1)) === Some(1)
+                        m.invoke(List(1)) === Some(1)
                     }
                     "must return 'Some(3)' for List(1,2,3)" ! {
-                        m.invoke( List(1, 2, 3)) === Some(3)
+                        m.invoke(List(1, 2, 3)) === Some(3)
                     }
                     "must return 'Some(5)' for List(1,2,3,4,5)" ! {
-                        m.invoke( List(1, 2, 3, 4, 5)) === Some(5)
+                        m.invoke(List(1, 2, 3, 4, 5)) === Some(5)
                     }
                     "must return 'None' for List()" ! {
-                        m.invoke( List()) === None
+                        m.invoke(List()) === None
                     }
             }
     }
@@ -93,24 +93,24 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T] {
     task(3)("third") {
         implicit ctx =>
             mustHaveMethod {
-              implicit m =>
+                implicit m =>
                     mustHaveParams(1)
 
                     "must return 'Some(3)' for List(1,2,3)" ! {
-                        invoke(target, m,List(1, 2, 3)) === Some(3)
-                   }
-                   "must return 'Some(3)' for List(1,2,3,4,5)" ! {
-                       invoke(target, m,List(1, 2, 3, 4, 5)) === Some(3)
-                   }
-                   "must return 'None' for List(1,2)" ! {
-                       invoke(target, m,List(1, 2)) === None
-                   }
-                   "must return 'None' for List(1)" ! {
-                       invoke(target, m,List(1)) === None
-                   }
-                   "must return 'None' for List()" ! {
-                       invoke(target, m,List()) === None
-                   }
+                        m.invoke(List(1, 2, 3)) === Some(3)
+                    }
+                    "must return 'Some(3)' for List(1,2,3,4,5)" ! {
+                        m.invoke(List(1, 2, 3, 4, 5)) === Some(3)
+                    }
+                    "must return 'None' for List(1,2)" ! {
+                        m.invoke(List(1, 2)) === None
+                    }
+                    "must return 'None' for List(1)" ! {
+                        m.invoke(List(1)) === None
+                    }
+                    "must return 'None' for List()" ! {
+                        m.invoke(List()) === None
+                    }
             }
     }
 

@@ -5,7 +5,7 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_O11[T: TypeTag] extends BaseTest[T] {
 
-    override def is =
+    override def fs =
     test("butter", "method") {
         implicit ctx =>
             mustHaveMethod {

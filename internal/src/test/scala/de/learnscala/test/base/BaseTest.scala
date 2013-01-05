@@ -27,16 +27,13 @@ abstract class BaseTest[T: TypeTag]
     protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: TaskContext => Fragments) =
         task(1)(name, typeOf)(fn)
 
-    protected def task(n: Int, name: String, typeOf: String = "")(fn: TaskContext => Fragments): Fragments =
-        task(n)(name, typeOf)(fn)
-
-    protected def task(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments): Fragments =
-        test(n, name, typeOf, "Task #" + n)(fn)
+    protected def task(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
+        _test(n, name, typeOf, "Task #" + n)(fn)
 
 
     // INTERNALS ==================================================================================
 
-    private def test(n: Int, name: String, typeOf: String, prefix: String = "")(fn: TaskContext => Fragments): Fragments = {
+    private def _test(n: Int, name: String, typeOf: String, prefix: String = "")(fn: TaskContext => Fragments): Fragments = {
         val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList
         val r: Fragments =
             if (tasks.length >= n) {

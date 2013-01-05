@@ -6,7 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
 
     override def fs =
-        task(1, "toString", "method") {
+        task(1)("toString", "method") {
             implicit ctx =>
                 mustHaveMethod {
                     implicit m =>
@@ -16,7 +16,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                         }
                 }
         } ^
-            task(2, "join", "method") {
+            task(2)("join", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -26,7 +26,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(3, "first2", "method") {
+            task(3)("first2", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -36,7 +36,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(4, "sumOf", "method") {
+            task(4)("sumOf", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -46,7 +46,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(5, "withoutFirst", "method") {
+            task(5)("withoutFirst", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -56,7 +56,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(6, "biggest", "method") {
+            task(6)("biggest", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -66,7 +66,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(7, "makeList", "method") {
+            task(7)("makeList", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -76,7 +76,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(8, "unique", "method") {
+            task(8)("unique", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -86,7 +86,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(9, "backwards", "method") {
+            task(9)("backwards", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -96,7 +96,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(10, "has42and101", "method") {
+            task(10)("has42and101", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -112,7 +112,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(11, "mergeSet", "method") {
+            task(11)("mergeSet", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -122,7 +122,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(12, "withoutKey42", "method") {
+            task(12)("withoutKey42", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>
@@ -132,7 +132,7 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T] {
                                 }
                     }
             } ^
-            task(13, "hasKey42", "method") {
+            task(13)("hasKey42", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>

@@ -10,7 +10,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "Salary of clerk must be 50.000" ! {
                         m.invoke() === 50000
                     }
@@ -22,7 +21,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "Salary of manager must be 250.000" ! {
                         m.invoke() === 250000
                     }
@@ -34,7 +32,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod {
               implicit m =>
                     mustHaveParams() ^
-
                     "Salary of board member must be 100.000" ! {
                         m.invoke() === 100000
                     }
@@ -46,7 +43,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                mustHaveMethod {
                  implicit m =>
                        mustHaveParams() ^
-
                        "Salary of friend-of-managers clerk must be 100.000" ! {
                            m.invoke() === 100000
                        }
@@ -58,7 +54,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                mustHaveMethod {
                  implicit m =>
                        mustHaveParams() ^
-
                        "Salary of illegal-immigrant clerk must be 25.000" ! {
                            m.invoke() === 25000
                        }
@@ -70,7 +65,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                mustHaveMethod {
                  implicit m =>
                        mustHaveParams() ^
-
                        "Salary of illegal-immigrant manager must be 125.000" ! {
                            m.invoke() === 125000
                        }
@@ -82,7 +76,6 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T] {
                mustHaveMethod {
                  implicit m =>
                        mustHaveParams() ^
-
                        "Salary of illegal-immigrant board member must be 50.000" ! {
                            m.invoke() === 50000
                        }

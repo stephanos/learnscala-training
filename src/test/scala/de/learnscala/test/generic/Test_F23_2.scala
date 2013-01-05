@@ -5,7 +5,7 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F23_2[T: TypeTag] extends BaseTest[T] {
 
-    override def is =
+    override def fs =
         task(1)("sum", "method") {
             implicit ctx =>
                 mustHaveMethod {

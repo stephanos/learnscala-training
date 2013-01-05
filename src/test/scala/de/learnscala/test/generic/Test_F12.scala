@@ -13,7 +13,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("u1") {
               implicit m =>
                     mustHaveParams() ^
-
                     "u1 must contain '1'" ! {
                         tryOrPending {
                             m.invoke() === true
@@ -24,7 +23,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("u2") {
               implicit m =>
                     mustHaveParams() ^
-
                     "u2 must contain '2'" ! {
                         tryOrPending {
                             m.invoke() === true
@@ -34,7 +32,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("u3") {
               implicit m =>
                     mustHaveParams() ^
-
                     "u3 must NOT contain '3'" ! {
                         tryOrPending {
                             m.invoke() === false
@@ -48,7 +45,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("i1") {
               implicit m =>
                     mustHaveParams() ^
-
                     "i1 must contain '1'" ! {
                         tryOrPending {
                             m.invoke() === true
@@ -59,7 +55,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("i2") {
               implicit m =>
                     mustHaveParams() ^
-
                     "i2 must NOT contain '2'" ! {
                         tryOrPending {
                             m.invoke() === false
@@ -69,7 +64,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("i3") {
               implicit m =>
                     mustHaveParams() ^
-
                     "i3 must NOT contain '3'" ! {
                         tryOrPending {
                             m.invoke() === false
@@ -83,7 +77,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("d1") {
               implicit m =>
                     mustHaveParams() ^
-
                     "d1 must NOT contain '1'" ! {
                         tryOrPending {
                             m.invoke() === false
@@ -94,7 +87,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("d2") {
               implicit m =>
                     mustHaveParams() ^
-
                     "d2 must contain '2'" ! {
                         tryOrPending {
                             m.invoke() === true
@@ -104,7 +96,6 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
             mustHaveMethod("d3") {
               implicit m =>
                     mustHaveParams() ^
-
                     "d3 must NOT contain '3'" ! {
                         tryOrPending {
                             m.invoke() === false
