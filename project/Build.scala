@@ -43,7 +43,7 @@ object Deps {
         Seq(jodaTime, jodaConvert)
 
     val httpKit =
-        Seq()
+        Seq(http)
 
     val testKit =
         Seq(specs2, mockito, scheck, stest, junit)
