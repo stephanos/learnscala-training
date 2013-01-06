@@ -68,16 +68,14 @@ trait StopOnFail extends AroundExample {
 
     private var mustStop = false
 
-    override protected def around[R : AsResult](r: => R): Result = {
-        /*
+    override protected def around[R : AsResult](ar: => R): Result = {
+        val r = AsResult(ar)
         if (mustStop) Skipped("one example failed")
         else if (!r.isSuccess) {
             mustStop = true
             r
         }
         else r
-        */
-        null
     }
 
     def startBlock = Action(mustStop = false)
