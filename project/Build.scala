@@ -24,7 +24,7 @@ object ExercisesBuild extends Build {
 
     lazy val root = {
         val base = Project(id = "LearnScala", base = file("."))
-        if (internal.id != "empty")
+        if (internal.id == "empty")
             base
         else
             base.dependsOn(internal % "test->test;compile->compile")
