@@ -33,9 +33,9 @@ object ExercisesBuild extends Build {
     lazy val internal = {
         val p = Project(id = "internal", base = file("internal"))
         if (p.base.getAbsoluteFile.exists())
-            Project(id = "empty", base = file("."))
-        else
             p
+        else
+            Project(id = "empty", base = file("."))
     }
 }
 
