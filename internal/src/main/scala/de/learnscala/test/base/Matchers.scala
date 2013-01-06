@@ -104,11 +104,17 @@ trait Matchers {
         }
     }
 
-    protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
-        "must return '" + res + "' for " + inputDescr(args: _*) ! {
+    protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment = {
+        val forInp =
+            if(args.isEmpty)
+                ""
+            else
+                "for " + inputDescr(args: _*)
+        "must return '" + res + "' " + forInp ! {
             val apply = tm.invoke(args: _*)
             apply === res
         }
+    }
 
     protected def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] = {
         things.map {

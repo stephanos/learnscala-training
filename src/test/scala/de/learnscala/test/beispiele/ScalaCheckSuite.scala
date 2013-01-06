@@ -7,7 +7,7 @@ import org.scalacheck.Prop._
 
 import org.junit.Test
 
-class ScalacheckSuite1 extends JUnitSuite with Checkers {
+class ScalaCheckSuite extends JUnitSuite with Checkers {
 
     @Test
     def testStartsWith() {

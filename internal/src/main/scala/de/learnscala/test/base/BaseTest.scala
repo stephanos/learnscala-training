@@ -16,13 +16,11 @@ abstract class BaseTest[T: TypeTag]
         sys.error("overwrite 'fs'")
 
     final def is =
-        sequential ^ fs ^ end
-
-    // hook push into lifecycle
-    args.report(exporter = "de.learnscala.test.base.Export")
-
-    // hide "skipped" results
-    args(showOnly = "x!+")
+        args.report(exporter = "de.learnscala.test.base.Export") ^ // hook push into lifecycle
+            showOnly("+x!*-") ^ // hide "skipped" results
+            sequential ^ // don't execute in parallel
+            fs ^
+            end // end test
 
 
     // SHARED =====================================================================================
@@ -68,7 +66,7 @@ trait StopOnFail extends AroundExample {
 
     private var mustStop = false
 
-    override protected def around[R : AsResult](ar: => R): Result = {
+    override protected def around[R: AsResult](ar: => R): Result = {
         val r = AsResult(ar)
         if (mustStop) Skipped("one example failed")
         else if (!r.isSuccess) {

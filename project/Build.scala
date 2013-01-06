@@ -22,12 +22,21 @@ object ExercisesBuild extends Build {
             resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases")
         )
 
-    lazy val root =
-        Project(id = "LearnScala", base = file("."))
-            .dependsOn(internal % "test->test;compile->compile")
+    lazy val root = {
+        val base = Project(id = "LearnScala", base = file("."))
+        if (internal == null)
+            base
+        else
+            base.dependsOn(internal % "test->test;compile->compile")
+    }
 
-    lazy val internal =
-        Project(id = "internal", base = file("internal"))
+    lazy val internal = {
+        val p = Project(id = "internal", base = file("internal"))
+        if (p.base.getAbsoluteFile.exists())
+            p
+        else
+            null
+    }
 }
 
 
@@ -88,12 +97,12 @@ object Dep {
 
     object Test {
 
-        val junit = "junit" % "junit" % "4.10" % "test"
-        val mockito = "org.mockito" % "mockito-all" % "1.9.0" % "test"
-        val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
-        val specs2 = "org.specs2" %% "specs2" % "1.13" % "test"
-        val stest = "org.scalatest" %% "scalatest" % "1.9.1" % "test"
-        val smock = "org.scalamock" %% "scalamock-core" % "3.0-M3" % "test"
+        val junit = "junit" % "junit" % "4.10"
+        val mockito = "org.mockito" % "mockito-all" % "1.9.0"
+        val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0"
+        val specs2 = "org.specs2" %% "specs2" % "1.13"
+        val stest = "org.scalatest" %% "scalatest" % "1.9.1"
+        val smock = "org.scalamock" %% "scalamock-core" % "3.0-M3"
     }
 
 }

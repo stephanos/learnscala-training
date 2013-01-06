@@ -11,6 +11,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                 mustHaveMethod {
                     implicit m =>
                         mustHaveParams() ^
+                            mustNotContain(VAR) ^
                             mustReturn(42)
                 }
         } ^
