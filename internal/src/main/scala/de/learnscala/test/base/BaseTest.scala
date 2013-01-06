@@ -43,7 +43,7 @@ abstract class BaseTest[T: TypeTag]
                 (if (tsk == null)
                     descr ^ {
                         "implementation missing" ! {
-                            Failure("no code found")
+                            Skipped("no code found")
                         }
                     }
                 else
