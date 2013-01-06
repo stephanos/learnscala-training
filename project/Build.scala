@@ -12,7 +12,6 @@ object ExercisesBuild extends Build {
 
             scalaVersion := Dep.scala,
             scalaBinaryVersion := Dep.scalaM,
-            libraryDependencies ++= dbKit ++ utilKit ++ httpKit ++ scalaKit ++ testKit,
 
             fork in Test := true,
             parallelExecution in Test := false,
@@ -23,7 +22,9 @@ object ExercisesBuild extends Build {
         )
 
     lazy val root = {
-        val base = Project(id = "LearnScala", base = file("."))
+        val base =
+            Project(id = "LearnScala", base = file("."))
+                .settings(libraryDependencies := Deps.kit)
         if (internal.id == "empty")
             base
         else
@@ -33,7 +34,7 @@ object ExercisesBuild extends Build {
     lazy val internal = {
         val p = Project(id = "internal", base = file("internal"))
         if (p.base.getAbsoluteFile.exists())
-            p
+            p.settings(libraryDependencies := Deps.kit)
         else
             Project(id = "empty", base = file("."))
     }
@@ -44,6 +45,9 @@ object Deps {
 
     import Dep._
     import Http._, Util._, Test._
+
+    lazy val kit =
+        dbKit ++ utilKit ++ httpKit ++ scalaKit ++ testKit
 
     val dbKit =
         Seq()
