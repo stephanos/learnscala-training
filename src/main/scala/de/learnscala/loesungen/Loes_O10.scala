@@ -56,7 +56,7 @@ class Loes_O10 extends Solution {
     /**
      * Aufgabe #4
      */
-    def t4 = new Time(12, 00).addHours(2)
+    def t4 = new Time(12, 0).addHours(2)
 
     // ===============================================================
 

@@ -114,7 +114,12 @@ class Macro[C <: Context](val c: C) {
 
     private def listCalls(implicit codeTree: List[Tree]): (String, List[String]) =
         ("listOfCalls", codeTree.collect {
-            case Apply(f, args) => f.toString()
+            case a: Apply =>
+                println("A", a)
+                a.toString()
+            case s: DefDef =>
+                //println("S", s)
+                s.toString()
         })
 
     private def metaField(name: String, value: Int) =

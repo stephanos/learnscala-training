@@ -64,6 +64,13 @@ trait Matchers {
         // TODO: check types
     }
 
+    protected def shouldNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
+        "must not use the method" + (if(mths.length > 0) "s" else "") + ": " + mths.mkString("'", "', '", "'") ! {
+            val m = tm.ctx.getMethod("_listOfCalls").get.invoke().asInstanceOf[List[String]]
+            println(m)
+            success
+        }
+
 //    def mustHaveParams(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
 //        val shouldHave = types.size
 //        val doesHave = getParams(m)
@@ -94,7 +101,7 @@ trait Matchers {
     }
     */
 
-    protected def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassManifest[T]): Fragment = {
+    protected def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassTag[T]): Fragment = {
         val thdescr = th.runtimeClass.getSimpleName match {
             case "Throwable" | "Exception" => "an exception"
             case name => "'" + name + "'"
@@ -116,7 +123,7 @@ trait Matchers {
         }
     }
 
-    protected def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] = {
+    protected def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] =
         things.map {
             t => t match {
                 case c: COUNT => checkLimits((c, 0))
@@ -124,7 +131,6 @@ trait Matchers {
                 case c => sys.error("unable to check for: " + c)
             }
         }
-    }
 
     protected def mustBeShorterThan(lines: Int)(implicit tm: TaskMethod) =
         checkLimits((LINE, lines))

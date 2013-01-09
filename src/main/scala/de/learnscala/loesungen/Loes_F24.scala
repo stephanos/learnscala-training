@@ -60,8 +60,10 @@ class Loes_F24 extends Solution {
 
     task(4) {
 
-        def titlesOutOfStock =
+        def titlesOutOfStock = {
+            val test = books.map(b => b)
             for (b <- books if (b.stock.isEmpty))
                 yield b.title
+        }
     }
 }
