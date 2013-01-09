@@ -126,15 +126,14 @@ trait Matchers {
         }
     }
 
-    protected def mustBeShorterThan(lines: Int) =
-        "must be shorter than '" + lines + "' lines of code" ! {
-            success // TODO
-        }
+    protected def mustBeShorterThan(lines: Int)(implicit tm: TaskMethod) =
+        checkLimits((LINE, lines))
 
     protected val VAR = COUNT("var")
+    protected val LINE = COUNT("line", descr = Some("lines of code"))
     protected val WHILE = COUNT("while")
 
-    protected case class COUNT(name: String, customCode: String = null) {
+    protected case class COUNT(name: String, customCode: String = null, descr: Option[String] = None) {
         val code = Option(customCode).getOrElse(name)
         val field = "_noOf" + code.capitalize + "s"
     }
@@ -143,11 +142,12 @@ trait Matchers {
 
     private def checkLimits(thing: (COUNT, Int))(implicit tm: TaskMethod): Fragment = {
         val (item, cnt) = thing
+        val descr = item.descr.getOrElse(item.name)
         val amount = if (cnt == 0) "any" else "more than " + cnt
-        "must not use " + amount + " '" + item.name + "'" ! {
+        "must not use " + amount + " '" + descr + "'" ! {
             val i = tm.ctx.getMethod(item.field).get.invoke().asInstanceOf[Int]
             if (i > cnt)
-                Failure("'" + item.name + "' is not allowed in this task")
+                Failure(amount + " '" + descr + "' " + (if(cnt > 1) "are" else "is") +  " not allowed in this task")
             else
                 success
         }
