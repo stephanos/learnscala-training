@@ -7,12 +7,11 @@ class Ubng_F12 extends Exercise with Help /* with Disabled */ {
     task {
 
         /**
-         * Allgemein wird eine Menge (engl. 'set') natürlicher Zahlen wird mit der Funktion
+         * Allgemein wird eine Menge (engl. 'set') natürlicher Zahlen mit der Funktion
          *   (s: Int) => Boolean
          * definiert.
          *
-         * Das bedeutet, dass für eine ganze Zahl getestet werden kann,
-         * ob sie Teil einer konkreten Menge ist.
+         * Liefert die Funktion 'true' ist der eingegebene Parameter Teil der Menge.
          */
 
         def singletonSet(elem: Int): Int => Boolean =
