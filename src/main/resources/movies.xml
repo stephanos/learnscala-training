@@ -1,27 +1,142 @@
 <movies>
     <movie>
-        <title top10="true">Ocean's 13</title>
-        <genre>Comedy</genre>
+        <title>Moonrise Kingdom</title>
+        <year>2012</year>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>Edward Norton</actor>
+            <actor>Bill Murray</actor>
+        </actors>
+        <director>Wes Anderson</director>
+    </movie>
+    <movie>
+        <title>Die Hard</title>
+        <year>1988</year>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>Bonnie Bedelia</actor>
+            <actor>Reginald VelJohnson</actor>
+        </actors>
+        <director>John McTiernan</director>
+    </movie>
+    <movie>
+        <title>Rushmore</title>
+        <year>1998</year>
+        <actors>
+            <actor>Jason Schwartzman</actor>
+            <actor>Bill Murray</actor>
+            <actor>Olivia Williams</actor>
+        </actors>
+        <director>Wes Anderson</director>
+    </movie>
+    <movie>
+        <title>Lucky Number Slevin</title>
         <year>2006</year>
         <actors>
-            <actor>Joseph Fiennes</actor>
-            <actor>Gwyneth Paltrow</actor>
-            <actor>Geoffrey Rush</actor>
+            <actor>Josh Hartnett</actor>
+            <actor>Bruce Willis</actor>
+            <actor>Lucy Liu</actor>
         </actors>
-        <director>John Madden</director>
-        <country>USA</country>
+        <director>Paul McGuigan</director>
     </movie>
-
     <movie>
-        <title top10="false">Robin Hood</title>
-        <genre>Action</genre>
-        <year>2010</year>
+        <title>Fantastic Mr. Fox</title>
+        <year>2009</year>
         <actors>
-            <actor>Mark Strong</actor>
-            <actor>Russell Crowe</actor>
-            <actor>Cate Blanchett</actor>
+            <actor>George Clooney</actor>
+            <actor>Bruce Willis</actor>
+            <actor>Jason Schwartzman</actor>
         </actors>
-        <director>Ridley Scott</director>
-        <country>UK</country>
+        <director>Wes Anderson</director>
+    </movie>
+    <movie>
+        <title>Die Hard 3</title>
+        <year>1995</year>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>Jeremy Irons</actor>
+            <actor>Samuel L. Jackson</actor>
+        </actors>
+        <director>John McTiernan</director>
+    </movie>
+    <movie>
+        <title>Die Hard 3</title>
+        <year>1995</year>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>Jeremy Irons</actor>
+            <actor>Samuel L. Jackson</actor>
+        </actors>
+        <director>John McTiernan</director>
+    </movie>
+    <movie>
+        <title>Die Hard 3</title>
+        <year>1995</year>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>Jeremy Irons</actor>
+            <actor>Samuel L. Jackson</actor>
+        </actors>
+        <director>John McTiernan</director>
+    </movie>
+    <movie>
+        <title>Psycho</title>
+        <year>1960</year>
+        <actors>
+            <actor>Anthony Perkins</actor>
+            <actor>Vera Miles</actor>
+            <actor>Janet Leigh</actor>
+        </actors>
+        <director>Alfred Hitchcock</director>
+    </movie>
+    <movie>
+        <title>Psycho</title>
+        <year>1960</year>
+        <actors>
+            <actor>Anthony Perkins</actor>
+            <actor>Vera Miles</actor>
+            <actor>Janet Leigh</actor>
+        </actors>
+        <director>Alfred Hitchcock</director>
+    </movie>
+    <movie>
+        <title>Groundhog Day</title>
+        <year>1993</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Andie MacDowell</actor>
+            <actor>Chris Elliott</actor>
+        </actors>
+        <director>Harold Ramis</director>
+    </movie>
+    <movie>
+        <title>Groundhog Day</title>
+        <year>1993</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Andie MacDowell</actor>
+            <actor>Chris Elliott</actor>
+        </actors>
+        <director>Harold Ramis</director>
+    </movie>
+    <movie>
+        <title>Ghostbusters</title>
+        <year>1984</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Dan Aykroyd</actor>
+            <actor>Sigourney Weaver</actor>
+        </actors>
+        <director>Ivan Reitman</director>
+    </movie>
+    <movie>
+        <title>Ghostbusters 2</title>
+        <year>1989</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Dan Aykroyd</actor>
+            <actor>Sigourney Weaver</actor>
+        </actors>
+        <director>Ivan Reitman</director>
     </movie>
 </movies>

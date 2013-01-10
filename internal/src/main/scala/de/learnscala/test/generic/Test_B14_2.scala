@@ -34,7 +34,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T] {
                                 mustReturn(true, "Wednesday") ^
                                 mustReturn(true, "Thursday") ^
                                 mustReturn(true, "Friday") ^
-                                mustBeShorterThan(5)
+                                mustNotBeLongerThan(5)
                     }
             } ^
             task(3)("describeValue", "method") {

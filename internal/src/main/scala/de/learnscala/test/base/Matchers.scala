@@ -132,7 +132,7 @@ trait Matchers {
             }
         }
 
-    protected def mustBeShorterThan(lines: Int)(implicit tm: TaskMethod) =
+    protected def mustNotBeLongerThan(lines: Int)(implicit tm: TaskMethod) =
         checkLimits((LINE, lines))
 
     protected val VAR = COUNT("var")

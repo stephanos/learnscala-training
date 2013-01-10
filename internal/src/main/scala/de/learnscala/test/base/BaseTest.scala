@@ -17,7 +17,7 @@ abstract class BaseTest[T: TypeTag]
 
     final def is =
         args.report(exporter = "de.learnscala.test.base.Export") ^ // hook push into lifecycle
-            showOnly("+x!*-") ^ // hide "skipped" results
+            //showOnly("+x!*-") ^ // hide "skipped" results
             sequential ^ // don't execute in parallel
             fs ^
             end // end test

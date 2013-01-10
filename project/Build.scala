@@ -20,8 +20,7 @@ object ExercisesBuild extends Build {
 
             resolvers ++= Seq("codahale" at "http://repo.codahale.com"),
             resolvers ++= Seq("typesafe" at "http://repo.typesafe.com/typesafe/releases/"),
-            resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases"),
-            resolvers ++= Seq("snapshots" at "http://oss.sonatype.org/content/repositories/snapshots")
+            resolvers ++= Seq("releases" at "http://oss.sonatype.org/content/repositories/releases")
         )
 
     lazy val root = {
@@ -107,7 +106,7 @@ object Dep {
         val junit = "junit" % "junit" % "4.10"
         val mockito = "org.mockito" % "mockito-all" % "1.9.0"
         val scheck = "org.scalacheck" %% "scalacheck" % "1.10.0"
-        val specs2 = "org.specs2" %% "specs2" % "1.13.1-SNAPSHOT"
+        val specs2 = "org.specs2" %% "specs2" % "1.13"
         val stest = "org.scalatest" %% "scalatest" % "1.9.1"
         val smock = "org.scalamock" %% "scalamock-core" % "3.0-M3"
     }
