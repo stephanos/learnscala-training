@@ -9,7 +9,7 @@ object Main extends App {
 
 
     val height = 1.79d
-    println(f"$name%s is $height%2.2f meters tall")
+    println(f"$name is $height%2.2f meters tall")
 
 
     implicit class XMLHelper(val sc: StringContext) extends AnyVal {
