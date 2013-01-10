@@ -1,7 +1,6 @@
 <movies>
-    <movie>
+    <movie year="2012">
         <title>Moonrise Kingdom</title>
-        <year>2012</year>
         <actors>
             <actor>Bruce Willis</actor>
             <actor>Edward Norton</actor>
@@ -9,19 +8,16 @@
         </actors>
         <director>Wes Anderson</director>
     </movie>
-    <movie>
+    <movie year="1988">
         <title>Die Hard</title>
-        <year>1988</year>
         <actors>
             <actor>Bruce Willis</actor>
-            <actor>Bonnie Bedelia</actor>
             <actor>Reginald VelJohnson</actor>
         </actors>
         <director>John McTiernan</director>
     </movie>
-    <movie>
+    <movie year="1998">
         <title>Rushmore</title>
-        <year>1998</year>
         <actors>
             <actor>Jason Schwartzman</actor>
             <actor>Bill Murray</actor>
@@ -29,19 +25,16 @@
         </actors>
         <director>Wes Anderson</director>
     </movie>
-    <movie>
+    <movie year="2006">
         <title>Lucky Number Slevin</title>
-        <year>2006</year>
         <actors>
             <actor>Josh Hartnett</actor>
             <actor>Bruce Willis</actor>
-            <actor>Lucy Liu</actor>
         </actors>
         <director>Paul McGuigan</director>
     </movie>
-    <movie>
+    <movie year="2009">
         <title>Fantastic Mr. Fox</title>
-        <year>2009</year>
         <actors>
             <actor>George Clooney</actor>
             <actor>Bruce Willis</actor>
@@ -49,9 +42,8 @@
         </actors>
         <director>Wes Anderson</director>
     </movie>
-    <movie>
+    <movie year="1995">
         <title>Die Hard 3</title>
-        <year>1995</year>
         <actors>
             <actor>Bruce Willis</actor>
             <actor>Jeremy Irons</actor>
@@ -59,29 +51,8 @@
         </actors>
         <director>John McTiernan</director>
     </movie>
-    <movie>
-        <title>Die Hard 3</title>
-        <year>1995</year>
-        <actors>
-            <actor>Bruce Willis</actor>
-            <actor>Jeremy Irons</actor>
-            <actor>Samuel L. Jackson</actor>
-        </actors>
-        <director>John McTiernan</director>
-    </movie>
-    <movie>
-        <title>Die Hard 3</title>
-        <year>1995</year>
-        <actors>
-            <actor>Bruce Willis</actor>
-            <actor>Jeremy Irons</actor>
-            <actor>Samuel L. Jackson</actor>
-        </actors>
-        <director>John McTiernan</director>
-    </movie>
-    <movie>
+    <movie year="1960">
         <title>Psycho</title>
-        <year>1960</year>
         <actors>
             <actor>Anthony Perkins</actor>
             <actor>Vera Miles</actor>
@@ -89,19 +60,16 @@
         </actors>
         <director>Alfred Hitchcock</director>
     </movie>
-    <movie>
-        <title>Psycho</title>
-        <year>1960</year>
-        <actors>
-            <actor>Anthony Perkins</actor>
-            <actor>Vera Miles</actor>
-            <actor>Janet Leigh</actor>
-        </actors>
-        <director>Alfred Hitchcock</director>
-    </movie>
-    <movie>
+    <movie year="1993">
         <title>Groundhog Day</title>
-        <year>1993</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Andie MacDowell</actor>
+        </actors>
+        <director>Harold Ramis</director>
+    </movie>
+    <movie year="1993">
+        <title>Groundhog Day</title>
         <actors>
             <actor>Bill Murray</actor>
             <actor>Andie MacDowell</actor>
@@ -109,19 +77,16 @@
         </actors>
         <director>Harold Ramis</director>
     </movie>
-    <movie>
-        <title>Groundhog Day</title>
-        <year>1993</year>
-        <actors>
-            <actor>Bill Murray</actor>
-            <actor>Andie MacDowell</actor>
-            <actor>Chris Elliott</actor>
-        </actors>
-        <director>Harold Ramis</director>
-    </movie>
-    <movie>
+    <movie year="1984">
         <title>Ghostbusters</title>
-        <year>1984</year>
+        <actors>
+            <actor>Bill Murray</actor>
+            <actor>Sigourney Weaver</actor>
+        </actors>
+        <director>Ivan Reitman</director>
+    </movie>
+    <movie year="1989">
+        <title>Ghostbusters 2</title>
         <actors>
             <actor>Bill Murray</actor>
             <actor>Dan Aykroyd</actor>
@@ -129,14 +94,53 @@
         </actors>
         <director>Ivan Reitman</director>
     </movie>
-    <movie>
-        <title>Ghostbusters 2</title>
-        <year>1989</year>
+    <movie year="1959">
+        <title>North by Northwest</title>
         <actors>
-            <actor>Bill Murray</actor>
-            <actor>Dan Aykroyd</actor>
-            <actor>Sigourney Weaver</actor>
+            <actor>Cary Grant</actor>
+            <actor>Eva Marie Saint</actor>
+            <actor>James Mason</actor>
         </actors>
-        <director>Ivan Reitman</director>
+        <director>Alfred Hitchcock</director>
+    </movie>
+    <movie year="1940">
+        <title>His Girl Friday</title>
+        <actors>
+            <actor>Cary Grant</actor>
+            <actor>Rosalind Russell</actor>
+        </actors>
+        <director>Howard Hawks</director>
+    </movie>
+    <movie year="1946">
+        <title>Notorious</title>
+        <actors>
+            <actor>Cary Grant</actor>
+            <actor>Ingrid Bergman</actor>
+        </actors>
+        <director>Alfred Hitchcock</director>
+    </movie>
+    <movie year="1963">
+        <title>Charade</title>
+        <actors>
+            <actor>Cary Grant</actor>
+            <actor>Audrey Hepburn</actor>
+        </actors>
+        <director>Stanley Donen</director>
+    </movie>
+    <movie year="1942">
+        <title>Casablanca</title>
+        <actors>
+            <actor>Humphrey Bogart</actor>
+            <actor>Ingrid Bergman</actor>
+        </actors>
+        <director>Michael Curtiz</director>
+    </movie>
+    <movie year="1958">
+        <title>Indiscreet</title>
+        <actors>
+            <actor>Cary Grant</actor>
+            <actor>Ingrid Bergman</actor>
+        </actors>
+        <director>Stanley Donen</director>
     </movie>
 </movies>

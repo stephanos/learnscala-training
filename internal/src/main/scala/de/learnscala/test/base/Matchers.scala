@@ -117,7 +117,7 @@ trait Matchers {
                 ""
             else
                 "for " + inputDescr(args: _*)
-        "must return '" + res + "' " + forInp ! {
+        "must return '" + res + "' " + (if(forInp.length > 50) "for input" else forInp) ! {
             val apply = tm.invoke(args: _*)
             apply === res
         }
