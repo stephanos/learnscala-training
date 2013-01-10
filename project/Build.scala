@@ -1,5 +1,6 @@
 import sbt._
 import Keys._
+import com.typesafe.sbteclipse.core.EclipsePlugin._
 
 object ExercisesBuild extends Build {
 
@@ -15,6 +16,8 @@ object ExercisesBuild extends Build {
 
             fork in Test := true,
             parallelExecution in Test := false,
+
+            EclipseKeys.withSource := true,
 
             scalacOptions ++= Seq("-encoding", "UTF-8", "-deprecation", "-unchecked"),
 
