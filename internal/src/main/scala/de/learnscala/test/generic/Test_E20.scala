@@ -9,7 +9,13 @@ abstract class Test_E20[T: TypeTag] extends BaseTest[T] {
     lazy val getXML = XML.load(this.getClass.getResourceAsStream("/movies.xml"))(0)
 
     override def fs =
-        task(1)("releaseDateOfPsycho", "method") {
+        task(1)("movieToXml", "method") {
+            implicit ctx =>
+                mustHaveMethod {
+                    implicit m =>
+                        mustHaveParams(3)
+                }
+        } ^ task(2)("releaseDateOfPsycho", "method") {
             implicit ctx =>
                 mustHaveMethod {
                     implicit m =>
