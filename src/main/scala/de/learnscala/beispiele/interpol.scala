@@ -14,7 +14,7 @@ object Main extends App {
 
     implicit class XMLHelper(val sc: StringContext) extends AnyVal {
         def xml(args: Any*) =
-            scala.xml.XML.load(scala.xml.Source.fromString(sc.s(args)))
+            scala.xml.XML.load(scala.xml.Source.fromString(sc.s(args: _*)))
     }
 
     println(xml"<person><name>$name</name></person>")
