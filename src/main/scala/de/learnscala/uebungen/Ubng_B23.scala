@@ -4,14 +4,12 @@ import de.learnscala.base._
 
 class Ubng_B23 extends Exercise with Help /* with Disabled */ {
 
-  // ===============================================================
+  /**
+   * Zunächst wird die Klasse 'Bruch' aus 'Ubng_B22' benötigt.
+   * Bitte einfach hier hinein kopieren.
+   */
 
   task(1) {
-
-    /**
-     * Zunächst wird die Klasse 'Bruch' aus der Übung 'Ubng_B22' benötigt.
-     * Bitte einfach hier hinein kopieren.
-     */
 
     /**
      * Sorgen Sie dafür, dass ein Int mit einem Bruch multiplizierbar ist!
