@@ -44,7 +44,7 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                                     m.invoke(5, 2) === 5
                                     m.invoke(2, 5) === 5
                                 } ^
-                                "must return bigger one of 1 positive and 1 negative" ! {
+                                "must return bigger one of 1 positive and 1 negative number" ! {
                                     m.invoke(-2, 5) === 5
                                     m.invoke(2, -5) === -5
                                 } ^

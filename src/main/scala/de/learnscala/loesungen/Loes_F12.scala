@@ -4,15 +4,13 @@ import de.learnscala.base.Solution
 
 class Loes_F12 extends Solution {
 
-    task {
-        def singletonSet(elem: Int): Int => Boolean =
-            (e: Int) => e == elem
+    def singletonSet(elem: Int): Int => Boolean =
+        (e: Int) => e == elem
 
-        // TESTS:
-        def s1: Int => Boolean = singletonSet(1)
-        def s2: Int => Boolean = singletonSet(2)
-        def s3: Int => Boolean = singletonSet(3)
-    }
+    // TESTS:
+    def s1: Int => Boolean = singletonSet(1)
+    def s2: Int => Boolean = singletonSet(2)
+    def s3: Int => Boolean = singletonSet(3)
 
     // ===============================================================
 

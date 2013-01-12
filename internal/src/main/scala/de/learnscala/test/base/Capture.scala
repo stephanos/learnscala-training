@@ -14,6 +14,6 @@ trait Capture {
         baos.flush()
         val out = new String(baos.toByteArray, "UTF-8")
         println(out)
-        (r, out)
+        (r, Option(out).getOrElse(""))
     }
 }
