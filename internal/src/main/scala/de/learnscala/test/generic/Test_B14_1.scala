@@ -14,26 +14,25 @@ abstract class Test_B14_1[T: TypeTag] extends BaseTest[T] {
                             mustNotContain(VAR) ^
                             mustReturn(42)
                 }
+        } ^ task(2)("signum", "method") {
+            implicit ctx =>
+                mustHaveMethod {
+                    implicit m =>
+                        mustHaveParams(classOf[Int]) ^
+                            mustNotContain(VAR) ^
+                            "must return '0' for zero" ! {
+                                m.invoke(0) === 0
+                            } ^
+                            "must return '-1' for negative numbers" ! {
+                                m.invoke(-1) === -1
+                                m.invoke(-10) === -1
+                            } ^
+                            "must return '1' for positive numbers" ! {
+                                m.invoke(1) === 1
+                                m.invoke(10) === 1
+                            }
+                }
         } ^
-            task(2)("signum", "method") {
-                implicit ctx =>
-                    mustHaveMethod {
-                        implicit m =>
-                            mustHaveParams(classOf[Int]) ^
-                                mustNotContain(VAR) ^
-                                "must return '0' for zero" ! {
-                                    m.invoke(0) === 0
-                                } ^
-                                "must return '-1' for negative numbers" ! {
-                                    m.invoke(-1) === -1
-                                    m.invoke(-10) === -1
-                                } ^
-                                "must return '1' for positive numbers" ! {
-                                    m.invoke(1) === 1
-                                    m.invoke(10) === 1
-                                }
-                    }
-            } ^
             task(3)("absMax", "method") {
                 implicit ctx =>
                     mustHaveMethod {

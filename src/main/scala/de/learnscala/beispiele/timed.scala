@@ -6,18 +6,18 @@ package timed
  */
 object Timed {
 
-    def timed(f: => Unit) = {
-        val start = System.currentTimeMillis
-        val result = f
-        println(System.currentTimeMillis - start + "ms")
-        result
-    }
+  def timed(f: => Unit) = {
+    val start = System.currentTimeMillis
+    val result = f
+    println(System.currentTimeMillis - start + "ms")
+    result
+  }
 }
 
 
 object Main extends App {
 
-    import Timed._
+  import Timed._
 
-    timed { 10*2 }
+  timed { 10 * 2 }
 }

@@ -5,9 +5,9 @@ import scala.language.implicitConversions
 
 object Main extends App {
 
-    implicit class Mirror(s: String) {
-        def mirror = s + (s.reverse)
-    }
+  implicit class Mirror(s: String) {
+    def mirror = s + (s.reverse)
+  }
 
-    println("Anna ".mirror)
+  println("Anna ".mirror)
 }

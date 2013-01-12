@@ -8,23 +8,22 @@ import java.io.{File, PrintWriter}
  */
 object Loan {
 
-    def withPrintWriter(file: File)(op: PrintWriter => Unit) {
-        val writer = new PrintWriter(file)
-        try {
-            op(writer)
-        } finally
-        {
-            writer.close()
-        }
+  def withPrintWriter(file: File)(op: PrintWriter => Unit) {
+    val writer = new PrintWriter(file)
+    try {
+      op(writer)
+    } finally {
+      writer.close()
     }
+  }
 }
 
 object Main extends App {
 
-    import Loan._
+  import Loan._
 
-    withPrintWriter(new File("test.txt")) {
-        writer =>
-            writer.println(new java.util.Date)
-    }
+  withPrintWriter(new File("test.txt")) {
+    writer =>
+      writer.println(new java.util.Date)
+  }
 }
