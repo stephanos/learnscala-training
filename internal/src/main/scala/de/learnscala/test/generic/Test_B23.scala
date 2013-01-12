@@ -6,7 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_B23[T: TypeTag] extends BaseTest[T] {
 
     override def fs =
-        task(1)("r1", "method") {
+        task(1)("r", "method") {
             implicit ctx =>
                 mustHaveMethod {
                     implicit m =>
@@ -15,7 +15,7 @@ abstract class Test_B23[T: TypeTag] extends BaseTest[T] {
                         }
                 }
         } ^
-            task(2)("r2", "method") {
+            task(2)("r", "method") {
                 implicit ctx =>
                     mustHaveMethod {
                         implicit m =>

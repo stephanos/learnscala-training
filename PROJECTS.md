@@ -28,17 +28,17 @@ Kommunikation mit MongoDB im funktionalen Stil
 > <http://api.mongodb.org/scala/casbah/current/>
 
 ### Rogue
-Bibliothek zur Ausführung von typensicheren Abfragen auf MongoDB
+Bibliothek zur Ausführung von typsicheren Abfragen auf MongoDB
 
 > <https://github.com/foursquare/rogue>
 
 ### Slick
-Bibliothek für typensichere Datenbankabfragen (Teil vom offiziellen Typesafe Stack)
+Bibliothek für typsichere Datenbankabfragen (Teil vom offiziellen Typesafe Stack)
 
 > <http://slick.typesafe.com>
 
 ### SQueryl
-Bibliothek für typensichere SQL-Abfragen
+Bibliothek für typsichere SQL-Abfragen
 
 > <http://squeryl.org/>
 
