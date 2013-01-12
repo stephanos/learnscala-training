@@ -4,55 +4,55 @@ import de.learnscala.base._
 
 class Ubng_F11 extends Exercise with Help /* with Disabled */ {
 
-    task(1) {
+  task(1) {
 
-        /**
-         * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
-         */
+    /**
+     * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
+     */
 
-        // def negate =
+    // def negate =
 
-        def f1 = TODO // negate(5.0f)
-    }
+    def f1 = TODO // negate(5.0f)
+  }
 
-    // ===============================================================
+  // ===============================================================
 
-    task(2) {
+  task(2) {
 
-        /**
-         * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
-         */
+    /**
+     * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
+     */
 
-        // def half =
+    // def half =
 
-        def f2 = TODO // half(2)
-    }
+    def f2 = TODO // half(2)
+  }
 
-    // ===============================================================
+  // ===============================================================
 
-    task(3) {
+  task(3) {
 
-        /**
-         * Gesucht wird eine Funktion zur Umkehrung eines Strings.
-         */
+    /**
+     * Gesucht wird eine Funktion zur Umkehrung eines Strings.
+     */
 
-        // def reverse =
+    // def reverse =
 
-        def f3 = TODO // reverse("abc")
-    }
+    def f3 = TODO // reverse("abc")
+  }
 
-    // ===============================================================
+  // ===============================================================
 
-    task(4) {
+  task(4) {
 
-        /**
-         * Aufgabe #4
-         *
-         * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
-         */
+    /**
+     * Aufgabe #4
+     *
+     * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
+     */
 
-        // def repeat =
+    // def repeat =
 
-        def f4 = TODO // repeat("123", 3)
-    }
+    def f4 = TODO // repeat("123", 3)
+  }
 }

@@ -5,70 +5,70 @@ import de.learnscala.base.Solution
 class Loes_O10 extends Solution {
 
 
-    class Time(val hours: Int = 0, val min: Int = 0) {
+  class Time(val hours: Int = 0, val min: Int = 0) {
 
-        def addMin(m: Int) =
-            this.add(new Time(0, m))
+    def addMin(m: Int) =
+      this.add(new Time(0, m))
 
-        def addHours(h: Int) =
-            this.add(new Time(h, 0))
+    def addHours(h: Int) =
+      this.add(new Time(h, 0))
 
-        def add(t: Time) = {
-            val mm = t.min + min
-            val hh = t.hours + hours
-            val _m = mm % 60
-            val _h = hh % 24 + (mm / 60)
-            new Time (
-                if (_h == 24) 0 else _h,
-                if (_m == 60) 0 else _m
-            )
-        }
-
-        def print =
-            hours + ":" + (if (min < 10) "0" else "") + min
-
-        override def toString =
-            print
+    def add(t: Time) = {
+      val mm = t.min + min
+      val hh = t.hours + hours
+      val _m = mm % 60
+      val _h = hh % 24 + (mm / 60)
+      new Time(
+        if (_h == 24) 0 else _h,
+        if (_m == 60) 0 else _m
+      )
     }
 
+    def print =
+      hours + ":" + (if (min < 10) "0" else "") + min
 
-    /**
-     * Aufgabe #1
-     */
-    def t1 = new Time(13, 37)
+    override def toString =
+      print
+  }
 
-    // ===============================================================
 
-    /**
-     * Aufgabe #2
-     */
-    def t2 = new Time(20)
+  /**
+   * Aufgabe #1
+   */
+  def t1 = new Time(13, 37)
 
-    // ===============================================================
+  // ===============================================================
 
-    /**
-     * Aufgabe #3
-     */
-    def t3 = new Time()
+  /**
+   * Aufgabe #2
+   */
+  def t2 = new Time(20)
 
-    // ===============================================================
+  // ===============================================================
 
-    /**
-     * Aufgabe #4
-     */
-    def t4 = new Time(12, 0).addHours(2)
+  /**
+   * Aufgabe #3
+   */
+  def t3 = new Time()
 
-    // ===============================================================
+  // ===============================================================
 
-    /**
-     * Aufgabe #5
-     */
-    def t5 = new Time(23, 59).addMin(2)
+  /**
+   * Aufgabe #4
+   */
+  def t4 = new Time(12, 0).addHours(2)
 
-    // ===============================================================
+  // ===============================================================
 
-    /**
-     * Aufgabe #6
-     */
-    def t6 = new Time(12, 23).add(new Time(13, 37))
+  /**
+   * Aufgabe #5
+   */
+  def t5 = new Time(23, 59).addMin(2)
+
+  // ===============================================================
+
+  /**
+   * Aufgabe #6
+   */
+  def t6 = new Time(12, 23).add(new Time(13, 37))
 }

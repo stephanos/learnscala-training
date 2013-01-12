@@ -4,62 +4,63 @@ import de.learnscala.base.Solution
 
 class Loes_O11 extends Solution {
 
-    abstract class Item {
+  abstract class Item {
 
-        def price: Float
-        def description: String
+    def price: Float
 
-        override def toString =
-            description + " for " + price + "€"
-    }
+    def description: String
 
-    class SimpleItem(val price: Float,
-                     val description: String) extends Item
+    override def toString =
+      description + " for " + price + "€"
+  }
 
-    class ReducedItem(val basePrice: Float,
-                      val reducedBy: Int,
-                      val description: String) extends Item {
+  class SimpleItem(val price: Float,
+                   val description: String) extends Item
 
-        val price =
-            basePrice * (1 + reducedBy / 100)
-    }
+  class ReducedItem(val basePrice: Float,
+                    val reducedBy: Int,
+                    val description: String) extends Item {
 
-    class WeightedItem(val kilos: Int,
-                       val pricePerKilo: Float,
-                       val baseDescription: String) extends Item {
+    val price =
+      basePrice * (1 + reducedBy / 100)
+  }
 
-        val price =
-            kilos * pricePerKilo
+  class WeightedItem(val kilos: Int,
+                     val pricePerKilo: Float,
+                     val baseDescription: String) extends Item {
 
-        val description =
-            kilos + "kg " + baseDescription
-    }
+    val price =
+      kilos * pricePerKilo
 
-    class Bundle(item1: Item, item2: Item) extends Item {
+    val description =
+      kilos + "kg " + baseDescription
+  }
 
-        override def price =
-            item1.price + item2.price
+  class Bundle(item1: Item, item2: Item) extends Item {
 
-        override val description =
-            item1.description + " & " + item2.description
-    }
+    override def price =
+      item1.price + item2.price
 
-    // ===============================================================
-    // TESTS
-    // ===============================================================
+    override val description =
+      item1.description + " & " + item2.description
+  }
 
-    def butter =
-        new SimpleItem(.95f, "Butter")
+  // ===============================================================
+  // TESTS
+  // ===============================================================
 
-    def milk =
-        new ReducedItem(.99f, 5, "Milk")
+  def butter =
+    new SimpleItem(.95f, "Butter")
 
-    def butterAndMilk =
-        new Bundle(butter, milk)
+  def milk =
+    new ReducedItem(.99f, 5, "Milk")
 
-    def apple5kg =
-        new WeightedItem(5, 0.2f, "Apples")
+  def butterAndMilk =
+    new Bundle(butter, milk)
 
-    def butterMilkAndApples =
-        new Bundle(apple5kg, butterAndMilk)
+  def apple5kg =
+    new WeightedItem(5, 0.2f, "Apples")
+
+  def butterMilkAndApples =
+    new Bundle(apple5kg, butterAndMilk)
 }
