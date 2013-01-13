@@ -25,20 +25,20 @@ abstract class BaseTest[T: TypeTag]
 
     // SHARED =====================================================================================
 
-    protected def test(name: String, typeOf: String = "", prefix: String = "")(fn: TaskContext => Fragments) =
-        task(1)(name, typeOf)(fn)
+    protected def test(name: String, typeOf: String = "", prefix: String = "", descr: String = null)(fn: TaskContext => Fragments) =
+        task(1)(name, typeOf, descr)(fn)
 
-    protected def task(n: Int)(name: String, typeOf: String = "")(fn: TaskContext => Fragments) =
-        _test(n, name, typeOf, "Task #" + n)(fn)
+    protected def task(n: Int)(name: String, typeOf: String = "", descr: String = null)(fn: TaskContext => Fragments) =
+        _test(n, name, typeOf, "Task #" + n, descr)(fn)
 
 
     // INTERNALS ==================================================================================
 
-    private def _test(n: Int, name: String, typeOf: String, prefix: String = "")(fn: TaskContext => Fragments): Fragments = {
+    private def _test(n: Int, name: String, typeOf: String, prefix: String = "", descr: String = null)(fn: TaskContext => Fragments): Fragments = {
         val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList
         val r: Fragments =
             if (tasks.length >= n) {
-                val descr = prefix + ": " + typeOf + " '" + name + "'"
+                val defDescr = prefix + ": " + typeOf + " '" + name + "'"
                 val tsk = tasks(n - 1)
                 (if (tsk == null)
                     descr ^ {
@@ -47,7 +47,7 @@ abstract class BaseTest[T: TypeTag]
                         }
                     }
                 else
-                    descr ^ {
+                    (Option(descr).getOrElse(defDescr)) ^ {
                         fn apply (new TaskContext(name, tasks(n - 1)))
                     }
                     ) ^ startBlock ^ p

@@ -6,7 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_B22[T: TypeTag] extends BaseTest[T] {
 
     override def fs =
-    task(1)("r1", "method") {
+    task(1)("r1", "method", "Bruch.toString()") {
         implicit ctx =>
             mustHaveMethod {
               implicit m =>
