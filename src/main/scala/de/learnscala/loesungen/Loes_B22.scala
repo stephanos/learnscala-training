@@ -33,6 +33,7 @@ class Loes_B22 extends Solution {
         zaehler + "/" + nenner
     }
 
+    /*
     // ===============================================================
 
     def r1 = new Bruch(1, 2)
@@ -52,5 +53,6 @@ class Loes_B22 extends Solution {
     // ===============================================================
 
     def r5 = !(new Bruch(1, 2))
+    */
   }
 }
