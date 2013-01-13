@@ -5,6 +5,7 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
 
+  /*
     test("t1", "method") {
         implicit ctx =>
             mustHaveMethod {
@@ -83,5 +84,6 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T] {
                         }
                 }
         }
+        */
 }
 

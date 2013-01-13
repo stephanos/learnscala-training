@@ -11,115 +11,115 @@ import reflect.ClassTag
 trait Reflect {
 
 
-    // Class
+  // Class
 
-    def getInstance[T: TypeTag](args: Any*) = {
-        val typ = typeOf[T]
-        val constructor = typ.declaration(nme.CONSTRUCTOR).asMethod
-        cm reflectClass typ.typeSymbol.asClass reflectConstructor constructor apply (args: _*)
+  def getInstance[T: TypeTag](args: Any*) = {
+    val typ = typeOf[T]
+    val constructor = typ.declaration(nme.CONSTRUCTOR).asMethod
+    cm reflectClass typ.typeSymbol.asClass reflectConstructor constructor apply (args: _*)
+  }
+
+
+  /*
+  def hasInterface[T, I] = {
+      typeOf[T]
+  }
+  */
+
+
+  // Objects
+
+  def getObject[T: TypeTag](name: String): Option[ModuleSymbol] =
+    getMember[T](name) flatMap (_ match {
+      case obj: ModuleSymbol => Some(obj)
+      case _ => None
+    })
+
+  def getObject(name: String): Option[Any] =
+    tryopt(cm reflectModule (cm staticModule name) instance)
+
+
+  // Members
+
+  def getMember[T: TypeTag](name: String): Option[Symbol] =
+    typeOf[T].member(newTermName(name)) match {
+      case NoSymbol => None
+      case s: Symbol => Some(s)
+      case _ => None
+    }
+
+  // val
+
+  def getVal[T: TypeTag](name: String): Option[TermSymbol] =
+    getMember[T](name) flatMap (_ match {
+      case term: TermSymbol if (term.isVal) => Some(term)
+      case _ => None
+    })
+
+  // Term
+
+  def getTerm[T: TypeTag](name: String): Option[TermSymbol] =
+    getMember[T](name) flatMap (_ match {
+      case term: TermSymbol => Some(term)
+      case _ => None
+    })
+
+
+  // Method
+
+  def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
+    getMember[T](name) flatMap (_ match {
+      case mth: MethodSymbol => Some(mth)
+      case _ => None
+    })
+
+
+  // Invoke
+
+  def invoke[T: ClassTag : TypeTag](obj: T, name: String, args: Any*): Option[Any] =
+    getMethod[T](name) map (invoke(obj, _, args))
+
+  def invoke[T: ClassTag : TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
+    cm reflect (obj) reflectMethod (mth) apply (args: _*)
+
+  def read[T: ClassTag : TypeTag](obj: T, t: TermSymbol, args: Any*): Any =
+    cm reflect (obj) reflectField (t) get
+
+
+  // Signature
+
+  def getSignature(s: Symbol): Type =
+    s typeSignature
+
+  def getParams(s: Symbol): List[Symbol] =
+    s.typeSignature match {
+      case MethodType(params, _) => params
+      case _ => List()
     }
 
 
-    /*
-    def hasInterface[T, I] = {
-        typeOf[T]
+  // ReturnType
+
+  def getReturnType[T: TypeTag](name: String): Option[Type] =
+    getMember[T](name) map (getReturnType(_))
+
+  def getReturnType(s: Symbol): Type =
+    getSignature(s) match {
+      case NullaryMethodType(rt) => rt
+      case MethodType(_, rt) => rt
+      case PolyType(_, MethodType(_, rt)) => rt
     }
-    */
 
 
-    // Objects
+  // INTERNALS ===============================================================
 
-    def getObject[T: TypeTag](name: String): Option[ModuleSymbol] =
-        getMember[T](name) flatMap (_ match {
-            case obj: ModuleSymbol => Some(obj)
-            case _ => None
-        })
-
-    def getObject(name: String): Option[Any] =
-        tryopt(cm reflectModule(cm staticModule name) instance)
-
-
-    // Members
-
-    def getMember[T: TypeTag](name: String): Option[Symbol] =
-        typeOf[T].member(newTermName(name)) match {
-            case NoSymbol => None
-            case s: Symbol => Some(s)
-            case _ => None
-        }
-
-    // val
-
-    def getVal[T: TypeTag](name: String): Option[TermSymbol] =
-        getMember[T](name) flatMap (_ match {
-            case term: TermSymbol if(term.isVal) => Some(term)
-            case _ => None
-        })
-
-    // Term
-
-    def getTerm[T: TypeTag](name: String): Option[TermSymbol] =
-        getMember[T](name) flatMap (_ match {
-            case term: TermSymbol => Some(term)
-            case _ => None
-        })
-
-
-    // Method
-
-    def getMethod[T: TypeTag](name: String): Option[MethodSymbol] =
-        getMember[T](name) flatMap (_ match {
-            case mth: MethodSymbol => Some(mth)
-            case _ => None
-        })
-
-
-    // Invoke
-
-    def invoke[T: ClassTag : TypeTag](obj: T, name: String, args: Any*): Option[Any] =
-        getMethod[T](name) map (invoke(obj, _, args))
-
-    def invoke[T: ClassTag : TypeTag](obj: T, mth: MethodSymbol, args: Any*): Any =
-        cm reflect(obj) reflectMethod(mth) apply(args: _*)
-
-    def read[T: ClassTag : TypeTag](obj: T, t: TermSymbol, args: Any*): Any =
-        cm reflect(obj) reflectField (t) get
-
-
-    // Signature
-
-    def getSignature(s: Symbol): Type =
-        s typeSignature
-
-    def getParams(s: Symbol): List[Symbol] =
-        s.typeSignature match {
-            case MethodType(params, _) => params
-            case _ => List()
-        }
-
-
-    // ReturnType
-
-    def getReturnType[T: TypeTag](name: String): Option[Type] =
-        getMember[T](name) map (getReturnType(_))
-
-    def getReturnType(s: Symbol): Type =
-        getSignature(s) match {
-            case NullaryMethodType(rt) => rt
-            case MethodType(_, rt) => rt
-            case PolyType(_, MethodType(_, rt)) => rt
-        }
-
-
-    // INTERNALS ===============================================================
-
-    private def tryopt[T](fn: => T): Option[T] = {
-        try {
-            Some(fn)
-        } catch {
-            case _: Throwable => None
-        }
+  private def tryopt[T](fn: => T): Option[T] = {
+    try {
+      Some(fn)
+    } catch {
+      case _: Throwable => None
     }
+  }
 }
 
 

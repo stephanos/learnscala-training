@@ -5,7 +5,7 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F24_2[T: TypeTag] extends BaseTest[T] {
 
-    val forbiddenMethods = List("map", "filter", "flatMap")
+  val forbiddenMethods = List("map", "filter", "flatMap")
 
 
 }

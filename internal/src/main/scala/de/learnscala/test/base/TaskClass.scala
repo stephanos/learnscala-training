@@ -3,14 +3,15 @@ package de.learnscala.test.base
 import scala.reflect.runtime.universe._
 import scala.reflect.runtime.{currentMirror => cm}
 
-case class TaskMethod(name: String, sym: MethodSymbol, ctx: TaskContext) {
+case class TaskClass(name: String, sym: ClassSymbol, ctx: TaskContext) {
 
-  val mirror: MethodMirror =
-    ctx.mirror.reflectMethod(sym)
+  val mirror: ClassMirror =
+    ctx.mirror.reflectClass(sym)
 
-  def invoke(args: Any*): Any =
+  def inst(args: Any*): Any =
     try {
-      mirror.apply(args: _*)
+      val m = TaskMethod("constructor", sym.typeSignature.member(nme.CONSTRUCTOR).asMethod, ctx)
+      m.invoke(args: _*)
     } catch {
       case e: IllegalArgumentException =>
         if (args.size <= 1)
@@ -20,5 +21,5 @@ case class TaskMethod(name: String, sym: MethodSymbol, ctx: TaskContext) {
     }
 
   def params =
-    sym.paramss
+    sym.typeParams
 }

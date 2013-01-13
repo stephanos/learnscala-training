@@ -9,7 +9,7 @@ class Ubng_B22 extends Exercise with Help /* with Disabled */ {
      * Gesucht wird eine Klasse 'Bruch' mit den Methoden: 'toString', '*', '/' und '!'
      *
      * @note Ausgabe via String sollte natürlich immer gekürzte Brüche ausgeben
-     * @note Und nicht vergessen: Zur Division wird über Kreuz multipliziert.
+     * @note Und nicht vergessen, zur Division wird über Kreuz multipliziert.
      */
 
 
@@ -25,7 +25,6 @@ class Ubng_B22 extends Exercise with Help /* with Disabled */ {
       else gcd(y % x, x)
     }
     */
-
 
     // ===============================================================
 

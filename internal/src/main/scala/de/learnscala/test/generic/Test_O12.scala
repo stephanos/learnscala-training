@@ -5,8 +5,9 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
 
-    val objn = "Point"
+  val objn = "Point"
 
+  /*
     test("p1") {
         implicit ctx =>
             mustHaveMethod {
@@ -50,4 +51,5 @@ abstract class Test_O12[T: TypeTag] extends BaseTest[T] {
                     }
             }
     }
+    */
 }
