@@ -3,7 +3,7 @@ package de.learnscala.test.generic
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 
-abstract class Test_O22[T: TypeTag] extends BaseTest[T] {
+abstract class Test_O22[T: TypeTag] extends BaseTest[T](continuous = true) {
 
   override def fs =
     task(1)("s1", "method") {

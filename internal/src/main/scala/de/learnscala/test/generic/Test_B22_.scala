@@ -3,7 +3,7 @@
 //import de.learnscala.test.base.BaseTest
 //import scala.reflect.runtime.universe._
 //
-//abstract class Test_B22_[T: TypeTag] extends BaseTest[T] {
+//abstract class Test_B22_[T: TypeTag] extends BaseTest[T]() {
 //
 //  val clsName = "Bruch"
 //

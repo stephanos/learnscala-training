@@ -4,7 +4,7 @@ import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 import org.specs2.execute.{Pending, Result}
 
-abstract class Test_F12[T: TypeTag] extends BaseTest[T] {
+abstract class Test_F12[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
     task(1)("union", "method") {

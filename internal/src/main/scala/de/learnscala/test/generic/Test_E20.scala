@@ -4,7 +4,7 @@ import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 import xml.XML
 
-abstract class Test_E20[T: TypeTag] extends BaseTest[T] {
+abstract class Test_E20[T: TypeTag] extends BaseTest[T]() {
 
   lazy val getXML = XML.load(this.getClass.getResourceAsStream("/movies.xml"))(0)
 

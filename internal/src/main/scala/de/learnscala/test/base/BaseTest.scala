@@ -10,7 +10,7 @@ import execute._
 import de.learnscala.base._
 import scala.reflect.runtime.universe._
 
-abstract class BaseTest[T: TypeTag]
+abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   extends SpecificationWithJUnit with Mockito with ScalaCheck
   with Reflect with Capture with Matchers with StopOnFail {
 
