@@ -4,9 +4,6 @@ import de.learnscala.base.Solution
 
 class Loes_O10 extends Solution {
 
-
-  task {
-
     class Time(val hours: Int = 0, val min: Int = 0) {
 
           def addMin(m: Int) =
@@ -33,7 +30,7 @@ class Loes_O10 extends Solution {
             print
         }
 
-
+  task {
     // ===============================================================
 
     /**

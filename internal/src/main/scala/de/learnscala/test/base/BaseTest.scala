@@ -1,7 +1,9 @@
 package de.learnscala.test.base
 
 import org.specs2._
+import main.Arguments
 import mock.Mockito
+import reporter.DefaultReporter
 import specification._
 import execute._
 
@@ -12,15 +14,29 @@ abstract class BaseTest[T: TypeTag]
   extends SpecificationWithJUnit with Mockito with ScalaCheck
   with Reflect with Capture with Matchers with StopOnFail {
 
+  def twoPass = true
+
+  def sendResults = true
+
   def fs: Fragments =
     sys.error("overwrite 'fs'")
 
   final def is =
-    args.report(exporter = "de.learnscala.test.base.Export") ^ // hook push into lifecycle
+    args.report(exporter = if (sendResults) "de.learnscala.test.base.Export" else "") ^ // hook push into lifecycle
       //showOnly("+x!*-") ^ // hide "skipped" results
       sequential ^ // don't execute in parallel
       fs ^
       end // end test
+
+  override def map(fs: => Fragments) =
+    if (twoPass) {
+      val executed = silent.execute(fs)
+      val filtered = executed.fs.zip(fs.fragments).collect {
+        case (f1, f2) if (f1.stats.result.isSuccess || f1.stats.result.isFailure || f1.stats.result.isError) => f2
+      }
+      Fragments.createList(filtered: _*)
+    } else
+      super.map(fs)
 
 
   // SHARED =====================================================================================
@@ -36,6 +52,16 @@ abstract class BaseTest[T: TypeTag]
 
 
   // INTERNALS ==================================================================================
+
+  private object silent extends DefaultReporter {
+    def export(implicit args: Arguments) =
+      (s: ExecutingSpecification) => s.execute
+
+    def execute(fs: Fragments) =
+      report(new Specification {
+        def is = sequential ^ fs ^ end
+      })(Arguments())
+  }
 
   private def _test(n: Int, name: String, typeOf: String, prefix: String = "", descr: String = null)(fn: TaskContext => Fragments): Fragments = {
     val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList

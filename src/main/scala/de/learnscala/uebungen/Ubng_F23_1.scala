@@ -8,7 +8,7 @@ class Ubng_F23_1 extends Exercise with Help /* with Disabled */ {
      *
      * Lösen Sie die folgenden Aufhaben mit Hilfe der 'map' Funktion!
      *
-     * PS: Vermeiden Sie Redundanz.
+     * @note Vermeiden Sie Redundanz.
      *
      */
 
