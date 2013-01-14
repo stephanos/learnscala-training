@@ -37,71 +37,67 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T]() {
                 }
               }
         }
+    } ^ task(2)("intersect", "method") {
+      implicit ctx =>
+        mustHaveMethod("i1") {
+          implicit m =>
+            mustHaveParams() ^
+              "i1 must contain '1'" ! {
+                tryOrPending {
+                  m.invoke() === true
+                }
+              }
+        }
+
+        mustHaveMethod("i2") {
+          implicit m =>
+            mustHaveParams() ^
+              "i2 must NOT contain '2'" ! {
+                tryOrPending {
+                  m.invoke() === false
+                }
+              }
+        }
+        mustHaveMethod("i3") {
+          implicit m =>
+            mustHaveParams() ^
+              "i3 must NOT contain '3'" ! {
+                tryOrPending {
+                  m.invoke() === false
+                }
+              }
+        }
+    } ^ task(3)("intersect", "method") {
+      implicit ctx =>
+        mustHaveMethod("d1") {
+          implicit m =>
+            mustHaveParams() ^
+              "d1 must NOT contain '1'" ! {
+                tryOrPending {
+                  m.invoke() === false
+                }
+              }
+        }
+
+        mustHaveMethod("d2") {
+          implicit m =>
+            mustHaveParams() ^
+              "d2 must contain '2'" ! {
+                tryOrPending {
+                  m.invoke() === true
+                }
+              }
+        }
+        mustHaveMethod("d3") {
+          implicit m =>
+            mustHaveParams() ^
+              "d3 must NOT contain '3'" ! {
+                tryOrPending {
+                  m.invoke() === false
+                }
+              }
+        }
     }
-
-  task(2)("intersect", "method") {
-    implicit ctx =>
-      mustHaveMethod("i1") {
-        implicit m =>
-          mustHaveParams() ^
-            "i1 must contain '1'" ! {
-              tryOrPending {
-                m.invoke() === true
-              }
-            }
-      }
-
-      mustHaveMethod("i2") {
-        implicit m =>
-          mustHaveParams() ^
-            "i2 must NOT contain '2'" ! {
-              tryOrPending {
-                m.invoke() === false
-              }
-            }
-      }
-      mustHaveMethod("i3") {
-        implicit m =>
-          mustHaveParams() ^
-            "i3 must NOT contain '3'" ! {
-              tryOrPending {
-                m.invoke() === false
-              }
-            }
-      }
-  }
-
-  task(3)("intersect", "method") {
-    implicit ctx =>
-      mustHaveMethod("d1") {
-        implicit m =>
-          mustHaveParams() ^
-            "d1 must NOT contain '1'" ! {
-              tryOrPending {
-                m.invoke() === false
-              }
-            }
-      }
-
-      mustHaveMethod("d2") {
-        implicit m =>
-          mustHaveParams() ^
-            "d2 must contain '2'" ! {
-              tryOrPending {
-                m.invoke() === true
-              }
-            }
-      }
-      mustHaveMethod("d3") {
-        implicit m =>
-          mustHaveParams() ^
-            "d3 must NOT contain '3'" ! {
-              tryOrPending {
-                m.invoke() === false
-              }
-            }
-      }
-  }
 
   private def tryOrPending(fn: => Result) = {
     try {

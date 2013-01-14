@@ -11,19 +11,19 @@ abstract class Test_B25[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              "first fibonacci number must be 0" ! {
+              "1st fibonacci number must be 0" ! {
                 m.invoke(0) === 0
               } ^
-              "second fibonacci number must be 1" ! {
+              "2nd fibonacci number must be 1" ! {
                 m.invoke(1) === 1
               } ^
-              "third fibonacci number must be 1" ! {
+              "3rd fibonacci number must be 1" ! {
                 m.invoke(2) === 1
               } ^
-              "fourth fibonacci number must be 2" ! {
+              "4th fibonacci number must be 2" ! {
                 m.invoke(3) === 2
               } ^
-              "fifth fibonacci number must be 3" ! {
+              "5th fibonacci number must be 3" ! {
                 m.invoke(4) === 3
               } ^
               "50th fibonacci number test" ! {

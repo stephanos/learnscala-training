@@ -14,9 +14,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 50000
             }
       }
-  }
-
-  task(2)("salaryForManager", "method") {
+  } ^ task(2)("salaryForManager", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>
@@ -25,9 +23,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 250000
             }
       }
-  }
-
-  task(3)("salaryForBoardMember", "method") {
+  } ^ task(3)("salaryForBoardMember", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>
@@ -36,9 +32,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 100000
             }
       }
-  }
-
-  task(4)("salaryForFriendOfManagerClerk", "method") {
+  } ^ task(4)("salaryForFriendOfManagerClerk", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>
@@ -47,9 +41,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 100000
             }
       }
-  }
-
-  task(5)("salaryForIllegalImmigrantClerk", "method") {
+  } ^ task(5)("salaryForIllegalImmigrantClerk", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>
@@ -58,9 +50,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 25000
             }
       }
-  }
-
-  task(6)("salaryForIllegalImmigrantManager", "method") {
+  } ^ task(6)("salaryForIllegalImmigrantManager", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>
@@ -69,9 +59,7 @@ abstract class Test_O21[T: TypeTag] extends BaseTest[T](continuous = true) {
               m.invoke() === 125000
             }
       }
-  }
-
-  task(7)("salaryForIllegalImmigrantBoardMember", "method") {
+  } ^ task(7)("salaryForIllegalImmigrantBoardMember", "method") {
     implicit ctx =>
       mustHaveMethod {
         implicit m =>

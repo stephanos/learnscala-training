@@ -15,18 +15,17 @@ abstract class Test_F32[T: TypeTag] extends BaseTest[T]() {
                 m.invoke() === 10
               }
         }
-    } ^
-      task(2)("print2Digits", "method") {
-        implicit ctx =>
-          mustHaveMethod {
-            implicit m =>
-              mustHaveParams(1) ^
-                "must print '60' for '60'" ! {
-                  captureOutput(m.invoke(60))._2 === "60"
-                } ^
-                "must print '05' for '5'" ! {
-                  captureOutput(m.invoke(5))._2 === "05"
-                }
-          }
-      }
+    } ^ task(2)("print2Digits", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams(1) ^
+              "must print '60' for '60'" ! {
+                captureOutput(m.invoke(60))._2 === "60"
+              } ^
+              "must print '05' for '5'" ! {
+                captureOutput(m.invoke(5))._2 === "05"
+              }
+        }
+    }
 }
