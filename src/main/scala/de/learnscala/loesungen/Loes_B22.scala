@@ -6,7 +6,6 @@ class Loes_B22 extends Solution {
 
   task {
 
-
     class Bruch(z: Int, n: Int) {
 
       private def gcd(x: Int, y: Int): Int = {
