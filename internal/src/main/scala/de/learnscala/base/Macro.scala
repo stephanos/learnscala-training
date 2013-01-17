@@ -35,7 +35,7 @@ class Macro[C <: Context](val c: C) {
 
     // generate: create 'Task' instance
     val task =
-      code.tree match {
+      WorkaroundTransformer.transform(code.tree) match {
         case Block(userCode, _) =>
           pimpUserCode(userCode)
         case _ =>
@@ -44,14 +44,12 @@ class Macro[C <: Context](val c: C) {
 
     // generate: call 'register' with 'Task' instance
     c.Expr {
-      WorkaroundTransformer.transform {
         c.resetAllAttrs {
           Block(List(
             Apply(Select(This(tpnme.EMPTY), newTermName("register")), List(Literal(Constant(n)), task))
           ), Literal(Constant(())))
         }
       }
-    }
   }
 
   private def pimpUserCode(codeTree: List[Tree])(implicit code: c.Expr[Any]): Block = {
