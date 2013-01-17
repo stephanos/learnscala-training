@@ -6,6 +6,7 @@ class Loes_B22 extends Solution {
 
   task {
 
+
     class Bruch(z: Int, n: Int) {
 
       private def gcd(x: Int, y: Int): Int = {
@@ -33,7 +34,6 @@ class Loes_B22 extends Solution {
         zaehler + "/" + nenner
     }
 
-    /*
     // ===============================================================
 
     def r1 = new Bruch(1, 2)
@@ -53,6 +53,5 @@ class Loes_B22 extends Solution {
     // ===============================================================
 
     def r5 = !(new Bruch(1, 2))
-    */
   }
 }

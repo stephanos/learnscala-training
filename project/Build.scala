@@ -19,7 +19,7 @@ object ExercisesBuild extends Build {
 
             EclipseKeys.withSource := true,
 
-            scalacOptions ++= Seq("-encoding", "UTF-8", "-deprecation", "-unchecked"),
+            scalacOptions ++= Seq("-encoding", "UTF-8", "-deprecation", "-unchecked"), //  "-Ymacro-debug-lite", "-uniqid"
 
             resolvers ++= Seq("codahale" at "http://repo.codahale.com"),
             resolvers ++= Seq("typesafe" at "http://repo.typesafe.com/typesafe/releases/"),

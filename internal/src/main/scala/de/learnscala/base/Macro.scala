@@ -11,26 +11,51 @@ class Macro[C <: Context](val c: C) {
     implicit val impl_code = code
 
     code.tree.collect {
-      case cls@ClassDef(mods, _, _, _) if(mods.hasFlag(IMPLICIT)) =>
+      case cls@ClassDef(mods, _, _, _) if (mods.hasFlag(IMPLICIT)) =>
         c.abort(c.enclosingPosition, s"Bitte definieren Sie die 'implicit class' außerhalb des task-Blocks")
     }
 
+    object WorkaroundTransformer extends Transformer {
+
+      override def transform(tree: Tree): Tree = {
+        tree match {
+          case d@DefDef(mods, name, para, vpara, tpt, rhs) =>
+            DefDef(mods, name, para, vpara.map(_.map(_ match {
+              case v@ValDef(mods2, name2, tpt2, rhs2) =>
+                ValDef(mods2, name2, tpt2.asInstanceOf[TypeTree].original, rhs2)
+              case v => v
+            })), tpt, rhs)
+          case _ =>
+            super.transform(tree)
+        }
+      }
+    }
+
+    // generate: create 'Task' instance
     val task =
-      c.resetAllAttrs(code.tree) match {
+      code.tree match {
         case Block(userCode, _) =>
           pimpUserCode(userCode)
         case _ =>
           Literal(Constant((null))) // no content, create stub
       }
 
-    c.Expr(Block(List(
-      Apply(Select(This(tpnme.EMPTY), newTermName("register")), List(Literal(Constant(n)), task))
-    ), Literal(Constant(()))))
+    // generate: call 'register' with 'Task' instance
+    c.Expr {
+      WorkaroundTransformer.transform {
+        c.resetAllAttrs {
+          Block(List(
+            Apply(Select(This(tpnme.EMPTY), newTermName("register")), List(Literal(Constant(n)), task))
+          ), Literal(Constant(())))
+        }
+      }
+    }
   }
 
   private def pimpUserCode(codeTree: List[Tree])(implicit code: c.Expr[Any]): Block = {
     implicit val impl_code = codeTree
 
+    // gather meta fields
     val meta: List[ValDef] =
       List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
         kv => metaField(kv._1, kv._2)
@@ -38,6 +63,7 @@ class Macro[C <: Context](val c: C) {
         kv => metaField(kv._1, kv._2)
       }
 
+    // assemble meta fields with user's code
     Block(
       List(
         // anonymous class
