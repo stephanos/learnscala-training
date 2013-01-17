@@ -16,12 +16,11 @@ class Macro[C <: Context](val c: C) {
     }
 
     object WorkaroundTransformer extends Transformer {
-
       override def transform(tree: Tree): Tree = {
         tree match {
-          case d@DefDef(mods, name, para, vpara, tpt, rhs) =>
+          case DefDef(mods, name, para, vpara, tpt, rhs) =>
             DefDef(mods, name, para, vpara.map(_.map(_ match {
-              case v@ValDef(mods2, name2, tpt2, rhs2) =>
+              case ValDef(mods2, name2, tpt2, rhs2) =>
                 ValDef(mods2, name2, tpt2.asInstanceOf[TypeTree].original, rhs2)
               case v => v
             })), tpt, rhs)
