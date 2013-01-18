@@ -18,13 +18,16 @@ class Macro[C <: Context](val c: C) {
     object WorkaroundTransformer extends Transformer {
       override def transform(tree: Tree): Tree = {
         tree match {
-          case cd@ClassDef(mods, name, tparams, Template(parent, self, body)) =>
-            super.transform(ClassDef(mods, name, tparams, Template(parent, self, body filter {
-              _ match {
-                case DefDef(_, nme.CONSTRUCTOR, _, _, _, _) => false
-                case _ => true
-              }
-            })))
+          case Template(parents, self, stats) =>
+            val stats1 = stats filter {
+              case dd0: DefDef =>
+                val dd = dd0.asInstanceOf[scala.reflect.internal.Trees#DefDef]
+                val DEFAULTPARAM = scala.reflect.internal.ModifierFlags.DEFAULTPARAM
+                (dd.symbol.flags & DEFAULTPARAM) != DEFAULTPARAM
+              case _ =>
+                true
+            }
+            Template(parents map transform, transform(self).asInstanceOf[ValDef], stats1 map transform)
           case dd@DefDef(mods, name, para, vpara, tpt, rhs) =>
             DefDef(mods, name, para, vpara.map(_.map(_ match {
               case vd@ValDef(mods2, name2, tpt2, rhs2) =>
