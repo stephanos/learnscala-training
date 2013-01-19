@@ -1,8 +1,9 @@
 package de.learnscala.test.beispiele
 
-import org.scalatest.{FlatSpec, BeforeAndAfter}
+import org.scalatest
+import org.scalatest.BeforeAndAfter
 
-class MySpec extends FlatSpec with BeforeAndAfter {
+class FlatSpec extends scalatest.FlatSpec with BeforeAndAfter {
 
   val builder = new StringBuilder
 
