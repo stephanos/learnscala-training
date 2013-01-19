@@ -1,13 +1,14 @@
 package de.learnscala.test.beispiele
 
 import org.scalatest
-import collection.mutable.ListBuffer
-import scalatest.BeforeAndAfter
+import org.scalatest.BeforeAndAfter
+
+import collection.mutable
 
 class FlatSpec extends scalatest.FlatSpec with BeforeAndAfter {
 
   val builder = new StringBuilder
-  val buffer = new ListBuffer[String]
+  val buffer = new mutable.ListBuffer[String]
 
   before {
     builder.append("ScalaTest is ")
