@@ -1,34 +1,26 @@
 package de.learnscala.test.beispiele
 
-import org.scalatest
-import org.scalatest.BeforeAndAfter
+import org.scalatest.{FlatSpec, BeforeAndAfter}
 
-import collection.mutable
-
-class FlatSpec extends scalatest.FlatSpec with BeforeAndAfter {
+class MySpec extends FlatSpec with BeforeAndAfter {
 
   val builder = new StringBuilder
-  val buffer = new mutable.ListBuffer[String]
 
   before {
-    builder.append("ScalaTest is ")
+    builder.append("Hello ")
   }
 
   after {
     builder.clear()
-    buffer.clear()
   }
 
-  "Testing" should "be easy" in {
-    builder.append("easy!")
-    assert(builder.toString === "ScalaTest is easy!")
-    assert(buffer.isEmpty)
-    buffer += "sweet"
+  "Builder" should "greet Scala" in {
+    builder.append("Scala!")
+    assert(builder.toString === "Hello Scala!")
   }
 
-  it should "be fun" in {
-    builder.append("fun!")
-    assert(builder.toString === "ScalaTest is fun!")
-    assert(buffer.isEmpty)
+  it should "greet the World" in {
+    builder.append("World!")
+    assert(builder.toString === "Hello World!")
   }
 }
