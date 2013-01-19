@@ -52,6 +52,28 @@ class Ubng_F23_3 extends Exercise with Help /* with Disabled */ {
       TODO
   }
 
+  /*
+
+  val votes = Seq(("scala", 1), ("java", 4), ("scala", 10), ("scala", 1), ("python", 10))
+  val orderedVotes = votes
+    .groupBy(_._1)
+    .map { case (which, counts) =>
+      (which, counts.foldLeft(0)(_ + _._2))
+    }.toSeq
+    .sortBy(_._2)
+    .reverse
+
+  val votesByLang = votes groupBy { case (lang, _) => lang }
+  val sumByLang = votesByLang map { case (lang, counts) =>
+    val countsOnly = counts map { case (_, count) => count }
+    (lang, countsOnly.sum)
+  }
+  val orderedVotes = sumByLang.toSeq
+    .sortBy { case (_, count) => count }
+    .reverse
+
+   */
+
 
   // ===============================================================
 
