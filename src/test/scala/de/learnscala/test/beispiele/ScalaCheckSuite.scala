@@ -9,27 +9,27 @@ import org.junit.Test
 
 class ScalaCheckSuite extends JUnitSuite with Checkers {
 
-    @Test
-    def testStartsWith() {
-        check {
-            (a: String, b: String) =>
-                (a + b).startsWith(a)
-        }
+  @Test
+  def testStartsWith() {
+    check {
+      (a: String, b: String) =>
+        (a + b).startsWith(a)
     }
+  }
 
-    @Test
-    def testEndsWith() {
-        check {
-            (a: String, b: String) =>
-                (a + b).endsWith(b)
-        }
+  @Test
+  def testEndsWith() {
+    check {
+      (a: String, b: String) =>
+        (a + b).endsWith(b)
     }
+  }
 
-    @Test
-    def testSubstring() {
-        check {
-            (a: String, b: String) =>
-                (a + b).substring(a.length) == b
-        }
+  @Test
+  def testSubstring() {
+    check {
+      (a: String, b: String) =>
+        (a + b).substring(a.length) == b
     }
+  }
 }
