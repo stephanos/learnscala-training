@@ -4,14 +4,14 @@ import org.scalatest.FeatureSpec
 import org.scalatest.GivenWhenThen
 import org.scalatest.BeforeAndAfter
 
-import scala.collection.mutable.Stack
+import collection.mutable
 
-class StackFuncSuite extends FeatureSpec with GivenWhenThen with BeforeAndAfter {
+class FuncSpec extends FeatureSpec with GivenWhenThen with BeforeAndAfter {
 
-  var stack: Stack[Int] = _
+  var stack: mutable.Stack[Int] = _
 
   before {
-    stack = new Stack[Int]
+    stack = new mutable.Stack[Int]
   }
 
   feature("The user can pop an element off the top of the stack") {

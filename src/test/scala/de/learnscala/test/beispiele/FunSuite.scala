@@ -1,16 +1,16 @@
 package de.learnscala.test.beispiele
 
-import org.scalatest.FunSuite
+import org.scalatest
 import org.scalatest.BeforeAndAfter
 
-import scala.collection.mutable.Stack
+import collection.mutable
 
-class StackTDDSuite extends FunSuite with BeforeAndAfter {
+class FunSuite extends scalatest.FunSuite with BeforeAndAfter {
 
-  var stack: Stack[Int] = _
+  var stack: mutable.Stack[Int] = _
 
   before {
-    stack = new Stack[Int]
+    stack = new mutable.Stack[Int]
   }
 
   test("pop is invoked on a non-empty stack") {

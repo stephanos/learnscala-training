@@ -1,16 +1,16 @@
 package de.learnscala.test.beispiele
 
-import org.scalatest.FunSpec
+import org.scalatest
 import org.scalatest.BeforeAndAfter
 
-import scala.collection.mutable.Stack
+import collection.mutable
 
-class StackBDDSuite extends FunSpec with BeforeAndAfter {
+class FunSpec extends scalatest.FunSpec with BeforeAndAfter {
 
-  var stack: Stack[Int] = _
+  var stack: mutable.Stack[Int] = _
 
   before {
-    stack = new Stack[Int]
+    stack = new mutable.Stack[Int]
   }
 
   describe("A Stack") {
