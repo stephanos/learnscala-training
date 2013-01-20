@@ -17,7 +17,7 @@ case class TaskMethod(name: String, sym: MethodSymbol, ctx: TaskContext) {
         val expTypes = args.map(_.getClass.getSimpleName).mkString("'", "', '", "'")
 
         if (args.size <= 1)
-          throw new RuntimeException(s"method parameter type ($actTypes) does NOT expected type ($expTypes)", e)
+          throw new RuntimeException(s"method parameter type ($actTypes) does NOT match expected type ($expTypes)", e)
         else
           throw new RuntimeException(s"method parameter types ($actTypes) do NOT match expected types ($expTypes)", e)
     }
