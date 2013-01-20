@@ -18,6 +18,7 @@ class Loes_B14_1 extends Solution {
       if (n == 0) 0
       else if (n > 0) 1
       else -1
+
   }
 
   // ===============================================================
@@ -26,6 +27,7 @@ class Loes_B14_1 extends Solution {
 
     def absMax(n1: Int, n2: Int) =
       if (Math.abs(n1) > Math.abs(n2)) n1 else n2
+
   }
 
   // ===============================================================
@@ -33,9 +35,11 @@ class Loes_B14_1 extends Solution {
   task(4) {
 
     def countingOut() {
-      for (i <- 1 to 10)
+      for (i <- 1 to 10) {
         print(i + " ")
+      }
     }
+
   }
 
   // ===============================================================
@@ -43,9 +47,11 @@ class Loes_B14_1 extends Solution {
   task(5) {
 
     def count10s() {
-      for (i <- 10 to 100 by 10)
-        print(i + " ")
+      for (i <- 1 to 10) {
+        print(i * 10 + " ")
+      }
     }
+
   }
 
   // ===============================================================
@@ -53,8 +59,10 @@ class Loes_B14_1 extends Solution {
   task(6) {
 
     def countMod(mod: Int) {
-      for (i <- 1 to 10)
+      for (i <- 1 to 10) {
         if (i % mod == 0) print(i + " ")
+      }
     }
+
   }
 }

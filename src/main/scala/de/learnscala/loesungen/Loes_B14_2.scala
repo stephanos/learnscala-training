@@ -15,6 +15,7 @@ class Loes_B14_2 extends Solution {
         case '!' => "factorial"
         case _ => "unknown"
       }
+
   }
 
   // ===============================================================
@@ -26,6 +27,7 @@ class Loes_B14_2 extends Solution {
         case "Sunday" | "Saturday" => false
         case _ => true
       }
+
   }
 
   // ===============================================================
@@ -40,6 +42,7 @@ class Loes_B14_2 extends Solution {
         case i: Int if i < 0 => "negative integer"
         case _ => "unknown"
       }
+
   }
 
   // ===============================================================
@@ -50,6 +53,7 @@ class Loes_B14_2 extends Solution {
       if (n % 2 != 0) throw new RuntimeException("n must be even")
       n / 2
     }
+
   }
 
   // ===============================================================
@@ -62,6 +66,7 @@ class Loes_B14_2 extends Solution {
       } catch {
         case _: Throwable => 0
       }
+
   }
 
   // ===============================================================
@@ -84,5 +89,6 @@ class Loes_B14_2 extends Solution {
       } finally {
         f.close()
       }
+
   }
 }

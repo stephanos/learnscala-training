@@ -26,6 +26,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
 
         def theAnswerToLifeTheUniverseAndEverything =
             21
+
     }
 
     // ===============================================================
@@ -43,6 +44,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
         def signum(n: Int) = {
             TODO
         }
+
     }
 
     // ===============================================================
@@ -61,6 +63,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
          */
 
         TODO
+
     }
 
 
@@ -76,6 +79,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
          */
 
         TODO
+
     }
 
     // ===============================================================
@@ -90,6 +94,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
          */
 
         TODO
+
     }
 
     // ===============================================================
@@ -105,6 +110,7 @@ class Ubng_B14_1 extends Exercise with Help /* with Disabled */ {
          **/
 
         TODO
+
     }
 
 }
