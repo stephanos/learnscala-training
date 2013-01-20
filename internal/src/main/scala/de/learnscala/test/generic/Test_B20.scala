@@ -12,7 +12,7 @@ abstract class Test_B20[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "result must be '1/2'" ! {
-                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must be("1/2")
+                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must beEqualTo("1/2")
               }
         }
     } ^ test()("r2", "method") {
@@ -21,7 +21,7 @@ abstract class Test_B20[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "result must be '1/4'" ! {
-                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must be("1/4")
+                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must beEqualTo("1/4")
               }
         }
     } ^ test()("r3", "method") {
@@ -29,8 +29,8 @@ abstract class Test_B20[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() ^
-              "result must be '1/2'" ! {
-                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must be("1/4")
+              "result must be '1/4'" ! {
+                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must beEqualTo("1/4")
               }
         }
     } ^ test()("r4", "method") {
@@ -39,7 +39,7 @@ abstract class Test_B20[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "result must be '7/12'" ! {
-                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must be("7/12")
+                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must beEqualTo("7/12")
               }
         }
     } ^ test()("r5", "method") {
@@ -48,7 +48,7 @@ abstract class Test_B20[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "result must be '2/1'" ! {
-                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must be("2/1")
+                Option(m.invoke()).map(_.toString).getOrElse("<missing>").aka("Bruch") must beEqualTo("2/1")
               }
         }
     }

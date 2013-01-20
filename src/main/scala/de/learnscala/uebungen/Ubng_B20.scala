@@ -32,9 +32,9 @@ class Ubng_B20 extends Exercise with Help /* with Disabled */ {
 
     def r1 = TODO // new Bruch(1, 2)
 
-    def r2 = TODO // (new Bruch(1, 2)) * (new Bruch(1, 2))
+    def r2 = TODO // (new Bruch(1, 8)) / (new Bruch(1, 2))
 
-    def r3 = TODO // (new Bruch(1, 8)) / (new Bruch(1, 2))
+    def r3 = TODO // (new Bruch(1, 2)) * (new Bruch(1, 2))
 
     def r4 = TODO // (new Bruch(7, 8)) * (new Bruch(2, 3))
 

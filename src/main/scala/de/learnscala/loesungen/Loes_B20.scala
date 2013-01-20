@@ -39,9 +39,9 @@ class Loes_B20 extends Solution {
 
     def r1 = new Bruch(1, 2)
 
-    def r2 = (new Bruch(1, 2)) * (new Bruch(1, 2))
+    def r2 = (new Bruch(1, 8)) / (new Bruch(1, 2))
 
-    def r3 = (new Bruch(1, 8)) / (new Bruch(1, 2))
+    def r3 = (new Bruch(1, 2)) * (new Bruch(1, 2))
 
     def r4 = (new Bruch(7, 8)) * (new Bruch(2, 3))
 
