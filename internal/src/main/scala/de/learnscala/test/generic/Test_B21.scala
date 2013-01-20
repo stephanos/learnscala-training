@@ -5,6 +5,8 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
 
+  override def twoPass = false // StackOverflow simulated ...
+
   override val fs =
     task(1)("gcd", "method") {
       implicit ctx =>
@@ -13,8 +15,7 @@ abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
             mustHaveParams(2) ^
               mustReturn(2, 2, 4) ^
               mustReturn(3, 6, 9) ^
-              mustReturn(8, 8, 16) ^
-              mustReturn(2, 2943918, 2850784)
+              mustReturn(8, 8, 16)
         }
     } ^ task(2)("fib", "method") {
       implicit ctx =>

@@ -82,7 +82,25 @@ trait Matchers {
     // TODO: check types
   }
 
-  protected def shouldNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
+  protected def mustUse(descr: String, items: (String, String)*)(implicit tm: TaskMethod): Example = {
+    "must use " + descr + ": " + items.map(_._1).mkString("'", "', '", "'") ! {
+      val raw = tm.ctx.getMethod("_raw").get.invoke().asInstanceOf[String]
+      println(raw)
+      val missing =
+        items.foldLeft(List[String]()) { (r,m) =>
+        if(raw.contains(m._2))
+          r
+        else
+          m._1 :: r
+      }
+      if(missing.isEmpty)
+        success
+      else
+        Failure("code is not using required " + descr + ": " + missing.mkString("'", "', ", "'"))
+    }
+  }
+
+  protected def mustNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
     "must not use the method" + (if (mths.length > 0) "s" else "") + ": " + mths.mkString("'", "', '", "'") ! {
       val raw = tm.ctx.getMethod("_source").get.invoke().asInstanceOf[String]
       println(raw)

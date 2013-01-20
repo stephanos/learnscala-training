@@ -247,7 +247,7 @@ class TaskMacro[C <: Context](val c: C) {
 object TaskMacro {
 
   def singleTask(c: Context)(code: c.Expr[Any]): c.Expr[Any] = {
-    new TaskMacro[c.type](c).apply(0, code)
+    new TaskMacro[c.type](c).apply(1, code)
   }
 
   def task(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {

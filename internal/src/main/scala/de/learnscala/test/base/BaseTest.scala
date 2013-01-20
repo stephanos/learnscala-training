@@ -44,7 +44,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   //protected def test(name: String, typeOf: String = "", prefix: String = "", descr: String = null)(fn: TaskContext => Fragments) =
   //    task(1)(name, typeOf, descr)(fn)
 
-  protected def test(n: Int)(name: String, typeOf: String = "", descr: String = null)(fn: TaskContext => Fragments) =
+  protected def test(n: Int = 1)(name: String, typeOf: String = "", descr: String = null)(fn: TaskContext => Fragments) =
     _test(1, name, typeOf, "Task #" + n, descr)(fn)
 
   protected def task(n: Int)(name: String, typeOf: String = "", descr: String = null)(fn: TaskContext => Fragments) =

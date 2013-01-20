@@ -14,14 +14,13 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T]() {
               Option(m.invoke()).map(_.toString).getOrElse(null) === "1/2"
             }
         }
-    } ^
-      task(2)("r", "method") {
-        implicit ctx =>
-          mustHaveMethod {
-            implicit m =>
-              "must increase value of '150' by 50%" ! {
-                m.invoke() === 225
-              }
-          }
-      }
+    } ^ task(2)("r", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            "must increase value of '150' by 50%" ! {
+              m.invoke() === 225
+            }
+        }
+    }
 }

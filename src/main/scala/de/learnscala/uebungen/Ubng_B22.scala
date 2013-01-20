@@ -28,4 +28,11 @@ class Ubng_B22 extends Exercise with Help /* with Disabled */ {
 
     def r = TODO // 150 +% 50
   }
+
+  // ===============================================================
+
+  task(3) {
+
+
+  }
 }

@@ -18,6 +18,23 @@ class Loes_F24_2 extends Solution {
       } yield
         println(u.first)
     */
+
+    /*
+
+        val row: Option[Row] = database fetchRowById 42
+        val key: Option[String] = row flatMap { _ get “port_key” }
+        val value: Option[MyType] = key flatMap (myMap get)
+        val result: MyType = value getOrElse defaultValue
+        There, wasn’t that nifty? We can actually do a lot better if we use for-comprehensions:
+        val value = for {
+        row <- database fetchRowById 42
+        key <- row get "port_key"
+        value <- myMap get key
+        } yield value
+        val result = value getOrElse defaultValue
+
+
+     */
   }
 
 

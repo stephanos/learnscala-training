@@ -11,7 +11,7 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
      * Methode 'gcd'
      *
      * @param x
-     * @oaram y
+     * @param y
      * @return Größter gemeinsamer Teiler (kgV)
      *
      * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
@@ -50,7 +50,9 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
       n match {
         case 0 => 0
         case 1 => 1
-        case _ => fib(n - 1) + fib(n - 2)
+        case _ =>
+          println(n)
+          fib(n - 1) + fib(n - 2)
       }
 
   }
