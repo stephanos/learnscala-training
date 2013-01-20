@@ -7,6 +7,20 @@ class Loes_B21 extends Solution {
   import annotation.tailrec
 
   task(1) {
+
+    @tailrec
+    def gcd(a: Int, b: Int): Int =
+      if (b == 0)
+        a
+      else
+        gcd(b, a % b)
+
+  }
+
+  // ===============================================================
+
+  task(2) {
+
     def fib(n: Int): BigInt = {
 
       @tailrec
@@ -19,5 +33,6 @@ class Loes_B21 extends Solution {
 
       tailFib(n, 0L, 1L)
     }
+
   }
 }

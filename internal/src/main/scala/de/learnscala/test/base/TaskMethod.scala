@@ -13,10 +13,13 @@ case class TaskMethod(name: String, sym: MethodSymbol, ctx: TaskContext) {
       mirror.apply(args: _*)
     } catch {
       case e: IllegalArgumentException =>
+        val actTypes = params.flatMap(_.map(_.typeSignature)).mkString("'", "', '", "'")
+        val expTypes = args.map(_.getClass.getSimpleName).mkString("'", "', '", "'")
+
         if (args.size <= 1)
-          throw new RuntimeException("method parameter type does NOT match input value type", e)
+          throw new RuntimeException(s"method parameter type ($actTypes) does NOT expected type ($expTypes)", e)
         else
-          throw new RuntimeException("method parameter types do NOT match input value types", e)
+          throw new RuntimeException(s"method parameter types ($actTypes) do NOT match expected types ($expTypes)", e)
     }
 
   def params =

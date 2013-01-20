@@ -63,7 +63,7 @@ class Loes_F24_2 extends Solution {
     7L -> 5L,
     8L -> 3L,
     9L -> 4L,
-    10L -> 2L,
+    10L -> 2L
   )
 
   val friends = List(

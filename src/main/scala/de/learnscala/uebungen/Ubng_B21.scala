@@ -4,7 +4,26 @@ import de.learnscala.base._
 
 class Ubng_B21 extends Exercise with Help /* with Disabled */ {
 
-  task {
+  task(1) {
+
+    /**
+     * Methode 'gcd'
+     *
+     * @param x
+     * @oaram y
+     * @return Größter gemeinsamer Teiler (kgV)
+     */
+
+    def gcd(x: Int, y: Int): Int = {
+      if (x == 0) y
+      else if (x < 0) gcd(-x, y)
+      else if (y < 0) -gcd(x, -y)
+      else gcd(y % x, x)
+    }
+
+  }
+
+  task(2) {
 
     /**
      * Methode 'fib'
