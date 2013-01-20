@@ -11,7 +11,7 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      */
 
     def printAd(firstName: String, age: Int, height: Float, weight: Int, hobbies: List[String]) =
-      ""
+      TODO
   }
 
   // ===============================================================
@@ -26,7 +26,7 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      */
 
     def list123 =
-      Seq() // nums"1,2,3"
+      TODO // nums"1,2,3"
   }
 
   // ===============================================================
@@ -38,6 +38,10 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      */
 
     def list123 =
-      Seq() // nums"1,{1 + 1},{1 + 1 + 1}"
+      TODO // nums"1,{1 + 1},{1 + 1 + 1}"
   }
+}
+
+object Ubng_B23 {
+
 }

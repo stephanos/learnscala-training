@@ -18,13 +18,15 @@ abstract class Test_B23[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn(List(1, 2, 3))
+            mustHaveParams(0) ^
+              mustReturn(List(1, 2, 3))
         }
     } ^ task(3)("list123", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn(List(1, 2, 3))
+            mustHaveParams(0) ^
+              mustReturn(List(1, 2, 3))
         }
     }
 }

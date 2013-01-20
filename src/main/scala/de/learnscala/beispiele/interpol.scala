@@ -11,7 +11,7 @@ object Main extends App {
   println(f"$name is $height%2.2f meters tall")
 
 
-  implicit class XMLHelper(val sc: StringContext) extends AnyVal {
+  implicit class XMLHelper(val sc: StringContext) /* extends AnyVal */ {
     def xml(args: Any*) =
       scala.xml.XML.load(scala.xml.Source.fromString(sc.s(args: _*)))
   }

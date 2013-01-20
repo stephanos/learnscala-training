@@ -34,12 +34,12 @@ class Loes_B23 extends Solution {
 
 object Loes_B23 {
 
-  implicit class ListHelper(val sc: StringContext) extends AnyVal {
+  implicit class ListHelper(val sc: StringContext) {
 
     def nums(args: Any*): Seq[Int] = {
-      println(sc.s(args))
-      sc.s(args).split(",").map(_.toInt)
+      val fs = sc.s(args: _*)
+      val nums = fs.split(",")
+      nums.map(_.toInt)
     }
   }
-
 }
