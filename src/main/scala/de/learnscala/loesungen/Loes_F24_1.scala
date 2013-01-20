@@ -31,39 +31,56 @@ class Loes_F24_1 extends Solution {
 
   task(1) {
 
-    def titlesWithAuthorMartin =
-      for (b <- books; a <- b.authors if a._2 == "Martin")
-      yield b.title
+    def printAllTitles =
+      for (b <- books) {
+        println(b.title)
+      }
+
   }
 
   // ===============================================================
 
   task(2) {
 
-    def isbnsWithAuthorS =
+    def titlesWithAuthorMartin =
       for {
         b <- books
-        a <- b.authors if a._1 startsWith "S"
-      } yield b.isbn
+        a <- b.authors if a._2 == "Martin"
+      } yield b.title
+
   }
 
   // ===============================================================
 
   task(3) {
 
-    def priceAndTitleOfScalaBooks =
-      for (b <- books if b.title contains "Scala")
-      yield (b.title -> b.price)
+    def isbnsWithAuthorS =
+      for {
+        b <- books
+        a <- b.authors if a._1 startsWith "S"
+      } yield b.isbn
+
   }
 
   // ===============================================================
 
   task(4) {
 
-    def titlesOutOfStock = {
-      val test = books.map(b => b)
-      for (b <- books if (b.stock.isEmpty))
-      yield b.title
-    }
+    def priceAndTitleOfScalaBooks =
+      for {
+        b <- books if b.title contains "Scala"
+      } yield (b.title -> b.price)
+
+  }
+
+  // ===============================================================
+
+  task(5) {
+
+    def titlesOutOfStock =
+      for {
+        b <- books if (b.stock.isEmpty)
+      } yield b.title
+
   }
 }

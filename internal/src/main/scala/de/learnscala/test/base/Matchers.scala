@@ -72,7 +72,7 @@ trait Matchers {
     mustHaveMethod(ctx.name)(f)
 
   protected def mustHaveParams(count: Int)(implicit tm: TaskMethod): Example = {
-    ("must have " + (if (count == 0) "no" else count) + " parameter" + (if (count != 1) "s" else "")) ! {
+    ("must have " + count + " parameter" + (if (count != 1) "s" else "")) ! {
       (tm.params.flatten.size) aka "size of parameter list" must beEqualTo(count)
     }
   }
