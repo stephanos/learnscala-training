@@ -10,127 +10,109 @@ abstract class Test_F21[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1)
-            m.name + " must return '[1,2,3]' for (1,2,3)" ! {
-              m.invoke(List(1, 2, 3)) === "[1,2,3]"
-            }
+            mustHaveParams(1) ^
+              mustReturn("[1,2,3]", Traversable(1, 2, 3))
         }
     } ^ task(2)("join", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(2) ^
-              m.name + " must return '(1,2,3,4)' for (1,2) and (3,4)" ! {
-                m.invoke(List(1, 2), List(3, 4)) === List(1, 2, 3, 4)
-              }
+              mustReturn(List(1, 2, 3, 4), List(1, 2), List(3, 4))
         }
     } ^ task(3)("first2", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return '(1,2)' for (1,2,3,4)" ! {
-                m.invoke(List(1, 2, 3, 4)) === List(1, 2)
-              }
+              mustReturn(List(1, 2), List(1, 2, 3, 4))
         }
     } ^ task(4)("sumOf", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return '6' for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === 6
-              }
+              mustReturn(6, List(1, 2, 3))
         }
-    } ^ task(5)("withoutFirst", "method") {
+    } ^ task(5)("length", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return '(2, 3)' for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(2, 3)
-              }
+              mustReturn(3, List(1, 2, 3))
         }
-    } ^ task(6)("biggest", "method") {
+    } ^ task(6)("withoutFirst", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return '3' for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === 3
-              }
+              mustReturn(List(2, 3), List(1, 2, 3))
         }
-    } ^ task(7)("makeList", "method") {
+    } ^ task(7)("biggest", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams(1) ^
+              mustReturn(3, List(1, 2, 3))
+        }
+    } ^ task(8)("makeList", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(3) ^
-              m.name + " must return (1,2,3) for 1, 2 and 3" ! {
-                m.invoke(1, 2, 3) === List(1, 2, 3)
-              }
+              mustReturn(List(1, 2, 3), 1, 2, 3)
         }
-    } ^ task(8)("unique", "method") {
+    } ^ task(9)("unique", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return (1,2,3) for (1,2,2,3,3)" ! {
-                m.invoke(List(1, 2, 2, 3, 3)) === List(1, 2, 3)
-              }
+              mustReturn(List(1, 2, 3), List(1, 2, 2, 3, 3))
         }
-    } ^ task(9)("backwards", "method") {
+    } ^ task(10)("backwards", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return (3,2,1) for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(3, 2, 1)
-              }
+              mustReturn(List(3, 2, 1), List(1, 2, 3))
         }
-    } ^ task(10)("has42and101", "method") {
+    } ^ task(11)("has42and101", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return 'true' for (1,42,101)" ! {
-                m.invoke(Set(1, 42, 101)) === true
-              } ^
-              m.name + " must return 'false' for (1,42)" ! {
-                m.invoke(Set(1, 42)) === false
-              } ^
-              m.name + " must return false' for (1,101)" ! {
-                m.invoke(Set(1, 101)) === false
-              }
+              mustReturn(true, Set(1, 42, 101))  ^
+              mustReturn(false, Set(1, 42)) ^
+              mustReturn(false, Set(1, 101))
         }
-    } ^ task(11)("mergeSet", "method") {
+    } ^ task(12)("mergeSet", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(2) ^
-              m.name + " must return (1,2,3,4) for (1,2) and (3,4)" ! {
-                m.invoke(Set(1, 2), Set(3, 4)) === Set(1, 2, 3, 4)
-              }
+              mustReturn(Set(1, 2, 3, 4), Set(1, 2), Set(3, 4))
         }
-    } ^ task(12)("withoutKey42", "method") {
+    } ^ task(13)("withoutKey42", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return '(101 -> false)' for (42 -> true, 101 -> false)" ! {
-                m.invoke(Map(42 -> true, 101 -> false)) === Map(101 -> false)
-              }
+              mustReturn(Map(101 -> false), Map(42 -> true, 101 -> false))
         }
-    } ^ task(13)("hasKey42", "method") {
+    } ^ task(14)("hasKey42", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) ^
-              m.name + " must return 'true' for (42 -> true, 101 -> false)" ! {
-                m.invoke(Map(42 -> true, 101 -> false)) === true
-              } ^
-              m.name + " must return 'false' for (43 -> true, 101 -> false)" ! {
-                m.invoke(Map(43 -> true, 101 -> false)) === false
-              }
+              mustReturn(true, Map(42 -> true, 101 -> false)) ^
+              mustReturn(false,  Map(43 -> true, 101 -> false))
+        }
+    } ^ task(15)("allKeys", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams(1) ^
+              mustReturn(Set(42, 101), Map(42 -> true, 101 -> false))
         }
     }
 }

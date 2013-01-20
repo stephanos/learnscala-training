@@ -126,10 +126,10 @@ class Ubng_F21 extends Exercise with Help /* with Disabled */ {
   /////////////////////////////////////////////////////////
   // Map
 
-  /**
-   * Entfernt Schlüssel '42' aus der Map.
-   */
   task(13) {
+    /**
+     * Entfernt Schlüssel '42' aus der Map.
+     */
     def withoutKey42(m: Map[Int, Boolean]) =
       TODO
   }
@@ -139,6 +139,14 @@ class Ubng_F21 extends Exercise with Help /* with Disabled */ {
      * Ermittelt ob Map den Schlüssel '42' enthält.
      */
     def hasKey42(m: Map[Int, Boolean]) =
+      TODO
+  }
+
+  task(15) {
+    /**
+     * Liefert alle Schlüssel der Map
+     */
+    def allKeys(m: Map[Int, Boolean]) =
       TODO
   }
 }

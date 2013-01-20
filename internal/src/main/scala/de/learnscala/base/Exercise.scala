@@ -2,5 +2,9 @@ package de.learnscala.base
 
 class Exercise extends Testable {
 
-    def TODO = ???
+  class TODO {
+    override def toString = "TODO"
+  }
+
+  def TODO = new TODO
 }

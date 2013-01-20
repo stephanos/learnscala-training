@@ -37,7 +37,7 @@ class Loes_F21 extends Solution {
       t.drop(1)
   }
 
-  task(6) {
+  task(7) {
     def biggest(t: Traversable[Int]) =
       t.max
   }
@@ -45,17 +45,17 @@ class Loes_F21 extends Solution {
   /////////////////////////////////////////////////////////
   // List
 
-  task(7) {
+  task(8) {
     def makeList(e1: Int, e2: Int, e3: Int) =
       List(e1, e2, e3)
   }
 
-  task(8) {
+  task(9) {
     def unique(l: List[Int]) =
       l.distinct
   }
 
-  task(9) {
+  task(10) {
     def backwards(l: List[Int]) =
       l.reverse
   }
@@ -64,12 +64,12 @@ class Loes_F21 extends Solution {
   /////////////////////////////////////////////////////////
   // Set
 
-  task(10) {
+  task(11) {
     def has42and101(s: Set[Int]) =
       Set(42, 101) subsetOf s
   }
 
-  task(11) {
+  task(12) {
     def mergeSet(s1: Set[Int], s2: Set[Int]) =
       s1 union s2
   }
@@ -78,13 +78,18 @@ class Loes_F21 extends Solution {
   /////////////////////////////////////////////////////////
   // Map
 
-  task(12) {
+  task(13) {
     def withoutKey42(m: Map[Int, Boolean]) =
       m - 42
   }
 
-  task(13) {
+  task(14) {
     def hasKey42(m: Map[Int, Boolean]) =
       m contains 42
+  }
+
+  task(15) {
+    def allKeys(m: Map[Int, Boolean]) =
+      m.keySet
   }
 }
