@@ -3,6 +3,7 @@ package de.learnscala.uebungen
 import java.io._
 import de.learnscala.base._
 
+
 class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
   /**
