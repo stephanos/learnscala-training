@@ -6,7 +6,7 @@ class Loes_B21 extends Solution {
 
   import annotation.tailrec
 
-  task {
+  task(1) {
     def fib(n: Int): BigInt = {
 
       @tailrec

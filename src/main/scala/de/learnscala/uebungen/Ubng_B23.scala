@@ -5,7 +5,7 @@ import de.learnscala.base._
 class Ubng_B23 extends Exercise with Help /* with Disabled */ {
 
   /**
-   * Zunächst wird die Klasse 'Bruch' aus 'Ubng_B22' benötigt.
+   * Zunächst wird die Klasse 'Bruch' aus 'Ubng_B20' benötigt.
    * Bitte einfach hier hinein kopieren.
    */
 
