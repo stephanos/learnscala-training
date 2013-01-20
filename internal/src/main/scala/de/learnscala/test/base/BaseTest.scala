@@ -64,11 +64,11 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   }
 
   private def _test(n: Int, name: String, typeOf: String, prefix: String = "", descr: String = null)(fn: TaskContext => Fragments): Fragments = {
-    val tasks = getInstance[T]().asInstanceOf[Testable]._tasks.toList
+    val tasks = getInstance[T]().asInstanceOf[Testable]._tasks
     val r: Fragments =
-      if (tasks.length >= n) {
+      if (tasks.size >= n) {
         val defDescr = prefix + ": " + typeOf + " '" + name + "'"
-        val tsk = tasks(n - 1)
+        val tsk = tasks(n)
         (if (tsk == null)
           descr ^ {
             "implementation missing" ! {
@@ -77,7 +77,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
           }
         else
           (Option(descr).getOrElse(defDescr)) ^ {
-            fn apply (new TaskContext(name, tasks(n - 1)))
+            fn apply (new TaskContext(name, tasks(n)))
           }
           ) ^ startBlock ^ p
       } else

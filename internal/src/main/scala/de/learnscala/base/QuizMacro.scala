@@ -36,9 +36,10 @@ class QuizMacro[C <: Context](val c: C) {
                 Literal(Constant(()))
               )) //constructor
             ) ::: List(
-              ValDef(Modifiers(OVERRIDE), newTermName("num"), TypeTree(), num.tree),
-              ValDef(Modifiers(OVERRIDE), newTermName("text"), TypeTree(), text.tree),
-              ValDef(Modifiers(OVERRIDE), newTermName("code"), TypeTree(), code.tree)
+              ValDef(Modifiers(OVERRIDE), newTermName("_num"), TypeTree(), num.tree),
+              ValDef(Modifiers(OVERRIDE), newTermName("_text"), TypeTree(), text.tree),
+              ValDef(Modifiers(OVERRIDE), newTermName("_source"), TypeTree(), Literal(Constant(code.tree.toString()))),
+              ValDef(Modifiers(OVERRIDE), newTermName("_raw"), TypeTree(), Literal(Constant(showRaw(code.tree))))
             ) ::: userCode
           ))
         ),

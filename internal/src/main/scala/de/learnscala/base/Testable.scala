@@ -1,23 +1,24 @@
 package de.learnscala.base
 
 import language.experimental.macros
-import collection.mutable.ListBuffer
+import collection.mutable
 
 trait Testable {
 
   type Tsk = Task
   type Qiz = Quiz
 
-  var _quiz = ListBuffer[Quiz]()
-  var _tasks = ListBuffer[Task]()
+  var _quiz = mutable.Map[Int, Quiz]()
+  var _tasks = mutable.Map[Int, Task]()
 
   protected def registerTask(num: Int, t: Task) {
-    _tasks += t
+    assert(!_tasks.contains(num), s"Task #$num is already registered!")
+    _tasks(num) = t
   }
 
   protected def registerQuiz(num: Int, q: Quiz) {
-    println(q)
-    _quiz += q
+    assert(!_quiz.contains(num), s"Quiz #$num is already registered!")
+    _quiz(num) = q
   }
 
   protected def task(code: Any): Any = macro TaskMacro.singleTask
