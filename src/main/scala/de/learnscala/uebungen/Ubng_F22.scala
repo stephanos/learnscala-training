@@ -7,12 +7,33 @@ class Ubng_F22 extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
-     * Liste aus den deutschen Tagen der Woche, unterteilt in Wochentage und Wochenendtage.
+     * Bewältigen Sie das Quiz:
+     * Ersetzen Sie den rechten Teil des Vergleichs mit dem entsprechenden Ergebnis!
      */
 
-    def weekDays = TODO
-    def weekendDays = TODO
+    def r1 =
+      "Hello" :: List("World") == List(TODO)
 
+    def r2 =
+      ("Hello" :: "World" :: Nil).mkString("", " ", "!") == TODO
+
+    def r3 =
+      Nil.size == TODO
+
+    def r4 =
+      Nil.::(4).::(3).::(2).::(1) == TODO
+
+    def r5 =
+      List().headOption == TODO
+
+    def r6 =
+      List(1, 2, 3).tail == TODO
+
+    def r7 =
+      List('a', 'b', 'c').head == TODO
+
+    def r8 =
+      List("1" :: "2" :: Nil, "3") == TODO
   }
 
   // ===============================================================
@@ -20,11 +41,15 @@ class Ubng_F22 extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
-     * Ermittelt das letzte Element einer Liste (None falls nicht vorhanden).
+     * Methoden:
+     *
+     * 'weekDays': Liste aus den deutschen Wochentagen
+     * 'weekendDays': Liste aus den deutschen Wochenendtagen
+     * 'days': Liste aller Tage der Woche
      */
 
-    def last(l: List[Int]): Option[Int] =
-      None
+    TODO
+
   }
 
   // ===============================================================
@@ -32,12 +57,34 @@ class Ubng_F22 extends Exercise with Help /* with Disabled */ {
   task(3) {
 
     /**
-     * BONUS
+     * Methode 'lastElem'
      *
-     * Ermittelt das dritte Element einer Liste (None falls nicht vorhanden).
+     * @param l eine Liste
+     * @return das letzte Element einer Liste, None falls nicht vorhanden
+     *
+     * @note Pattern Matching!
      */
 
-    def third(l: List[Int]): Option[Int] =
-      None
+    TODO
+
+  }
+
+  // ===============================================================
+
+  task(4) {
+
+    /**
+     * BONUS!
+     *
+     * Methode 'thirdElem'
+     *
+     * @param l eine Liste
+     * @return das dritte Element der Liste, None falls nicht vorhanden
+     *
+     * @note Pattern Matching!
+     */
+
+    TODO
+
   }
 }

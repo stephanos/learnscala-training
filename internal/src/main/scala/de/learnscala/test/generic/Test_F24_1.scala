@@ -30,12 +30,8 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must have titles of books with author 'Martin'" ! {
-                val l = m.invoke()
-                l match {
-                  case li: List[_] =>
-                    li must containAllOf(List("Programming In Scala", "Patterns of Enterprise Application Architecture"))
-                  case _ =>
-                    sys.error("result is not a list")
+                withList(m.invoke()) {
+                  _ must containAllOf(List("Programming In Scala", "Patterns of Enterprise Application Architecture"))
                 }
               }
         }
@@ -45,12 +41,8 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must have ISBNs of books where author's lastname starts with 'S'" ! {
-                val l = m.invoke()
-                l match {
-                  case li: List[_] =>
-                    li must containAllOf(List("3868020640", "0321127420"))
-                  case _ =>
-                    sys.error("result is not a list")
+                withList(m.invoke()) {
+                  _ must containAllOf(List("3868020640", "0321127420"))
                 }
               }
         }
@@ -60,13 +52,9 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must have list of title and prices where 'Scala' is in the title" ! {
-                val l = m.invoke()
-                l match {
-                  case li: List[_] =>
-                    li must containAllOf(List(("Programming In Scala" -> 36.95f), ("Programming Scala" -> 27.95f),
+                withList(m.invoke()) {
+                  _ must containAllOf(List(("Programming In Scala" -> 36.95f), ("Programming Scala" -> 27.95f),
                       ("Durchstarten mit Scala" -> 24.90f), ("Programming Scala" -> 22.95f)))
-                  case _ =>
-                    sys.error("result is not a list")
                 }
               }
         }
@@ -76,12 +64,8 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must have list of title that are no longer available" ! {
-                val l = m.invoke()
-                l match {
-                  case li: List[_] =>
-                    li must containAllOf(List("Java Virtual Machine", "Patterns of Enterprise Application Architecture"))
-                  case _ =>
-                    sys.error("result is not a list")
+                withList(m.invoke()) {
+                  _ must containAllOf(List("Java Virtual Machine", "Patterns of Enterprise Application Architecture"))
                 }
               }
         }
@@ -91,12 +75,8 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must have list of title that are out of stock" ! {
-                val l = m.invoke()
-                l match {
-                  case li: List[_] =>
-                    li must containAllOf(List("Programming In Scala"))
-                  case _ =>
-                    sys.error("result is not a list")
+                withList(m.invoke()) {
+                  _ must containAllOf(List("Programming In Scala"))
                 }
               }
         }

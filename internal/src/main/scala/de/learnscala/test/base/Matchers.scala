@@ -51,6 +51,14 @@ trait Matchers {
       check ^ f(method.get)
   }
 
+  protected def withList(v: Any)(e: Traversable[_] => Example): Example =
+    v match {
+      case l: Seq[_] =>
+        e(l)
+      case _ =>
+        sys.error("result is not a list")
+    }
+
   protected def mustHaveClass(f: (TaskClass) => Fragments)(implicit ctx: TaskContext): Fragments =
     mustHaveClass(ctx.name)(f)
 
