@@ -161,3 +161,9 @@ Das Buch führt ganz behutsam in die Sprache ein, ohne zu überfordern. Ein fant
 Das Buch enthält weniger ausführliche Erklärungen sondern vielmehr eine übersichtliche Aufbereitung der Fakten - wenig geeignet zum Lernen, aber sehr gut zum schnellen Nachschlagen.
 
 > <http://www.amazon.de/dp/0321774094>
+
+### Scala in Depth, Joshua D. Suereth, Mai 2012
+
+DAS Buch für Fortgeschrittene. Beschreibt Best Practices, geht tief in die Details von Scala ein und beleuchtet fortgeschrittene Themen.
+
+> <http://www.amazon.de/dp/1935182706>

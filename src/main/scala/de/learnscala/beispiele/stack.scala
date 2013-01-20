@@ -2,7 +2,7 @@ package de.learnscala.beispiele
 package stack
 
 /**
- * Typ-Parameter, List
+ * Typparameter, List
  */
 class Stack[T] {
 

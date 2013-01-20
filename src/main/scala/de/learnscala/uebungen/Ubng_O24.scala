@@ -4,6 +4,8 @@ import de.learnscala.base._
 
 class Ubng_O24 extends Exercise with Help /* with Disabled */ {
 
+  // TODO: Cay p.184
+
   /**
    * Aufgabe #1
    *
