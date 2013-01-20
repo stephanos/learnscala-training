@@ -85,7 +85,7 @@ trait Matchers {
   protected def shouldNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
     "must not use the method" + (if (mths.length > 0) "s" else "") + ": " + mths.mkString("'", "', '", "'") ! {
       val m = tm.ctx.getMethod("_listOfCalls").get.invoke().asInstanceOf[List[String]]
-      println(m)
+      //println(m)
       success
     }
 
