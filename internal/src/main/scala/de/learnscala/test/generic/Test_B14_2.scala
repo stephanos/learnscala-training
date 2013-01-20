@@ -45,9 +45,8 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
               mustReturn("string of size 11", "Hello World") ^
               mustReturn("positive integer", 5) ^
               mustReturn("negative integer", -5) ^
-              mustReturn("unknown", true) ^
-              mustReturn("unknown", 5.0f) ^
-              mustReturn("unknown", '$')
+              mustReturn("unknown: $", '$')
+              mustReturn("unknown: false", false)
         }
     } ^ task(4)("half", "method") {
       implicit ctx =>
@@ -59,7 +58,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
               mustReturn(50, 100) ^
               mustReturn(-5, -10) ^
               mustThrow[Throwable](3) ^
-              mustThrow[Throwable](5)
+              mustThrow[Throwable](1337)
         }
     } ^ task(5)("getSize", "method") {
       implicit ctx =>

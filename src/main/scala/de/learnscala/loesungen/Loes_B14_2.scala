@@ -40,7 +40,7 @@ class Loes_B14_2 extends Solution {
         case s: String => "string of size " + s.length
         case i: Int if i > 0 => "positive integer"
         case i: Int if i < 0 => "negative integer"
-        case _ => "unknown"
+        case v => "unknown: " + v
       }
 
   }

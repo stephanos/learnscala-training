@@ -29,6 +29,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
     def nameOfSymbol(symbol: Char) =
       TODO
+
   }
 
   // ===============================================================
@@ -61,6 +62,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
       }
       res
     }
+
   }
 
   // ===============================================================
@@ -71,11 +73,12 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
      * Methode 'describeValue'
      *
      * @param value ein Wert
-     * @return engl. Beschreibung des Wertes
+     * @return englische Beschreibung des Wertes
      */
 
     def describeValue(value: Any) =
       TODO
+
   }
 
   // ===============================================================
@@ -92,6 +95,7 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
     def half(n: Int) =
       TODO
+
   }
 
   // ===============================================================
@@ -107,11 +111,8 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
     def getSize(s: String) =
       TODO
+
   }
-
-  // ===============================================================
-
-  TODO
 
   // ===============================================================
 
@@ -135,5 +136,6 @@ class Ubng_B14_2 extends Exercise with Help /* with Disabled */ {
 
     def readCharFromFile(f: FileReader) =
       TODO
+
   }
 }
