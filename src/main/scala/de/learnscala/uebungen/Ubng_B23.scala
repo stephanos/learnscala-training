@@ -4,18 +4,14 @@ import de.learnscala.base._
 
 class Ubng_B23 extends Exercise with Help /* with Disabled */ {
 
-  /**
-   * Zunächst wird die Klasse 'Bruch' aus 'Ubng_B20' benötigt.
-   * Bitte einfach hier hinein kopieren.
-   */
-
   task(1) {
 
     /**
-     * Sorgen Sie dafür, dass ein Int mit einem Bruch multiplizierbar ist!
+     * Erstelle eine Zeitungsannonce aus den Parametern.
      */
 
-    def r = TODO // 1 * new Bruch(1, 2)
+    def printAd(firstName: String, age: Int, height: Float, weight: Int, hobbies: List[String]) =
+      ""
   }
 
   // ===============================================================
@@ -23,9 +19,25 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
-     * Kreieren Sie den Operator '+%' der eine ganze Zahl prozentual erhöht!
+     * Erstelle einen eigenen Interpolationsbefehl "nums",
+     * der einen String in eine Sequenz aus ganzen Zahlen erstellt.
+     *
+     * @note Platziere die Klasse im Companion Object und importiere sie!
      */
 
-    def r = TODO // 150 +% 50
+    def list123 =
+      Seq() // nums"1,2,3"
+  }
+
+  // ===============================================================
+
+  task(3) {
+
+    /**
+     * Verbessere die Implementierung ggf., so dass auch dynamische Ausdrücke funktionieren.
+     */
+
+    def list123 =
+      Seq() // nums"1,{1 + 1},{1 + 1 + 1}"
   }
 }
