@@ -2,7 +2,7 @@ package de.learnscala.base
 
 import reflect.macros.Context
 
-class Macro[C <: Context](val c: C) {
+class TaskMacro[C <: Context](val c: C) {
 
   import c.universe._
   import Flag._
@@ -56,7 +56,7 @@ class Macro[C <: Context](val c: C) {
     c.Expr {
         c.resetAllAttrs {
           Block(List(
-            Apply(Select(This(tpnme.EMPTY), newTermName("register")), List(Literal(Constant(n)), task))
+            Apply(Select(This(tpnme.EMPTY), newTermName("registerTask")), List(Literal(Constant(n)), task))
           ), Literal(Constant(())))
         }
       }
@@ -258,16 +258,15 @@ class Macro[C <: Context](val c: C) {
   //c.Expr(Block(vals, Literal(Constant(()))))
 }
 
-object Macro {
+object TaskMacro {
 
   def singleTask(c: Context)(code: c.Expr[Any]): c.Expr[Any] = {
-    new Macro[c.type](c).apply(0, code)
+    new TaskMacro[c.type](c).apply(0, code)
   }
 
   def task(c: Context)(num: c.Expr[Int])(code: c.Expr[Any]): c.Expr[Any] = {
     import c.universe._
     val Literal(Constant(n: Int)) = num.tree
-    new Macro[c.type](c).apply(n, code)
+    new TaskMacro[c.type](c).apply(n, code)
   }
-
 }

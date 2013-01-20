@@ -4,7 +4,6 @@ import de.learnscala.base.Solution
 
 class Loes_F21 extends Solution {
 
-
   /////////////////////////////////////////////////////////
   // Traversable
 

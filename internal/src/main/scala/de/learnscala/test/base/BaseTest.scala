@@ -64,7 +64,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   }
 
   private def _test(n: Int, name: String, typeOf: String, prefix: String = "", descr: String = null)(fn: TaskContext => Fragments): Fragments = {
-    val tasks = getInstance[T]().asInstanceOf[Testable].tasks.toList
+    val tasks = getInstance[T]().asInstanceOf[Testable]._tasks.toList
     val r: Fragments =
       if (tasks.length >= n) {
         val defDescr = prefix + ": " + typeOf + " '" + name + "'"

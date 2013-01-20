@@ -6,10 +6,11 @@ class Ubng_F21 extends Exercise with Help /* with Disabled */ {
 
 
   /**
-   * Für die folgenden Aufgaben sollte die offizielle Scala API-Dokumentation verwendet werden:
-   * => http://www.scala-lang.org/api/current/index.html
+   * Für die folgenden Aufgaben sollte die offizielle Scala API-Dokumentation verwendet werden!
    *
-   * PS: Es wird niemals mehr als 1 Zeile benötigt!
+   * @see http://www.scala-lang.org/api/current/index.html
+   *
+   * @note Es wird niemals mehr als 1 Zeile benötigt!
    */
 
 
