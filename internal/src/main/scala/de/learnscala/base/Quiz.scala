@@ -1,8 +1,11 @@
 package de.learnscala.base
 
-case class Quiz(num: Int,
-                text: String,
-                //source: String,
-                raw: String)
+abstract class Quiz {
 
-//answer: Any)
+  def num: Int
+  def text: String
+  //def source: String
+  def raw: String
+  //answer: Any)
+
+}

@@ -2,6 +2,9 @@ package de.learnscala.base
 
 class Task {
 
+    val _raw = ""
+    val _source = ""
+
     val _noOfIfs = 0
     val _noOfVars = 0
     val _noOfVals = 0

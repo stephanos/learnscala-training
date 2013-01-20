@@ -16,6 +16,7 @@ class TaskMacro[C <: Context](val c: C) {
     }
 
     object WorkaroundTransformer extends Transformer {
+
       override def transform(tree: Tree): Tree = {
         tree match {
           case Template(parents, self, stats) =>
@@ -54,12 +55,12 @@ class TaskMacro[C <: Context](val c: C) {
 
     // generate: call 'register' with 'Task' instance
     c.Expr {
-        c.resetAllAttrs {
-          Block(List(
-            Apply(Select(This(tpnme.EMPTY), newTermName("registerTask")), List(Literal(Constant(n)), task))
-          ), Literal(Constant(())))
-        }
+      c.resetAllAttrs {
+        Block(List(
+          Apply(Select(This(tpnme.EMPTY), newTermName("registerTask")), List(Literal(Constant(n)), task))
+        ), Literal(Constant(())))
       }
+    }
   }
 
   private def pimpUserCode(codeTree: List[Tree])(implicit code: c.Expr[Any]): Block = {
@@ -67,9 +68,10 @@ class TaskMacro[C <: Context](val c: C) {
 
     // gather meta fields
     val meta: List[ValDef] =
-      List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
-        kv => metaField(kv._1, kv._2)
-      } ::: List(listAnnotations, listCalls).map {
+      serialize :::
+        List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
+          kv => metaField(kv._1, kv._2)
+        } ::: List(listAnnotations, listCalls).map {
         kv => metaField(kv._1, kv._2)
       }
 
@@ -190,6 +192,12 @@ class TaskMacro[C <: Context](val c: C) {
       Apply(Select(Select(Select(Select(Ident("scala"), newTermName("collection")), newTermName("immutable")), newTermName("List")), newTermName("apply")), params)
     )
   }
+
+  private def serialize(implicit code: c.Expr[Any]) =
+    List(
+      ValDef(Modifiers(OVERRIDE), newTermName("_raw"), TypeTree(), Literal(Constant(showRaw(code.tree)))),
+      ValDef(Modifiers(OVERRIDE), newTermName("_source"), TypeTree(), Literal(Constant(code.tree.toString())))
+    )
 
   /*
   val tree = code.tree

@@ -31,14 +31,14 @@ class QuizMacro[C <: Context](val c: C) {
             List(
               DefDef(Modifiers(), nme.CONSTRUCTOR, List(), List(List()), TypeTree(), Block(
                 List(
-                  Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List(
-                    num.tree,
-                    text.tree,
-                    code.tree
-                  ))
+                  Apply(Select(Super(This(tpnme.EMPTY), tpnme.EMPTY), nme.CONSTRUCTOR), List())
                 ),
                 Literal(Constant(()))
               )) //constructor
+            ) ::: List(
+              ValDef(Modifiers(OVERRIDE), newTermName("num"), TypeTree(), num.tree),
+              ValDef(Modifiers(OVERRIDE), newTermName("text"), TypeTree(), text.tree),
+              ValDef(Modifiers(OVERRIDE), newTermName("code"), TypeTree(), code.tree)
             ) ::: userCode
           ))
         ),
