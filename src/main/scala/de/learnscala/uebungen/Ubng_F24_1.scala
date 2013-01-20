@@ -7,12 +7,12 @@ class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
   case class Book(title: String,
                   isbn: String,
                   price: Float,
-                  stock: Option[Int],
+                  stock: Option[Int], // None == "aus dem Sortiment"
                   authors: List[(String, String)])
 
   def books = List(
     Book("Programming In Scala", "0981531644", 36.95f,
-      Some(5), List(("Odersky", "Martin"), ("Venners", "Bill"))),
+      Some(0), List(("Odersky", "Martin"), ("Venners", "Bill"))),
     Book("Programming Scala", "0596155956", 27.95f,
       Some(50), List(("Payne", "Alex"), ("Wampler", "Dean"))),
     Book("Durchstarten mit Scala", "3868020640", 24.90f,
@@ -32,6 +32,18 @@ class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
+     * Ausgabe der Namen aller Bücher.
+     */
+
+    def printAllTitles =
+      TODO
+  }
+
+  // ===============================================================
+
+  task(2) {
+
+    /**
      * Liste der Titel von Bücher,
      * bei denen ein Autor mit Vornamen "Martin" mitgewirkt hat.
      */
@@ -42,7 +54,7 @@ class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
 
   // ===============================================================
 
-  task(2) {
+  task(3) {
 
     /**
      * Liste der ISB-Nummern von Büchern, bei denen ein Autor,
@@ -55,7 +67,7 @@ class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
 
   // ===============================================================
 
-  task(3) {
+  task(4) {
 
     /**
      * Tuple aus Titel und Preis von den Büchern, die "Scala" im Titel tragen.
@@ -67,10 +79,22 @@ class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
 
   // ===============================================================
 
-  task(4) {
+  task(5) {
 
     /**
-     * Titel der Bücher, die nicht mehr im Lager ("out of stock") sind.
+     * Titel der Bücher, die nicht mehr im Sortiment sind.
+     */
+
+    def titlesNoLongerAvailable =
+      TODO
+  }
+
+  // ===============================================================
+
+  task(6) {
+
+    /**
+     * Titel der Bücher, die nicht mehr im Lager sind.
      */
 
     def titlesOutOfStock =

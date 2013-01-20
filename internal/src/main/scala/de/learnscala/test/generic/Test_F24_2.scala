@@ -5,7 +5,13 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F24_2[T: TypeTag] extends BaseTest[T]() {
 
-  val forbiddenMethods = List("map", "filter", "flatMap")
-
+  override def fs =
+    task(1)("printAllTitles", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams()
+        }
+    }
 
 }

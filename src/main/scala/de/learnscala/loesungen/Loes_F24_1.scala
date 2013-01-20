@@ -12,7 +12,7 @@ class Loes_F24_1 extends Solution {
 
   def books = List(
     Book("Programming In Scala", "0981531644", 36.95f,
-      Some(5), List(("Odersky", "Martin"), ("Venners", "Bill"))),
+      Some(0), List(("Odersky", "Martin"), ("Venners", "Bill"))),
     Book("Programming Scala", "0596155956", 27.95f,
       Some(50), List(("Payne", "Alex"), ("Wampler", "Dean"))),
     Book("Durchstarten mit Scala", "3868020640", 24.90f,
@@ -77,9 +77,20 @@ class Loes_F24_1 extends Solution {
 
   task(5) {
 
+    def titlesNoLongerAvailable =
+      for {
+        b <- books if b.stock == None
+      } yield b.title
+
+  }
+
+  // ===============================================================
+
+  task(6) {
+
     def titlesOutOfStock =
       for {
-        b <- books if (b.stock.isEmpty)
+        b <- books if b.stock == Some(0)
       } yield b.title
 
   }

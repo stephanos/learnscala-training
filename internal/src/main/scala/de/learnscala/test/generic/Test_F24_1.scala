@@ -14,7 +14,7 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams() ^
               "must print the titles of all books" ! {
-                val out =  captureOutput(m.invoke())._2
+                val out = captureOutput(m.invoke())._2
                 out must contain("Programming In Scala")
                 out must contain("Programming Scala")
                 out must contain("Durchstarten mit Scala")
@@ -70,12 +70,12 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
                 }
               }
         }
-    } ^ task(5)("titlesOutOfStock", "method") {
+    } ^ task(5)("titlesNoLongerAvailable", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams() ^
-              "must have list of title and prices where 'Scala' is in the title" ! {
+              "must have list of title that are no longer available" ! {
                 val l = m.invoke()
                 l match {
                   case li: List[_] =>
@@ -85,5 +85,51 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
                 }
               }
         }
-    }
+    } ^ task(6)("titlesOutOfStock", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams() ^
+              "must have list of title that are out of stock" ! {
+                val l = m.invoke()
+                l match {
+                  case li: List[_] =>
+                    li must containAllOf(List("Programming In Scala"))
+                  case _ =>
+                    sys.error("result is not a list")
+                }
+              }
+        }
+    } /* ^ task(7)("authorsWithMultipleBooks", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams() ^
+              "must have list of authors that have more than 1 book" ! {
+                val l = m.invoke()
+                l match {
+                  case li: List[_] =>
+                    li must containAllOf(List("Bill Venners"))
+                  case _ =>
+                    sys.error("result is not a list")
+                }
+              }
+        }
+    } ^ task(8)("the3MostCommonWordsInTitles", "method") {
+          implicit ctx =>
+            mustHaveMethod {
+              implicit m =>
+                mustHaveParams() ^
+                  "must have list of the 3 most commonly used words in the book titles" ! {
+                    val l = m.invoke()
+                    l match {
+                      case li: List[_] =>
+                        li must have size(3)
+                        li must containAllOf(List("Java", "Scala", "Programming"))
+                      case _ =>
+                        sys.error("result is not a list")
+                    }
+                  }
+            }
+        } */
 }
