@@ -2,50 +2,44 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_B23 extends Solution {
-
-  class Bruch(z: Int, n: Int) {
-
-    private def gcd(x: Int, y: Int): Int = {
-      if (x == 0) y
-      else if (x < 0) gcd(-x, y)
-      else if (y < 0) -gcd(x, -y)
-      else gcd(y % x, x)
-    }
-
-    private val g = gcd(z, n)
-
-    val zaehler: Int = z / g
-    val nenner: Int = n / g
-
-    def *(that: Bruch) =
-      new Bruch(zaehler * that.zaehler, nenner * that.nenner)
-
-    def /(that: Bruch) =
-      new Bruch(zaehler * that.nenner, nenner * that.zaehler)
-
-    def unary_! =
-      new Bruch(nenner, zaehler)
-
-    override def toString =
-      zaehler + "/" + nenner
-  }
+class Loes_B31 extends Solution {
 
   task(1) {
 
-    implicit def int2Bruch(x: Int) = new Bruch(x, 1)
-
-    def r = 1 * new Bruch(1, 2)
+    def printAd(firstName: String, age: Int, height: Float, weight: Int, hobbies: List[String]) = {
+      f"Hi, my name is $firstName. I'm $age years old, weighing $weight kg at $height%1.2f meters. My hobbies are ${hobbies.mkString(" and ")}."
+    }
   }
 
   // ===============================================================
 
-  implicit final class MyInt(i: Int) {
-    def +%(p: Int): Int =
-      math.floor(i + (i / 100.0 * p)).toInt
+  task(2) {
+
+    import Loes_B31._
+
+    def list123 =
+      nums"1,2,3"
   }
 
-  task(2) {
-    def r = 150 +% 50
+  // ===============================================================
+
+  task(3) {
+
+    import Loes_B31._
+
+    def list123 =
+      nums"1,{1 + 1},{1 + 1 + 1}"
   }
+}
+
+object Loes_B31 {
+
+  implicit class ListHelper(val sc: StringContext) extends AnyVal {
+
+    def nums(args: Any*): Seq[Int] = {
+      println(sc.s(args))
+      sc.s(args).split(",").map(_.toInt)
+    }
+  }
+
 }
