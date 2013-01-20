@@ -16,7 +16,4 @@ class Task {
   val _noOfWhiles = 0
   val _noOfReturns = 0
   val _noOfFinallys = 0
-
-  val _listOfAnnot = List[String]()
-  val _listOfCalls = List[String]()
 }

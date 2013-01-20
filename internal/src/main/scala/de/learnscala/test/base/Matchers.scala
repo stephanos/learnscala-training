@@ -84,9 +84,22 @@ trait Matchers {
 
   protected def shouldNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
     "must not use the method" + (if (mths.length > 0) "s" else "") + ": " + mths.mkString("'", "', '", "'") ! {
-      val m = tm.ctx.getMethod("_listOfCalls").get.invoke().asInstanceOf[List[String]]
-      //println(m)
-      success
+      val raw = tm.ctx.getMethod("_source").get.invoke().asInstanceOf[String]
+      println(raw)
+      val violations =
+        mths.foldLeft(List[String]()) { (r,m) =>
+        if(raw.contains(m))
+          m :: r
+        else
+          r
+      }
+      if(violations.isEmpty)
+        success
+      else
+        if(violations.size > 0)
+          Failure("code uses forbidden method: " + violations.head)
+        else
+          Failure("code uses forbidden methods: " + violations.mkString("'", "', ", "'"))
     }
 
   //    def mustHaveParams(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {

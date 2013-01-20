@@ -71,9 +71,7 @@ class TaskMacro[C <: Context](val c: C) {
       serialize :::
         List(countIfs, countDefs, countVals, countNulls, countTrys, countFinallys, countWhiles, countFors, countLines, countVars, countReturns).map {
           kv => metaField(kv._1, kv._2)
-        } ::: List(listAnnotations, listCalls).map {
-        kv => metaField(kv._1, kv._2)
-      }
+        }
 
     // assemble meta fields with user's code
     Block(
@@ -170,28 +168,8 @@ class TaskMacro[C <: Context](val c: C) {
       case e: Return => true
     }.size)
 
-  private def listAnnotations(implicit codeTree: List[Tree]): (String, List[String]) =
-    ("listOfAnnot", List[String]("")) // TODO
-
-  private def listCalls(implicit codeTree: List[Tree]): (String, List[String]) =
-    ("listOfCalls", codeTree.collect {
-      case a: Apply =>
-        println("A", a)
-        a.toString()
-      case s: DefDef =>
-        //println("S", s)
-        s.toString()
-    })
-
   private def metaField(name: String, value: Int) =
     ValDef(Modifiers(OVERRIDE), newTermName("_" + name), TypeTree(), Literal(Constant(value)))
-
-  private def metaField(name: String, value: List[String]) = {
-    val params = value.map(v => Literal(Constant(v)))
-    ValDef(Modifiers(OVERRIDE), newTermName("_" + name), TypeTree(),
-      Apply(Select(Select(Select(Select(Ident("scala"), newTermName("collection")), newTermName("immutable")), newTermName("List")), newTermName("apply")), params)
-    )
-  }
 
   private def serialize(implicit code: c.Expr[Any]) =
     List(
