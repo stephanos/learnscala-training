@@ -13,7 +13,7 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() ^
-              shouldNotUseMethods(forbiddenMethods: _*) ^
+              //shouldNotUseMethods(forbiddenMethods: _*) ^
               "must have titles of books with author 'Martin'" ! {
                 val l = m.invoke()
                 l match {
@@ -30,7 +30,7 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           mustHaveMethod {
             implicit m =>
               mustHaveParams() ^
-                shouldNotUseMethods(forbiddenMethods: _*) ^
+                //shouldNotUseMethods(forbiddenMethods: _*) ^
                 "must have ISBNs of books where author's lastname starts with 'S'" ! {
                   val l = m.invoke()
                   l match {
@@ -47,7 +47,7 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           mustHaveMethod {
             implicit m =>
               mustHaveParams() ^
-                shouldNotUseMethods(forbiddenMethods: _*) ^
+                //shouldNotUseMethods(forbiddenMethods: _*) ^
                 "must have list of title and prices where 'Scala' is in the title" ! {
                   val l = m.invoke()
                   l match {
@@ -65,7 +65,7 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
           mustHaveMethod {
             implicit m =>
               mustHaveParams() ^
-                shouldNotUseMethods(forbiddenMethods: _*) ^
+                //shouldNotUseMethods(forbiddenMethods: _*) ^
                 "must have list of title and prices where 'Scala' is in the title" ! {
                   val l = m.invoke()
                   l match {
