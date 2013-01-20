@@ -1,6 +1,7 @@
 package de.learnscala.uebungen
 
 import de.learnscala.base._
+import annotation.tailrec
 
 class Ubng_B21 extends Exercise with Help /* with Disabled */ {
 
@@ -12,9 +13,12 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
      * @param x
      * @oaram y
      * @return Größter gemeinsamer Teiler (kgV)
+     *
+     * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
      */
 
-    def gcd(x: Int, y: Int): Int = {
+    //@tailrec
+    def gcd(x: Int, y: Int): BigInt = {
       if (x == 0) y
       else if (x < 0) gcd(-x, y)
       else if (y < 0) -gcd(x, -y)
@@ -22,6 +26,8 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
     }
 
   }
+
+  // ===============================================================
 
   task(2) {
 
@@ -36,9 +42,10 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
      *     bei der sich die jeweils folgende Zahl durch Addition ihrer beiden vorherigen Zahlen ergibt:
      *     0, 1, 1, 2, 3, 5, 8, 13, …
      *
-     * @todo Wandle folgende Funktion in eine tail-rekursive Funktion um!
+     * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
      */
 
+    //@tailrec
     def fib(n: Int): BigInt =
       n match {
         case 0 => 0

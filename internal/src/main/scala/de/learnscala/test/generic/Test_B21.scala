@@ -11,7 +11,10 @@ abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams(2) ^
-              mustReturn(0, 0, 0, 0)
+              mustReturn(2, 2, 4) ^
+              mustReturn(3, 6, 9) ^
+              mustReturn(8, 8, 16) ^
+              mustReturn(2, 2943918, 2850784)
         }
     } ^ task(2)("fib", "method") {
       implicit ctx =>

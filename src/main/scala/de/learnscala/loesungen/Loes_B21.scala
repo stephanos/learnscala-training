@@ -9,7 +9,7 @@ class Loes_B21 extends Solution {
   task(1) {
 
     @tailrec
-    def gcd(a: Int, b: Int): Int =
+    def gcd(a: Int, b: Int): BigInt =
       if (b == 0)
         a
       else
