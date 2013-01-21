@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_F23_2 extends Solution {
+class Loes_F30_1 extends Solution {
 
   task(1) {
     def sum(l: List[Int]) =
