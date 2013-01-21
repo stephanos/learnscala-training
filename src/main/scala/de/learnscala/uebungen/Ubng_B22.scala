@@ -7,7 +7,7 @@ class Ubng_B22 extends Exercise with Help /* with Disabled */ {
   /**
    * Sorgen Sie dafür, dass ein Int mit einem Bruch multiplizierbar ist!
    *
-   * @note Bitte dafür die Klasse 'Bruch' aus 'Ubng_B20' hier hinein kopieren.
+   * @note Bitte dafür die Klasse 'Bruch' aus 'Ubng_operator' hier hinein kopieren.
    */
 
   task(1) {

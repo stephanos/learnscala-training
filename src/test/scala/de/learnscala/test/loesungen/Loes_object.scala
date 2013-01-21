@@ -6,5 +6,5 @@ import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Loes_B21
-    extends generic.Test_recursion[loesungen.Loes_B21]
+class Loes_object
+    extends generic.Test_object[loesungen.Loes_O12]

@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_B21
-    extends generic.Test_B21[uebungen.Ubng_B21]
+    extends generic.Test_recursion[uebungen.Ubng_B21]
