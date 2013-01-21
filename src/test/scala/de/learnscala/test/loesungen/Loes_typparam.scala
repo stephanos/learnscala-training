@@ -1,10 +1,10 @@
 package de.learnscala
-package test.uebungen
+package test.loesungen
 
 import de.learnscala.test.generic
 import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Ubng_O24
-    extends generic.Test_O24[uebungen.Ubng_O24]
+class Loes_typparam
+    extends generic.Test_typparam[loesungen.Loes_typparam]

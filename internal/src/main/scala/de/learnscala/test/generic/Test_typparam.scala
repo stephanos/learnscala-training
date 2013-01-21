@@ -3,7 +3,7 @@ package de.learnscala.test.generic
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 
-abstract class Test_O24[T: TypeTag] extends BaseTest[T]() {
+abstract class Test_typparam[T: TypeTag] extends BaseTest[T]() {
 
   //        "p1" ! {
   //            checkType[Pair](p1, "p1", enabled) {

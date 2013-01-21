@@ -3,7 +3,7 @@ package de.learnscala.loesungen
 import java.io._
 import de.learnscala.base.Solution
 
-class Loes_F32 extends Solution {
+class Loes_control2 extends Solution {
 
   def until(condition: => Boolean)(block: => Unit) {
     if (!condition) {

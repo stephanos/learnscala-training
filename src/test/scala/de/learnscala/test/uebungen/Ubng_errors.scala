@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_errors
-    extends generic.Test_F32[uebungen.Ubng_F32]
+    extends generic.Test_control2[uebungen.Ubng_F32]

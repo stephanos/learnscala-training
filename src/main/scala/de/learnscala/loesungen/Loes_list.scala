@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_F22 extends Solution {
+class Loes_list extends Solution {
 
   task(1) {
 

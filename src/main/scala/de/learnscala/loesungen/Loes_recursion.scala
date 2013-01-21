@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_B21 extends Solution {
+class Loes_recursion extends Solution {
 
   import annotation.tailrec
 
