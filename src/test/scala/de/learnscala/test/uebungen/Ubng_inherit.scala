@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_inherit
-    extends generic.Test_inherit[uebungen.Ubng_O11]
+    extends generic.Test_inherit[uebungen.Ubng_inherit]

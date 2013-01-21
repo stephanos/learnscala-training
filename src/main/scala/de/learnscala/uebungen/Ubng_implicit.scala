@@ -2,7 +2,7 @@ package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-class Ubng_B22 extends Exercise with Help /* with Disabled */ {
+class Ubng_implicit extends Exercise with Help /* with Disabled */ {
 
   /**
    * Sorgen Sie dafür, dass ein Int mit einem Bruch multiplizierbar ist!

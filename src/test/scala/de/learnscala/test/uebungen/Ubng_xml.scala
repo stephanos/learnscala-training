@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_xml
-    extends generic.Test_xml[uebungen.Ubng_E20]
+    extends generic.Test_xml[uebungen.Ubng_xml]

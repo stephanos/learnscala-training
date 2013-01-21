@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_operator
-    extends generic.Test_operator[uebungen.Ubng_B20]
+    extends generic.Test_operator[uebungen.Ubng_operator]

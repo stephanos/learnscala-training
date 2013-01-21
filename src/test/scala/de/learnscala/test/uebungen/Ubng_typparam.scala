@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_typparam
-    extends generic.Test_typparam[uebungen.Ubng_O24]
+    extends generic.Test_typparam[uebungen.Ubng_typparam]

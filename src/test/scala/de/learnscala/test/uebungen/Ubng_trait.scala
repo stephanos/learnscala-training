@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_trait
-    extends generic.Test_trait[uebungen.Ubng_O21]
+    extends generic.Test_trait[uebungen.Ubng_trait]
