@@ -2,7 +2,7 @@ package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-class Ubng_F20_2 extends Exercise with Help /* with Disabled */ {
+class Ubng_for_a extends Exercise with Help /* with Disabled */ {
 
     // ===============================================================
 

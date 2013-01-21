@@ -3,7 +3,7 @@ package de.learnscala.uebungen
 import de.learnscala.base._
 import annotation.tailrec
 
-class Ubng_B21 extends Exercise with Help /* with Disabled */ {
+class Ubng_recursion extends Exercise with Help /* with Disabled */ {
 
   // ===============================================================
 
