@@ -6,6 +6,8 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
 
   task {
 
+    // TODO: use Option
+
     /**
      * Lösen Sie die folgenden Aufhaben mit Hilfe der 'map' Funktion!
      *
