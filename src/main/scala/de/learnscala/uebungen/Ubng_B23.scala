@@ -38,7 +38,7 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
      */
 
     def list123 =
-      TODO // nums"1,{1 + 1},{1 + 1 + 1}"
+      TODO // nums"1,${1 + 1},${1 + 1 + 1}"
   }
 }
 
