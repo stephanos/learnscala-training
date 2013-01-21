@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_control_a
-    extends generic.Test_control_1[uebungen.Ubng_B14_1]
+    extends generic.Test_control_a[uebungen.Ubng_B14_1]

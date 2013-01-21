@@ -4,7 +4,7 @@ import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 import java.io.{IOException, File, FileReader}
 
-abstract class Test_control2[T: TypeTag] extends BaseTest[T]() {
+abstract class Test_control_b[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
     task(1)("count", "method") {
