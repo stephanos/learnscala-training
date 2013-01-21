@@ -62,7 +62,8 @@ class Ubng_control_a extends Exercise with Help /* with Disabled */ {
          * @note Math.abs(-5) = 5
          */
 
-        TODO
+        def absMax(n1: Int, n2: Int) =
+            TODO
 
     }
 
@@ -78,7 +79,9 @@ class Ubng_control_a extends Exercise with Help /* with Disabled */ {
          * @example 1 2 3 4 5 6 7 8 9 10
          */
 
-        TODO
+        def countingOut() {
+          TODO
+        }
 
     }
 
@@ -93,7 +96,9 @@ class Ubng_control_a extends Exercise with Help /* with Disabled */ {
          * @example 10 20 30 40 50 60 70 80 90 100
          */
 
-        TODO
+        def count10s() {
+          TODO
+        }
 
     }
 
@@ -109,7 +114,9 @@ class Ubng_control_a extends Exercise with Help /* with Disabled */ {
          *       getrennt durch Leerzeichen
          **/
 
-        TODO
+        def countMod(mod: Int) {
+          TODO
+        }
 
     }
 
