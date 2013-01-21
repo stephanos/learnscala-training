@@ -10,13 +10,8 @@ abstract class Test_func3_b[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            "must return '6' for (1,2,3)" ! {
-              m.invoke(List(1, 2, 3)) === 6
-            } ^
-              "must return '0' for ()" ! {
-                m.invoke(List()) === 0
-              } ^
-              mustNotBeLongerThan(1)
+            mustReturn(List(2, 4), List(1,2,3,4)) ^
+              mustNotBeLongerThan(2) 
         }
     } ^
       task(2)("m2", "method") {
