@@ -7,12 +7,10 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
-     * Methode 'doYouBuyTheCar'
-     *
      * Antwortet (print) ob das Auto gekauft werden soll - abhängig vom Argument.
      */
 
-    TODO
+    def doYouBuyTheCar(b: Option[Boolean]) = TODO
   }
 
   // ===============================================================
@@ -20,11 +18,20 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
-     * Methode 'convertToInt'
-     *
      * Konvertiert einen String in einen Integer (None bei Ausnahme).
      */
 
-    TODO
+    def convertToInt(s: String) = TODO
+  }
+
+  // ===============================================================
+
+  task(3) {
+
+    /**
+     * Addiert den linken mit dem rechten numerischen Wert (falls vorhanden).
+     */
+
+    def addLeftAndRight(left: Option[Long], right: Option[Long]) = TODO
   }
 }
