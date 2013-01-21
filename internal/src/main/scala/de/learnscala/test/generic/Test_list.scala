@@ -18,20 +18,29 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
           mustReturnMethod("r8", true)
     } ^ task(2)("days of the week") {
       implicit ctx =>
-        mustReturnMethodDescr("weekDays", "must contain the 5 German days of the week") {
+        mustHaveMethod("weekDays") {
           implicit m =>
-            withList() {
-              _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
+            mustReturnList() {
+              ls =>
+                "must contain the 5 German days of the week" ! {
+                  ls must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
+                }
             }
-        } ^ mustReturnMethodDescr("weekendDays", "must contain the 2 German days of the weekend") {
+        } ^ mustHaveMethod("weekendDays") {
           implicit m =>
-            withList() {
-              _.toSeq must containAllOf(Seq("Sonntag", "Samstag"))
+            mustReturnList() {
+              ls =>
+                "must contain the 2 German days of the weekend" ! {
+                  ls.toSeq must containAllOf(Seq("Sonntag", "Samstag"))
+                }
             }
-        } ^ mustReturnMethodDescr("days", "must contain all 7 German days of the week") {
+        } ^ mustHaveMethod("days") {
           implicit m =>
-            withList() {
-              _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag", "Samstag"))
+            mustReturnList() {
+              ls =>
+                "must contain all 7 German days of the week" ! {
+                  ls.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag", "Samstag"))
+                }
             }
         }
     } ^ task(3)("lastElem", "method") {

@@ -85,7 +85,8 @@ trait Matchers {
           ("must not be null") ! {
             v must not beNull
           }
-        case l: Seq[Any] => f(l)
+        case l: Seq[Any] =>
+          f(l)
         case _ =>
           ("must have type 'Seq'") ! {
             v must beAnInstanceOf[Seq[_]]
