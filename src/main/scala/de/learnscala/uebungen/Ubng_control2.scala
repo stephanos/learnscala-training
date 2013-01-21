@@ -3,7 +3,7 @@ package de.learnscala.uebungen
 import de.learnscala.base._
 import java.io.{File, Closeable}
 
-class Ubng_F32 extends Exercise with Help /* with Disabled */ {
+class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
   /**
    * Die folgenden 4 Aufgaben-Blöcke beinhalten auskommentierten Quellcode.
@@ -91,7 +91,7 @@ class Ubng_F32 extends Exercise with Help /* with Disabled */ {
   <!-- ################################################################################## -->
 
   /**
-   * BONUS (sehr schwierig!)
+   * BONUS (schwierig!)
    * Kontrollstruktur 'ternary'
    *
    * Benötigt wird eine Kontrollstruktur, ähnlich dem ternären Operator ? bzw. : aus Java:

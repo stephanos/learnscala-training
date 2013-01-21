@@ -6,5 +6,5 @@ import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Ubng_errors
-    extends generic.Test_control2[uebungen.Ubng_F32]
+class Ubng_control2
+    extends generic.Test_control2[uebungen.Ubng_control2]
