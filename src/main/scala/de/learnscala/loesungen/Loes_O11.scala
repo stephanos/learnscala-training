@@ -11,7 +11,7 @@ class Loes_O11 extends Solution {
       def description: String
 
       override def toString =
-        description + " for " + price + "€"
+        description + " for " + "%.2f".format(price) + "€"
     }
 
     class SimpleItem(val price: Float,
@@ -25,8 +25,8 @@ class Loes_O11 extends Solution {
         basePrice * (1 + reducedBy / 100)
     }
 
-    class WeightedItem(val kilos: Int,
-                       val pricePerKilo: Float,
+    class WeightedItem(val pricePerKilo: Float,
+                       val kilos: Int,
                        val baseDescription: String) extends Item {
 
       val price =
@@ -51,11 +51,11 @@ class Loes_O11 extends Solution {
 
     def butter = new SimpleItem(.95f, "Butter")
 
-    def milk = new ReducedItem(1f, 5, "Milk")
+    def milk = new ReducedItem(1.0f, 5, "Milk")
 
     def butterAndMilk = new Bundle(butter, milk)
 
-    def apple5kg = new WeightedItem(5, 0.2f, "Apples")
+    def apple5kg = new WeightedItem(0.2f, 5, "Apples")
 
     def butterMilkAndApples = new Bundle(apple5kg, butterAndMilk)
 

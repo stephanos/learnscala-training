@@ -11,12 +11,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                r =>
-                  "must be 'Butter for 0.95€'" ! {
-                    r.toString === "Butter for 0.95€"
-                  }
-              }
+              mustReturnAsString("Butter for 0.95€")
             }
         }
     } ^ test(2)("milk", "method") {
@@ -24,12 +19,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                r =>
-                  "must be 'Milk for 0.99€'" ! {
-                    r.toString === "Milk for 0.99€"
-                  }
-              }
+              mustReturnAsString("Milk for 0.95€")
             }
         }
     } ^ test(3)("butterAndMilk", "method") {
@@ -37,12 +27,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                r =>
-                  "must be 'Butter & Milk for 1.94€'" ! {
-                    r.toString === "Butter & Milk for 1.94€"
-                  }
-              }
+              mustReturnAsString("Butter & Milk for 1.94€")
             }
         }
     } ^ test(4)("apple5kg", "method") {
@@ -50,12 +35,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                r =>
-                  "must be '5kg Apples for 1.0€'" ! {
-                    r.toString === "5kg Apples for 1.0€"
-                  }
-              }
+              mustReturnAsString("5kg Apples for 1.00€")
             }
         }
     } ^ test(5)("butterMilkAndApples", "method") {
@@ -63,12 +43,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                r =>
-                  "must be '5kg Apples & Butter & Milk for 2.94€'" ! {
-                    r.toString === "5kg Apples & Butter & Milk for 2.94€"
-                  }
-              }
+              mustReturnAsString("5kg Apples & Butter & Milk for 2.94€")
             }
         }
     }

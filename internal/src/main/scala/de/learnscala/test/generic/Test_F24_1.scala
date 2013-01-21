@@ -23,17 +23,18 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
                 out must contain("Patterns of Enterprise Application Architecture")
                 out must contain("Programming Scala")
               }
-              }
+            }
         }
     } ^ task(2)("titlesWithAuthorMartin", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              "must have titles of books with author 'Martin'" ! {
-                withList(m.invoke()) {
-                  _.toSeq must containAllOf(List("Programming In Scala", "Patterns of Enterprise Application Architecture"))
-                }
+              mustReturnList() {
+                l =>
+                  "must have titles of books with author 'Martin'" ! {
+                    l.toSeq must containAllOf(List("Programming In Scala", "Patterns of Enterprise Application Architecture"))
+                  }
               }
             }
         }
@@ -42,10 +43,11 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              "must have ISBNs of books where author's lastname starts with 'S'" ! {
-                withList(m.invoke()) {
-                  _.toSeq must containAllOf(List("3868020640", "0321127420"))
-                }
+              mustReturnList() {
+                l =>
+                  "must have ISBNs of books where author's lastname starts with 'S'" ! {
+                    l.toSeq must containAllOf(List("3868020640", "0321127420"))
+                  }
               }
             }
         }
@@ -54,11 +56,12 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              "must have list of title and prices where 'Scala' is in the title" ! {
-                withList(m.invoke()) {
-                  _.toSeq must containAllOf(List(("Programming In Scala" -> 36.95f), ("Programming Scala" -> 27.95f),
-                    ("Durchstarten mit Scala" -> 24.90f), ("Programming Scala" -> 22.95f)))
-                }
+              mustReturnList() {
+                l =>
+                  "must have list of title and prices where 'Scala' is in the title" ! {
+                    l.toSeq must containAllOf(List(("Programming In Scala" -> 36.95f), ("Programming Scala" -> 27.95f),
+                      ("Durchstarten mit Scala" -> 24.90f), ("Programming Scala" -> 22.95f)))
+                  }
               }
             }
         }
@@ -67,10 +70,11 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              "must have list of title that are no longer available" ! {
-                withList(m.invoke()) {
-                  _.toSeq must containAllOf(List("Java Virtual Machine", "Patterns of Enterprise Application Architecture"))
-                }
+              mustReturnList() {
+                l =>
+                  "must have list of title that are no longer available" ! {
+                    l.toSeq must containAllOf(List("Java Virtual Machine", "Patterns of Enterprise Application Architecture"))
+                  }
               }
             }
         }
@@ -79,10 +83,11 @@ abstract class Test_F24_1[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              "must have list of title that are out of stock" ! {
-                withList(m.invoke()) {
-                  _.toSeq must containAllOf(List("Programming In Scala"))
-                }
+              mustReturnList() {
+                l =>
+                  "must have list of title that are out of stock" ! {
+                    l.toSeq must containAllOf(List("Programming In Scala"))
+                  }
               }
             }
         }

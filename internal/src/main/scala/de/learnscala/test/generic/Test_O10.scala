@@ -15,13 +15,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '13:37'" ! {
-                    t must not(beNull)
-                    t.toString === "13:37"
-                  }
-              }
+              mustReturnAsString("13:37")
             }
         }
     } ^ test(2)("t2", "method") {
@@ -29,13 +23,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '20:00'" ! {
-                    t must not(beNull)
-                    t.toString === "20:00"
-                  }
-              }
+              mustReturnAsString("20:00")
             }
         }
     } ^ test(3)("t3", "method") {
@@ -43,13 +31,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '0:00'" ! {
-                    t must not(beNull)
-                    t.toString === "0:00"
-                  }
-              }
+              mustReturnAsString("0:00")
             }
         }
     } ^ test(4)("t4", "method") {
@@ -57,13 +39,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '14:00'" ! {
-                    t must not(beNull)
-                    t.toString === "14:00"
-                  }
-              }
+              mustReturnAsString("14:00")
             }
         }
     } ^ test(5)("t5", "method") {
@@ -71,13 +47,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '0:01'" ! {
-                    t must not(beNull)
-                    t.toString === "0:01"
-                  }
-              }
+              mustReturnAsString("0:01")
             }
         }
     } ^ test(6)("t6", "method") {
@@ -85,13 +55,7 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustHaveResult() {
-                t =>
-                  m.name + " must return '2:00'" ! {
-                    t must not(beNull)
-                    t.toString === "2:00"
-                  }
-              }
+              mustReturnAsString("2:00")
             }
         }
     } ^ test(7)("t7", "method") {

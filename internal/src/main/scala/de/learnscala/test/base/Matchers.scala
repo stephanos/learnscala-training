@@ -37,16 +37,11 @@ trait Matchers {
     }
 
   protected def mustReturnMethod(name: String, res: Any, args: Any*)(implicit ctx: TaskContext): Fragments = {
-    val forInp =
-      if (args.isEmpty)
-        ""
-      else
-        "for " + inputDescr(args: _*)
     mustReturnMethodDescr(name,
-      " must return '" + res + "' " +(if (forInp.length > 50) "for input" else forInp), args){
-        tm =>
-          val apply = tm.invoke(args: _*)
-          apply === res
+      " must return '" + res + "' " + inputDescr(args: _*), args) {
+      tm =>
+        val apply = tm.invoke(args: _*)
+        apply === res
     }
   }
 
@@ -73,15 +68,33 @@ trait Matchers {
     if (method.isEmpty)
       check
     else
-      /*check ^*/ f(method.get)
+    /*check ^*/ f(method.get)
   }
 
-  protected def withList(v: Any)(e: Traversable[_] => MatchResult[Any]): MatchResult[Any] =
+  /*
+  protected def mustReturnList(args: Any*)(name: String, descr: String)(m: Traversable[_] => MatchResult[Any])(implicit tm: TaskMethod): MatchResult[Any] =
+    mustReturnList(args) {
+      l =>
+        s"method '$name'" + descr ! {
+          m(l)
+        }
+    }
+    */
+
+  protected def mustReturnList(args: Any*)(f: (Traversable[Any]) => Fragment)(implicit tm: TaskMethod): Fragment =
+    mustHaveResult(args: _*) {
+      v => v match {
+        case null => mustNotBeNull()
+        case l: Traversable[Any] => f(l)
+        case _ => mustHaveType("List")
+      }
+    }
+
+  protected def withList(v: Any)(f: (Traversable[Any]) => MatchResult[Any]): MatchResult[Any] =
     v match {
-      case l: Seq[_] =>
-        e(l)
-      case _ =>
-        sys.error("result is not a list")
+      case null => v must not beNull
+      case l: Traversable[Any] => f(l)
+      case _ => v must beAnInstanceOf[Traversable[_]]
     }
 
   protected def mustHaveClass(f: (TaskClass) => Fragments)(implicit ctx: TaskContext): Fragments =
@@ -99,7 +112,7 @@ trait Matchers {
     if (cls.isEmpty)
       check
     else
-      /*check ^*/ f(cls.get)
+    /*check ^*/ f(cls.get)
   }
 
   protected def mustHaveMethod(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments =
@@ -125,18 +138,13 @@ trait Matchers {
     // TODO: check types
   }
 
-  protected def mustHaveResult(args: Any*)(f: (Any) => Fragments)(implicit tm: TaskMethod): Fragments = {
+  protected def mustHaveResult(args: Any*)(f: (Any) => Fragment)(implicit tm: TaskMethod): Fragment = {
     val res =
       try {
         Left(tm.invokeWithExcp())
       } catch {
         case e: Throwable =>
-          val forInp =
-            if (args.isEmpty)
-              ""
-            else
-              "for " + inputDescr(args: _*)
-          Right(("must not throw an exception" + (if(args.isEmpty) "" else " for " + inputDescr(args: _*))) ! {
+          Right(("must not throw an exception" + inputDescr(args: _*)) ! {
             Error(e)
           })
       }
@@ -218,20 +226,31 @@ trait Matchers {
       case "Throwable" | "Exception" => "an exception"
       case name => "'" + name + "'"
     }
-    ("must throw " + thdescr + (if(args.isEmpty) "" else " for " + inputDescr(args: _*))) ! {
+    ("must throw " + thdescr + inputDescr(args: _*)) ! {
       (tm.invokeWithExcp(args: _*)) must throwA[T]
     }
   }
 
-  protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment = {
-    val forInp =
-      if (args.isEmpty)
-        ""
-      else
-        "for " + inputDescr(args: _*)
-    "must return '" + res + "' " + (if (forInp.length > 50) "for input" else forInp) ! {
-      val apply = tm.invoke(args: _*)
-      apply === res
+  protected def mustReturnAsString(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
+    mustHaveResult() {
+      r =>
+        if (r == null)
+          "must not be 'null' " + inputDescr(args: _*) ! {
+            r must not beNull
+          }
+        else
+          compareReturn(res, args: _*)(r.toString)
+    }
+
+  protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
+    mustHaveResult() {
+      r =>
+        compareReturn(res, args: _*)(r)
+    }
+
+  protected def compareReturn(excp: Any, args: Any*)(act: Any)(implicit tm: TaskMethod): Fragment = {
+    "must return '" + excp + "' " + inputDescr(args: _*) ! {
+      act === excp
     }
   }
 
@@ -275,21 +294,19 @@ trait Matchers {
     }
   }
 
-  private def inputDescr(args: Any*) =
-    (args.size match {
-      case 0 | 1 => "input "
-      case _ => "inputs "
-    }) + (args.toList match {
-      case List("") => "empty String"
-      case other => "'" + other.mkString("','") + "'"
-    })
-
-  private def getList[T: ClassTag : TypeTag](obj: T, m: MethodSymbol)(f: Traversable[_] => Example): Example = {
-    (invoke[T](obj, m)) match {
-      case null => mustNotBeNull()
-      case l: Traversable[Any] => f(l)
-      case _ => mustHaveType("List")
-    }
+  private def inputDescr(args: Any*): String = {
+    val tmp =
+      if (args.isEmpty)
+        ""
+      else
+        " for " + (args.size match {
+          case 0 | 1 => "input "
+          case _ => "inputs "
+        }) + (args.toList match {
+          case List("") => "empty String"
+          case other => "'" + other.mkString("','") + "'"
+        })
+    if (tmp.length > 50) "for input" else tmp // shorten ??
   }
 
   private def mustHaveType(t: String): Example = {

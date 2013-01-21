@@ -20,17 +20,17 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustReturnMethodDescr("weekDays", "must contain the 5 German days of the week") {
           implicit m =>
-            withList(m.invoke()) {
+            withList() {
               _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
             }
         } ^ mustReturnMethodDescr("weekendDays", "must contain the 2 German days of the weekend") {
           implicit m =>
-            withList(m.invoke()) {
+            withList() {
               _.toSeq must containAllOf(Seq("Sonntag", "Samstag"))
             }
         } ^ mustReturnMethodDescr("days", "must contain all 7 German days of the week") {
           implicit m =>
-            withList(m.invoke()) {
+            withList() {
               _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag", "Samstag"))
             }
         }
@@ -40,9 +40,9 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams(1) {
               mustReturn(Some(1), List(1)) ^
-              mustReturn(Some(3), List(1, 2, 3)) ^
-              mustReturn(Some(5), List(1, 2, 3, 4, 5)) ^
-              mustReturn(None, List())
+                mustReturn(Some(3), List(1, 2, 3)) ^
+                mustReturn(Some(5), List(1, 2, 3, 4, 5)) ^
+                mustReturn(None, List())
             }
         }
     } ^ task(4)("thirdElem", "method") {
@@ -51,10 +51,10 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams(1) {
               mustReturn(Some(3), List(1, 2, 3)) ^
-              mustReturn(Some(3), List(1, 2, 3, 4, 5)) ^
-              mustReturn(None, List(1, 2)) ^
-              mustReturn(None, List(1)) ^
-              mustReturn(None, List())
+                mustReturn(Some(3), List(1, 2, 3, 4, 5)) ^
+                mustReturn(None, List(1, 2)) ^
+                mustReturn(None, List(1)) ^
+                mustReturn(None, List())
             }
         }
     }

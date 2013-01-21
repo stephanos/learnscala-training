@@ -12,6 +12,8 @@ class Ubng_O11 extends Exercise with Help /* with Disabled */ {
    *
    * @note Die Tests verwenden 'toString' zum Vergleichen.
    * @note Nutzen Sie geschickt Vererbung, um Redundanzen zu vermeiden!
+   *
+   * @note "%.2f".format(1f) == "1.00"
    */
 
   TODO
@@ -29,7 +31,7 @@ class Ubng_O11 extends Exercise with Help /* with Disabled */ {
   /**
    * Prozentual reduziertes Produkt 'Milch'
    */
-  def milk = TODO //new ReducedItem(.99f, 5, "Milk")
+  def milk = TODO //new ReducedItem(1.0f, 5, "Milk")
 
   /**
    * Gebündeltes Produkt 'Butter' und 'Milch'
@@ -39,7 +41,7 @@ class Ubng_O11 extends Exercise with Help /* with Disabled */ {
   /**
    * Gewichtetes (kg) Produkt 'Äpfel'
    */
-  def apple5kg = TODO //new WeightedItem(5, 0.2f, "Apples")
+  def apple5kg = TODO //new WeightedItem(0.2f, 5, "Apples")
 
   /**
    * Gebündeltes Produkt 'Butter' und 'Milch' und 'Äpfel'
