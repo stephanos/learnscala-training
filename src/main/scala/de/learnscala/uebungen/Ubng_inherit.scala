@@ -14,6 +14,7 @@ class Ubng_inherit extends Exercise with Help /* with Disabled */ {
    * @note Nutzen Sie geschickt Vererbung, um Redundanzen zu vermeiden!
    *
    * @note "%.2f".format(1f) == "1.00"
+   * @note eine abstrakte Basisklasse ist sicher hilfreich!
    */
 
   TODO
