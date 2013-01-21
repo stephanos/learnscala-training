@@ -22,7 +22,7 @@ class Loes_O11 extends Solution {
                       val description: String) extends Item {
 
       val price =
-        basePrice * (1 + reducedBy / 100)
+        basePrice * (100 - reducedBy) / 100
     }
 
     class WeightedItem(val pricePerKilo: Float,
