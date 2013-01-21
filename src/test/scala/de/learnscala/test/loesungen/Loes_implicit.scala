@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Loes_implicit
-    extends generic.Test_implicit[loesungen.Loes_B22]
+    extends generic.Test_implicit[loesungen.Loes_implicit]

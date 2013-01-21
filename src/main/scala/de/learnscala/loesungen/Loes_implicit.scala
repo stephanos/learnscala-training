@@ -3,7 +3,7 @@ package de.learnscala.loesungen
 import de.learnscala.base.Solution
 import java.util.Date
 
-class Loes_B22 extends Solution {
+class Loes_implicit extends Solution {
 
   class Bruch(z: Int, n: Int) {
 

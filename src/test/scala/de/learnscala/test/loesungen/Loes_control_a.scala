@@ -7,4 +7,4 @@ import de.learnscala.test.generic
 
 @RunWith(classOf[JUnitRunner])
 class Loes_control_a
-    extends generic.Test_control_a[loesungen.Loes_B14_1]
+    extends generic.Test_control_a[loesungen.Loes_control_a]

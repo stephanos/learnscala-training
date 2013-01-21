@@ -3,7 +3,7 @@ package de.learnscala.loesungen
 import de.learnscala.base.Solution
 import java.io._
 
-class Loes_B14_2 extends Solution {
+class Loes_control_b extends Solution {
 
   task(1) {
 
