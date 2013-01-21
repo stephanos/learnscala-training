@@ -24,13 +24,24 @@ class TaskMacro[C <: Context](val c: C) {
           case Template(parents, self, stats) =>
             val stats1 = stats filter {
               case dd0: DefDef =>
-                println(dd0)
+                //println(dd0)
                 val dd = dd0.asInstanceOf[reflect.internal.Trees#DefDef]
                 (dd.symbol.flags & DEFAULTPARAM) != DEFAULTPARAM
               case _ =>
                 true
             }
             Template(parents map transform, transform(self).asInstanceOf[ValDef], stats1 map transform)
+          /*case cd@ClassDef(mods, name, tparams, impl) =>
+            println(tparams)
+            super.transform {
+              ClassDef(mods, name, tparams.map {
+                p =>
+                  println(p)
+                  //Option(p.asInstanceOf[TypeTree].original).getOrElse(p)
+                  p
+              }, impl)
+            }
+          */
           case dd@DefDef(mods, name, para, vpara, tpt, rhs) =>
             DefDef(mods, name, para, vpara.map(_.map(_ match {
               case vd@ValDef(mods2, name2, tpt2, rhs2) =>
