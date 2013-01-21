@@ -141,8 +141,12 @@ trait Matchers {
   protected def mustHaveResult(args: Any*)(f: (Any) => Fragment)(implicit tm: TaskMethod): Fragment = {
     val res =
       try {
-        Left(tm.invokeWithExcp())
+        Left(tm.invokeWithExcp(args: _*))
       } catch {
+        case e: IllegalArgumentException =>
+          Right(("must have correct parameter list" + inputDescr(args: _*)) ! {
+            Error(e)
+          })
         case e: Throwable =>
           Right(("must not throw an exception" + inputDescr(args: _*)) ! {
             Error(e)
@@ -232,7 +236,7 @@ trait Matchers {
   }
 
   protected def mustReturnAsString(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
-    mustHaveResult() {
+    mustHaveResult(args: _*) {
       r =>
         if (r == null)
           "must not be 'null' " + inputDescr(args: _*) ! {
@@ -243,7 +247,7 @@ trait Matchers {
     }
 
   protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
-    mustHaveResult() {
+    mustHaveResult(args: _*) {
       r =>
         compareReturn(res, args: _*)(r)
     }
