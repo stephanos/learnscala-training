@@ -10,7 +10,7 @@ abstract class Test_F20_2[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Option[Boolean]]) ^
+            mustHaveParams(classOf[Option[Boolean]]) {
               "must print 'yes' for Some(true)" ! {
                 captureOutput(m.invoke(Some(true)))._2.trim === "yes"
               } ^
@@ -20,12 +20,13 @@ abstract class Test_F20_2[T: TypeTag] extends BaseTest[T]() {
               "must print 'not sure' for None" ! {
                 captureOutput(m.invoke(None))._2.trim === "not sure"
               }
+            }
         }
     } ^ task(4)("convertToInt", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[String]) ^
+            mustHaveParams(classOf[String]) {
               "must return 'Some(5)' for '5'" ! {
                 m.invoke("5") === Some(5)
               } ^
@@ -35,6 +36,7 @@ abstract class Test_F20_2[T: TypeTag] extends BaseTest[T]() {
               "must return 'None' for 'a'" ! {
                 m.invoke("a") === None
               }
+            }
         }
     }
 }

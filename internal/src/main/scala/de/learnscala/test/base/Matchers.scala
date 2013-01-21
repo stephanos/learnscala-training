@@ -3,7 +3,7 @@ package de.learnscala.test.base
 import org.specs2._
 import matcher.MatchResult
 import specification._
-import execute.{Failure, Pending}
+import execute.{Error, Failure, Pending}
 
 import scala.reflect._
 import runtime.universe._
@@ -99,21 +99,48 @@ trait Matchers {
     if (cls.isEmpty)
       check
     else
-      check ^ f(cls.get)
+      /*check ^*/ f(cls.get)
   }
 
   protected def mustHaveMethod(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments =
     mustHaveMethod(ctx.name)(f)
 
-  protected def mustHaveParams(count: Int)(implicit tm: TaskMethod): Example = {
-    ("must have " + count + " parameter" + (if (count != 1) "s" else "")) ! {
-      (tm.params.flatten.size) aka "size of parameter list" must beEqualTo(count)
-    }
+  protected def mustHaveParams(count: Int)(f: => Fragments)(implicit tm: TaskMethod): Fragments = {
+    val t = tm.params.flatten.size == count
+    val check =
+      ("must have " + count + " parameter" + (if (count != 1) "s" else "")) ! {
+        if (t)
+          success
+        else
+          Failure(s"method '${tm.name}' must have a parameter list of size '$count'")
+      }
+    if (!t)
+      check
+    else
+      f
   }
 
-  protected def mustHaveParams(types: Class[_]*)(implicit tm: TaskMethod): Example = {
-    mustHaveParams(types.size)
+  protected def mustHaveParams(types: Class[_]*)(f: => Fragments)(implicit tm: TaskMethod): Fragments = {
+    mustHaveParams(types.size)(f)
     // TODO: check types
+  }
+
+  protected def mustHaveResult(args: Any*)(f: (Any) => Fragments)(implicit tm: TaskMethod): Fragments = {
+    val res =
+      try {
+        Left(tm.invokeWithExcp())
+      } catch {
+        case e: Throwable =>
+          val forInp =
+            if (args.isEmpty)
+              ""
+            else
+              "for " + inputDescr(args: _*)
+          Right(("must not throw an exception" + (if(args.isEmpty) "" else " for " + inputDescr(args: _*))) ! {
+            Error(e)
+          })
+      }
+    res.fold(l => f(l), r => r)
   }
 
   protected def mustUse(descr: String, items: (String, String)*)(implicit tm: TaskMethod): Example = {
@@ -191,8 +218,8 @@ trait Matchers {
       case "Throwable" | "Exception" => "an exception"
       case name => "'" + name + "'"
     }
-    "must throw " + thdescr + " for " + inputDescr(args: _*) ! {
-      (tm invoke args) must throwA[T]
+    ("must throw " + thdescr + (if(args.isEmpty) "" else " for " + inputDescr(args: _*))) ! {
+      (tm.invokeWithExcp(args: _*)) must throwA[T]
     }
   }
 
@@ -208,7 +235,10 @@ trait Matchers {
     }
   }
 
-  protected def mustNotContain(things: Any*)(implicit tm: TaskMethod): Seq[Fragment] =
+  protected def mustNotContain(thing: Any)(implicit ctx: TaskContext): Fragment =
+    mustNotContains(thing).head
+
+  protected def mustNotContains(things: Any*)(implicit ctx: TaskContext): Seq[Fragment] =
     things.map {
       t => t match {
         case c: COUNT => checkLimits((c, 0))
@@ -217,7 +247,7 @@ trait Matchers {
       }
     }
 
-  protected def mustNotBeLongerThan(lines: Int)(implicit tm: TaskMethod) =
+  protected def mustNotBeLongerThan(lines: Int)(implicit ctx: TaskContext) =
     checkLimits((LINE, lines))
 
   protected val VAR = COUNT("var")
@@ -232,12 +262,12 @@ trait Matchers {
 
   // INTERNALS ===============================================================
 
-  private def checkLimits(thing: (COUNT, Int))(implicit tm: TaskMethod): Fragment = {
+  private def checkLimits(thing: (COUNT, Int))(implicit ctx: TaskContext): Fragment = {
     val (item, cnt) = thing
     val descr = item.descr.getOrElse(item.name)
     val amount = if (cnt == 0) "any" else "more than " + cnt
     "must not use " + amount + " '" + descr + "'" ! {
-      val i = tm.ctx.getMethod(item.field).get.invoke().asInstanceOf[Int]
+      val i = ctx.getMethod(item.field).get.invoke().asInstanceOf[Int]
       if (i > cnt)
         Failure(amount + " '" + descr + "' " + (if (cnt > 1) "are" else "is") + " not allowed in this task")
       else

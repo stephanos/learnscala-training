@@ -13,13 +13,17 @@ abstract class Test_E20[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(3)
+            mustHaveParams(3) {
+              1 === 1
+            }
         }
     } ^ task(2)("releaseDateOfPsycho", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1)
+            mustHaveParams(1) {
+              1 === 1
+            }
           //mustReturn(1960, getXML)
         }
     }

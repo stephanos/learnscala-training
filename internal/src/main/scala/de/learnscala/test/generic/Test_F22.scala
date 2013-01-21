@@ -38,22 +38,24 @@ abstract class Test_F22[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) ^
+            mustHaveParams(1) {
               mustReturn(Some(1), List(1)) ^
               mustReturn(Some(3), List(1, 2, 3)) ^
               mustReturn(Some(5), List(1, 2, 3, 4, 5)) ^
               mustReturn(None, List())
+            }
         }
     } ^ task(4)("thirdElem", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) ^
+            mustHaveParams(1) {
               mustReturn(Some(3), List(1, 2, 3)) ^
               mustReturn(Some(3), List(1, 2, 3, 4, 5)) ^
               mustReturn(None, List(1, 2)) ^
               mustReturn(None, List(1)) ^
               mustReturn(None, List())
+            }
         }
     }
 

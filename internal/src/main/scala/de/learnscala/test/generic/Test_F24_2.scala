@@ -10,7 +10,9 @@ abstract class Test_F24_2[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams()
+            mustHaveParams() {
+              1 === 1
+            }
         }
     }
 

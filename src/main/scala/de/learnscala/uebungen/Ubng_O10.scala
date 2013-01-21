@@ -7,16 +7,16 @@ class Ubng_O10 extends Exercise with Help /* with Disabled */ {
   task {
 
     /**
-     * Klasse 'Time' erwartet 2 Parameter: Stunden und Minuten.
+     * Klase 'Time'
      *
-     * Sie besitzt die Methoden
-     * - addMin(Int): fügt Minuten hinzu
-     * - addHours(Int): fügt Stunden hinzu
-     * - add(Time): addiert eine andere Time-Instanz
-     * - print: gibt die Zeit aus (z.B. 00:30)
-     * - toString TODO
+     * @todo Bringen Sie die Tests zum Laufen!
      *
+     * @note Die Tests verwenden 'toString' zum Vergleichen.
+     * @note Und vergessen Sie nicht: Unveränderlich ist Trumpf.
      **/
+
+    TODO
+
 
     // ===============================================================
     // TESTS
@@ -51,5 +51,10 @@ class Ubng_O10 extends Exercise with Help /* with Disabled */ {
      * Zeit um 12:23 plus 13:37
      */
     def t6 = TODO // new Time(12, 23).add(new Time(13, 37))
+
+    /**
+     * ungültige Zeit
+     */
+    def t7 = TODO // new Time(99)
   }
 }

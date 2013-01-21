@@ -11,91 +11,91 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod("u1") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "u1 must contain '1'" ! {
                 tryOrPending {
                   m.invoke() === true
                 }
               }
-        }
-
-        mustHaveMethod("u2") {
+            }
+        } ^ mustHaveMethod("u2") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "u2 must contain '2'" ! {
                 tryOrPending {
                   m.invoke() === true
                 }
               }
-        }
-        mustHaveMethod("u3") {
+            }
+        } ^ mustHaveMethod("u3") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "u3 must NOT contain '3'" ! {
                 tryOrPending {
                   m.invoke() === false
                 }
               }
+            }
         }
     } ^ task(2)("intersect", "method") {
       implicit ctx =>
         mustHaveMethod("i1") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "i1 must contain '1'" ! {
                 tryOrPending {
                   m.invoke() === true
                 }
               }
-        }
-
-        mustHaveMethod("i2") {
+            }
+        } ^ mustHaveMethod("i2") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "i2 must NOT contain '2'" ! {
                 tryOrPending {
                   m.invoke() === false
                 }
               }
-        }
-        mustHaveMethod("i3") {
+            }
+        } ^mustHaveMethod("i3") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "i3 must NOT contain '3'" ! {
                 tryOrPending {
                   m.invoke() === false
                 }
               }
+            }
         }
     } ^ task(3)("intersect", "method") {
       implicit ctx =>
         mustHaveMethod("d1") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "d1 must NOT contain '1'" ! {
                 tryOrPending {
                   m.invoke() === false
                 }
               }
-        }
-
-        mustHaveMethod("d2") {
+            }
+        } ^ mustHaveMethod("d2") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "d2 must contain '2'" ! {
                 tryOrPending {
                   m.invoke() === true
                 }
               }
-        }
-        mustHaveMethod("d3") {
+            }
+        } ^ mustHaveMethod("d3") {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "d3 must NOT contain '3'" ! {
                 tryOrPending {
                   m.invoke() === false
                 }
               }
+            }
         }
     }
 

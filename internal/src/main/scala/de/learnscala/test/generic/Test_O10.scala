@@ -6,15 +6,21 @@ import scala.reflect.runtime.universe._
 abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
 
   override val fs =
-    test(1)("t1", "method") {
+    test(0)("Time", "class", descr = "Requirements") {
+      implicit ctx =>
+      //mustHaveClass("Time") {
+        mustNotContain(VAR)
+    } ^ test(1)("t1", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '13:37'" ! {
-                t must not(beNull)
-                t.toString === "13:37"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '13:37'" ! {
+                    t must not(beNull)
+                    t.toString === "13:37"
+                  }
               }
             }
         }
@@ -22,11 +28,13 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '20:00'" ! {
-                t must not(beNull)
-                t.toString === "20:00"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '20:00'" ! {
+                    t must not(beNull)
+                    t.toString === "20:00"
+                  }
               }
             }
         }
@@ -34,11 +42,13 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '0:00'" ! {
-                t must not(beNull)
-                t.toString === "0:00"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '0:00'" ! {
+                    t must not(beNull)
+                    t.toString === "0:00"
+                  }
               }
             }
         }
@@ -46,11 +56,13 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '14:00'" ! {
-                t must not(beNull)
-                t.toString === "14:00"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '14:00'" ! {
+                    t must not(beNull)
+                    t.toString === "14:00"
+                  }
               }
             }
         }
@@ -58,11 +70,13 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '0:01'" ! {
-                t must not(beNull)
-                t.toString === "0:01"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '0:01'" ! {
+                    t must not(beNull)
+                    t.toString === "0:01"
+                  }
               }
             }
         }
@@ -70,12 +84,22 @@ abstract class Test_O10[T: TypeTag] extends BaseTest[T](continuous = true) {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams() ^ {
-              val t = m.invoke()
-              m.name + " must be '2:00'" ! {
-                t must not(beNull)
-                t.toString === "2:00"
+            mustHaveParams() {
+              mustHaveResult() {
+                t =>
+                  m.name + " must return '2:00'" ! {
+                    t must not(beNull)
+                    t.toString === "2:00"
+                  }
               }
+            }
+        }
+    } ^ test(7)("t7", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustHaveParams() {
+              mustThrow[Exception]()
             }
         }
     }

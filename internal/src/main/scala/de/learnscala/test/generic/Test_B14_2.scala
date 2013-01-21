@@ -12,19 +12,20 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Char]) ^
+            mustHaveParams(classOf[Char]) {
               mustNotContain(VAR) ^
               mustReturn("pi", 'Π') ^
               mustReturn("root", '√') ^
               mustReturn("factorial", '!') ^
               mustReturn("sum", '∑') ^
               mustReturn("unknown", '?')
+            }
         }
     } ^ task(2)("isWorkingDay", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[String]) ^
+            mustHaveParams(classOf[String]) {
               mustNotContain(VAR) ^
               mustReturn(false, "Sunday") ^
               mustReturn(false, "Saturday") ^
@@ -34,12 +35,13 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
               mustReturn(true, "Thursday") ^
               mustReturn(true, "Friday") ^
               mustNotBeLongerThan(5)
+            }
         }
     } ^ task(3)("describeValue", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Any]) ^
+            mustHaveParams(classOf[Any]) {
               mustNotContain(VAR) ^
               mustReturn("empty string", "") ^
               mustReturn("string of size 11", "Hello World") ^
@@ -47,35 +49,38 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
               mustReturn("negative integer", -5) ^
               mustReturn("unknown: $", '$')
               mustReturn("unknown: false", false)
+            }
         }
     } ^ task(4)("half", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Int]) ^
+            mustHaveParams(classOf[Int]) {
               mustNotContain(VAR) ^
               mustReturn(5, 10) ^
               mustReturn(50, 100) ^
               mustReturn(-5, -10) ^
               mustThrow[Throwable](3) ^
               mustThrow[Throwable](1337)
+            }
         }
     } ^ task(5)("getSize", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Char]) ^
+            mustHaveParams(classOf[Char]) {
               mustNotContain(VAR) ^
               mustReturn(3, "abc") ^
               mustReturn(5, "12345") ^
               mustReturn(0, "") ^
               mustReturn(0, null)
+            }
         }
     } ^ task(6)("readCharFromFile", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[FileReader]) ^
+            mustHaveParams(classOf[FileReader]) {
               mustNotContain(VAR) ^
               "must return '@' and close connection" ! {
                 val f = getMock
@@ -106,6 +111,7 @@ abstract class Test_B14_2[T: TypeTag] extends BaseTest[T]() {
                 out.trim === "unknown error"
                 there was one(f).close()
               }
+            }
         }
     }
 

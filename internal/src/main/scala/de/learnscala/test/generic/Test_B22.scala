@@ -13,25 +13,27 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod("r", true) {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "result must be '1/2'" ! {
                 Option(m.invoke()).map(_.toString).getOrElse(null) === "1/2"
               }
+            }
         }
     } ^ task(2)("+%") {
       implicit ctx =>
         mustHaveMethod("r", true) {
           implicit m =>
-            mustHaveParams() ^
+            mustHaveParams() {
               "operator must increase value of '150' by 50%" ! {
                 m.invoke() === 225
               }
+            }
         }
     } ^ task(3)("time") {
       implicit ctx =>
         mustHaveMethod("r", true) {
           implicit m =>
-            mustHaveParams(classOf[String]) ^
+            mustHaveParams(classOf[String]) {
               "result for 'now' must be time of now" ! {
                 setSecToZero(m.invoke("now")) must beEqualTo(nowMinusHours())
               } ^
@@ -44,6 +46,7 @@ abstract class Test_B22[T: TypeTag] extends BaseTest[T]() {
               "result for '24 hours ago' must be time of now minus 24 hours" ! {
                 setSecToZero(m.invoke("24 hours ago")) must beEqualTo(nowMinusHours(24))
               }
+            }
         }
     }
 
