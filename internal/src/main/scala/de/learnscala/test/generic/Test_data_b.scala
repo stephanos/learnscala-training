@@ -6,14 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_data_b[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
-    task(1)("Quiz") {
-      implicit ctx =>
-        mustReturnMethod("r1", true) ^
-          mustReturnMethod("r2", true) ^
-          mustReturnMethod("r3", true) ^
-          mustReturnMethod("r4", true) ^
-          mustReturnMethod("r5", true)
-    } ^ task(2)("doYouBuyTheCar", "method") {
+    task(1)("doYouBuyTheCar", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -21,7 +14,7 @@ abstract class Test_data_b[T: TypeTag] extends BaseTest[T]() {
               mustReturn("no", Some(false)) ^
               mustReturn("not sure", None)
         }
-    } ^ task(3)("convertToInt", "method") {
+    } ^ task(2)("convertToInt", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>

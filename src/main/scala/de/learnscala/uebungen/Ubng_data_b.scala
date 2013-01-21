@@ -4,34 +4,7 @@ import de.learnscala.base._
 
 class Ubng_data_b extends Exercise with Help /* with Disabled */ {
 
-  // ===============================================================
-
   task(1) {
-
-    /**
-     * Bewältigen Sie das Quiz:
-     * Ersetzen Sie den rechten Teil des Vergleichs mit dem entsprechenden Ergebnis!
-     */
-
-    def r1 =
-      Some("a").get == TODO
-
-    def r2 =
-      None.getOrElse(1) == TODO
-
-    def r3 =
-      Option(null).getOrElse(6) == TODO
-
-    def r4 =
-      Option(None).get == TODO
-
-    def r5 =
-      Option(Option(null)).get == TODO
-  }
-
-  // ===============================================================
-
-  task(2) {
 
     /**
      * Methode 'doYouBuyTheCar'
@@ -44,7 +17,7 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
 
   // ===============================================================
 
-  task(3) {
+  task(2) {
 
     /**
      * Methode 'convertToInt'
