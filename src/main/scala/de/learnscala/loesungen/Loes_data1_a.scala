@@ -3,7 +3,7 @@ package de.learnscala.loesungen
 import de.learnscala.base.Solution
 import scala.Some
 
-class Loes_F20_1 extends Solution {
+class Loes_data1_a extends Solution {
 
   task(1) {
 

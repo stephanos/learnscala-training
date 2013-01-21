@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_data1_a
-    extends generic.Test_F20_1[uebungen.Ubng_F20_1]
+    extends generic.Test_data1_a[uebungen.Ubng_data1_a]
