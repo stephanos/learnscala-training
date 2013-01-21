@@ -11,13 +11,13 @@ class Loes_O10 extends Solution {
       require(min < 60)
       require(hours < 24)
 
-      def addMin(m: Int) =
+      def addMin(m: Int): Time =
         this.add(new Time(0, m))
 
-      def addHours(h: Int) =
+      def addHours(h: Int): Time =
         this.add(new Time(h, 0))
 
-      def add(t: Time) = {
+      def add(t: Time): Time = {
         val mm = t.min + min
         val hh = t.hours + hours
         val newM = mm % 60

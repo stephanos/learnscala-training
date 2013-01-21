@@ -39,7 +39,10 @@ class TaskMacro[C <: Context](val c: C) {
                   ValDef(mods2, name2, _, rhs2)
                 }.getOrElse(vd)
               case v => v
-            })), tpt, rhs)
+            })), tpt match {
+              case v: TypeTree =>
+                Option(v.asInstanceOf[TypeTree].original).getOrElse(v)
+            }, rhs)
           /*case dd0: DefDef =>
             val dd = dd0.asInstanceOf[reflect.internal.Trees#DefDef]
             if((dd.symbol.flags & DEFAULTPARAM) == DEFAULTPARAM) {
