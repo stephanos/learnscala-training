@@ -6,37 +6,28 @@ import scala.reflect.runtime.universe._
 abstract class Test_data_b[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
-    task(3)("doYouBuyTheCar", "method") {
+    task(1)("Quiz") {
+      implicit ctx =>
+        mustReturnMethod("r1", true) ^
+          mustReturnMethod("r2", true) ^
+          mustReturnMethod("r3", true) ^
+          mustReturnMethod("r4", true) ^
+          mustReturnMethod("r5", true)
+    } ^ task(2)("doYouBuyTheCar", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[Option[Boolean]]) {
-              "must print 'yes' for Some(true)" ! {
-                captureOutput(m.invoke(Some(true)))._2.trim === "yes"
-              } ^
-              "must print 'no' for Some(false)" ! {
-                captureOutput(m.invoke(Some(false)))._2.trim === "no"
-              } ^
-              "must print 'not sure' for None" ! {
-                captureOutput(m.invoke(None))._2.trim === "not sure"
-              }
-            }
+            mustReturn("yes", Some(true)) ^
+              mustReturn("no", Some(false)) ^
+              mustReturn("not sure", None)
         }
-    } ^ task(4)("convertToInt", "method") {
+    } ^ task(3)("convertToInt", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(classOf[String]) {
-              "must return 'Some(5)' for '5'" ! {
-                m.invoke("5") === Some(5)
-              } ^
-              "must return 'Some(-5)' for '-5'" ! {
-                m.invoke("-5") === Some(-5)
-              } ^
-              "must return 'None' for 'a'" ! {
-                m.invoke("a") === None
-              }
-            }
+            mustReturn(Some(5), "5") ^
+              mustReturn(Some(-5), "-5") ^
+              mustReturn(None, "a")
         }
     }
 }

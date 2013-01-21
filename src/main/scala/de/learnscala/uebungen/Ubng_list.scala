@@ -11,8 +11,8 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * Ersetzen Sie den rechten Teil des Vergleichs mit dem entsprechenden Ergebnis!
      */
 
-    //def r1 =
-    //  "Hello" :: List("World") == List(TODO)
+    def r1 =
+      "Hello" :: List("World") == List(TODO)
 
     def r2 =
       ("Hello" :: "World" :: Nil).mkString("", " ", "!") == TODO

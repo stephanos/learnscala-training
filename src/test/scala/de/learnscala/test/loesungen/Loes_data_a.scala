@@ -1,10 +1,10 @@
 package de.learnscala
-package test.uebungen
+package test.loesungen
 
 import de.learnscala.test.generic
 import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Ubng_data1_a
-    extends generic.Test_data1_a[uebungen.Ubng_data1_a]
+class Loes_data_a
+    extends generic.Test_data_a[loesungen.Loes_data_a]
