@@ -10,41 +10,25 @@ abstract class Test_F23_1[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) {
-              "must return (2,3,4) for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(2, 3, 4)
-              }
-            }
+            mustReturn(List(2, 3, 4), List(1, 2, 3))
         }
     } ^ task(2)("r2", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) {
-              "must return (4,6,8) for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(4, 6, 8)
-              }
-            }
+            mustReturn(List(4, 6, 8), List(1, 2, 3))
         }
     } ^ task(3)("r3", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) {
-              "must return (3,5,6) for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(3, 5, 7)
-              }
-            }
+            mustReturn(List(3, 5,7), List(1, 2, 3))
         }
     } ^ task(4)("r4", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) {
-              "must return (3,5,6) for (1,2,3)" ! {
-                m.invoke(List(1, 2, 3)) === List(3, 5, 7)
-              }
-            }
+            mustReturn(List(3, 5, 7), List(1, 2, 3))
         }
     } ^ task(5)("r5", "method") {
       implicit ctx =>
