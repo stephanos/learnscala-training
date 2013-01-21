@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_F12 extends Solution {
+class Loes_func2 extends Solution {
 
   def singletonSet(elem: Int): Int => Boolean =
       (e: Int) => e == elem

@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Loes_func2
-    extends generic.Test_func2[loesungen.Loes_F12]
+    extends generic.Test_func2[loesungen.Loes_func2]
