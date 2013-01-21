@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_F24_1 extends Solution {
+class Loes_for_a extends Solution {
 
   case class Book(title: String,
                   isbn: String,
