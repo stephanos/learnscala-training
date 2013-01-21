@@ -14,7 +14,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   extends SpecificationWithJUnit with Mockito with ScalaCheck
   with Reflect with Capture with Matchers with StopOnFail {
 
-  def twoPass = false
+  def twoPass = true
 
   def sendResults = false
 
@@ -34,7 +34,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
       val filtered = executed.fs.zip(fs.fragments).collect {
         case (f1, f2) if (f1.stats.result.isSuccess || f1.stats.result.isFailure || f1.stats.result.isError) => f2
       }
-      Fragments.createList(filtered: _*)
+      Fragments.create(filtered: _*)
     } else
       super.map(fs)
 

@@ -18,7 +18,7 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
           mustReturnMethod("r8", true)
     } ^ task(2)("days of the week") {
       implicit ctx =>
-        mustHaveMethod("weekDays") {
+        mustHaveMethod("weekDays", true) {
           implicit m =>
             mustReturnList() {
               ls =>
@@ -26,7 +26,7 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
                   ls must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
                 }
             }
-        } ^ mustHaveMethod("weekendDays") {
+        } ^ mustHaveMethod("weekendDays", true) {
           implicit m =>
             mustReturnList() {
               ls =>
@@ -34,7 +34,7 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
                   ls.toSeq must containAllOf(Seq("Sonntag", "Samstag"))
                 }
             }
-        } ^ mustHaveMethod("days") {
+        } ^ mustHaveMethod("days", true) {
           implicit m =>
             mustReturnList() {
               ls =>

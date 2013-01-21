@@ -43,12 +43,14 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
     /**
      * Methoden:
      *
-     * 'weekDays': Liste aus den deutschen Wochentagen
-     * 'weekendDays': Liste aus den deutschen Wochenendtagen
-     * 'days': Liste aller Tage der Woche
+     *  'weekDays':     Liste aus den deutschen Wochentagen
+     *  'weekendDays':  Liste aus den deutschen Wochenendtagen
+     *  'days':         Liste aller Tage der Woche
      */
 
-    TODO
+    def weekDays = List()
+    def weekendDays = List()
+    def days = weekDays ::: weekendDays
 
   }
 

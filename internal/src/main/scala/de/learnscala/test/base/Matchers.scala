@@ -59,10 +59,7 @@ trait Matchers {
     val method = ctx.getMethod(name)
     if (method.isEmpty)
       (if (longDescr) s"method '$name' " else "") + "must be defined" ! {
-        if (method.isDefined)
-          success
-        else
-          Failure(s"method '$name' could not be found")
+        Failure(s"method '$name' could not be found")
       }
     else
       f(method.get)
