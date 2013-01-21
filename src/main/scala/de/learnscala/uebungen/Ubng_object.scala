@@ -8,7 +8,11 @@ class Ubng_object extends Exercise with Help /* with Disabled */ {
     /**
      * Klasse 'Point' definiert einen 2-dimensionalen Punkt.
      * Die Methode toString liefert eine Beschreibung des Punktes der Form "[x,y]".
+     *
+     * @todo Bringen Sie die Tests zum Laufen!
      */
+
+    TODO
 
 
     /**
@@ -18,9 +22,17 @@ class Ubng_object extends Exercise with Help /* with Disabled */ {
      * Ist einer der beiden Koordinaten negativ, sollte eine Ausnahme geworfen werden.
      *
      * Zusätzlich zählt es die Anzahl der bisher erstellten Punkte
-     * und liefert diese via 'getCount'.
+     * und liefert diese via 'count'.
+     *
+     * @todo Bringen Sie die Tests zum Laufen!
      */
 
+    TODO
+
+
+    // ===============================================================
+    // TESTS
+    // ===============================================================
 
     /**
      * Erstellt einen Punkt mit den Koordinaten (5,5)

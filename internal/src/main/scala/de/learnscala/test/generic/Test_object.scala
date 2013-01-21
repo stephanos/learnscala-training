@@ -5,51 +5,30 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_object[T: TypeTag] extends BaseTest[T](continuous = true) {
 
-  val objn = "Point"
-
-  /*
-    test("p1") {
-        implicit ctx =>
-            mustHaveMethod {
-              implicit m =>
-                    mustHaveParams() ^
-                    "must create instance for coordinates (5,5)" ! {
-                        m.invoke().toString === "[5,5]"
-                    }
-            }
+  override val fs =
+    test(1)("p2", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustReturnAsString("[5,5]")
+        }
+    } ^ test(2)("p2", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustReturnAsString("[5,5]")
+        }
+    } ^ test(3)("p3", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustThrow[Throwable]()
+        }
+    } ^ test(4)("p4", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustThrow[Throwable]()
+        }
     }
-
-    test("p2") {
-        implicit ctx =>
-            mustHaveMethod {
-              implicit m =>
-                    mustHaveParams() ^
-                    "must create instance for coordinates (5,5) for parameter '5'" ! {
-                        m.invoke().toString === "[5,5]"
-                    }
-            }
-    }
-
-    test("p3") {
-        implicit ctx =>
-            mustHaveMethod {
-              implicit m =>
-                    mustHaveParams() ^
-                    "must throw exception for 2 negative coordinates" ! {
-                        m.invoke() must throwA[Throwable]
-                    }
-            }
-    }
-
-    test("p4") {
-        implicit ctx =>
-            mustHaveMethod {
-              implicit m =>
-                    mustHaveParams() ^
-                    "must throw exception for 1 negative coordinate" ! {
-                        m.invoke() must throwA[Throwable]
-                    }
-            }
-    }
-    */
 }
