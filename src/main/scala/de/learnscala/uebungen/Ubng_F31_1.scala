@@ -2,7 +2,7 @@ package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-class Ubng_F24_1 extends Exercise with Help /* with Disabled */ {
+class Ubng_F31_1 extends Exercise with Help /* with Disabled */ {
 
   case class Book(title: String,
                   isbn: String,

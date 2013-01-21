@@ -1,36 +1,38 @@
 package de.learnscala.uebungen
 
 import de.learnscala.base._
+import collection.mutable.ListBuffer
 
 class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
 
   /**
    *
-   * Implementieren Sie die folgenden Methoden mit Hife von 'foldLeft'.
+   * Schreiben Sie folgende Methoden mit Hilfe von 'map', 'flatMap', 'filter und 'foreach' um!
    *
    * PS: Verwenden Sie dabei maximal eine Zeile.
    *
    */
 
+  // ===============================================================
+
   task(1) {
 
-    /**
-     * Summiert die Elemente der Liste.
-     */
-
-    def sum(l: List[Int]) =
-      TODO
+    def m1(l: List[Int]) = {
+      var i = 0
+      var res = ListBuffer[Int]()
+      while (i < l.size) {
+        res += l(i) + 1
+        i + 1
+      }
+      res.toList
+    }
   }
 
   // ===============================================================
 
   task(2) {
 
-    /**
-     * Multipliziert alle Elemente der Liste (leere Liste ergibt 1).
-     */
-
-    def product(l: List[Int]) =
+    def m2[A](list: List[A]) =
       TODO
   }
 
@@ -38,11 +40,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
 
   task(3) {
 
-    /**
-     * Zählt die Elemente der Liste.
-     */
-
-    def count(l: List[Int]) =
+    def m3[A](list: List[A]) =
       TODO
   }
 
@@ -50,13 +48,32 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
 
   task(4) {
 
-    /**
-     * Ermittelt ob ein Element Teil der Liste ist.
-     */
-
-    def contains[A](list: List[A], item: A) =
+    def m4[A](list: List[A]) =
       TODO
   }
+
+  /*
+
+  val votes = Seq(("scala", 1), ("java", 4), ("scala", 10), ("scala", 1), ("python", 10))
+  val orderedVotes = votes
+    .groupBy(_._1)
+    .map { case (which, counts) =>
+      (which, counts.foldLeft(0)(_ + _._2))
+    }.toSeq
+    .sortBy(_._2)
+    .reverse
+
+  val votesByLang = votes groupBy { case (lang, _) => lang }
+  val sumByLang = votesByLang map { case (lang, counts) =>
+    val countsOnly = counts map { case (_, count) => count }
+    (lang, countsOnly.sum)
+  }
+  val orderedVotes = sumByLang.toSeq
+    .sortBy { case (_, count) => count }
+    .reverse
+
+   */
+
 
   // ===============================================================
 
@@ -64,12 +81,8 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
 
     /**
      * BONUS
-     *
-     * Invertiert die Reihenfolge der Liste.
      */
-
-    def reverse[A](list: List[A]) =
+    def m5[A](list: List[A]) =
       TODO
   }
-
 }
