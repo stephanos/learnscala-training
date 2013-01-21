@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_F23_3 extends Solution {
+class Loes_func3_b extends Solution {
 
   task(1) {
     def m1(l: List[Int]) =
