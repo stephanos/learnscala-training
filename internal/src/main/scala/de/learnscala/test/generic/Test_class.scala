@@ -3,7 +3,7 @@ package de.learnscala.test.generic
 import de.learnscala.test.base.BaseTest
 import scala.reflect.runtime.universe._
 
-abstract class Test_class1[T: TypeTag] extends BaseTest[T](continuous = true) {
+abstract class Test_class[T: TypeTag] extends BaseTest[T](continuous = true) {
 
   override val fs =
     test(0)("Time", "class", descr = "Requirements") {

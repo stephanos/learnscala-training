@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_O10 extends Solution {
+class Loes_class extends Solution {
 
   task {
 
