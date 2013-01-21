@@ -8,14 +8,15 @@ class Ubng_func2 extends Exercise with Help /* with Disabled */ {
 
     /**
      * Allgemein wird eine Menge (engl. 'set') natürlicher Zahlen mit der Funktion
-     * (s: Int) => Boolean
+     *   (s: Int) => Boolean
      * definiert.
      *
-     * Liefert die Funktion 'true' ist der eingegebene Parameter Teil der Menge.
+     * Liefert die Funktion 'singletonSet' true, ist der eingegebene Parameter Teil der Menge.
      */
 
     def singletonSet(elem: Int): Int => Boolean =
       (e: Int) => e == elem
+
 
     // TESTS:
     def s1 = singletonSet(1)
@@ -32,6 +33,7 @@ class Ubng_func2 extends Exercise with Help /* with Disabled */ {
      */
     def union(s: Int => Boolean, t: Int => Boolean): Int => Boolean =
       ???
+
 
     // TESTS:
     def u = union(s1, s2)
@@ -50,6 +52,7 @@ class Ubng_func2 extends Exercise with Help /* with Disabled */ {
     def intersect(s: Int => Boolean, t: Int => Boolean): Int => Boolean =
       ???
 
+
     // TESTS:
     def i = intersect(union(s1, s2), union(s1, s3))
     def i1 = i(1)
@@ -66,6 +69,7 @@ class Ubng_func2 extends Exercise with Help /* with Disabled */ {
      */
     def diff(s: Int => Boolean, t: Int => Boolean): Int => Boolean =
       ???
+
 
     // TESTS:
     def d = diff(union(s1, s2), union(s1, s3))

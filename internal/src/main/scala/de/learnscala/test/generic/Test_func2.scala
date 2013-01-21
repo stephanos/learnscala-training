@@ -7,7 +7,7 @@ import org.specs2.execute.{Pending, Result}
 abstract class Test_func2[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
-    task(1)("union", "method") {
+    test(1)("union", "method") {
       implicit ctx =>
         mustHaveMethod("u1") {
           implicit m =>
@@ -37,7 +37,7 @@ abstract class Test_func2[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ task(2)("intersect", "method") {
+    } ^ test(2)("intersect", "method") {
       implicit ctx =>
         mustHaveMethod("i1") {
           implicit m =>
@@ -67,7 +67,7 @@ abstract class Test_func2[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ task(3)("intersect", "method") {
+    } ^ test(3)("intersect", "method") {
       implicit ctx =>
         mustHaveMethod("d1") {
           implicit m =>
