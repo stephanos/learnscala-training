@@ -17,6 +17,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
     /**
      * Summiert die Elemente der Liste.
      */
+
     def sum(l: List[Int]) =
       TODO
   }
@@ -28,6 +29,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
     /**
      * Multipliziert alle Elemente der Liste (leere Liste ergibt 1).
      */
+
     def product(l: List[Int]) =
       TODO
   }
@@ -39,6 +41,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
     /**
      * Zählt die Elemente der Liste.
      */
+
     def count(l: List[Int]) =
       TODO
   }
@@ -50,6 +53,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
     /**
      * Ermittelt ob ein Element Teil der Liste ist.
      */
+
     def contains[A](list: List[A], item: A) =
       TODO
   }
@@ -63,6 +67,7 @@ class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
      *
      * Invertiert die Reihenfolge der Liste.
      */
+
     def reverse[A](list: List[A]) =
       TODO
   }
