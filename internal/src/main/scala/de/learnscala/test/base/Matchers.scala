@@ -307,7 +307,7 @@ trait Matchers {
     "must not use " + amount + " '" + descr + "'" ! {
       val i = ctx.getMethod(item.field).get.invoke().asInstanceOf[Int]
       if (i > cnt)
-        Failure(amount + " '" + descr + "' " + (if (cnt > 1) "are" else "is") + " not allowed in this task")
+        Failure(s"'$i' is more than the allowed '$amount'")
       else
         success
     }

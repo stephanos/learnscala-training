@@ -10,7 +10,7 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustNotBeLongerThan(1) ^
+            mustNotBeLongerThan(3) ^
               mustReturn(6, List(1, 2, 3)) ^
               mustReturn(0, List())
         }
@@ -18,7 +18,7 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustNotBeLongerThan(1) ^
+            mustNotBeLongerThan(3) ^
               mustReturn(6, List(1, 2, 3)) ^
               mustReturn(27, List(3, 3, 3)) ^
               mustReturn(1, List())
@@ -27,7 +27,7 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustNotBeLongerThan(1) ^
+            mustNotBeLongerThan(3) ^
               mustReturn(3, List(1, 2, 3)) ^
               mustReturn(0, List())
         }
@@ -35,7 +35,7 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustNotBeLongerThan(1) ^
+            mustNotBeLongerThan(3) ^
               mustReturn(true, List(1, 2, 3), 3) ^
               mustReturn(false, List(1, 2, 3), 9) ^
               mustReturn(false, List(), 3)
@@ -44,7 +44,7 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustNotBeLongerThan(1) ^
+            mustNotBeLongerThan(3) ^
               mustReturn(List(3, 2, 1), List(1, 2, 3)) ^
               mustReturn(List(), List())
         }
