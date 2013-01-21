@@ -225,15 +225,25 @@ trait Matchers {
   }
   */
 
-  protected def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassTag[T]): Fragment = {
+  private def mustThrow[T <: Throwable](longDescr: Boolean)(args: Any*)(implicit tm: TaskMethod, th: ClassTag[T]): Fragment = {
     val thdescr = th.runtimeClass.getSimpleName match {
       case "Throwable" | "Exception" => "an exception"
       case name => "'" + name + "'"
     }
-    ("must throw " + thdescr + inputDescr(args: _*)) ! {
+    val descr = if (longDescr) s"method '${tm.name}' " else ""
+    (descr + "must throw " + thdescr + inputDescr(args: _*)) ! {
       (tm.invokeWithExcp(args: _*)) must throwA[T]
     }
   }
+
+  protected def mustThrowMethod[T <: Throwable](name: String, args: Any*)(implicit ctx: TaskContext, th: ClassTag[T]): Fragments =
+    mustHaveMethod(name, true) {
+      implicit m =>
+        Fragments.create(mustThrow(true)(args: _*))
+    }
+
+  protected def mustThrow[T <: Throwable](args: Any*)(implicit tm: TaskMethod, th: ClassTag[T]): Fragment =
+    mustThrow(false)(args: _*)
 
   protected def mustReturnAsString(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
     mustHaveResult(args: _*) {
@@ -246,10 +256,12 @@ trait Matchers {
           compareReturn(res, args: _*)(r.toString)
     }
 
-  protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragment =
-    mustHaveResult(args: _*) {
-      r =>
-        compareReturn(res, args: _*)(r)
+  protected def mustReturn(res: Any, args: Any*)(implicit tm: TaskMethod): Fragments =
+    mustHaveParams(args.length) {
+      mustHaveResult(args: _*) {
+        r =>
+          compareReturn(res, args: _*)(r)
+      }
     }
 
   protected def compareReturn(excp: Any, args: Any*)(act: Any)(implicit tm: TaskMethod): Fragment = {

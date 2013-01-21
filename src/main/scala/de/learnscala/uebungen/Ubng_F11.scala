@@ -7,12 +7,13 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
-     * Gesucht wird eine Funktion zur Negierung einer Fließkommazahl.
+     * Gesucht wird eine Funktion 'negate' zur Negierung einer Fließkommazahl.
      */
 
-    // def negate =
+    // val negate =
 
-    def f1 = TODO // negate(5.0f)
+    def t = TODO // negate(5.0f)
+
   }
 
   // ===============================================================
@@ -20,12 +21,13 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
-     * Gesucht wird die Funktion zur Berechnung der Hälfte einer ganzen Zahl.
+     * Gesucht wird die Funktion 'half' zur Berechnung der Hälfte einer ganzen Zahl.
      */
 
-    // def half =
+    // val half =
 
-    def f2 = TODO // half(2)
+    def t = TODO // half(2)
+
   }
 
   // ===============================================================
@@ -33,12 +35,11 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
   task(3) {
 
     /**
-     * Gesucht wird eine Funktion zur Umkehrung eines Strings.
+     * Gesucht wird eine Funktion 'reverse' zur Umkehrung eines Strings.
      */
 
-    // def reverse =
+    def t = TODO // reverse("abc")
 
-    def f3 = TODO // reverse("abc")
   }
 
   // ===============================================================
@@ -46,13 +47,44 @@ class Ubng_F11 extends Exercise with Help /* with Disabled */ {
   task(4) {
 
     /**
-     * Aufgabe #4
+     * Gesucht wird eine Funktion 'drive' die mitteilt, ob
      *
-     * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
+     * @throws Wirft Ausnahme wenn die Ampfel ausgefallen ist (=null)
      */
 
-    // def repeat =
+    var trafficLight: String = "red"
 
-    def f4 = TODO // repeat("123", 3)
+    def t1 = TODO // drive()
+
+    def t2 = {
+      trafficLight = "yellow"
+      //drive()
+    }
+
+    def t3 = {
+      trafficLight = "green"
+      //drive()
+    }
+
+    def t4 = {
+      trafficLight = null
+      //drive()
+    }
+  }
+
+  // ===============================================================
+
+  task(5) {
+
+    /**
+     * BONUS!
+     *
+     * Gesucht wird eine Funktion zur mehrmaligen Verkettung einer Zeichenkette.
+     *
+     * @note 1 Zeile genügt
+     */
+
+    def t = TODO // repeat("123", 3)
+
   }
 }

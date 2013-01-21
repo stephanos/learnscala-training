@@ -16,7 +16,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
 
   def twoPass = false
 
-  def sendResults = true
+  def sendResults = false
 
   def fs: Fragments =
     sys.error("overwrite 'fs'")
