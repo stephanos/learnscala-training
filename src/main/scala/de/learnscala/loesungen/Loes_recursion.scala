@@ -8,20 +8,7 @@ class Loes_recursion extends Solution {
 
   task(1) {
 
-    @tailrec
-    def gcd(a: Int, b: Int): BigInt =
-      if (b == 0)
-        a
-      else
-        gcd(b, a % b)
-
-  }
-
-  // ===============================================================
-
-  task(2) {
-
-    def sumDouble(ls: List[Int]): BigInt = {
+    def quadSum(ls: List[Int]): BigInt = {
 
       @tailrec
       def tailSum(l: List[Int], sum: BigInt): BigInt = {
@@ -37,7 +24,7 @@ class Loes_recursion extends Solution {
 
   // ===============================================================
 
-  task(3) {
+  task(2) {
 
     def fib(n: Int): BigInt = {
 

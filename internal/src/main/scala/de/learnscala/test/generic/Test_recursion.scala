@@ -8,39 +8,24 @@ abstract class Test_recursion[T: TypeTag] extends BaseTest[T]() {
   override def twoPass = false // StackOverflow simulated ...
 
   override val fs =
-    task(1)("gcd", "method") {
+    task(1)("quadSum", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(2) {
-              mustReturn(2, 2, 4) ^
-                mustReturn(3, 6, 9) ^
-                mustReturn(8, 8, 16)
-            }
+            mustReturn(5, List(1, 2)) ^
+              mustReturn(1, List(1)) ^
+              mustReturn(14, List(1, 2, 3))
+
         }
-    } ^ task(2)("sumDouble", "method") {
+    } ^ task(2)("fib", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustHaveParams(1) {
-              mustReturn(5, List(1, 2)) ^
-                mustReturn(1, List(1)) ^
-                mustReturn(14, List(1, 2, 3)) ^
-                mustReturn(14, 1 to 100000)
-            }
-        }
-    } ^ task(3)("fib", "method") {
-      implicit ctx =>
-        mustHaveMethod {
-          implicit m =>
-            mustHaveParams(1) {
-              mustReturn(0, 0) ^
-                mustReturn(1, 1) ^
-                mustReturn(1, 2) ^
-                mustReturn(2, 3) ^
-                mustReturn(3, 4) ^
-                mustReturn(BigInt("12586269025"), 50)
-            }
+            mustReturn(0, 0) ^
+              mustReturn(1, 1) ^
+              mustReturn(1, 2) ^
+              mustReturn(2, 3) ^
+              mustReturn(3, 4)
         }
     }
 }

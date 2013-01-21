@@ -5,34 +5,10 @@ import annotation.tailrec
 
 class Ubng_recursion extends Exercise with Help /* with Disabled */ {
 
-  // ===============================================================
-
   task(1) {
 
     /**
-     * Methode 'gcd'
-     *
-     * @param x
-     * @param y
-     * @return Größter gemeinsamer Teiler (kgV)
-     *
-     * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
-     */
-
-    //@tailrec
-    def gcd(x: Int, y: Int): BigInt = {
-      if (x == 0) y
-      else if (x < 0) gcd(-x, y)
-      else if (y < 0) -gcd(x, -y)
-      else gcd(y % x, x)
-    }
-
-  }
-
-  task(2) {
-
-    /**
-     * Methode 'doubleSum'
+     * Methode 'quadSum'
      *
      * @param lst Liste aus natürlichen Zahlen
      * @return Summe der Quadradzahlen der Liste
@@ -42,17 +18,17 @@ class Ubng_recursion extends Exercise with Help /* with Disabled */ {
      */
 
     //@tailrec
-    def doubleSum(lst: List[Int]): BigInt =
+    def quadSum(lst: List[Int]): BigInt =
       lst match {
         case Nil => 0
-        case head :: tail => (head * head) + doubleSum(tail)
+        case head :: tail => (head * head) + quadSum(tail)
       }
 
   }
 
   // ===============================================================
 
-  task(3) {
+  task(2) {
 
     /**
      * Methode 'fib'
@@ -74,9 +50,7 @@ class Ubng_recursion extends Exercise with Help /* with Disabled */ {
       n match {
         case 0 => 0
         case 1 => 1
-        case _ =>
-          println(n)
-          fib(n - 1) + fib(n - 2)
+        case _ => fib(n - 1) + fib(n - 2)
       }
 
   }
