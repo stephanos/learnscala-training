@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Loes_inherit
-    extends generic.Test_inherit[loesungen.Loes_O11]
+    extends generic.Test_inherit[loesungen.Loes_inherit]

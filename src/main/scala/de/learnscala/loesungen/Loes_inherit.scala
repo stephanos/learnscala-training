@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_O11 extends Solution {
+class Loes_inherit extends Solution {
 
   abstract class Item {
     def price: Float
