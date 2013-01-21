@@ -29,7 +29,10 @@ abstract class Test_func3_b[T: TypeTag] extends BaseTest[T]() {
         implicit ctx =>
           mustHaveMethod {
             implicit m =>
-              mustReturn(List(), List("oh", "jaja")) ^
+              mustReturn((List("jaja"), List("oh")), List("oh", "jaja")) ^
+                mustReturn((List("so so"), List("aha")), List("aha", "so so")) ^
+                mustReturn((List("So so"), List("Aha")), List("Aha", "So so")) ^
+                mustReturn((List(), List()), List()) ^
                 mustNotBeLongerThan(2)
           }
       } ^

@@ -13,8 +13,9 @@ class Loes_func3_b extends Solution {
 
   task(2) {
     def m2(l: List[String]) = {
-      def startsWithVowel = (s: String) => s.charAt(0)
-      l groupBy { s => startsWithVowel(s) }
+      null
+      //def startsWithVowel = (s: String) => s.charAt(0).is
+      //l partition { s => startsWithVowel(s) }
     }
   }
 
