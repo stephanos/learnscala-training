@@ -14,8 +14,8 @@ abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams(2) {
               mustReturn(2, 2, 4) ^
-              mustReturn(3, 6, 9) ^
-              mustReturn(8, 8, 16)
+                mustReturn(3, 6, 9) ^
+                mustReturn(8, 8, 16)
             }
         }
     } ^ task(2)("sumDouble", "method") {
@@ -23,10 +23,10 @@ abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
         mustHaveMethod {
           implicit m =>
             mustHaveParams(1) {
-            mustReturn(5, List(1, 2)) ^
-              mustReturn(1, List(1)) ^
-              mustReturn(14, List(1,2,3)) ^
-              mustReturn(14, 1 to 100000)
+              mustReturn(5, List(1, 2)) ^
+                mustReturn(1, List(1)) ^
+                mustReturn(14, List(1, 2, 3)) ^
+                mustReturn(14, 1 to 100000)
             }
         }
     } ^ task(3)("fib", "method") {
@@ -35,11 +35,11 @@ abstract class Test_B21[T: TypeTag] extends BaseTest[T]() {
           implicit m =>
             mustHaveParams(1) {
               mustReturn(0, 0) ^
-              mustReturn(1, 1) ^
-              mustReturn(1, 2) ^
-              mustReturn(2, 3) ^
-              mustReturn(3, 4) ^
-              mustReturn(BigInt("12586269025"), 50)
+                mustReturn(1, 1) ^
+                mustReturn(1, 2) ^
+                mustReturn(2, 3) ^
+                mustReturn(3, 4) ^
+                mustReturn(BigInt("12586269025"), 50)
             }
         }
     }

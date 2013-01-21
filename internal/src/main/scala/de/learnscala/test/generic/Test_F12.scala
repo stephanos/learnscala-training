@@ -104,7 +104,7 @@ abstract class Test_F12[T: TypeTag] extends BaseTest[T]() {
       fn
     } catch {
       case th: Throwable =>
-        println(th.getCause)
+        //println(th.getCause)
         th.getCause match {
           case e: NotImplementedError =>
             Pending()

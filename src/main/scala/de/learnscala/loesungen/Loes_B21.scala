@@ -21,12 +21,12 @@ class Loes_B21 extends Solution {
 
   task(2) {
 
-    def doubleSum(ls: List[Int]): BigInt = {
+    def sumDouble(ls: List[Int]): BigInt = {
 
       @tailrec
       def tailSum(l: List[Int], sum: BigInt): BigInt = {
         l match {
-          case Nil => 0
+          case Nil => sum
           case head :: tail => tailSum(tail, sum + head * head)
         }
       }

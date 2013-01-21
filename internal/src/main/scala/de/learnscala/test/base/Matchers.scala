@@ -158,7 +158,7 @@ trait Matchers {
   protected def mustUse(descr: String, items: (String, String)*)(implicit tm: TaskMethod): Example = {
     "must use " + descr + ": " + items.map(_._1).mkString("'", "', '", "'") ! {
       val raw = tm.ctx.getMethod("_raw").get.invoke().asInstanceOf[String]
-      println(raw)
+      //println(raw)
       val missing =
         items.foldLeft(List[String]()) {
           (r, m) =>
@@ -177,7 +177,7 @@ trait Matchers {
   protected def mustNotUseMethods(mths: String*)(implicit tm: TaskMethod): Example =
     "must not use the method" + (if (mths.length > 0) "s" else "") + ": " + mths.mkString("'", "', '", "'") ! {
       val raw = tm.ctx.getMethod("_source").get.invoke().asInstanceOf[String]
-      println(raw)
+      //println(raw)
       val violations =
         mths.foldLeft(List[String]()) {
           (r, m) =>

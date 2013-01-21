@@ -39,7 +39,7 @@ object Loes_B23 {
   implicit class ListHelper(val sc: StringContext) {
 
     def nums(args: Any*): Seq[Int] = {
-      sc.s(args: _*).split(",").map { _.toInt }
+      sc.s(args: _*).split(",").map { s => s.toInt }
     }
   }
 }
