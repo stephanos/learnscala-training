@@ -25,15 +25,17 @@ class Loes_O22 extends Solution {
   // TESTS
   // ===============================================================
 
-  def s1 = solve(Leaf(5))
+  task {
+    def s1 = solve(Leaf(5))
 
-  def s2 = solve(Node('+', Leaf(5), Leaf(5)))
+    def s2 = solve(Node('+', Leaf(5), Leaf(5)))
 
-  def s3 = solve(Node('*', Leaf(5), Leaf(5)))
+    def s3 = solve(Node('*', Leaf(5), Leaf(5)))
 
-  def s4 = solve(Node('/', Leaf(5), Leaf(5)))
+    def s4 = solve(Node('/', Leaf(5), Leaf(5)))
 
-  def s5 = solve(Node('-', Leaf(5), Leaf(5)))
+    def s5 = solve(Node('-', Leaf(5), Leaf(5)))
 
-  def s6 = solve(Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))))
+    def s6 = solve(Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))))
+  }
 }

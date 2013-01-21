@@ -48,15 +48,5 @@ abstract class Test_func4_a[T: TypeTag] extends BaseTest[T]() {
               mustReturn(List(3, 2, 1), List(1, 2, 3)) ^
               mustReturn(List(), List())
         }
-    } ^ task(^
-
-  5) ("reverse", "method") {
-    implicit ctx =>
-      mustHaveMethod {
-        implicit m =>
-          mustNotBeLongerThan(1) ^
-            mustReturn(List(1, 2, 3), List(1, 2, 3)) ^
-            mustReturn(List(), List())
-      }
-  }
+    }
 }

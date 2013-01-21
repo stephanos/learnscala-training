@@ -4,42 +4,40 @@ import de.learnscala.base._
 
 class Ubng_class2 extends Exercise with Help /* with Disabled */ {
 
-  task {
+  /**
+   * 'OpTree' ist ein Baum, bei dem jeder Knoten (Node) entweder
+   * A) eine Zahl beinhaltet (Leaf) oder
+   * B) einen Operator und wieder zwei Unterknoten
+   * ist.
+   *
+   * Mögliche Operatoren sind '+', '-', '*' und '/'.
+   */
 
-    /**
-     * 'OpTree' ist ein Baum, bei dem jeder Knoten (Node) entweder
-     * A) eine Zahl beinhaltet (Leaf) oder
-     * B) einen Operator und wieder zwei Unterknoten
-     * ist.
-     *
-     * Mögliche Operatoren sind '+', '-', '*' und '/'.
-     */
+  TODO
 
-    TODO
-
-    /**
-     * Methode 'solve'
-     *
-     * @param tree eine Instanz vom Typ OpTree
-     * @return Rechenergebnis unter Anwendung der Zahlen und Operatoren der Knoten
-     *
-     * @example
+  /**
+   * Methode 'solve'
+   *
+   * @param tree eine Instanz vom Typ OpTree
+   * @return Rechenergebnis unter Anwendung der Zahlen und Operatoren der Knoten
+   *
+   * @example
          * +
-     *     /  \
-     *     *    -
-     *     / \  / \
-     *     3 8  2  5
-     *
-     *     => Ergebnis: (3 * 8) + (2 - 5) = 24 + -3 = 21
-     */
+   *       /  \
+   *       *    -
+   *       / \  / \
+   *       3 8  2  5
+   *
+   *       => Ergebnis: (3 * 8) + (2 - 5) = 24 + -3 = 21
+   */
 
-    TODO
+  TODO
 
+  // ===============================================================
+  // TESTS
+  // ===============================================================
 
-    // ===============================================================
-    // TESTS
-    // ===============================================================
-
+  task {
     def s1 = TODO //solve(Leaf(5))
 
     def s2 = TODO //solve(Node('+', Leaf(5), Leaf(5)))
