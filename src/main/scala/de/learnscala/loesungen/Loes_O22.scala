@@ -4,9 +4,10 @@ import de.learnscala.base.Solution
 
 class Loes_O22 extends Solution {
 
-  abstract class OpTree
+  trait OpTree
   case class Leaf(value: Int) extends OpTree
   case class Node(operator: Char, left: OpTree, right: OpTree) extends OpTree
+
 
   def solve(tree: OpTree): Int =
     tree match {

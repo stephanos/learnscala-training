@@ -6,11 +6,12 @@ class Ubng_class2 extends Exercise with Help /* with Disabled */ {
 
   /**
    * 'OpTree' ist ein Baum, bei dem jeder Knoten (Node) entweder
-   * A) eine Zahl beinhaltet (Leaf) oder
-   * B) einen Operator und wieder zwei Unterknoten
-   * ist.
+   *   A) eine Zahl beinhaltet (Leaf) oder
+   *   B) einen Operator und wieder zwei Unterknoten hat.
    *
    * Mögliche Operatoren sind '+', '-', '*' und '/'.
+   *
+   * @todo Definieren Sie das Datenmodell!
    */
 
   TODO
@@ -22,16 +23,19 @@ class Ubng_class2 extends Exercise with Help /* with Disabled */ {
    * @return Rechenergebnis unter Anwendung der Zahlen und Operatoren der Knoten
    *
    * @example
-         * +
-   *       /  \
-   *       *    -
+   *           +
+   *         /  \
+   *        *    -
    *       / \  / \
    *       3 8  2  5
    *
    *       => Ergebnis: (3 * 8) + (2 - 5) = 24 + -3 = 21
+   *
+   * @todo Entwerfen Sie die Methode!
    */
 
   TODO
+
 
   // ===============================================================
   // TESTS
