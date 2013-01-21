@@ -30,7 +30,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustReturnAsString("Butter & Milk for 1.94€")
+              mustReturnAsString("Butter & Milk for 1.90€")
             }
         }
     } ^ test(4)("apple5kg", "method") {
@@ -46,7 +46,7 @@ abstract class Test_O11[T: TypeTag] extends BaseTest[T](continuous = true) {
         mustHaveMethod {
           implicit m =>
             mustHaveParams() {
-              mustReturnAsString("5kg Apples & Butter & Milk for 2.94€")
+              mustReturnAsString("5kg Apples & Butter & Milk for 2.90€")
             }
         }
     }

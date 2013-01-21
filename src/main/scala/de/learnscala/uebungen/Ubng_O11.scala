@@ -4,7 +4,7 @@ import de.learnscala.base._
 
 class Ubng_O11 extends Exercise with Help /* with Disabled */ {
 
-  task {
+
   /**
    * Produkte eines Supermarktes.
    *
@@ -23,29 +23,30 @@ class Ubng_O11 extends Exercise with Help /* with Disabled */ {
   // TESTS
   // ===============================================================
 
-  /**
-   * Einfaches Produkt 'Butter'
-   */
-  def butter = TODO //new SimpleItem(.95f, "Butter")
+  task {
+    /**
+     * Einfaches Produkt 'Butter'
+     */
+    def butter = TODO //new SimpleItem(.95f, "Butter")
 
-  /**
-   * Prozentual reduziertes Produkt 'Milch'
-   */
-  def milk = TODO //new ReducedItem(1.0f, 5, "Milk")
+    /**
+     * Prozentual reduziertes Produkt 'Milch'
+     */
+    def milk = TODO //new ReducedItem(1.0f, 5, "Milk")
 
-  /**
-   * Gebündeltes Produkt 'Butter' und 'Milch'
-   */
-  def butterAndMilk = TODO //new Bundle(butter, milk)
+    /**
+     * Gebündeltes Produkt 'Butter' und 'Milch'
+     */
+    def butterAndMilk = TODO //new Bundle(butter, milk)
 
-  /**
-   * Gewichtetes (kg) Produkt 'Äpfel'
-   */
-  def apple5kg = TODO //new WeightedItem(0.2f, 5, "Apples")
+    /**
+     * Gewichtetes (kg) Produkt 'Äpfel'
+     */
+    def apple5kg = TODO //new WeightedItem(0.2f, 5, "Apples")
 
-  /**
-   * Gebündeltes Produkt 'Butter' und 'Milch' und 'Äpfel'
-   */
-  def butterMilkAndApples = TODO //new Bundle(apple5kg, butterAndMilk)
+    /**
+     * Gebündeltes Produkt 'Butter' und 'Milch' und 'Äpfel'
+     */
+    def butterMilkAndApples = TODO //new Bundle(apple5kg, butterAndMilk)
   }
 }
