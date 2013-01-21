@@ -78,20 +78,26 @@ trait Matchers {
     }
     */
 
-  protected def mustReturnList(args: Any*)(f: (Traversable[Any]) => Fragment)(implicit tm: TaskMethod): Fragment =
+  protected def mustReturnList(args: Any*)(f: (Seq[Any]) => Fragment)(implicit tm: TaskMethod): Fragment =
     mustHaveResult(args: _*) {
       v => v match {
-        case null => mustNotBeNull()
-        case l: Traversable[Any] => f(l)
-        case _ => mustHaveType("List")
+        case null =>
+          ("must not be null") ! {
+            v must not beNull
+          }
+        case l: Seq[Any] => f(l)
+        case _ =>
+          ("must have type 'Seq'") ! {
+            v must beAnInstanceOf[Seq[_]]
+          }
       }
     }
 
-  protected def withList(v: Any)(f: (Traversable[Any]) => MatchResult[Any]): MatchResult[Any] =
+  protected def withList(v: Any)(f: (Seq[Any]) => MatchResult[Any]): MatchResult[Any] =
     v match {
       case null => v must not beNull
-      case l: Traversable[Any] => f(l)
-      case _ => v must beAnInstanceOf[Traversable[_]]
+      case l: Seq[Any] => f(l)
+      case _ => v must beAnInstanceOf[Seq[_]]
     }
 
   protected def mustHaveClass(f: (TaskClass) => Fragments)(implicit ctx: TaskContext): Fragments =
@@ -320,17 +326,5 @@ trait Matchers {
           case other => "'" + other.mkString("','") + "'"
         })
     if (tmp.length > 50) "for input" else tmp // shorten ??
-  }
-
-  private def mustHaveType(t: String): Example = {
-    ("must have type: '" + t + "'") ! {
-      Pending()
-    }
-  }
-
-  private def mustNotBeNull(): Example = {
-    ("must not be null") ! {
-      Pending()
-    }
   }
 }

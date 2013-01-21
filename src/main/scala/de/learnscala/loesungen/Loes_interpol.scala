@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_B23 extends Solution {
+class Loes_interpol extends Solution {
 
   task(1) {
 
@@ -17,7 +17,7 @@ class Loes_B23 extends Solution {
 
   task(2) {
 
-    import Loes_B23._
+    import Loes_interpol._
 
     def list123 =
       nums"1,2,3"
@@ -27,14 +27,14 @@ class Loes_B23 extends Solution {
 
   task(3) {
 
-    import Loes_B23._
+    import Loes_interpol._
 
     def list123 =
       nums"1,${1 + 1},${1 + 1 + 1}"
   }
 }
 
-object Loes_B23 {
+object Loes_interpol {
 
   implicit class ListHelper(val sc: StringContext) {
 

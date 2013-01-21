@@ -2,7 +2,7 @@ package de.learnscala.uebungen
 
 import de.learnscala.base._
 
-class Ubng_B23 extends Exercise with Help /* with Disabled */ {
+class Ubng_interpol extends Exercise with Help /* with Disabled */ {
 
   task(1) {
 
@@ -42,6 +42,6 @@ class Ubng_B23 extends Exercise with Help /* with Disabled */ {
   }
 }
 
-object Ubng_B23 {
+object Ubng_interpol {
 
 }
