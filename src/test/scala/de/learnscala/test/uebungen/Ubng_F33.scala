@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Ubng_F33
-    extends generic.Test_F33[uebungen.Ubng_F31]
+    extends generic.Test_F33[uebungen.Ubng_F33]
