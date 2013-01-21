@@ -6,17 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
-    task(1)("Quiz") {
-      implicit ctx =>
-        mustReturnMethod("r1", true) ^
-          mustReturnMethod("r2", true) ^
-          mustReturnMethod("r3", true) ^
-          mustReturnMethod("r4", true) ^
-          mustReturnMethod("r5", true) ^
-          mustReturnMethod("r6", true) ^
-          mustReturnMethod("r7", true) ^
-          mustReturnMethod("r8", true)
-    } ^ task(2)("days of the week") {
+    task(1)("days of the week") {
       implicit ctx =>
         mustHaveMethod("weekDays", true) {
           implicit m =>
@@ -43,7 +33,7 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
                 }
             }
         }
-    } ^ task(3)("lastElem", "method") {
+    } ^ task(2)("lastElem", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -54,7 +44,7 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
                 mustReturn(None, List())
             }
         }
-    } ^ task(4)("thirdElem", "method") {
+    } ^ task(3)("thirdElem", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
