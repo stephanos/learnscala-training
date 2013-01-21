@@ -14,7 +14,7 @@ abstract class BaseTest[T: TypeTag](continuous: Boolean = false)
   extends SpecificationWithJUnit with Mockito with ScalaCheck
   with Reflect with Capture with Matchers with StopOnFail {
 
-  def twoPass = true
+  def twoPass = false
 
   def sendResults = false
 

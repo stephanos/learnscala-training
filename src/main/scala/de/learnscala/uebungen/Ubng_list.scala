@@ -11,8 +11,8 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * Ersetzen Sie den rechten Teil des Vergleichs mit dem entsprechenden Ergebnis!
      */
 
-    def r1 =
-      "Hello" :: List("World") == List(TODO)
+    //def r1 =
+    //  "Hello" :: List("World") == List(TODO)
 
     def r2 =
       ("Hello" :: "World" :: Nil).mkString("", " ", "!") == TODO
@@ -61,7 +61,7 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
     /**
      * Methode 'lastElem'
      *
-     * @param l eine Liste
+     * @param l eine Liste aus natürlichen Zahlen
      * @return das letzte Element einer Liste, None falls nicht vorhanden
      *
      * @note Pattern Matching!
@@ -80,7 +80,7 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      *
      * Methode 'thirdElem'
      *
-     * @param l eine Liste
+     * @param l eine Liste aus natürlichen Zahlen
      * @return das dritte Element der Liste, None falls nicht vorhanden
      *
      * @note Pattern Matching!

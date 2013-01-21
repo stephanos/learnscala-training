@@ -46,13 +46,15 @@ trait Matchers {
   }
 
   protected def mustReturnMethodDescr(name: String, descr: String, args: Any*)(res: TaskMethod => MatchResult[Any])(implicit ctx: TaskContext): Fragments =
-    s"method '$name'" + descr ! {
-      ctx.getMethod(name) match {
-        case Some(m) =>
+    ctx.getMethod(name) match {
+      case Some(m) =>
+        s"method '$name'" + descr ! {
           res(m)
-        case _ =>
-          sys.error(s"method '$name' does not exist!")
-      }
+        }
+      case _ =>
+        s"method '$name'" + descr ! {
+          Failure(s"method '$name' does not exist!")
+        }
     }
 
   protected def mustHaveMethod(name: String, longDescr: Boolean = false)(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {

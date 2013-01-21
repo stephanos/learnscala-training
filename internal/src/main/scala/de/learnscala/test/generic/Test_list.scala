@@ -67,27 +67,27 @@ abstract class Test_list[T: TypeTag] extends BaseTest[T]() {
             }
         }
     }
-
-
-  //
-  //        "palindrome" ! {
-  //            "must return 'false' for List(1,2,3)" ! {
-  //                palindrome(List(1, 2, 3)) === false
-  //            }
-  //            "must return 'false' for List(1,2,1,2)" ! {
-  //                palindrome(List(1, 2, 1, 2)) === false
-  //            }
-  //            "must return 'true' for List(1,2,1)" ! {
-  //                palindrome(List(1, 2, 1)) === true
-  //            }
-  //            "must return 'true' for List(1)" ! {
-  //                palindrome(List(1)) === true
-  //            }
-  //            "must return 'true' for List(1,2,3,2,1)" ! {
-  //                palindrome(List(1, 2, 3, 2, 1)) === true
-  //            }
-  //            "must return 'true' for List()" ! {
-  //                palindrome(List()) === true
-  //            }
-  //        }
 }
+
+
+//
+//        "palindrome" ! {
+//            "must return 'false' for List(1,2,3)" ! {
+//                palindrome(List(1, 2, 3)) === false
+//            }
+//            "must return 'false' for List(1,2,1,2)" ! {
+//                palindrome(List(1, 2, 1, 2)) === false
+//            }
+//            "must return 'true' for List(1,2,1)" ! {
+//                palindrome(List(1, 2, 1)) === true
+//            }
+//            "must return 'true' for List(1)" ! {
+//                palindrome(List(1)) === true
+//            }
+//            "must return 'true' for List(1,2,3,2,1)" ! {
+//                palindrome(List(1, 2, 3, 2, 1)) === true
+//            }
+//            "must return 'true' for List()" ! {
+//                palindrome(List()) === true
+//            }
+//        }
