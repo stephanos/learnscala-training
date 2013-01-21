@@ -57,18 +57,15 @@ trait Matchers {
 
   protected def mustHaveMethod(name: String, longDescr: Boolean = false)(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {
     val method = ctx.getMethod(name)
-    val descr = if (longDescr) s"method '$name' " else ""
-    val check =
-      (descr + "must be defined") ! {
+    if (method.isEmpty)
+      (if (longDescr) s"method '$name' " else "") + "must be defined" ! {
         if (method.isDefined)
           success
         else
           Failure(s"method '$name' could not be found")
       }
-    if (method.isEmpty)
-      check
     else
-    /*check ^*/ f(method.get)
+      f(method.get)
   }
 
   /*
