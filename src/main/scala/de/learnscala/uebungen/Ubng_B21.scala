@@ -5,6 +5,8 @@ import annotation.tailrec
 
 class Ubng_B21 extends Exercise with Help /* with Disabled */ {
 
+  // ===============================================================
+
   task(1) {
 
     /**
@@ -27,9 +29,30 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
 
   }
 
+  task(2) {
+
+    /**
+     * Methode 'doubleSum'
+     *
+     * @param lst Liste aus natürlichen Zahlen
+     * @return Summe der Quadradzahlen der Liste
+     *
+     * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
+     * @note Die Signatur der Methode soll bestehen bleiben!
+     */
+
+    //@tailrec
+    def doubleSum(lst: List[Int]): BigInt =
+      lst match {
+        case Nil => 0
+        case head :: tail => (head * head) + doubleSum(tail)
+      }
+
+  }
+
   // ===============================================================
 
-  task(2) {
+  task(3) {
 
     /**
      * Methode 'fib'
@@ -43,6 +66,7 @@ class Ubng_B21 extends Exercise with Help /* with Disabled */ {
      *     0, 1, 1, 2, 3, 5, 8, 13, …
      *
      * @todo Wandeln Sie folgende Funktion in eine endrekursive Funktion um!
+     * @note Die Signatur der Methode soll bestehen bleiben!
      */
 
     //@tailrec

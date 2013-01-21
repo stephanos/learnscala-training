@@ -1,6 +1,7 @@
 package de.learnscala.test.base
 
 import org.specs2._
+import matcher.MatchResult
 import specification._
 import execute.{Failure, Pending}
 
@@ -35,23 +36,47 @@ trait Matchers {
         }
     }
 
+  protected def mustReturnMethod(name: String, res: Any, args: Any*)(implicit ctx: TaskContext): Fragments = {
+    val forInp =
+      if (args.isEmpty)
+        ""
+      else
+        "for " + inputDescr(args: _*)
+    mustReturnMethodDescr(name,
+      " must return '" + res + "' " +(if (forInp.length > 50) "for input" else forInp), args){
+        tm =>
+          val apply = tm.invoke(args: _*)
+          apply === res
+    }
+  }
+
+  protected def mustReturnMethodDescr(name: String, descr: String, args: Any*)(res: TaskMethod => MatchResult[Any])(implicit ctx: TaskContext): Fragments =
+    s"method '$name'" + descr ! {
+      ctx.getMethod(name) match {
+        case Some(m) =>
+          res(m)
+        case _ =>
+          sys.error(s"method '$name' does not exist!")
+      }
+    }
+
   protected def mustHaveMethod(name: String, longDescr: Boolean = false)(f: (TaskMethod) => Fragments)(implicit ctx: TaskContext): Fragments = {
     val method = ctx.getMethod(name)
-    val descr = if(longDescr) s"method '$name' " else ""
+    val descr = if (longDescr) s"method '$name' " else ""
     val check =
       (descr + "must be defined") ! {
         if (method.isDefined)
           success
         else
-          Failure(s"method '${ctx.name}' could not be found")
+          Failure(s"method '$name' could not be found")
       }
     if (method.isEmpty)
       check
     else
-      check ^ f(method.get)
+      /*check ^*/ f(method.get)
   }
 
-  protected def withList(v: Any)(e: Traversable[_] => Example): Example =
+  protected def withList(v: Any)(e: Traversable[_] => MatchResult[Any]): MatchResult[Any] =
     v match {
       case l: Seq[_] =>
         e(l)
@@ -96,13 +121,14 @@ trait Matchers {
       val raw = tm.ctx.getMethod("_raw").get.invoke().asInstanceOf[String]
       println(raw)
       val missing =
-        items.foldLeft(List[String]()) { (r,m) =>
-        if(raw.contains(m._2))
-          r
-        else
-          m._1 :: r
-      }
-      if(missing.isEmpty)
+        items.foldLeft(List[String]()) {
+          (r, m) =>
+            if (raw.contains(m._2))
+              r
+            else
+              m._1 :: r
+        }
+      if (missing.isEmpty)
         success
       else
         Failure("code is not using required " + descr + ": " + missing.mkString("'", "', ", "'"))
@@ -114,19 +140,20 @@ trait Matchers {
       val raw = tm.ctx.getMethod("_source").get.invoke().asInstanceOf[String]
       println(raw)
       val violations =
-        mths.foldLeft(List[String]()) { (r,m) =>
-        if(raw.contains(m))
-          m :: r
-        else
-          r
-      }
-      if(violations.isEmpty)
+        mths.foldLeft(List[String]()) {
+          (r, m) =>
+            if (raw.contains(m))
+              m :: r
+            else
+              r
+        }
+      if (violations.isEmpty)
         success
       else
-        if(violations.size > 0)
-          Failure("code uses forbidden method: " + violations.head)
-        else
-          Failure("code uses forbidden methods: " + violations.mkString("'", "', ", "'"))
+      if (violations.size > 0)
+        Failure("code uses forbidden method: " + violations.head)
+      else
+        Failure("code uses forbidden methods: " + violations.mkString("'", "', ", "'"))
     }
 
   //    def mustHaveParams(m: MethodSymbol, types: Class[_]*)(f: (MethodSymbol) => Example): Example = {
@@ -198,6 +225,7 @@ trait Matchers {
   protected val WHILE = COUNT("while")
 
   protected case class COUNT(name: String, customCode: String = null, descr: Option[String] = None) {
+
     val code = Option(customCode).getOrElse(name)
     val field = "_noOf" + code.capitalize + "s"
   }

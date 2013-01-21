@@ -17,13 +17,15 @@ class TaskMacro[C <: Context](val c: C) {
 
     object WorkaroundTransformer extends Transformer {
 
+      val DEFAULTPARAM = reflect.internal.ModifierFlags.DEFAULTPARAM
+
       override def transform(tree: Tree): Tree = {
         tree match {
           case Template(parents, self, stats) =>
             val stats1 = stats filter {
               case dd0: DefDef =>
-                val dd = dd0.asInstanceOf[scala.reflect.internal.Trees#DefDef]
-                val DEFAULTPARAM = scala.reflect.internal.ModifierFlags.DEFAULTPARAM
+                println(dd0)
+                val dd = dd0.asInstanceOf[reflect.internal.Trees#DefDef]
                 (dd.symbol.flags & DEFAULTPARAM) != DEFAULTPARAM
               case _ =>
                 true
@@ -38,6 +40,14 @@ class TaskMacro[C <: Context](val c: C) {
                 }.getOrElse(vd)
               case v => v
             })), tpt, rhs)
+          /*case dd0: DefDef =>
+            val dd = dd0.asInstanceOf[reflect.internal.Trees#DefDef]
+            if((dd.symbol.flags & DEFAULTPARAM) == DEFAULTPARAM) {
+              Literal(Constant(()))
+            } else {
+              println(dd)
+              dd0
+            }*/
           case _ =>
             super.transform(tree)
         }

@@ -5,54 +5,33 @@ import scala.reflect.runtime.universe._
 
 abstract class Test_F22[T: TypeTag] extends BaseTest[T]() {
 
-
   override def fs =
     task(1)("Quiz") {
       implicit ctx =>
-        mustHaveMethod("r1", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r2", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r3", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r4", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r5", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r6", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r7", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        } ^ mustHaveMethod("r8", true) {
-          implicit m =>
-            m.invoke() must beTrue
-        }
+        mustReturnMethod("r1", true) ^
+          mustReturnMethod("r2", true) ^
+          mustReturnMethod("r3", true) ^
+          mustReturnMethod("r4", true) ^
+          mustReturnMethod("r5", true) ^
+          mustReturnMethod("r6", true) ^
+          mustReturnMethod("r7", true) ^
+          mustReturnMethod("r8", true)
     } ^ task(2)("days of the week") {
       implicit ctx =>
-        mustHaveMethod("weekDays", true) {
+        mustReturnMethodDescr("weekDays", "must contain the 5 German days of the week") {
           implicit m =>
             withList(m.invoke()) {
-              ls =>
-                ls must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
+              _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"))
             }
-        } ^ mustHaveMethod("weekendDays", true) {
+        } ^ mustReturnMethodDescr("weekendDays", "must contain the 2 German days of the weekend") {
           implicit m =>
             withList(m.invoke()) {
-              ls =>
-                ls must containAllOf(Seq("Sonntag", "Samstag"))
+              _.toSeq must containAllOf(Seq("Sonntag", "Samstag"))
             }
-        } ^ mustHaveMethod("days", true) {
+        } ^ mustReturnMethodDescr("days", "must contain all 7 German days of the week") {
           implicit m =>
             withList(m.invoke()) {
-              ls =>
-                ls must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag", "Samstag"))
+              _.toSeq must containAllOf(Seq("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag", "Samstag"))
             }
         }
     } ^ task(3)("lastElem", "method") {

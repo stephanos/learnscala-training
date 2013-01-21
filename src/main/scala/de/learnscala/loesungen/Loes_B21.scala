@@ -21,14 +21,32 @@ class Loes_B21 extends Solution {
 
   task(2) {
 
+    def doubleSum(ls: List[Int]): BigInt = {
+
+      @tailrec
+      def tailSum(l: List[Int], sum: BigInt): BigInt = {
+        l match {
+          case Nil => 0
+          case head :: tail => tailSum(tail, sum + head * head)
+        }
+      }
+
+      tailSum(ls, 0)
+    }
+  }
+
+  // ===============================================================
+
+  task(3) {
+
     def fib(n: Int): BigInt = {
 
       @tailrec
       def tailFib(n: Int, a: BigInt, b: BigInt): BigInt = {
-        if (n == 0)
-          a
-        else
-          tailFib(n - 1, a + b, a)
+        n match {
+          case 0 => a
+          case _ => tailFib(n - 1, a + b, a)
+        }
       }
 
       tailFib(n, 0L, 1L)
