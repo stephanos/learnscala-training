@@ -4,7 +4,8 @@ import de.learnscala.base.Solution
 
 class Loes_F23_1 extends Solution {
 
-  task(1) {
+  task {
+
     def add1 =
       (x: Int) => { x + 1 }
 

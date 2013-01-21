@@ -4,28 +4,12 @@ import de.learnscala.base._
 
 class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
 
-  task(1) {
+  task {
 
     /**
-     * Aufgabe #1
-     *
      * Lösen Sie die folgenden Aufhaben mit Hilfe der 'map' Funktion!
      *
      * @note Vermeiden Sie Redundanz.
-     *
-     */
-
-  }
-
-  task(2) {
-
-    /**
-     * Aufgabe #1
-     *
-     * Lösen Sie die folgenden Aufhaben mit Hilfe der 'map' Funktion!
-     *
-     * @note Vermeiden Sie Redundanz.
-     *
      */
 
     // ===============================================================

@@ -3,7 +3,7 @@ package de.learnscala.uebungen
 import de.learnscala.base._
 import collection.mutable.ListBuffer
 
-class Ubng_F23_2 extends Exercise with Help /* with Disabled */ {
+class Ubng_func3_b extends Exercise with Help /* with Disabled */ {
 
   /**
    *
