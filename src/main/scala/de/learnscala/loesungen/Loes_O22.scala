@@ -4,6 +4,7 @@ import de.learnscala.base.Solution
 
 class Loes_O22 extends Solution {
 
+
   trait OpTree
   case class Leaf(value: Int) extends OpTree
   case class Node(operator: Char, left: OpTree, right: OpTree) extends OpTree
