@@ -6,5 +6,5 @@ import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Loes_F23_1
-    extends generic.Test_F23_1[loesungen.Loes_F23_1]
+class Loes_func1
+    extends generic.Test_func1[loesungen.Loes_F11]

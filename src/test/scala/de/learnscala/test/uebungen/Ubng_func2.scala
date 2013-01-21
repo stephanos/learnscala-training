@@ -6,5 +6,5 @@ import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class Ubng_F11
-    extends generic.Test_F11[uebungen.Ubng_F11]
+class Ubng_func2
+    extends generic.Test_func2[uebungen.Ubng_F12]
