@@ -28,25 +28,26 @@ class Loes_O21 extends Solution {
   // ===============================================================
   // TESTS
   // ===============================================================
+  task {
+    def salaryForClerk =
+      (new Clerk).salary
 
-  def salaryForClerk =
-    (new Clerk).salary
+    def salaryForManager =
+      (new Manager).salary
 
-  def salaryForManager =
-    (new Manager).salary
+    def salaryForBoardMember =
+      (new BoardMember).salary
 
-  def salaryForBoardMember =
-    (new BoardMember).salary
+    def salaryForFriendOfManagerClerk =
+      (new Clerk with FriendOfManager).salary
 
-  def salaryForFriendOfManagerClerk =
-    (new Clerk with FriendOfManager).salary
+    def salaryForIllegalImmigrantClerk =
+      (new Clerk with IllegalImmigrant).salary
 
-  def salaryForIllegalImmigrantClerk =
-    (new Clerk with IllegalImmigrant).salary
+    def salaryForIllegalImmigrantManager =
+      (new Manager with IllegalImmigrant).salary
 
-  def salaryForIllegalImmigrantManager =
-    (new Manager with IllegalImmigrant).salary
-
-  def salaryForIllegalImmigrantBoardMember =
-    (new BoardMember with IllegalImmigrant).salary
+    def salaryForIllegalImmigrantBoardMember =
+      (new BoardMember with IllegalImmigrant).salary
+  }
 }
