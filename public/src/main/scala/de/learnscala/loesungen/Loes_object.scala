@@ -33,14 +33,18 @@ class Loes_object extends Solution {
   // TESTS
   // ===============================================================
   task {
-    def p1 = Point(5, 5)
+    def t1 = Point(5, 5)
 
-    def p2 = Point(5)
+    def t2 = Point(5)
 
-    def p3 = Point(-5)
+    def t3 = Point(-5)
 
-    def p4 = Point(-5, 5)
+    def t4 = Point(-5, 5)
 
-    def p5 = Point.count // TODO !
+    def t5 = {
+      Point(1, 2)
+      Point(2, 1)
+      Point.count
+    }
   }
 }

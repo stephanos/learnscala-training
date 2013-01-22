@@ -37,26 +37,31 @@ class Ubng_object extends Exercise with Help /* with Disabled */ {
     /**
      * Erstellt einen Punkt mit den Koordinaten (5,5)
      */
-    def p1 = MAKE_THIS_TEST_PASS // with this: Point(5, 5)
+    def t1 = MAKE_THIS_TEST_PASS // with this: Point(5, 5)
 
     /**
      * Erstellt einen Punkt mit den Koordinaten (5,5)
      */
-    def p2 = MAKE_THIS_TEST_PASS // with this: Point(5)
+    def t2 = MAKE_THIS_TEST_PASS // with this: Point(5)
 
     /**
      * Versucht einen Punkt mit negativen Koordiaten zu erstellen.
      */
-    def p3 = MAKE_THIS_TEST_PASS // with this: Point(-5)
+    def t3 = MAKE_THIS_TEST_PASS // with this: Point(-5)
 
     /**
      * Versucht einen Punkt mit einer negativen Koordiate zu erstellen.
      */
-    def p4 = MAKE_THIS_TEST_PASS // with this: Point(-5, 5)
+    def t4 = MAKE_THIS_TEST_PASS // with this: Point(-5, 5)
 
     /**
      * 'count' müsste nun den Wert 2 haben.
      */
-    def p5 = MAKE_THIS_TEST_PASS // with this: Point.count
+    def t5 = {
+      MAKE_THIS_TEST_PASS
+      //Point(1, 2)
+      //Point(2, 1)
+      //Point.count
+    }
   }
 }
