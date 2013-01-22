@@ -13,7 +13,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
    * - ist er Teil des Aufsichtsrats ist er automatisch Freund des Managers
    * - der Manager bekommt das 5x eines normalen Angestellten
    *
-   * Nutze Traits um Logik zu "mixen" ! (siehe #4)
+   * Nutze Traits um Logik zu "mixen" ! (siehe Aufgabe #4)
    */
 
   SOLUTION_HERE

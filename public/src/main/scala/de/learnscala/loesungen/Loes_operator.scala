@@ -4,40 +4,38 @@ import de.learnscala.base.Solution
 
 class Loes_operator extends Solution {
 
-  task {
+  class Bruch(z: Int, n: Int) {
 
-    class Bruch(z: Int, n: Int) {
-
-      private def gcd(x: Int, y: Int): Int = {
-        if (x == 0) y
-        else if (x < 0) gcd(-x, y)
-        else if (y < 0) -gcd(x, -y)
-        else gcd(y % x, x)
-      }
-
-      private val g = gcd(z, n)
-
-      val zaehler: Int = z / g
-      val nenner: Int = n / g
-
-      def *(b: Bruch) =
-        new Bruch(zaehler * b.zaehler, nenner * b.nenner)
-
-      def /(b: Bruch) =
-        new Bruch(zaehler * b.nenner, nenner * b.zaehler)
-
-      def unary_! =
-        new Bruch(nenner, zaehler)
-
-      override def toString =
-        zaehler + "/" + nenner
+    private def gcd(x: Int, y: Int): Int = {
+      if (x == 0) y
+      else if (x < 0) gcd(-x, y)
+      else if (y < 0) -gcd(x, -y)
+      else gcd(y % x, x)
     }
 
+    private val g = gcd(z, n)
 
-    // ===============================================================
-    // TESTS
-    // ===============================================================
+    val zaehler: Int = z / g
+    val nenner: Int = n / g
 
+    def *(b: Bruch) =
+      new Bruch(zaehler * b.zaehler, nenner * b.nenner)
+
+    def /(b: Bruch) =
+      new Bruch(zaehler * b.nenner, nenner * b.zaehler)
+
+    def unary_! =
+      new Bruch(nenner, zaehler)
+
+    override def toString =
+      zaehler + "/" + nenner
+  }
+
+  // ===============================================================
+  // TESTS
+  // ===============================================================
+
+  task {
     def r1 = new Bruch(1, 2)
 
     def r2 = (new Bruch(1, 8)) / (new Bruch(1, 2))

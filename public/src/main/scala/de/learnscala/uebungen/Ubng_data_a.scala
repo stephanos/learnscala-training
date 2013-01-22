@@ -5,6 +5,8 @@ import de.learnscala.base._
 class Ubng_data_a extends Exercise with Help /* with Disabled */ {
 
   /**
+   * Aufgabe #1
+   *
    * Vervollständigen Sie 'Seasons', so dass die Testfälle erfolgreich laufen.
    */
   object Seasons extends Enumeration
@@ -21,6 +23,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
+     * Aufgabe #2
+     *
      * Tauscht die Elemente des Tuples.
      *
      * @example swap((1,2)) = (2,1)
@@ -35,6 +39,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
   task(3) {
 
     /**
+     * Aufgabe #3
+     *
      * Liefert zu einem Zeichen den entsprechenden ASCII-Code
      *
      * @example charWithCode('a') = (97, 'a')
@@ -50,6 +56,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
   task(4) {
 
     /**
+     * Aufgabe #4
+     *
      * Summiert die Elemente eines Tuples.
      *
      * @example sum((false, 5, 5)) = 0

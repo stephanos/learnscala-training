@@ -7,6 +7,8 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
+     * Aufgabe #1
+     *
      * Antwortet (print) ob das Auto gekauft werden soll - abhängig vom Argument.
      */
 
@@ -19,6 +21,8 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     /**
+     * Aufgabe #2
+     *
      * Konvertiert einen String in einen Integer (None bei Ausnahme).
      */
 
@@ -31,6 +35,8 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
   task(3) {
 
     /**
+     * Aufgabe #3
+     *
      * Addiert den linken mit dem rechten numerischen Wert (falls vorhanden).
      */
 

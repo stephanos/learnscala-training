@@ -4,13 +4,12 @@ import de.learnscala.base._
 
 class Ubng_operator extends Exercise with Help /* with Disabled */ {
 
-  task {
-
     /**
      * Gesucht wird eine Klasse 'Bruch' mit den Methoden: 'toString', '*', '/' und '!'
      *
      * @note Ausgabe via String sollte natürlich immer gekürzte Brüche ausgeben
      * @note Und nicht vergessen, zur Division wird über Kreuz multipliziert.
+     * @note Ach und, bitte alles nur kein 'var'.
      */
 
     DEFINE_CLASS_HERE
@@ -26,11 +25,11 @@ class Ubng_operator extends Exercise with Help /* with Disabled */ {
       }
     */
 
+  // ===============================================================
+  // TESTS
+  // ===============================================================
 
-    // ===============================================================
-    // TESTS
-    // ===============================================================
-
+  task {
     def r1 = MAKE_THIS_TEST_PASS // with this: new Bruch(1, 2)
 
     def r2 = MAKE_THIS_TEST_PASS // with this: (new Bruch(1, 8)) / (new Bruch(1, 2))

@@ -6,7 +6,7 @@ import scala.reflect.runtime.universe._
 abstract class Test_operator[T: TypeTag] extends BaseTest[T]() {
 
   override def fs =
-    test()("r1", "method") {
+    test(1)("r1", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -16,7 +16,7 @@ abstract class Test_operator[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ test()("r2", "method") {
+    } ^ test(2)("r2", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -26,7 +26,7 @@ abstract class Test_operator[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ test()("r3", "method") {
+    } ^ test(3)("r3", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -36,7 +36,7 @@ abstract class Test_operator[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ test()("r4", "method") {
+    } ^ test(4)("r4", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
@@ -46,7 +46,7 @@ abstract class Test_operator[T: TypeTag] extends BaseTest[T]() {
               }
             }
         }
-    } ^ test()("r5", "method") {
+    } ^ test(5)("r5", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
