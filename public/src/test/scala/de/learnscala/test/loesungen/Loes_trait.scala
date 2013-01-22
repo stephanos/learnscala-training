@@ -7,4 +7,4 @@ import org.specs2.runner.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class Loes_trait
-    extends generic.Test_trait[loesungen.Loes_O21]
+    extends generic.Test_trait[loesungen.Loes_trait]
