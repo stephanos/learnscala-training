@@ -28,7 +28,7 @@ class Ubng_control_b extends Exercise with Help /* with Disabled */ {
      */
 
     def nameOfSymbol(symbol: Char) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -77,7 +77,7 @@ class Ubng_control_b extends Exercise with Help /* with Disabled */ {
      */
 
     def describeValue(value: Any) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -94,7 +94,7 @@ class Ubng_control_b extends Exercise with Help /* with Disabled */ {
      */
 
     def half(n: Int) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -110,7 +110,7 @@ class Ubng_control_b extends Exercise with Help /* with Disabled */ {
      */
 
     def getSize(s: String) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -135,7 +135,7 @@ class Ubng_control_b extends Exercise with Help /* with Disabled */ {
      */
 
     def readCharFromFile(f: FileReader) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 }

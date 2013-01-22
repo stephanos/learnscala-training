@@ -8,7 +8,7 @@ class Ubng_recursion extends Exercise with Help /* with Disabled */ {
   task(1) {
 
     /**
-     * Methode 'quadSum'
+     * Methode 'squareList'
      *
      * @param lst Liste aus natürlichen Zahlen
      * @return Summe der Quadradzahlen der Liste
@@ -18,7 +18,7 @@ class Ubng_recursion extends Exercise with Help /* with Disabled */ {
      */
 
     //@tailrec
-    def quadSum(lst: List[Int]): BigInt =
+    def squareList(lst: List[Int]): BigInt =
       lst match {
         case Nil => 0
         case head :: tail => (head * head) + quadSum(tail)

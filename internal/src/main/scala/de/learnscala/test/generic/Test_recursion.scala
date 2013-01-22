@@ -8,7 +8,7 @@ abstract class Test_recursion[T: TypeTag] extends BaseTest[T]() {
   override def twoPass = false // StackOverflow simulated ...
 
   override val fs =
-    task(1)("quadSum", "method") {
+    task(1)("squareList", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>

@@ -8,7 +8,7 @@ class Loes_recursion extends Solution {
 
   task(1) {
 
-    def quadSum(ls: List[Int]): BigInt = {
+    def squareList(ls: List[Int]): BigInt = {
 
       @tailrec
       def tailSum(l: List[Int], sum: BigInt): BigInt = {

@@ -23,7 +23,7 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
    * @note Closure, Rekursion
    */
 
-  TODO
+  DEFINE_METHOD_HERE
 
 
   task(1) {
@@ -49,7 +49,7 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
    * @note Some / None
    */
 
-  TODO
+  DEFINE_METHOD_HERE
 
 
   task(2) {
@@ -72,7 +72,7 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
    * @note 'Closeable'
    */
 
-  TODO
+  DEFINE_METHOD_HERE
 
 
   task(3) {
@@ -100,7 +100,7 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
    * @note implicit, innere Klasse & Operatoren
    */
 
-  TODO
+  DEFINE_CLASS_HERE
 
 
   task(4) {
