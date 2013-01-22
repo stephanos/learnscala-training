@@ -23,15 +23,18 @@ class Loes_typparam extends Solution {
 
   task {
     def p1 =
-      new MyPair(1, 1)
+      new MyPair(1, "Bob")
 
     def p2 =
-      new MyPair(true, false)
+      new MyPair(1, 2)
 
     def p3 =
-      new MyPair("Bob", "Babe")
+      new MyPair(true, false).swap
 
     def p4 =
-      new MyPair("male", true)
+      new MyPair(true, 5).isTwinPair
+
+    def p5 =
+      new MyPair(6, 6).isTwinPair
   }
 }

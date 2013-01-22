@@ -10,25 +10,31 @@ abstract class Test_typparam[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturnAsString("(1, 1)")
+            mustReturnAsString("(1, Bob)")
         }
     } ^ test(2)("p2", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturnAsString("(true, false)")
+            mustReturnAsString("(1, 2)")
         }
     } ^ test(3)("p3", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturnAsString("(Bob, Babe)")
+            mustReturnAsString("(false, true)")
         }
     } ^ test(4)("p4", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturnAsString("(male, true)")
+            mustReturn(false)
+        }
+    } ^ test(5)("p5", "method") {
+      implicit ctx =>
+        mustHaveMethod {
+          implicit m =>
+            mustReturn(true)
         }
     }
 
