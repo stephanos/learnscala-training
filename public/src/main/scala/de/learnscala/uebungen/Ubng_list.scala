@@ -14,9 +14,9 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      *  'days':         Liste aller Tage der Woche
      */
 
-    def weekDays = List()
-    def weekendDays = List()
-    def days = weekDays ::: weekendDays
+    def weekDays = Nil
+    def weekendDays = Nil
+    def days = Nil
 
   }
 
@@ -33,7 +33,8 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * @note Pattern Matching!
      */
 
-    DEFINE_METHOD_HERE
+    def lastElem(l: List[Int]) =
+      FILL_IN_BODY_HERE
 
   }
 
@@ -50,9 +51,11 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * @return das dritte Element der Liste, None falls nicht vorhanden
      *
      * @note Pattern Matching!
+     *
      */
 
-    DEFINE_METHOD_HERE
+    def thirdElem(l: List[Int]) =
+      FILL_IN_BODY_HERE
 
   }
 }
