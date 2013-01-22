@@ -30,5 +30,11 @@ abstract class Test_object[T: TypeTag] extends BaseTest[T](continuous = true) {
           implicit m =>
             mustThrow[Throwable]()
         }
-    }
+    }^ test(5)("p5", "method") {
+          implicit ctx =>
+            mustHaveMethod {
+              implicit m =>
+                mustReturn(2)
+            }
+        }
 }

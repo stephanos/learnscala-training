@@ -53,5 +53,10 @@ class Ubng_object extends Exercise with Help /* with Disabled */ {
      * Versucht einen Punkt mit einer negativen Koordiate zu erstellen.
      */
     def p4 = MAKE_THIS_TEST_PASS // with this: Point(-5, 5)
+
+    /**
+     * 'count' müsste nun den Wert 2 haben.
+     */
+    def p5 = MAKE_THIS_TEST_PASS // with this: Point.count
   }
 }
