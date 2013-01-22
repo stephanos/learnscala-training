@@ -77,7 +77,7 @@ abstract class Test_control_b[T: TypeTag] extends BaseTest[T]() {
             }
         }
     } ^ task(6)("readCharFromFile", "method") {
-      implicit ctx =>
+      implicit ctx => // TODO: does not really check anything :(  !
         mustHaveMethod {
           implicit m =>
             mustHaveParams(classOf[FileReader]) {

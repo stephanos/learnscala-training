@@ -123,15 +123,10 @@ trait Matchers {
 
   protected def mustHaveParams(count: Int)(f: => Fragments)(implicit tm: TaskMethod): Fragments = {
     val t = tm.params.flatten.size == count
-    val check =
-      ("must have " + count + " parameter" + (if (count != 1) "s" else "")) ! {
-        if (t)
-          success
-        else
-          Failure(s"method '${tm.name}' must have a parameter list of size '$count'")
-      }
     if (!t)
-      check
+      ("must have " + count + " parameter" + (if (count != 1) "s" else "")) ! {
+        Failure(s"method '${tm.name}' must have a parameter list of size '$count'")
+      }
     else
       f
   }
