@@ -1,13 +1,13 @@
-package de.learnscala.uebungen
+package de.learnscala.loesungen
 
-import de.learnscala.base._
+import de.learnscala.base.Solution
 
-class Ubng_for_a extends Exercise with Help /* with Disabled */ {
+class Loes_for extends Solution {
 
   case class Book(title: String,
                   isbn: String,
                   price: Float,
-                  stock: Option[Int], // None == "aus dem Sortiment"
+                  stock: Option[Int],
                   authors: List[(String, String)])
 
   def books = List(
@@ -31,73 +31,67 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
 
   task(1) {
 
-    /**
-     * Ausgabe der Namen aller Bücher.
-     */
-
     def printAllTitles =
-      FILL_IN_BODY_HERE
+      for (b <- books) {
+        println(b.title)
+      }
+
   }
 
   // ===============================================================
 
   task(2) {
 
-    /**
-     * Liste der Titel von Bücher,
-     * bei denen ein Autor mit Vornamen "Martin" mitgewirkt hat.
-     */
-
     def titlesWithAuthorMartin =
-      FILL_IN_BODY_HERE
+      for {
+        b <- books
+        a <- b.authors if a._2 == "Martin"
+      } yield b.title
+
   }
 
   // ===============================================================
 
   task(3) {
 
-    /**
-     * Liste der ISB-Nummern von Büchern, bei denen ein Autor,
-     * dessen Nachname mit "S" beginnt, mitgewirkt hat.
-     */
-
     def isbnsWithAuthorS =
-      FILL_IN_BODY_HERE
+      for {
+        b <- books
+        a <- b.authors if a._1 startsWith "S"
+      } yield b.isbn
+
   }
 
   // ===============================================================
 
   task(4) {
 
-    /**
-     * Tuple aus Titel und Preis von den Büchern, die "Scala" im Titel tragen.
-     */
-
     def priceAndTitleOfScalaBooks =
-      FILL_IN_BODY_HERE
+      for {
+        b <- books if b.title contains "Scala"
+      } yield (b.title -> b.price)
+
   }
 
   // ===============================================================
 
   task(5) {
 
-    /**
-     * Titel der Bücher, die nicht mehr im Sortiment sind.
-     */
-
     def titlesNoLongerAvailable =
-      FILL_IN_BODY_HERE
+      for {
+        b <- books if b.stock == None
+      } yield b.title
+
   }
 
   // ===============================================================
 
   task(6) {
 
-    /**
-     * Titel der Bücher, die nicht mehr im Lager sind.
-     */
-
     def titlesOutOfStock =
-      FILL_IN_BODY_HERE
+      for {
+        b <- books if b.stock == Some(0)
+      } yield b.title
+
   }
 }
