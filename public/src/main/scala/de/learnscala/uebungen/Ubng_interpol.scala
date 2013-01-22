@@ -44,4 +44,5 @@ class Ubng_interpol extends Exercise with Help /* with Disabled */ {
 
 object Ubng_interpol {
 
+  // INSERT_SOLUTION_HERE
 }
