@@ -4,29 +4,34 @@ import de.learnscala.base.Solution
 
 class Loes_typparam extends Solution {
 
-  /**
-   * Aufgabe #1
-   */
-  /*
-  class MyPair[T, S](val t: T, val s: S) extends Pair {
+  class MyPair[A, B](val _1: A, val _2: B) {
 
-      def swap =
-          new MyPair(s, t)
+    def swap =
+      new MyPair(_2, _1)
 
-      def bothHaveSameType =
-          t.getClass == s.getClass
+    def isTwinPair =
+      _1 == _2
+
+    override def toString =
+      "(" + _1 + ", " + _2 + ")"
   }
 
-  def p1 =
+
+  // ===============================================================
+  // TESTS
+  // ===============================================================
+
+  task {
+    def p1 =
       new MyPair(1, 1)
 
-  def p2 =
+    def p2 =
       new MyPair(true, false)
 
-  def p3 =
+    def p3 =
       new MyPair("Bob", "Babe")
 
-  def p4 =
+    def p4 =
       new MyPair("male", true)
-  */
+  }
 }
