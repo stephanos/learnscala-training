@@ -10,8 +10,10 @@ class Ubng_implicit extends Exercise with Help /* with Disabled */ {
    * @note Bitte dafür die Klasse 'Bruch' aus 'Ubng_operator' hier hinein kopieren.
    */
 
+  INSERT_HERE
+
   task(1) {
-    def r = TODO // 2 * new Bruch(1, 4)
+    def r = MAKE_THIS_TEST_PASS // with this: 2 * new Bruch(1, 4)
   }
 
   // ===============================================================
@@ -20,8 +22,10 @@ class Ubng_implicit extends Exercise with Help /* with Disabled */ {
    * Kreieren Sie den Operator '+%' der eine ganze Zahl prozentual erhöht!
    */
 
+  DEFINE_CLASS_HERE
+
   task(2) {
-    def r = TODO // 150 +% 50
+    def r = MAKE_THIS_TEST_PASS // with this: 150 +% 50
   }
 
   // ===============================================================
@@ -33,7 +37,9 @@ class Ubng_implicit extends Exercise with Help /* with Disabled */ {
    * welche eine entsprechende Instanz von 'java.util.Date' erstellt.
    */
 
+  DEFINE_CLASS_HERE
+
   task(3) {
-    def r(s: String) = TODO // s.time
+    def r(s: String) = MAKE_THIS_TEST_PASS // with this: s.time
   }
 }

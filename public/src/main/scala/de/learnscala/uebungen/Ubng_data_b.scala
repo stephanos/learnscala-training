@@ -10,7 +10,8 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
      * Antwortet (print) ob das Auto gekauft werden soll - abhängig vom Argument.
      */
 
-    def doYouBuyTheCar(b: Option[Boolean]) = TODO
+    def doYouBuyTheCar(b: Option[Boolean]) =
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -21,7 +22,8 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
      * Konvertiert einen String in einen Integer (None bei Ausnahme).
      */
 
-    def convertToInt(s: String) = TODO
+    def convertToInt(s: String) =
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -32,6 +34,7 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
      * Addiert den linken mit dem rechten numerischen Wert (falls vorhanden).
      */
 
-    def addLeftAndRight(left: Option[Long], right: Option[Long]) = TODO
+    def addLeftAndRight(left: Option[Long], right: Option[Long]) =
+      FILL_IN_BODY_HERE
   }
 }

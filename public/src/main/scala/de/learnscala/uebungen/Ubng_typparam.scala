@@ -23,15 +23,19 @@ class Ubng_typparam extends Exercise with Help /* with Disabled */ {
   }
 
 
+  // ===============================================================
+  // TESTS
+  // ===============================================================
+
   def p1 =
-    TODO //new MyPair(1, 1)
+    MAKE_THIS_TEST_PASS // with this: new MyPair(1, 1)
 
   def p2 =
-    TODO //new MyPair(true, false)
+    MAKE_THIS_TEST_PASS // with this: new MyPair(true, false)
 
   def p3 =
-    TODO //new MyPair("Bob", "Babe")
+    MAKE_THIS_TEST_PASS // with this: new MyPair("Bob", "Babe")
 
   def p4 =
-    TODO //new MyPair("male", true)
+    MAKE_THIS_TEST_PASS // with this: new MyPair("male", true)
 }

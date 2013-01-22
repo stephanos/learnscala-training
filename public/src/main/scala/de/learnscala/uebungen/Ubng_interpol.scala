@@ -11,7 +11,7 @@ class Ubng_interpol extends Exercise with Help /* with Disabled */ {
      */
 
     def printAd(firstName: String, age: Int, height: Float, weight: Int, hobbies: List[String]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -26,7 +26,7 @@ class Ubng_interpol extends Exercise with Help /* with Disabled */ {
      */
 
     def list123 =
-      TODO // nums"1,2,3"
+      MAKE_THIS_TEST_PASS // with this: nums"1,2,3"
   }
 
   // ===============================================================
@@ -38,7 +38,7 @@ class Ubng_interpol extends Exercise with Help /* with Disabled */ {
      */
 
     def list123 =
-      TODO // nums"1,${1 + 1},${1 + 1 + 1}"
+      MAKE_THIS_TEST_PASS // with this: nums"1,${1 + 1},${1 + 1 + 1}"
   }
 }
 

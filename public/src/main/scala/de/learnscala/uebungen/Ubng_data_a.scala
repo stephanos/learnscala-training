@@ -10,10 +10,10 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
   object Seasons extends Enumeration
 
   task(1) {
-    def t1 = TODO //Seasons.spring.id
-    def t2 = TODO //Seasons.summer.id
-    def t4 = TODO //Seasons.winter.id
-    def t5 = TODO //Seasons.autumn.toString
+    def t1 = MAKE_THIS_TEST_PASS // with this: Seasons.spring.id
+    def t2 = MAKE_THIS_TEST_PASS // with this: Seasons.summer.id
+    def t4 = MAKE_THIS_TEST_PASS // with this: Seasons.winter.id
+    def t5 = MAKE_THIS_TEST_PASS // with this: Seasons.autumn.toString
   }
 
   // ===============================================================
@@ -26,7 +26,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
      * @example swap((1,2)) = (2,1)
      */
 
-    def swap(t: (Int, Int)) = TODO
+    def swap(t: (Int, Int)) =
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -40,7 +41,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
      * @note Char erbt von 'Int'
      */
 
-    def charWithCode(c: Char) = TODO
+    def charWithCode(c: Char) =
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -54,7 +56,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
      * @note Das erste Element zeigt an, ob addiert (true) oder subtrahiert (false) werden soll.
      */
 
-    def sum(t: (Boolean, Int, Int)) = TODO
+    def sum(t: (Boolean, Int, Int)) =
+      FILL_IN_BODY_HERE
   }
 
 }

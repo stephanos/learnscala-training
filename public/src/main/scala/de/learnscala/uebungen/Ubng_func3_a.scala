@@ -6,8 +6,6 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
 
   task {
 
-    // TODO: use Option
-
     /**
      * Lösen Sie die folgenden Aufhaben mit Hilfe der 'map' Funktion!
      *
@@ -21,7 +19,7 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
      */
 
     def r1(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
     // ===============================================================
 
@@ -30,7 +28,7 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
      */
 
     def r2(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
     // ===============================================================
 
@@ -39,7 +37,7 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
      */
 
     def r3(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
     // ===============================================================
 
@@ -48,7 +46,7 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
      */
 
     def r4(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
     // ===============================================================
 
@@ -57,7 +55,7 @@ class Ubng_func3_a extends Exercise with Help /* with Disabled */ {
      */
 
     def r5(l: List[(Int, Int)]) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 

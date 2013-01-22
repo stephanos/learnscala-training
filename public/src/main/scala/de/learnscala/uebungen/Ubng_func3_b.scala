@@ -33,7 +33,7 @@ class Ubng_func3_b extends Exercise with Help /* with Disabled */ {
   task(2) {
 
     def m2[A](list: List[A]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -41,7 +41,7 @@ class Ubng_func3_b extends Exercise with Help /* with Disabled */ {
   task(3) {
 
     def m3[A](list: List[A]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -49,7 +49,7 @@ class Ubng_func3_b extends Exercise with Help /* with Disabled */ {
   task(4) {
 
     def m4[A](list: List[A]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   /*
@@ -83,6 +83,6 @@ class Ubng_func3_b extends Exercise with Help /* with Disabled */ {
      * BONUS
      */
     def m5[A](list: List[A]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 }

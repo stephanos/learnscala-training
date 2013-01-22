@@ -4,8 +4,6 @@ import de.learnscala.base._
 
 class Ubng_F31_2 extends Exercise with Help /* with Disabled */ {
 
-  TODO
-
   /*
   val chars = 'a' to 'z'
   val perms = chars flatMap { a =>

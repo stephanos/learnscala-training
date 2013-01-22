@@ -4,27 +4,33 @@ import de.learnscala.base._
 
 class Ubng_trait extends Exercise with Help /* with Disabled */ {
 
+  /**
+   * Gehaltsabrechnung.
+   *
+   * - jeder normale Angestellte verdient 50.000€ im Jahr
+   * - ist er mit dem Manager befreundet, bekommt er das doppelte
+   * - ist er jedoch illegaler Einwanderer, halbiert sich sein Lohn
+   * - ist er Teil des Aufsichtsrats ist er automatisch Freund des Managers
+   * - der Manager bekommt das 5x eines normalen Angestellten
+   *
+   * Nutze Traits um Logik zu "mixen" ! (siehe #4)
+   */
+
+  SOLUTION_HERE
+
+
+  // ===============================================================
+  // TESTS
+  // ===============================================================
+
   task {
-    /**
-     * Gehaltsabrechnung.
-     *
-     * - jeder normale Angestellte verdient 50.000€ im Jahr
-     * - ist er mit dem Manager befreundet, bekommt er das doppelte
-     * - ist er jedoch illegaler Einwanderer, halbiert sich sein Lohn
-     * - ist er Teil des Aufsichtsrats ist er automatisch Freund des Managers
-     * - der Manager bekommt das 5x eines normalen Angestellten
-     *
-     * Nutze Traits um Logik zu "mixen" ! (siehe #4)
-     */
-
-
     /**
      * Aufgabe #1
      *
      * Das Gehalt eines normalen Angestellten.
      */
     def salaryForClerk =
-      TODO //(new Clerk).salary
+      MAKE_THIS_TEST_PASS // with this: (new Clerk).salary
 
     // ===============================================================
 
@@ -34,7 +40,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines Managers.
      */
     def salaryForManager =
-      TODO
+      MAKE_THIS_TEST_PASS
 
     // ===============================================================
 
@@ -44,7 +50,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines Board Members.
      */
     def salaryForBoardMember =
-      TODO
+      MAKE_THIS_TEST_PASS
 
     // ===============================================================
 
@@ -54,7 +60,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines Angestellten, der befreundet mit dem Manager ist.
      */
     def salaryForfriendOfManagerClerk =
-      TODO // (new Clerk with FriendOfManager).salary
+      MAKE_THIS_TEST_PASS // with this:  (new Clerk with FriendOfManager).salary
 
     // ===============================================================
 
@@ -64,7 +70,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines Angestellten der illegal eingewandert ist.
      */
     def salaryForIllegalImmigrantClerk =
-      TODO
+      MAKE_THIS_TEST_PASS
 
     // ===============================================================
 
@@ -74,7 +80,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines illegal eingewanderten Managers.
      */
     def salaryForIllegalImmigrantManager =
-      TODO
+      MAKE_THIS_TEST_PASS
 
     // ===============================================================
 
@@ -84,6 +90,6 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      * Das Gehalt eines illegal eingewanderten Board Members.
      */
     def salaryForIllegalImmigrantBoardMember =
-      TODO
+      MAKE_THIS_TEST_PASS
   }
 }

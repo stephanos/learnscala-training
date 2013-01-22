@@ -6,8 +6,9 @@ class Exercise extends Testable {
     override def toString = "TODO"
   }
 
-  def TODO = new TODO
+  private def TODO = new TODO
 
+  def INSERT_HERE = TODO
   def FILL_IN_BODY_HERE = TODO
   def DEFINE_METHOD_HERE = TODO
   def DEFINE_CLASS_HERE = TODO
@@ -15,6 +16,5 @@ class Exercise extends Testable {
   def PUT_SOLUTION_HERE = TODO
   def INSERT_SOLUTION_HERE = TODO
   def SOLUTION_HERE = TODO
-  def MAKE_THIS_PASS = TODO
   def MAKE_THIS_TEST_PASS = TODO
 }

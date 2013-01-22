@@ -12,7 +12,7 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
 
     // val negate =
 
-    def t = TODO // negate(5.0f)
+    def t = MAKE_THIS_TEST_PASS // with this: negate(5.0f)
 
   }
 
@@ -26,7 +26,7 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
 
     // val half =
 
-    def t = TODO // half(2)
+    def t = MAKE_THIS_TEST_PASS // with this: half(2)
 
   }
 
@@ -38,7 +38,7 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
      * Gesucht wird eine Funktion 'reverse' zur Umkehrung eines Strings.
      */
 
-    def t = TODO // reverse("abc")
+    def t = MAKE_THIS_TEST_PASS // with this: reverse("abc")
 
   }
 
@@ -54,21 +54,21 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
 
     var trafficLight: String = "red"
 
-    def t1 = TODO // drive()
+    def t1 = MAKE_THIS_TEST_PASS // with this: drive()
 
     def t2 = {
       trafficLight = "yellow"
-      //drive()
+      MAKE_THIS_TEST_PASS // with this: drive()
     }
 
     def t3 = {
       trafficLight = "green"
-      //drive()
+      MAKE_THIS_TEST_PASS // with this: drive()
     }
 
     def t4 = {
       trafficLight = null
-      //drive()
+      MAKE_THIS_TEST_PASS // with this: drive()
     }
   }
 
@@ -84,7 +84,7 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
      * @note 1 Zeile genügt
      */
 
-    def t = TODO // repeat("123", 3)
+    def t = MAKE_THIS_TEST_PASS // with this: repeat("123", 3)
 
   }
 }

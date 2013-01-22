@@ -43,16 +43,16 @@ class Ubng_class2 extends Exercise with Help /* with Disabled */ {
   // ===============================================================
 
   task {
-    def s1 = MAKE_THIS_TEST_PASS // use this: solve(Leaf(5))
+    def s1 = MAKE_THIS_TEST_PASS // with this: solve(Leaf(5))
 
-    def s2 = MAKE_THIS_TEST_PASS // use this: solve(Node('+', Leaf(5), Leaf(5)))
+    def s2 = MAKE_THIS_TEST_PASS // with this: solve(Node('+', Leaf(5), Leaf(5)))
 
-    def s3 = MAKE_THIS_TEST_PASS // use this: solve(Node('*', Leaf(5), Leaf(5)))
+    def s3 = MAKE_THIS_TEST_PASS // with this: solve(Node('*', Leaf(5), Leaf(5)))
 
-    def s4 = MAKE_THIS_TEST_PASS // use this: solve(Node('/', Leaf(5), Leaf(5)))
+    def s4 = MAKE_THIS_TEST_PASS // with this: solve(Node('/', Leaf(5), Leaf(5)))
 
-    def s5 = MAKE_THIS_TEST_PASS // use this: solve(Node('-', Leaf(5), Leaf(5)))
+    def s5 = MAKE_THIS_TEST_PASS // with this: solve(Node('-', Leaf(5), Leaf(5)))
 
-    def s6 = MAKE_THIS_TEST_PASS // use this: solve(Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))))
+    def s6 = MAKE_THIS_TEST_PASS // with this: solve(Node('+', Node('-', Leaf(10), Leaf(2)), Node('*', Leaf(5), Leaf(5))))
   }
 }

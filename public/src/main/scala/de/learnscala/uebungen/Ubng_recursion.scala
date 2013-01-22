@@ -21,7 +21,7 @@ class Ubng_recursion extends Exercise with Help /* with Disabled */ {
     def squareList(lst: List[Int]): BigInt =
       lst match {
         case Nil => 0
-        case head :: tail => (head * head) + quadSum(tail)
+        case head :: tail => (head * head) + squareList(tail)
       }
 
   }

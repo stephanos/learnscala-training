@@ -17,7 +17,7 @@ class Ubng_inherit extends Exercise with Help /* with Disabled */ {
    * @note eine abstrakte Basisklasse ist sicher hilfreich!
    */
 
-  TODO
+  INSERT_SOLUTION_HERE
 
 
   // ===============================================================
@@ -28,26 +28,26 @@ class Ubng_inherit extends Exercise with Help /* with Disabled */ {
     /**
      * Einfaches Produkt 'Butter'
      */
-    def butter = TODO //new SimpleItem(.95f, "Butter")
+    def butter = MAKE_THIS_TEST_PASS // with this: new SimpleItem(.95f, "Butter")
 
     /**
      * Prozentual reduziertes Produkt 'Milch'
      */
-    def milk = TODO //new ReducedItem(1.0f, 5, "Milk")
+    def milk = MAKE_THIS_TEST_PASS // with this: new ReducedItem(1.0f, 5, "Milk")
 
     /**
      * Gebündeltes Produkt 'Butter' und 'Milch'
      */
-    def butterAndMilk = TODO //new Bundle(butter, milk)
+    def butterAndMilk = MAKE_THIS_TEST_PASS // with this: new Bundle(butter, milk)
 
     /**
      * Gewichtetes (kg) Produkt 'Äpfel'
      */
-    def apple5kg = TODO //new WeightedItem(0.2f, 5, "Apples")
+    def apple5kg = MAKE_THIS_TEST_PASS // with this: new WeightedItem(0.2f, 5, "Apples")
 
     /**
      * Gebündeltes Produkt 'Butter' und 'Milch' und 'Äpfel'
      */
-    def butterMilkAndApples = TODO //new Bundle(apple5kg, butterAndMilk)
+    def butterMilkAndApples = MAKE_THIS_TEST_PASS // with this: new Bundle(apple5kg, butterAndMilk)
   }
 }

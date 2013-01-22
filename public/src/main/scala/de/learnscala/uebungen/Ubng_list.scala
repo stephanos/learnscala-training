@@ -33,7 +33,7 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * @note Pattern Matching!
      */
 
-    TODO
+    DEFINE_METHOD_HERE
 
   }
 
@@ -52,7 +52,7 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * @note Pattern Matching!
      */
 
-    TODO
+    DEFINE_METHOD_HERE
 
   }
 }

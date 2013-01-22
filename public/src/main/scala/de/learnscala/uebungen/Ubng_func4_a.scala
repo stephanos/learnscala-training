@@ -17,7 +17,7 @@ class Ubng_func4_a extends Exercise with Help /* with Disabled */ {
      */
 
     def sum(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -29,7 +29,7 @@ class Ubng_func4_a extends Exercise with Help /* with Disabled */ {
      */
 
     def product(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -41,7 +41,7 @@ class Ubng_func4_a extends Exercise with Help /* with Disabled */ {
      */
 
     def count(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -53,7 +53,7 @@ class Ubng_func4_a extends Exercise with Help /* with Disabled */ {
      */
 
     def contains[A](list: List[A], item: A) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -67,7 +67,7 @@ class Ubng_func4_a extends Exercise with Help /* with Disabled */ {
      */
 
     def reverse[A](list: List[A]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
 

@@ -13,7 +13,7 @@ class Ubng_operator extends Exercise with Help /* with Disabled */ {
      * @note Und nicht vergessen, zur Division wird über Kreuz multipliziert.
      */
 
-    TODO
+    DEFINE_CLASS_HERE
 
     /*
       Als Arbeitserleichterung, Methode zur Berechnung des größten gemeinsamen Teilers:
@@ -31,15 +31,15 @@ class Ubng_operator extends Exercise with Help /* with Disabled */ {
     // TESTS
     // ===============================================================
 
-    def r1 = TODO // new Bruch(1, 2)
+    def r1 = MAKE_THIS_TEST_PASS // with this: new Bruch(1, 2)
 
-    def r2 = TODO // (new Bruch(1, 8)) / (new Bruch(1, 2))
+    def r2 = MAKE_THIS_TEST_PASS // with this: (new Bruch(1, 8)) / (new Bruch(1, 2))
 
-    def r3 = TODO // (new Bruch(1, 2)) * (new Bruch(1, 2))
+    def r3 = MAKE_THIS_TEST_PASS // with this: (new Bruch(1, 2)) * (new Bruch(1, 2))
 
-    def r4 = TODO // (new Bruch(7, 8)) * (new Bruch(2, 3))
+    def r4 = MAKE_THIS_TEST_PASS // with this: (new Bruch(7, 8)) * (new Bruch(2, 3))
 
-    def r5 = TODO // !(new Bruch(1, 2))
+    def r5 = MAKE_THIS_TEST_PASS // with this: !(new Bruch(1, 2))
 
   }
 }

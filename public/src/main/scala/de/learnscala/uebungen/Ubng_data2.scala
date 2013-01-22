@@ -22,7 +22,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Konvertiert Elemente von Traversable in einen String der Form "[1,2,3]".
      */
     def toString(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(2) {
@@ -30,7 +30,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Hängt Argument 2 an Argument 1.
      */
     def join(t1: Traversable[Int], t2: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(3) {
@@ -38,7 +38,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Liefert die ersten beiden Elemente des Traversable.
      */
     def first2(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(4) {
@@ -46,7 +46,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Summiert die Elemente des Traversable.
      */
     def sumOf(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(5) {
@@ -54,7 +54,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Ermittelt die Länge des Traversable.
      */
     def length(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(6) {
@@ -62,7 +62,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Entfernt das erste Element des Traversable.
      */
     def withoutFirst(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(7) {
@@ -70,7 +70,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Ermittelt das größte Elemente desTraversable.
      */
     def biggest(t: Traversable[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -82,7 +82,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Erstellt eine Liste aus den 3 Elementen
      */
     def makeList(e1: Int, e2: Int, e3: Int) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -91,7 +91,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Erstellt aus Parameter eine Liste ohne Duplikate.
      */
     def unique(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
 
@@ -100,7 +100,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Kehrt die Reihenfolge der Liste um
      */
     def backwards(l: List[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   /////////////////////////////////////////////////////////
@@ -111,7 +111,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Ermittelt ob das Set die Elemente 42 und 101 enthält.
      */
     def has42and101(s: Set[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
 
   }
 
@@ -120,7 +120,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Kombiniert Argument 1 und Argument 2
      */
     def mergeSet(s1: Set[Int], s2: Set[Int]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   /////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Entfernt Schlüssel '42' aus der Map.
      */
     def withoutKey42(m: Map[Int, Boolean]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(14) {
@@ -139,7 +139,7 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Ermittelt ob Map den Schlüssel '42' enthält.
      */
     def hasKey42(m: Map[Int, Boolean]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   task(15) {
@@ -147,6 +147,6 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      * Liefert alle Schlüssel der Map
      */
     def allKeys(m: Map[Int, Boolean]) =
-      TODO
+      FILL_IN_BODY_HERE
   }
 }

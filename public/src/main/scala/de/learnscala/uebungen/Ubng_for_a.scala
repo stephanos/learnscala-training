@@ -36,7 +36,7 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def printAllTitles =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -49,7 +49,7 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def titlesWithAuthorMartin =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -62,7 +62,7 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def isbnsWithAuthorS =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -74,7 +74,7 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def priceAndTitleOfScalaBooks =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -86,7 +86,7 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def titlesNoLongerAvailable =
-      TODO
+      FILL_IN_BODY_HERE
   }
 
   // ===============================================================
@@ -98,6 +98,6 @@ class Ubng_for_a extends Exercise with Help /* with Disabled */ {
      */
 
     def titlesOutOfStock =
-      TODO
+      FILL_IN_BODY_HERE
   }
 }
