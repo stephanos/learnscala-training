@@ -71,7 +71,6 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      */
     def biggest(t: Traversable[Int]) =
       FILL_IN_BODY_HERE
-
   }
 
   /////////////////////////////////////////////////////////
@@ -112,7 +111,6 @@ class Ubng_data2 extends Exercise with Help /* with Disabled */ {
      */
     def has42and101(s: Set[Int]) =
       FILL_IN_BODY_HERE
-
   }
 
   task(12) {

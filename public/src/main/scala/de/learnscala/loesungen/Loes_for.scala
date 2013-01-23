@@ -31,10 +31,11 @@ class Loes_for extends Solution {
 
   task(1) {
 
-    def printAllTitles =
+    def printAllTitles {
       for (b <- books) {
         println(b.title)
       }
+    }
 
   }
 
