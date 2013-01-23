@@ -34,13 +34,13 @@ abstract class Test_func3_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn(List(("Piraten", 4)))
+            mustReturn(List(1, 9))
         }
     } ^ task(5)("r", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn("bcdfghjklmnpqrstvwxyz")
+            mustReturn(List(("Piraten", 4)))
         }
     } ^ task(6)("r", "method") {
       implicit ctx =>
@@ -65,21 +65,15 @@ abstract class Test_func3_a[T: TypeTag] extends BaseTest[T]() {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn(List("[2,3]", "[1]"))
+            mustReturn(List("o", "u", "i", "e", "a", "ü", "ä", "ö"))
         }
     } ^ task(10)("r", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
-            mustReturn(List("o", "u", "i", "e", "a", "ü", "ä", "ö"))
-        }
-    } ^ task(11)("r", "method") {
-      implicit ctx =>
-        mustHaveMethod {
-          implicit m =>
             mustReturn((List("Anna", "Maria"),List("John", "Adam")))
         }
-    } ^ task(12)("r", "method") {
+    } ^ task(11)("r", "method") {
       implicit ctx =>
         mustHaveMethod {
           implicit m =>
