@@ -12,7 +12,7 @@ class Ubng_typparam extends Exercise with Help /* with Disabled */ {
    * @note Die Tests verwenden 'toString' zum Vergleichen.
    */
 
-  DEFINE_CLASS_HERE
+  INSERT_SOLUTION_HERE
 
 
   // ===============================================================

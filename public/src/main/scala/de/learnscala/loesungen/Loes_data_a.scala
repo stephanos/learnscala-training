@@ -23,7 +23,7 @@ class Loes_data_a extends Solution {
   task(2) {
 
     def swap(t: (Int, Int)): (Int, Int) =
-      (t._2, t._1)
+      t._2 -> t._1
   }
 
   // ===============================================================
@@ -40,8 +40,8 @@ class Loes_data_a extends Solution {
 
     def sum(t: (Boolean, Int, Int)) =
       t match {
-        case (true, a1, a2) => a1 + a2
-        case (false, a1, a2) => a1 - a2
+        case (true, x, y) => x + y
+        case (false, x, y) => x - y
       }
   }
 

@@ -9,7 +9,7 @@ class Ubng_data_b extends Exercise with Help /* with Disabled */ {
     /**
      * Aufgabe #1
      *
-     * Antwortet (print) ob das Auto gekauft werden soll - abhängig vom Argument.
+     * Antwortet ob das Auto gekauft werden soll - abhängig vom Argument.
      */
 
     def doYouBuyTheCar(b: Option[Boolean]) =

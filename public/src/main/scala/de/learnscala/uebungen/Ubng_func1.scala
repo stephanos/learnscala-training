@@ -47,9 +47,9 @@ class Ubng_func1 extends Exercise with Help /* with Disabled */ {
   task(4) {
 
     /**
-     * Gesucht wird eine Funktion 'drive' die mitteilt, ob
+     * Gesucht wird eine Funktion 'drive' die mitteilt, ob man fahren darf.
      *
-     * @throws Wirft Ausnahme wenn die Ampfel ausgefallen ist (=null)
+     * @throws Wirft Ausnahme wenn die Ampel ausgefallen ist (=null)
      */
 
     var trafficLight: String = "red"

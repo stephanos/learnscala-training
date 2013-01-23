@@ -4,19 +4,21 @@ import de.learnscala.base.Solution
 
 class Loes_func2 extends Solution {
 
+  type Set = Int => Boolean
+
   task {
-    def singletonSet(elem: Int): Int => Boolean =
+    def singletonSetTest(elem: Int): Set =
         (e: Int) => e == elem
 
     // TESTS:
-    def s1: Int => Boolean = singletonSet(1)
-    def s2: Int => Boolean = singletonSet(2)
-    def s3: Int => Boolean = singletonSet(3)
+    def s1: Set = singletonSetTest(1)
+    def s2: Set = singletonSetTest(2)
+    def s3: Set = singletonSetTest(3)
 
     // ===============================================================
 
-    def union(s: Int => Boolean, t: Int => Boolean): Int => Boolean =
-      elem => { s.apply(elem) || t(elem) }
+    def union(s: Set, t: Set): Int => Boolean =
+      elem => { s(elem) || t(elem) }
 
     // TESTS:
     def u = union(s1, s2)

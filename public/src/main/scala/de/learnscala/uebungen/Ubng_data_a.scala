@@ -14,8 +14,8 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
   task(1) {
     def t1 = MAKE_THIS_TEST_PASS // with this: Seasons.spring.id
     def t2 = MAKE_THIS_TEST_PASS // with this: Seasons.summer.id
-    def t4 = MAKE_THIS_TEST_PASS // with this: Seasons.winter.id
-    def t5 = MAKE_THIS_TEST_PASS // with this: Seasons.autumn.toString
+    def t3 = MAKE_THIS_TEST_PASS // with this: Seasons.winter.id
+    def t4 = MAKE_THIS_TEST_PASS // with this: Seasons.autumn.toString
   }
 
   // ===============================================================
@@ -44,7 +44,7 @@ class Ubng_data_a extends Exercise with Help /* with Disabled */ {
      * Liefert zu einem Zeichen den entsprechenden ASCII-Code
      *
      * @example charWithCode('a') = (97, 'a')
-     * @note Char erbt von 'Int'
+     * @note Char kann ganz leicht konvertiert werden
      */
 
     def charWithCode(c: Char) =

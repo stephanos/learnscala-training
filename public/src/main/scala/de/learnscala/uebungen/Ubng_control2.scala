@@ -1,7 +1,7 @@
 package de.learnscala.uebungen
 
 import de.learnscala.base._
-import java.io.{File, Closeable}
+import java.io.{FileInputStream, File, Closeable}
 
 class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
@@ -27,15 +27,16 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
 
   task(1) {
-    /*
+
     def count(till: Int) {
       var i = 0
+      /*
       until(i == till) {
         print(i + " ")
         i += 1
       }
+      */
     }
-    */
   }
 
 
@@ -53,11 +54,9 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
 
   task(2) {
-    /*
-    def convertToInt(s: String): Option[Int] = {
-       catching { s.toInt }
+    def convertToInt(s: String): Option[String] = {
+      MAKE_THE_FOLLOWING_WORK // catching { s.toInt }
     }
-    */
   }
 
 
@@ -76,15 +75,16 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
 
   task(3) {
-    /*
     def readFile(f: File): Option[String] = {
+      MAKE_THE_FOLLOWING_WORK
+      /*
       withResource(new FileInputStream(f)) { stream =>
         val bytes = new Array[Byte](f.length.toInt)
         stream.read(bytes)
         new String(bytes, "UTF-8")
       }
+      */
     }
-    */
   }
 
 
@@ -104,12 +104,13 @@ class Ubng_control2 extends Exercise with Help /* with Disabled */ {
 
 
   task(4) {
-    /*
     def printTime(hour: Int, min: Int) {
+      MAKE_THE_FOLLOWING_WORK
+      /*
       (hour < 10) ? print("0" + hour) | print(hour)
       print(":")
       (min < 10) ? print("0" + min) | print(min)
+      */
     }
-    */
   }
 }

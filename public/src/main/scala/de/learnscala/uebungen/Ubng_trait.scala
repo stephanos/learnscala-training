@@ -10,7 +10,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
    * - jeder normale Angestellte verdient 50.000€ im Jahr
    * - ist er mit dem Manager befreundet, bekommt er das doppelte
    * - ist er jedoch illegaler Einwanderer, halbiert sich sein Lohn
-   * - ist er Teil des Aufsichtsrats ist er automatisch Freund des Managers
+   * - ist er Teil des Aufsichtsrats, ist er automatisch Freund des Managers
    * - der Manager bekommt das 5x eines normalen Angestellten
    *
    * Nutze Traits um Logik zu "mixen" ! (siehe Aufgabe #4)
@@ -59,7 +59,7 @@ class Ubng_trait extends Exercise with Help /* with Disabled */ {
      *
      * Das Gehalt eines Angestellten, der befreundet mit dem Manager ist.
      */
-    def salaryForfriendOfManagerClerk =
+    def salaryForFriendOfManagerClerk =
       MAKE_THIS_TEST_PASS // with this:  (new Clerk with FriendOfManager).salary
 
     // ===============================================================
