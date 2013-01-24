@@ -196,10 +196,10 @@ class TaskMacro[C <: Context](val c: C) {
     ValDef(Modifiers(OVERRIDE), newTermName("_" + name), TypeTree(), Literal(Constant(value)))
 
   private def serialize(implicit code: c.Expr[Any]) =
-    List(
+    List() /*
       ValDef(Modifiers(OVERRIDE), newTermName("_raw"), TypeTree(), Literal(Constant(showRaw(code.tree)))),
       ValDef(Modifiers(OVERRIDE), newTermName("_source"), TypeTree(), Literal(Constant(code.tree.toString())))
-    )
+    )*/
 
   /*
   val tree = code.tree

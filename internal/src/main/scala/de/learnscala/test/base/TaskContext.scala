@@ -16,6 +16,11 @@ case class TaskContext(name: String, task: Task) {
   def getClass(name: String): Option[TaskClass] =
     getMember[ClassSymbol](name) map { s => TaskClass(name, s, this) }
 
+  def readField[A](name: String): A = {
+    val sym = getMember[TermSymbol](name).get
+    mirror.reflectField(sym).get.asInstanceOf[A]
+  }
+
   def getMethod(name: String): Option[TaskMethod] =
     getMember[MethodSymbol](name) map { s => TaskMethod(name, s, this) }
 

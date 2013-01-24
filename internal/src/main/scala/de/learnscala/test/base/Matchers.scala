@@ -77,14 +77,14 @@ trait Matchers {
     }
     */
 
-  protected def mustReturnList(args: Any*)(f: (Seq[Any]) => Fragment)(implicit tm: TaskMethod): Fragment =
+  protected def mustReturnList(args: Any*)(f: (Traversable[Any]) => Fragment)(implicit tm: TaskMethod): Fragment =
     mustHaveResult(args: _*) {
       v => v match {
         case null =>
           ("must not be null") ! {
             v must not beNull
           }
-        case l: Seq[Any] =>
+        case l: Traversable[Any] =>
           f(l)
         case _ =>
           ("must have type 'Seq'") ! {
@@ -93,10 +93,10 @@ trait Matchers {
       }
     }
 
-  protected def withList(v: Any)(f: (Seq[Any]) => MatchResult[Any]): MatchResult[Any] =
+  protected def withList(v: Any)(f: (Traversable[Any]) => MatchResult[Any]): MatchResult[Any] =
     v match {
       case null => v must not beNull
-      case l: Seq[Any] => f(l)
+      case l: Traversable[Any] => f(l)
       case _ => v must beAnInstanceOf[Seq[_]]
     }
 
