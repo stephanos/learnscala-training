@@ -2,7 +2,7 @@ package de.learnscala.loesungen
 
 import de.learnscala.base.Solution
 
-class Loes_O22 extends Solution {
+class Loes_class2 extends Solution {
 
 
   trait OpTree
