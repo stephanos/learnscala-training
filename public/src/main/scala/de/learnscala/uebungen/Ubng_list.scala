@@ -28,12 +28,12 @@ class Ubng_list extends Exercise with Help /* with Disabled */ {
      * Methode 'lastElem'
      *
      * @param l eine Liste aus natürlichen Zahlen
-     * @return das letzte Element einer Liste, None falls nicht vorhanden
+     * @return das letzte Element einer Liste (als Option!)
      *
      * @note Pattern Matching!
      */
 
-    def lastElem(l: List[Int]) =
+    def lastElem(l: List[Int]): Option[Int] =
       FILL_IN_BODY_HERE
 
   }
